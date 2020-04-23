@@ -1,7 +1,7 @@
 {
-  "name": "react.typescript.showcase",
+  "name": "mattfinucane.com",
   "version": "1.0.0",
-  "description": "A learning exercise in creating a modern progressive web application with ReactJS and Typescript.",
+  "description": "Personal website built using React and TypeScript",
   "main": "src/index.js",
   "scripts": {
     "server": "node-dev ./dist/server/server.js",
@@ -13,18 +13,18 @@
     "csslint": "stylelint './src/common/styles/**' './src/**/*.css.ts'",
     "clientlint": "eslint ./src/**/*.{ts,tsx}",
     "serverlint": "eslint ./server/**/*.{ts,tsx}",
-    "lint": "npm run clientlint && npm run serverlint && npm run csslint"
+    "lint": "yarn clientlint && yarn serverlint && yarn csslint"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://https://github.com/matfin/react.typescript.showcase"
+    "url": "https://github.com/matfin/personal-website"
   },
   "author": "Matt Finucane <me@mattfinucane.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://https://github.com/matfin/react.typescript.showcase/issues"
+    "url": "https://github.com/matfin/personal-website/issues"
   },
-  "homepage": "https://https://github.com/matfin/react.typescript.showcase#readme",
+  "homepage": "https://github.com/matfin/personal-website#readme",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.6",
