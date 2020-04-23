@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "content/*": ["assets/content/*"],
+      "app/common/*": ["src/common/*"],
+      "app/components/*": ["src/components/*"],
+      "server/common/*": ["server/common/*"]
+    },
+    "target": "esnext",
+    "lib": ["WebWorker", "ESNext", "dom"],
+    "module": "commonjs",
+    "jsx": "react",
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node"
+  },
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "include": [
+    "src/**/*"
+  ]
+}

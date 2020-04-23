@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+    <meta name="theme-color" content="#FFF5C4" />
+    <meta name="description" content="A learning exercise in creating a modern progressive web application with ReactJS and Typescript." />
+    <meta charset="UTF-8" />
+    <title>React Typescript</title>
+    <link rel="manifest" href="/meta/manifest.json" />
+    <link rel="shortcut icon" href="/images/icons/logo-48.png">
+    <link rel="apple-touch-icon" href="/images/icons/logo-192.png">
+    <style type="text/css"></style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/javascript">
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator
+            .serviceWorker
+            .register('/worker.bundle.js')
+            .then(registration => {
+              console.log('Worker registration succeeded', registration.scope);
+            }, error => {
+              throw new Error(error);
+            })
+            .catch(error => {
+              console.log('Worker registration failed', error);
+            });
+        });
+      } else {
+        console.log('Service Worker is not supported in this browser');
+      }
+    </script>
+    <script>PRELOADED_STATE</script>
+    <script type="text/javascript" src="/main.bundle.js"></script>
+  </body>
+</html>
