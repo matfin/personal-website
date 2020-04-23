@@ -1,7 +1,7 @@
 {
-  "name": "react.typescript.showcase",
-  "short_name": "react.typescript.showcase",
-  "description": "A learning exercise in creating a modern progressive web application with ReactJS and Typescript.",
+  "name": "Matt Finucane - Portfolio",
+  "short_name": "mattfinucane.com",
+  "description": "Personal website built using React and TypeScript",
   "icons": [
     {
       "src": "/images/icons/logo-48.png",
@@ -42,6 +42,6 @@
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#FFF5C4",
-  "theme_color": "#4F4B37"
+  "background_color": "#fff",
+  "theme_color": "#d1e6c9"
 }
