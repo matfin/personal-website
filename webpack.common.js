@@ -14,9 +14,9 @@ const common = {
   },
   resolve: {
     alias: {
-      'app/common': path.resolve(__dirname, 'src/common/'),
-      'app/components': path.resolve(__dirname, 'src/components'),
-      'server/common': path.resolve(__dirname, 'server/common'),
+      'app': path.resolve(__dirname, 'src/app/'),
+      'common': path.resolve(__dirname, 'src/common/'),
+      'server': path.resolve(__dirname, 'src/server/'),
     },
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
@@ -25,8 +25,8 @@ const common = {
 const client = {
   ...common,
   entry: {
-    main: path.resolve(__dirname, 'src/index.tsx'),
-    worker: path.resolve(__dirname, 'src/worker.ts'),
+    main: path.resolve(__dirname, 'src/app/index.tsx'),
+    worker: path.resolve(__dirname, 'src/app/worker.ts'),
   },
   plugins: [
     new Visuaulizer({
@@ -36,6 +36,7 @@ const client = {
   output: {
     path: path.resolve(__dirname, 'dist/app'),
     filename: '[name].bundle.js',
+    publicPath: '/',
   },
   optimization: {
     splitChunks: {
@@ -47,7 +48,7 @@ const client = {
 
 const server = {
   ...common,
-  entry: path.resolve(__dirname, 'server'),
+  entry: path.resolve(__dirname, 'src/server'),
   externals: [nodeExternals()],
   node: {
     __dirname: true,

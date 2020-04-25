@@ -1,13 +1,13 @@
-import { IStory } from './story';
+import { IPage } from 'common/interfaces';
 
-export interface IListState {
-  error: any,
-  pending: boolean,
-  stories: IStory[],
+export interface IAction {
+  error?: any,
+  payload?: any,
+  type: string,
 }
 
-export interface IStoryState {
+export interface IPageState {
   error: any,
   pending: boolean,
-  story?: IStory,
+  page?: IPage,
 }

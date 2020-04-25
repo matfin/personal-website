@@ -1,7 +1,29 @@
 import { Action } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import { IListState, IStoryState } from './reduxStates';
+import { IPageState } from 'common/interfaces';
 
-export type FetchStoriesReturnType = ThunkAction<void, IListState, unknown, Action<string>>;
+export type Breakpoints = {
+  sm: number,
+  md: number,
+  lg: number,
+  xl: number,
+  xxl: number
+}
 
-export type FetchStoryReturnType = ThunkAction<void, IStoryState, unknown, Action<string>>;
+export type Fonts = {
+  jumbo: string,
+  heading: string,
+  subheading: string,
+  text: string,
+  small: string
+}
+
+export type Colours = {
+  primary: string,
+  secondary: string,
+  tertiary: string
+}
+
+export type AppState = IPageState;
+
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, AppState, unknown, Action<string>>;
