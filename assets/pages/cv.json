@@ -1,0 +1,19 @@
+{
+  "title": "CV",
+  "description": "My CV",
+  "slug": "cv",
+  "contents": [
+    {
+      "tagName": "h1",
+      "text": "CV!"
+    },
+    {
+      "tagName": "h2",
+      "text": "My work experience over the last 15 years."
+    },
+    {
+      "tagName": "p",
+      "text": "Hint. I have lots."
+    }
+  ]
+}

@@ -1,16 +1,20 @@
 /* istanbul ignore file */
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import listState from 'app/components/list/reducer';
-import storyState from 'app/components/story/reducer';
+import { pageState } from 'app/views/page/reducer';
 
 const rootReducer = combineReducers({
-  listState, storyState,
+  pageState,
 });
 
 export const createStoreWithPreloadedState = (preloadedState?: any) => createStore(
   rootReducer,
   preloadedState,
+  applyMiddleware(thunkMiddleware),
+);
+
+export const clientSideStore = () => createStore(
+  rootReducer,
   applyMiddleware(thunkMiddleware),
 );
 

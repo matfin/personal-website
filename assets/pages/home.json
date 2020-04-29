@@ -1,0 +1,31 @@
+{
+  "title": "Home",
+  "description": "Landing page",
+  "slug": "home",
+  "contents": [
+    {
+      "tagName": "h1",
+      "text": "Hello!"
+    },
+    {
+      "tagName": "h2",
+      "text": "I am Dublin based front-end software engineer"
+    },
+    {
+      "tagName": "p",
+      "text": "I have 15 years of experience under my belt working on a wide variety of projects across multiple domains and in differnt workplace settings."
+    },
+    {
+      "tagName": "p",
+      "text": "I have worked on projects in-house, for agencies and as a freelancer in both capacities. I have worked from shared offices and remotely."
+    },
+    {
+      "tagName": "p",
+      "text": "My primary focus is on building single page applications in TypeScript that are performant, scalable and easy to maintain."
+    },
+    {
+      "tagName": "p",
+      "text": "Please feel free to take a look around this website, which showcases my skills and experience, and get in touch if you need anything :)"
+    }
+  ]
+}

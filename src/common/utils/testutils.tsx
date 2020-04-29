@@ -1,31 +1,35 @@
 /* istanbul ignore file */
 import React from 'react';
+import { render } from '@testing-library/react';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
-import { mount } from 'enzyme';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { BrowserRouter as Router } from 'react-router-dom';
-import {
-  IListState,
-  IStoryState,
-} from 'app/common/interfaces';
+import { IPageState } from 'common/interfaces';
+import { defaultState as pageDefaultState } from 'app/views/page/reducer'
 
-export type IReduxStateType = IListState | IStoryState;
+interface IAppState {
+  pageState?: IPageState,
+};
 
-export const createMockStore = (reduxStates: IReduxStateType[]): Store => {
+export const defaultAppState: IAppState = {
+  pageState: pageDefaultState
+};
+
+export const createMockStore = (state: IAppState = defaultAppState): Store => {
   const middlewares = [thunk];
   const mockStore = configureMockStore(middlewares);
 
-  return mockStore(reduxStates);
+  return mockStore(state);
 };
 
-export const mountWithRouter = (children: any): any => mount(<Router>{children}</Router>);
+export const renderWithRouter = (children: any): any => render(<Router>{children}</Router>);
 
-export const mountWithStore = (children: any): any => {
-  const store = createMockStore([]);
+export const renderWithStore = (children: any): any => {
+  const store = createMockStore({});
 
-  return mount(<Provider store={store}>{children}</Provider>);
+  return render(<Provider store={store}>{children}</Provider>);
 };
 
-export default mountWithRouter;
+export default renderWithRouter;

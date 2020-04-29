@@ -1,5 +1,4 @@
 /* istanbul ignore file */
-export * from './reduxStates';
-export * from './story';
+export * from './models';
 export * from './types';
-export * from './appConfig';
+export * from './reduxStates';
