@@ -1,4 +1,4 @@
-import { Breakpoints, Colours, Fonts } from 'common/interfaces';
+import { Breakpoints, Colours, Fonts, FontWeights } from 'common/interfaces';
 
 export const sizes: Breakpoints = {
   sm: 320,
@@ -9,27 +9,35 @@ export const sizes: Breakpoints = {
 };
 
 export const fontSizes: Fonts = {
-  jumbo: '100px',
-  heading: '48px',
-  subheading: '32px',
-  text: '24px',
-  small: '12px',
+  jumbo: 100,
+  heading: 48,
+  subheading: 32,
+  text: 24,
+  small: 12,
+};
+
+
+export const fontWeights: FontWeights = {
+  bold: 500,
+  light: 200,
+  normal: 400,
+  superLight: 100,
 };
 
 export const letterSpacing: Fonts = {
-  jumbo: '20px',
-  heading: '12px',
-  subheading: '8px',
-  text: '2px',
-  small: '1px',
+  jumbo: 20,
+  heading: 12,
+  subheading: 8,
+  text: 2,
+  small: 1,
 }
 
 export const lineHeight: Fonts = {
-  jumbo: '120px',
-  heading: '64px',
-  subheading: '40px',
-  text: '32px',
-  small: '16px',
+  jumbo: 120,
+  heading: 64,
+  subheading: 40,
+  text: 32,
+  small: 16,
 }
 
 export const colours: Colours = {

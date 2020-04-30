@@ -5,14 +5,26 @@ export interface IAppConfig {
   enableCache: boolean,
 }
 
-export interface IContentItem {
-  tagName: string,
-  content: string | IContentItem,
+export type ContentTypes = IContentItem | ITopic | IPosition | IProject | string;
+
+export interface ICategory {
+  title: string,
+  description?: string,
 }
 
 export interface ITopic {
-  title: string,
+  logoPath?: string,
+  category: string,
+  deprecated?: boolean,
   description: string,
+  slug: string,
+  title: string,
+}
+
+export interface IContentItem {
+  content: ContentTypes,
+  id?: string,
+  tagName: string,
 }
 
 export interface IPage {
@@ -22,12 +34,22 @@ export interface IPage {
   title: string,
 }
 
-export interface IJob {
-  contents: IContentItem[],
-  endDate?: Date,
+export interface IPosition {
+  company: string,
+  endDate?: string, // TODO better type safety
+  location: string,
   role: string,
-  startDate: Date,
+  startDate: string, // TODO better type safety
+  tasks: string[],
   topics: ITopic[],
 }
 
+export interface IProject {
+  description: string,
+  releaseDate: string, // TODO better type safety
+  slug: string,
+  title: string,
+  topics: string[],
+  url?: string,
+}
 
