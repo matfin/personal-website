@@ -4,16 +4,182 @@
   "slug": "projects",
   "contents": [
     {
-      "tagName": "h1",
-      "text": "Projets!"
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "tagName": "h1",
+          "content": "Selected projects"
+        },
+        {
+          "tagName": "h2",
+          "content": "Some selected projects from my portfolio"
+        }
+      ]
     },
     {
-      "tagName": "h2",
-      "text": "Some of the things I work on in my spare time."
-    },
-    {
-      "tagName": "p",
-      "text": "I work on a lot of projects"
+      "tagName": "section",
+      "id": "projects",
+      "content": [
+        {
+          "tagName": "projects",
+          "content": [
+            {
+              "description": "Personal portfolio website.",
+              "releaseDate": "2020-05-15",
+              "slug": "mattfinucane",
+              "title": "Matt Finucane",
+              "topics": [
+                "typescript",
+                "reactjs",
+                "redux",
+                "styled-components",
+                "nodejs",
+                "expressjs",
+                "yarn-npm",
+                "webpack",
+                "vscode",
+                "jest",
+                "react-testing-library",
+                "eslint",
+                "stylelint",
+                "babeljs",
+                "lighthouse"
+              ]
+            },
+            {
+              "description": "High quality used car platform.",
+              "releaseDate": "2017-10-05",
+              "slug": "heycar",
+              "title": "hey.car",
+              "topics": [
+                "javascript-es",
+                "reactjs",
+                "redux",
+                "styled-components",
+                "scss-sass-less",
+                "nodejs",
+                "expressjs",
+                "yarn-npm",
+                "webpack",
+                "vscode",
+                "jest",
+                "enzyme",
+                "eslint",
+                "stylelint",
+                "babeljs"
+              ],
+              "url": "https://hey.car"
+            },
+            {
+              "description": "Photography portfolio website.",
+              "releaseDate": "2017-07-01",
+              "slug": "cinematt",
+              "title": "Cinematt",
+              "topics": [
+                "javascript-es",
+                "scss-sass-less",
+                "css-grid",
+                "nodejs",
+                "docker",
+                "nginx",
+                "hugo",
+                "yarn-npm",
+                "webpack",
+                "webstorm",
+                "circleci"
+              ],
+              "url": "https://cinematt.photography"
+            },
+            {
+              "description": "Personal portfolio wesite (static) which was released in 2017. It has been replaced and is now archived.",
+              "releaseDate": "2017-04-01",
+              "slug": "personal-portfolio-static",
+              "title": "Personal portfolio (static)",
+              "topics": [
+                "javascript-es",
+                "scss-sass-less",
+                "nodejs",
+                "docker",
+                "nginx",
+                "hugo",
+                "yarn-npm",
+                "webpack",
+                "webstorm",
+                "circleci"
+              ],
+              "url": "https://github.com/matfin/mattfinucane.com"
+            },
+            {
+              "description": "StackPointCloud.com community portal for users.",
+              "releaseDate": "2016-03-01",
+              "slug": "stackpointcloud-community",
+              "title": "StackPointCloud Comunity",
+              "topics": [
+                "javascript-es",
+                "scss-sass-less",
+                "polymerjs",
+                "gulp-grunt",
+                "nodejs",
+                "expressjs",
+                "docker",
+                "mongodb-mongoose",
+                "nginx",
+                "yarn-npm",
+                "webstorm",
+                "mocha",
+                "sinon",
+                "supertest",
+                "circleci"
+              ]
+            },
+            {
+              "description": "Back end infrastructure for an interactive Facebook Messenger chat bot curated by ARD-Tageschau",
+              "releaseDate": "2017-03-01",
+              "slug": "novi-chatbot",
+              "title": "Novi Chatbot",
+              "topics": [
+                "javascript-es",
+                "gulp-grunt",
+                "nodejs",
+                "expressjs",
+                "docker",
+                "yarn-npm",
+                "webstorm",
+                "mocha",
+                "sinon"
+              ],
+              "url": "https://www.tagesschau.de/messenger/"
+            },
+            {
+              "description": "ProfitBricks.com community portal contains setup guides and other help articles for system administration.",
+              "releaseDate": "2016-09-01",
+              "slug": "profitbricks-community",
+              "title": "ProfitBricks Comunity",
+              "topics": [
+                "javascript-es",
+                "python",
+                "php"
+              ]
+            },
+            {
+              "description": "Package created to bring headless CMS content into a Meteor project.",
+              "releaseDate": "2015-08-15",
+              "slug": "meteor-contentful",
+              "title": "Meteor Contentful",
+              "topics": [
+                "javascript-es",
+                "meteor",
+                "mocha",
+                "chai",
+                "sinon",
+                "expressjs"
+              ],
+              "url": "https://atmospherejs.com/matfin/meteor-contentful"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

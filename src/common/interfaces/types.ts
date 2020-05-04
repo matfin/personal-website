@@ -11,11 +11,18 @@ export type Breakpoints = {
 }
 
 export type Fonts = {
-  jumbo: string,
-  heading: string,
-  subheading: string,
-  text: string,
-  small: string
+  jumbo: number,
+  heading: number,
+  subheading: number,
+  text: number,
+  small: number
+}
+
+export type FontWeights = {
+  bold: number,
+  light: number,
+  normal: number,
+  superLight: number,
 }
 
 export type Colours = {

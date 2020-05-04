@@ -1,7 +1,9 @@
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import { useParams } from 'react-router-dom';
 import { fetchPage, PageActionTypes, resetPage } from './actions';
-import Page from './Page';
+import Page, { IProps } from './Page';
 
 const mapStateToProps = (state: any) => ({
   error: state.pageState.error,
@@ -18,4 +20,10 @@ export const mapDispatchToProps = (dispatch: Dispatch<PageActionTypes>) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Page);
+const Component = (props: IProps): JSX.Element => {
+  const { slug } = useParams();
+
+  return <Page {...props} slug={slug || 'home'} />;
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Component);
