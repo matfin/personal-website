@@ -34,7 +34,8 @@ export const renderTag = (tagName: string, content: any, key?: string): JSX.Elem
     case 'h1': {
       return <HeadingSt key={key}>{content}</HeadingSt>;
     }
-    case 'h2': {
+    case 'h2':
+    case 'h3': {
       return <SubHeadingSt key={key}>{content}</SubHeadingSt>;
     }
     case 'ul': {
@@ -56,7 +57,9 @@ export const renderTag = (tagName: string, content: any, key?: string): JSX.Elem
 }
 
 export const renderTopic = (topic: ITopic): JSX.Element => {
-  return <TopicSt {...topic} key={topic.title} />;
+  return (
+    <TopicSt {...topic} key={topic.title} />
+  );
 };
 
 export const renderPosition = (position: IPosition): JSX.Element => (

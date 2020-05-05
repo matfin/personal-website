@@ -9,11 +9,11 @@
       "content": [
         {
           "tagName": "h1",
-          "content": "Hello! I'm Matt Finucane"
+          "content": "Hello!"
         },
         {
           "tagName": "h2",
-          "content": "I am Dublin based front-end software engineer"
+          "content": "I'm Matt Finucane, a software engineer based in Dublin, Ireland."
         },
         {
           "tagName": "p",
@@ -37,6 +37,10 @@
       "tagName": "section",
       "id": "skills",
       "content": [
+        {
+          "tagName": "h3",
+          "content": "Skills"
+        },
         {
           "tagName": "ul",
           "content": [
@@ -68,6 +72,10 @@
       "tagName": "section",
       "id": "topics",
       "content": [
+        {
+          "tagName": "h3",
+          "content": "Tech stack"
+        },
         {
           "tagName": "topics",
           "content": [
@@ -146,7 +154,7 @@
               "category": "frontend",
               "description": "These act as CSS pre-processors and make it easier to manage styles for large, cross-browser applications.",
               "slug": "scss-sass-less",
-              "title": "SCSS / SASS / LESS"
+              "title": "SCSS/SASS/LESS"
             },
             {
               "category": "frontend",
@@ -200,7 +208,7 @@
               "category": "backend",
               "description": "MongoDB is a document oriented database and Mongoose is a library for NodeJS that makes it easier to interact with it.",
               "slug": "mongodb-mongoose",
-              "title": "MongoDB / Mongoose"
+              "title": "MongoDB/Mongoose"
             },
             {
               "category": "backend",
@@ -218,7 +226,7 @@
               "category": "backend",
               "description": "Apache is an Open-source web server commonly used with PHP and MySQL.",
               "slug": "apache-http-server",
-              "title": "Apache HTTP server"
+              "title": "Apache"
             },
             {
               "category": "backend",
@@ -236,7 +244,7 @@
               "category": "tools",
               "description": "Yarn and NPM are used to manage external dependencies for projects.",
               "slug": "yarn-npm",
-              "title": "Yarn / NPM"
+              "title": "Yarn/NPM"
             },
             {
               "category": "tools",

@@ -1,5 +1,12 @@
-import { Breakpoints, Colours, Fonts, FontWeights } from 'common/interfaces';
+import {
+  Breakpoints,
+  Colours,
+  Fonts,
+  FontWeights,
+  Layers
+} from 'common/interfaces';
 
+// units: px
 export const sizes: Breakpoints = {
   sm: 320,
   md: 768,
@@ -8,42 +15,53 @@ export const sizes: Breakpoints = {
   xxl: 1440
 };
 
-export const fontSizes: Fonts = {
-  jumbo: 100,
-  heading: 48,
-  subheading: 32,
-  text: 24,
-  small: 12,
+// units: em
+export const fontSize: Fonts = {
+  heading: 3.75,
+  subheading: 1.5,
+  text: 1,
+  small: 0.75,
 };
 
+// units: em
+export const letterSpacing: Fonts = {
+  heading: 0.125,
+  subheading: 0.25,
+  text: 0.125,
+  small: 0.25,
+};
 
-export const fontWeights: FontWeights = {
+// units: em
+export const lineHeight: Fonts = {
+  heading: 5,
+  subheading: 2.25,
+  text: 1.25,
+  small: 1.25,
+}
+
+export const fontWeight: FontWeights = {
   bold: 500,
   light: 200,
   normal: 400,
   superLight: 100,
 };
 
-export const letterSpacing: Fonts = {
-  jumbo: 20,
-  heading: 12,
-  subheading: 8,
-  text: 2,
-  small: 1,
-}
-
-export const lineHeight: Fonts = {
-  jumbo: 120,
-  heading: 64,
-  subheading: 40,
-  text: 32,
-  small: 16,
-}
-
 export const colours: Colours = {
-  primary: '#fff5c4',
-  secondary: '#4f4b37',
-  tertiary: '#b5b596',
+  modal: '#ccc',
+  primary: '#000',
+  secondary: '#ecedef',
+  tertiary: '#fdfeff',
 };
+
+export const layers: Layers = {
+  top: 2,
+  upper: 1,
+  base: 0,
+  lower: -1,
+}
+
+export const boxShadow = `
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3)
+`;
 
 export const defaultFont = '"Helvetica Neue", Helvetica, Arial, sans-serif';

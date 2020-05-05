@@ -1,7 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IContentItem, IPage } from 'common/interfaces';
 import { ContentItem } from 'app/components/contentItem/ContentItem';
-import PageSt from './Page.css';
+import {
+  BurgerSt,
+  ErrorSt,
+  FooterSt,
+  NavSt,
+  LoadingSt,
+  MainSt,
+  PageSt,
+  SideSt,
+} from './Page.css';
 
 export interface IProps {
   error: any,
@@ -17,9 +26,8 @@ const pageContents = ({ contents }: IPage): JSX.Element[] =>
     <ContentItem {...item} key={`${key}`} />
   )
 );
-
-const loadingSpinner = (): JSX.Element => <div>Loading!</div>;
-const errorMessage = (error: any): JSX.Element => <div>{error.toString()}</div>;
+const loadingSpinner = (): JSX.Element => <LoadingSt>Loading!</LoadingSt>;
+const errorMessage = (error: any): JSX.Element => <ErrorSt>{error.toString()}</ErrorSt>;
 
 const Page = ({
   error,
@@ -29,19 +37,34 @@ const Page = ({
   fetchPage,
   resetPage,
 }: IProps): JSX.Element => {
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+  const toggleMenu = (): void => setShowMenu(!showMenu);
+  const hideMenu = (): void => setShowMenu(false);
 
   useEffect((): any => {
+    setShowMenu(false);
     fetchPage(slug);
 
     return resetPage;
   }, [slug]);
 
   return (
-    <PageSt>
-      {pending && loadingSpinner()}
-      {error && errorMessage(error)}
-      {!pending && page && pageContents(page)}
-    </PageSt>
+    <>
+      <BurgerSt onClick={toggleMenu}>
+        🍔
+      </BurgerSt>
+      <PageSt navRevealed={showMenu}>
+        <SideSt revealed={showMenu} onClick={hideMenu}>
+          <NavSt />
+          <FooterSt />
+        </SideSt>
+        <MainSt onClick={hideMenu}>
+          {pending && loadingSpinner()}
+          {!pending && error && errorMessage(error)}
+          {!pending && page && pageContents(page)}
+        </MainSt>
+      </PageSt>
+    </>
   );
 };
 

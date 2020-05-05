@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import {
   colours,
-  fontSizes,
-  fontWeights,
+  fontSize,
+  fontWeight,
   letterSpacing,
   lineHeight,
 } from 'app/styles';
@@ -12,11 +12,11 @@ export const ProjectSt = styled.div`
 `;
 
 export const TitleSt = styled.h3`
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeight.bold};
 `;
 
 export const DescriptionSt = styled.p`
-  font-weight: ${fontWeights.normal};
+  font-weight: ${fontWeight.normal};
 `;
 
 export const UrlSt = styled.a`

@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
+import { fireEvent, screen } from '@testing-library/react';
+import 'jest-styled-components';
+import { renderWithRouter } from 'common/utils/testutils';
 import Page, { IProps } from './Page';
 
 const noop = (): void => {};
-const defaultProps = {
+const defaultProps: IProps = {
   error: null,
   pending: false,
   page: {
@@ -19,7 +22,7 @@ const defaultProps = {
 
 describe('Page tests', () => {
   it('renders the component', () => {
-    const { container } = render(
+    const { container } = renderWithRouter(
       <Page {...defaultProps} />
     );
 
@@ -29,7 +32,7 @@ describe('Page tests', () => {
   it('fetches the page given a change in the slug', () => {
     const spyFetchPage = jest.fn();
 
-    render(
+    renderWithRouter(
       <Page
         {...defaultProps}
         fetchPage={spyFetchPage}
@@ -41,8 +44,33 @@ describe('Page tests', () => {
     expect(spyFetchPage).toHaveBeenCalledWith('new-test-slug');
   });
 
+  it('reveals and hides the side navigation menu', async () => {
+    const { container } = renderWithRouter(
+      <Page {...defaultProps} />
+    );
+    const burger = container.getElementsByTagName('button')[0];
+    const main = container.getElementsByTagName('main')[0];
+
+    expect(container.getElementsByTagName('aside')[0])
+      .toHaveStyleRule('transform', 'translate3d(60vw,0,0)');
+
+    act((): void => {
+      fireEvent.click(burger);
+    });
+
+    await expect(container.getElementsByTagName('aside')[0])
+      .toHaveStyleRule('transform', 'translate3d(0,0,0)');
+
+    act((): void => {
+      fireEvent.click(main);
+    });
+
+    expect(container.getElementsByTagName('aside')[0])
+      .toHaveStyleRule('transform', 'translate3d(60vw,0,0)');
+  });
+
   it('renders the loading indicator', () => {
-    const { container } = render(
+    const { container } = renderWithRouter(
       <Page {...defaultProps} pending />
     );
 
@@ -51,7 +79,7 @@ describe('Page tests', () => {
   });
 
   it('renders page content', () => {
-    const { container } = render(
+    const { container } = renderWithRouter(
       <Page
         {...defaultProps}
         page={{
@@ -71,7 +99,7 @@ describe('Page tests', () => {
   });
 
   it('renders an error message', () => {
-    const { container } = render(
+    const { container } = renderWithRouter(
       <Page {...defaultProps} error="Test error" />
     );
 

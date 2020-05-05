@@ -5,12 +5,10 @@ export interface IProps {
   className?: string
 }
 
-const Footer = ({ className }: IProps) => (
+export const Footer = ({ className }: IProps) => (
   <FooterSt className={className}>
     <FooterLink href="https://mattfinucane.com">
       Little stories by Matt Finucane
     </FooterLink>
   </FooterSt>
 );
-
-export default Footer;
