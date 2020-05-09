@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { IContentItem, IPage } from 'common/interfaces';
 import { ContentItem } from 'app/components/contentItem/ContentItem';
+import { Nav } from 'app/components/nav/Nav';
+import { SocialLinks } from 'app/components/socialLinks/SocialLinks';
 import {
   BurgerSt,
   ErrorSt,
   FooterSt,
-  NavSt,
   LoadingSt,
   MainSt,
   PageSt,
+  SideContainerSt,
   SideSt,
 } from './Page.css';
 
@@ -55,7 +57,10 @@ const Page = ({
       </BurgerSt>
       <PageSt navRevealed={showMenu}>
         <SideSt revealed={showMenu} onClick={hideMenu}>
-          <NavSt />
+          <SideContainerSt>
+            <Nav />
+            <SocialLinks />
+          </SideContainerSt>
           <FooterSt />
         </SideSt>
         <MainSt onClick={hideMenu}>

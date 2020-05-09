@@ -176,7 +176,7 @@ describe('ContentItem tests', () => {
     );
 
     expect(container.querySelector('section')).toBeTruthy();
-    expect(container.querySelectorAll('div')).toHaveLength(1);
+    expect(container.querySelectorAll('a')).toHaveLength(1);
     expect(screen.getByText('Test Project')).toBeTruthy();
     expect(screen.getByText('Test description')).toBeTruthy();
   });

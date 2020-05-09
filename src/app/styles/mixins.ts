@@ -1,4 +1,4 @@
-import { css, ThemedCssFunction, FlattenSimpleInterpolation } from 'styled-components';
+import { css } from 'styled-components';
 import { sizes } from './vars';
 
 export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
@@ -15,3 +15,15 @@ export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
 );
 
 export default media;
+
+export const listItemStyle = css`
+  position: relative;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    content: "⚡";
+  }
+`;

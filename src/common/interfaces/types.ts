@@ -13,6 +13,7 @@ export type Breakpoints = {
 export type Fonts = {
   heading: number,
   subheading: number,
+  thirdHeading: number,
   text: number,
   small: number
 }

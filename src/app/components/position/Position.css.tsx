@@ -1,41 +1,33 @@
 import styled from 'styled-components';
 import {
-  colours,
-  fontSize,
-  fontWeight,
-  letterSpacing,
-  lineHeight,
+  listItemStyle,
+  subHeadingTypography,
+  textTypography,
+  thirdHeadingTypography,
 } from 'app/styles';
-import { Topic } from 'app/components/topic/Topic';
 
 export const PositionSt = styled.div`
-  display: block;
+  margin: 1rem 0 2rem;
 `;
 
 export const CompanyNameSt = styled.h3`
-  font-weight: ${fontWeight.bold};
+  ${subHeadingTypography};
 `;
 
 export const LocationAndRoleSt = styled.h4`
-  font-weight: ${fontWeight.bold};
+  ${thirdHeadingTypography};
+  margin-bottom: 1rem;
 `;
 
-export const DateSt = styled.time`
-  font-weight: bold;
+export const DateFromToSt = styled.h4`
+  ${thirdHeadingTypography};
 `;
 
 export const TaskListSt = styled.ul`
   display: block;
 `;
 
-export const TopicsListSt = styled.ul`
-  display: block;
-`;
-
 export const TaskItemSt = styled.li`
-  border: 1px solid ${colours.tertiary};
-`;
-
-export const TopicSt = styled(Topic)`
-  background-color: pink;
+  ${listItemStyle};
+  ${textTypography};
 `;

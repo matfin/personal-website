@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { IPosition, ITopic } from 'common/interfaces';
+import { formatDate } from 'common/utils';
 import {
   CompanyNameSt,
-  DateSt,
+  DateFromToSt,
   LocationAndRoleSt,
   PositionSt,
   TaskListSt,
-  TopicsListSt,
-  TopicSt,
   TaskItemSt,
 } from './Position.css';
 
@@ -24,25 +23,31 @@ export const Position = ({
   startDate,
   tasks,
   topics,
-}: IProps): JSX.Element => (
-  <PositionSt className={className}>
-    <DateSt datetime={new Date(startDate)}>{startDate}</DateSt>
-    {endDate ? (
-      <DateSt datetime={new Date(endDate)}>
-        {endDate}
-      </DateSt>
-    ) : ' to present'}
-    <CompanyNameSt>
-      {company}
-    </CompanyNameSt>
-    <LocationAndRoleSt>
-      {role} / {location}
-    </LocationAndRoleSt>
-    <TaskListSt>
-      {tasks.map((task: string, idx: number) => <TaskItemSt key={idx}>{task}</TaskItemSt>)}
-    </TaskListSt>
-    <TopicsListSt>
-      {topics.map((topic: ITopic, idx: number) => <TopicSt {...topic} key={idx} />)}
-    </TopicsListSt>
-  </PositionSt>
-);
+}: IProps): JSX.Element => {
+  const dateFrom = formatDate(new Date(startDate));
+  const dateTo = endDate ? ` to ${formatDate(new Date(endDate))}` : ' to present';
+
+  return (
+    <PositionSt className={className}>
+      <DateFromToSt>
+        <time dateTime={startDate}>
+          {dateFrom}
+        </time>
+        {endDate ? (
+          <time dateTime={endDate}>
+            {dateTo}
+          </time>
+        ) : ' to present'}
+      </DateFromToSt>
+      <CompanyNameSt>
+        {company}
+      </CompanyNameSt>
+      <LocationAndRoleSt>
+        {role} / {location}
+      </LocationAndRoleSt>
+      <TaskListSt>
+        {tasks.map((task: string, idx: number) => <TaskItemSt key={idx}>{task}</TaskItemSt>)}
+      </TaskListSt>
+    </PositionSt>
+  );
+};

@@ -52,7 +52,7 @@ describe('Page tests', () => {
     const main = container.getElementsByTagName('main')[0];
 
     expect(container.getElementsByTagName('aside')[0])
-      .toHaveStyleRule('transform', 'translate3d(60vw,0,0)');
+      .toHaveStyleRule('transform', 'translate3d(75vw,0,0)');
 
     act((): void => {
       fireEvent.click(burger);
@@ -66,7 +66,7 @@ describe('Page tests', () => {
     });
 
     expect(container.getElementsByTagName('aside')[0])
-      .toHaveStyleRule('transform', 'translate3d(60vw,0,0)');
+      .toHaveStyleRule('transform', 'translate3d(75vw,0,0)');
   });
 
   it('renders the loading indicator', () => {

@@ -6,14 +6,14 @@ import {
   isPosition,
   isProject,
 } from 'common/utils';
+import { Position } from 'app/components/position/Position';
+import { Project } from 'app/components/project/Project';
 import {
   HeadingSt,
   ParagraphSt,
   SectionSt,
   ListSt,
   ListItemSt,
-  PositionSt,
-  ProjectSt,
   SubHeadingSt,
   TopicSt,
 } from './ContentItem.css';
@@ -63,14 +63,14 @@ export const renderTopic = (topic: ITopic): JSX.Element => {
 };
 
 export const renderPosition = (position: IPosition): JSX.Element => (
-  <PositionSt
+  <Position
     {...position}
     key={`${position.company}-${position.location}`}
   />
 );
 
 export const renderProject = (project: IProject): JSX.Element => (
-  <ProjectSt
+  <Project
     {...project}
     key={project.title}
   />
