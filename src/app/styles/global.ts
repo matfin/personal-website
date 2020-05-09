@@ -9,7 +9,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${colours.primary};
+    color: ${colours.primary};
+    background: ${colours.secondary};
     font-family: ${defaultFont};
   }
 
@@ -20,6 +21,11 @@ export const GlobalStyle = createGlobalStyle`
 
   ul {
     list-style: none;
+  }
+
+  button {
+    border: none;
+    background-color: inherit;
   }
 `;
 

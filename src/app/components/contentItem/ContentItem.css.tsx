@@ -1,56 +1,61 @@
 import styled, { css } from 'styled-components';
 import {
-  fontSizes,
-  letterSpacing,
-  lineHeight,
+  headingTypography,
+  media,
+  subHeadingTypography,
+  textTypography,
 } from 'app/styles';
 import { Position } from 'app/components/position/Position';
 import { Project } from 'app/components/project/Project';
 import { Topic } from 'app/components/topic/Topic';
-
-const defaultText = css`
-  font-size: ${fontSizes.text}px;
-  letter-spacing: ${letterSpacing.text}px;
-  line-height: ${lineHeight.text}px;
-`;
 
 export const SectionSt = styled.section`
   display: block;
 `;
 
 export const HeadingSt = styled.h1`
-  font-size: ${fontSizes.heading}px;
-  letter-spacing: ${letterSpacing.heading}px;
-  line-height: ${lineHeight.heading}px;
+  ${headingTypography};
 `;
 
 export const SubHeadingSt = styled.h2`
-  font-size: ${fontSizes.subheading}px;
-  letter-spacing: ${letterSpacing.subheading}px;
-  line-height: ${lineHeight.subheading}px;
+  ${subHeadingTypography};
+  padding: 1rem 0;
 `;
 
 export const ParagraphSt = styled.p`
-  ${defaultText};
-`;
-
-export const ListItemSt = styled.li`
-  ${defaultText};
+  ${textTypography};
+  margin: 1rem 0;
 `;
 
 export const ListSt = styled.ul`
   list-style: none;
 `;
 
+export const ListItemSt = styled.li`
+  position: relative;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+  ${textTypography};
+
+  &::before {
+    position: absolute;
+    left: 0;
+    content: "⚡";
+  }
+`;
+
 export const TopicSt = styled(Topic)`
-  background-color: red;
+  display: inline-block;
+  margin: 0.125rem;
+
+  ${media.md(css`
+    margin: 0.25rem;
+  `)}
 `;
 
 export const PositionSt = styled(Position)`
-  background-color: green;
 `;
 
 export const ProjectSt = styled(Project)`
-  background-color: blue;
 `;
 

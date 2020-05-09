@@ -10,7 +10,7 @@
     "build": "webpack --config webpack.prod.js",
     "test": "jest",
     "coverage": "jest --collect-coverage",
-    "csslint": "stylelint './src/common/styles/**' './src/**/*.css.ts'",
+    "csslint": "stylelint './src/app/styles/**' './src/**/*.css.ts'",
     "lint": "eslint ./src/**/*.{ts,tsx}"
   },
   "repository": {
@@ -71,7 +71,7 @@
     "@types/redux": "^3.6.0",
     "babel-loader": "^8.0.6",
     "express": "^4.17.1",
-    "jest-styled-components": "^7.0.0",
+    "jest-styled-components": "^7.0.2",
     "node-fetch": "^2.6.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
@@ -100,6 +100,7 @@
   },
   "pre-commit": [
     "coverage",
-    "lint"
+    "lint",
+    "csslint"
   ]
 }

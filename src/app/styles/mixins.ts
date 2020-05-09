@@ -1,4 +1,4 @@
-import { css, ThemedCssFunction } from 'styled-components';
+import { css, ThemedCssFunction, FlattenSimpleInterpolation } from 'styled-components';
 import { sizes } from './vars';
 
 export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
@@ -11,7 +11,7 @@ export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
 
     return acc;
   },
-  {} as { [key in keyof typeof sizes]: ThemedCssFunction<any> },
+  {} as { [key in keyof typeof sizes]: any },
 );
 
 export default media;

@@ -11,7 +11,6 @@ export type Breakpoints = {
 }
 
 export type Fonts = {
-  jumbo: number,
   heading: number,
   subheading: number,
   text: number,
@@ -26,9 +25,17 @@ export type FontWeights = {
 }
 
 export type Colours = {
+  modal: string,
   primary: string,
   secondary: string,
-  tertiary: string
+  tertiary: string,
+}
+
+export type Layers = {
+  top: number,
+  upper: number,
+  base: number,
+  lower: number,
 }
 
 export type AppState = IPageState;

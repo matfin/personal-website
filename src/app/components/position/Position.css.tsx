@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import {
   colours,
-  fontSizes,
-  fontWeights,
+  fontSize,
+  fontWeight,
   letterSpacing,
   lineHeight,
 } from 'app/styles';
@@ -13,11 +13,11 @@ export const PositionSt = styled.div`
 `;
 
 export const CompanyNameSt = styled.h3`
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeight.bold};
 `;
 
 export const LocationAndRoleSt = styled.h4`
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeight.bold};
 `;
 
 export const DateSt = styled.time`

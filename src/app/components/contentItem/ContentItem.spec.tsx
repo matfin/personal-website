@@ -123,7 +123,7 @@ describe('ContentItem tests', () => {
     );
 
     expect(container.querySelector('ul')).toBeTruthy();
-    expect(container.querySelectorAll('span')).toHaveLength(2);
+    expect(container.querySelectorAll('li')).toHaveLength(2);
     expect(screen.getByText('Test')).toBeTruthy();
     expect(screen.getByText('Another test')).toBeTruthy();
   });
