@@ -1,21 +1,29 @@
 import React from 'react';
-import { LinkSt, NavSt } from './Nav.css';
+import { useLocation } from 'react-router-dom';
+import {
+  LinkSt,
+  NavSt,
+} from './Nav.css';
 
 export interface IProps {
   children?: any,
   className?: string,
 }
 
-export const Nav = ({ className }: IProps) => (
-  <NavSt className={className}>
-    <LinkSt to="/">
-      Home
-    </LinkSt>
-    <LinkSt to="/cv">
-      CV
-    </LinkSt>
-    <LinkSt to="/projects">
-      Projects
-    </LinkSt>
-  </NavSt>
-);
+export const Nav = ({ className }: IProps) => {
+  const { pathname } = useLocation();
+
+  return (
+    <NavSt className={className}>
+      <LinkSt isactive={(pathname === '/').toString()} to="/">
+        Home
+      </LinkSt>
+      <LinkSt isactive={(pathname === '/cv').toString()} to="/cv">
+        CV
+      </LinkSt>
+      <LinkSt isactive={(pathname === '/projects').toString()} to="/projects">
+        Projects
+      </LinkSt>
+    </NavSt>
+  );
+};

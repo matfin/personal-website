@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
 import {
   headingTypography,
+  listItemStyle,
   media,
   subHeadingTypography,
   textTypography,
 } from 'app/styles';
-import { Position } from 'app/components/position/Position';
-import { Project } from 'app/components/project/Project';
 import { Topic } from 'app/components/topic/Topic';
 
 export const SectionSt = styled.section`
@@ -32,16 +31,8 @@ export const ListSt = styled.ul`
 `;
 
 export const ListItemSt = styled.li`
-  position: relative;
-  padding-left: 1.5rem;
-  margin: 0.5rem 0;
+  ${listItemStyle};
   ${textTypography};
-
-  &::before {
-    position: absolute;
-    left: 0;
-    content: "⚡";
-  }
 `;
 
 export const TopicSt = styled(Topic)`
@@ -52,10 +43,3 @@ export const TopicSt = styled(Topic)`
     margin: 0.25rem;
   `)}
 `;
-
-export const PositionSt = styled(Position)`
-`;
-
-export const ProjectSt = styled(Project)`
-`;
-

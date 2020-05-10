@@ -31,14 +31,12 @@ describe('Position tests', () => {
     );
 
     expect(container).toBeTruthy();
-    expect(screen.getByText('2020-01-01')).toBeTruthy();
+    expect(screen.getByText('January 2020')).toBeTruthy();
     expect(screen.getByText('to present')).toBeTruthy();
     expect(screen.getByText('Test company')).toBeTruthy();
     expect(screen.getByText('Test role / Test location')).toBeTruthy();
     expect(screen.getByText('Task one')).toBeTruthy();
     expect(screen.getByText('Task two')).toBeTruthy();
-    expect(screen.getByText('TestLanguage')).toBeTruthy();
-    expect(screen.getByText('TestTool')).toBeTruthy();
   });
 
   it('renders the end date', () => {
@@ -48,7 +46,7 @@ describe('Position tests', () => {
 
     expect(container).toBeTruthy();
     expect(screen.queryByText('to present')).toBeFalsy();
-    expect(screen.getByText('2020-04-26')).toBeTruthy();
+    expect(screen.getByText('to April 2020')).toBeTruthy();
   });
 });
 

@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { boxShadow, colours, layers, media } from 'app/styles';
-import { Nav } from 'app/components/nav/Nav';
 import { Footer } from 'app/components/footer/Footer';
 
 interface ISideStProps {
@@ -28,8 +27,7 @@ export const PageSt = styled.div<IPageStProps>`
   `};
 
   ${media.md(css`
-    grid-template-columns: 1rem auto 4rem 12.25rem 1rem;
-    grid-template-columns: auto 30rem 4rem 12.25rem auto;
+    grid-template-columns: auto 30rem 2rem 12.25rem auto;
     grid-template-areas:
       ". main . side .";
   `)};
@@ -45,11 +43,11 @@ export const MainSt = styled.main`
 
 export const SideSt = styled.aside<ISideStProps>`
   z-index: ${layers.top};
-  transform: translate3d(60vw, 0, 0);
+  transform: translate3d(75vw, 0, 0);
   position: fixed;
   top: 0;
   right: 0;
-  width: 60vw;
+  width: 75vw;
   height: 100vh;
   background-color: ${colours.secondary};
   box-shadow: none;
@@ -62,6 +60,7 @@ export const SideSt = styled.aside<ISideStProps>`
   `};
 
   ${media.md(css`
+    box-shadow: none;
     position: unset;
     width: unset;
     height: unset;
@@ -71,10 +70,15 @@ export const SideSt = styled.aside<ISideStProps>`
   `)};
 `
 
-export const NavSt = styled(Nav)`
-  position: sticky;
-  top: 0;
-  left: 0;
+export const SideContainerSt = styled.div`
+  padding: 0 1.5rem;
+
+  ${media.md(css`
+    padding: 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+  `)};
 `;
 
 export const FooterSt = styled(Footer)`
@@ -86,9 +90,9 @@ export const BurgerSt = styled.button`
   position: fixed;
   top: 1rem;
   right: 1rem;
-  width: 4rem;
-  height: 4rem;
-  font-size: 2.5rem;
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
 
   ${media.md(css`
     display: none;

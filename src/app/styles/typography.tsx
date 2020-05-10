@@ -32,6 +32,13 @@ export const subHeadingTypography = css`
   `)}
 `;
 
+export const thirdHeadingTypography = css`
+  font-size: ${fontSize.thirdHeading}rem;
+  font-weight: ${fontWeight.normal};
+  letter-spacing: ${letterSpacing.thirdHeading}rem;
+  line-height: ${lineHeight.thirdHeading}rem;
+`;
+
 export const textTypography = css`
   font-size: ${fontSize.text}rem;
   font-weight: ${fontWeight.light};

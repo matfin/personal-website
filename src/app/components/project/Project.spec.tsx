@@ -4,6 +4,7 @@ import { Project, IProps } from './Project';
 
 const defaultProps: IProps = {
   description: 'Test project description',
+  url: 'https://test.dev',
   releaseDate: '2020-05-04',
   slug: 'test-slug',
   title: 'Test project title',
@@ -22,14 +23,6 @@ describe('Project tests', () => {
     expect(container).toBeTruthy();
     expect(screen.getByText('Test project title')).toBeTruthy();
     expect(screen.getByText('Test project description')).toBeTruthy();
+    expect(container.getElementsByTagName('a')[0].href).toEqual('https://test.dev/');
   });
-
-  it('renders the url', () => {
-    const { container } = render(
-      <Project {...defaultProps} url="https://test.dev" />
-    );
-
-    expect(container).toBeTruthy();
-    expect(screen.getByText('https://test.dev')).toBeTruthy();
-  })
 });

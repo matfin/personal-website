@@ -4,7 +4,6 @@ import {
   ProjectSt,
   TitleSt,
   DescriptionSt,
-  UrlSt,
 } from './Project.css';
 
 export interface IProps extends IProject {
@@ -17,17 +16,12 @@ export const Project = ({
   title,
   url,
 }: IProps): JSX.Element => (
-  <ProjectSt className={className}>
+  <ProjectSt href={url} className={className}>
     <TitleSt>
       {title}
     </TitleSt>
     <DescriptionSt>
       {description}
     </DescriptionSt>
-    {url && (
-      <UrlSt href={url}>
-        {url}
-      </UrlSt>
-    )}
   </ProjectSt>
 );

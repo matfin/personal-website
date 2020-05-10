@@ -13,7 +13,7 @@
         },
         {
           "tagName": "h2",
-          "content": "Some selected projects from my portfolio"
+          "content": "Some selected personal and work based projects that I am allowed to show."
         }
       ]
     },
@@ -25,10 +25,11 @@
           "tagName": "projects",
           "content": [
             {
-              "description": "Personal portfolio website.",
+              "archived": false,
+              "description": "My personal portfolio website (this website) in its fifth incarnation. I created this to explore modern web development, focusing on ReactJS and Typescript.",
               "releaseDate": "2020-05-15",
               "slug": "mattfinucane",
-              "title": "Matt Finucane",
+              "title": "Personal portfolio",
               "topics": [
                 "typescript",
                 "reactjs",
@@ -45,10 +46,12 @@
                 "stylelint",
                 "babeljs",
                 "lighthouse"
-              ]
+              ],
+              "url": "https://github.com/matfin/personal-website"
             },
             {
-              "description": "High quality used car platform.",
+              "archived": false,
+              "description": "Heycar is an online platform used to sell high quality used cars in Germany.",
               "releaseDate": "2017-10-05",
               "slug": "heycar",
               "title": "hey.car",
@@ -72,7 +75,8 @@
               "url": "https://hey.car"
             },
             {
-              "description": "Photography portfolio website.",
+              "archived": true,
+              "description": "This is my personal photography website and was created to explore using CSS Grid to layout photos.",
               "releaseDate": "2017-07-01",
               "slug": "cinematt",
               "title": "Cinematt",
@@ -92,7 +96,8 @@
               "url": "https://cinematt.photography"
             },
             {
-              "description": "Personal portfolio wesite (static) which was released in 2017. It has been replaced and is now archived.",
+              "archived": true,
+              "description": "Personal portfolio wesite (static) in its previous incarnation to this one.",
               "releaseDate": "2017-04-01",
               "slug": "personal-portfolio-static",
               "title": "Personal portfolio (static)",
@@ -111,29 +116,7 @@
               "url": "https://github.com/matfin/mattfinucane.com"
             },
             {
-              "description": "StackPointCloud.com community portal for users.",
-              "releaseDate": "2016-03-01",
-              "slug": "stackpointcloud-community",
-              "title": "StackPointCloud Comunity",
-              "topics": [
-                "javascript-es",
-                "scss-sass-less",
-                "polymerjs",
-                "gulp-grunt",
-                "nodejs",
-                "expressjs",
-                "docker",
-                "mongodb-mongoose",
-                "nginx",
-                "yarn-npm",
-                "webstorm",
-                "mocha",
-                "sinon",
-                "supertest",
-                "circleci"
-              ]
-            },
-            {
+              "archived": false,
               "description": "Back end infrastructure for an interactive Facebook Messenger chat bot curated by ARD-Tageschau",
               "releaseDate": "2017-03-01",
               "slug": "novi-chatbot",
@@ -152,18 +135,20 @@
               "url": "https://www.tagesschau.de/messenger/"
             },
             {
-              "description": "ProfitBricks.com community portal contains setup guides and other help articles for system administration.",
-              "releaseDate": "2016-09-01",
-              "slug": "profitbricks-community",
-              "title": "ProfitBricks Comunity",
+              "archived": true,
+              "description": "An exploration of graphics programming with OpenGL and C++.",
+              "releaseDate": "2015-08-15",
+              "slug": "opengl",
+              "title": "OpenGL",
               "topics": [
-                "javascript-es",
-                "python",
-                "php"
-              ]
+                "c++",
+                "opengl"
+              ],
+              "url": "https://github.com/matfin/OpenGL"
             },
             {
-              "description": "Package created to bring headless CMS content into a Meteor project.",
+              "archived": true,
+              "description": "Package created to bring headless CMS content into a Meteor project. I created this and used it in four websites I was working on at the time.",
               "releaseDate": "2015-08-15",
               "slug": "meteor-contentful",
               "title": "Meteor Contentful",
@@ -175,7 +160,30 @@
                 "sinon",
                 "expressjs"
               ],
-              "url": "https://atmospherejs.com/matfin/meteor-contentful"
+              "url": "https://github.com/matfin/meteor-contentful"
+            },
+            {
+              "archived": true,
+              "description": "This is a simple slider library built in Javascript (ES6) as a MeteorJS package and is designed to work with mouse and touch based devices. I built this because I needed a fast and modern slider for the content on my websites.",
+              "releaseDate": "2017-03-08",
+              "slug": "matfin-slider",
+              "title": "Slider",
+              "topics": [
+                "javascript-es",
+                "meteor"
+              ],
+              "url": "https://github.com/matfin/slider"
+            },
+            {
+              "archived": true,
+              "description": "A small project where I could play around with graphics programming in MSDOS. I was able to use DosBox to compile and run these. A glimpse of what it would have been like to create video games in the latter half of the 20th century.",
+              "releaseDate": "2015-06-01",
+              "slug": "doscgraphics",
+              "title": "Doc Graphics",
+              "topics": [
+                "c"
+              ],
+              "url": "https://github.com/matfin/doscgraphics"
             }
           ]
         }
