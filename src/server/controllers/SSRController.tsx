@@ -41,7 +41,7 @@ class SSRController implements IBaseController {
     const preloadedState: any = this.store.getState();
     const indexPath: string = `${this.baseFilePath}/index.html`;
     const preloadedStateJson: string = JSON.stringify(preloadedState).replace(/</g, '\\u003c');
-    const { enableCache } = config;
+    const { enableCache, baseUrl } = config;
     let reactAppHtml: string;
     let styleTags: string;
 
@@ -74,7 +74,8 @@ class SSRController implements IBaseController {
         )
         .replace(
           // eslint-disable-next-line quotes
-          `<div id="root"></div>`, `<div id="root">${reactAppHtml}</div>`,
+          `<div id="root"></div>`,
+          `<div id="root">${reactAppHtml}</div>`,
         )
         .replace(
           '<script>PRELOADED_STATE</script>',
@@ -83,6 +84,9 @@ class SSRController implements IBaseController {
         .replace(
           'ENABLE_CACHE',
           enableCache ? 'true' : 'false'
+        ).replace(
+          '<script>BASE_URL</script>',
+          `<script type="text/javascript">window.BASE_URL = '${baseUrl}';</script>`,
         );
 
       return res
