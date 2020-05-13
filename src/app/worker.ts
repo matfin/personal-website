@@ -1,9 +1,9 @@
 import { apiCall } from 'common/utils';
-import Config from 'common/config';
+import config from 'common/config';
 
 declare const self: ServiceWorkerGlobalScope;
 
-const { appIconSizes, cacheName } = Config;
+const { appIconSizes, cacheName } = config;
 const appIconPaths: string[] = appIconSizes.map((size: number) => `images/icons/logo-${size}.png`);
 const urlsToCache = [
   '/',

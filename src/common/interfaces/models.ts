@@ -1,55 +1,56 @@
 export interface IAppConfig {
-  readonly appIconSizes: number[],
+  readonly appIconSizes: number[];
   readonly baseUrl: string;
   readonly cacheName: string;
-  enableCache: boolean,
+  readonly port: string;
+  enableCache: boolean;
 }
 
 export type ContentTypes = IContentItem | ITopic | IPosition | IProject | string;
 
 export interface ICategory {
-  title: string,
-  description?: string,
+  title: string;
+  description?: string;
 }
 
 export interface ITopic {
-  logoPath?: string,
-  category: string,
-  deprecated?: boolean,
-  description: string,
-  slug: string,
-  title: string,
+  logoPath?: string;
+  category: string;
+  deprecated?: boolean;
+  description: string;
+  slug: string;
+  title: string;
 }
 
 export interface IContentItem {
-  content: ContentTypes,
-  id?: string,
-  tagName: string,
+  content: ContentTypes;
+  id?: string;
+  tagName: string;
 }
 
 export interface IPage {
-  contents: IContentItem[],
-  description: string,
-  slug: string,
-  title: string,
+  contents: IContentItem[];
+  description: string;
+  slug: string;
+  title: string;
 }
 
 export interface IPosition {
-  company: string,
-  endDate?: string, // TODO better type safety
-  location: string,
-  role: string,
-  startDate: string, // TODO better type safety
-  tasks: string[],
-  topics: ITopic[],
+  company: string;
+  endDate?: string; // TODO better type safety
+  location: string;
+  role: string;
+  startDate: string; // TODO better type safety
+  tasks: string[];
+  topics: ITopic[];
 }
 
 export interface IProject {
-  description: string,
-  releaseDate: string, // TODO better type safety
-  slug: string,
-  title: string,
-  topics: string[],
-  url?: string,
+  description: string;
+  releaseDate: string; // TODO better type safety
+  slug: string;
+  title: string;
+  topics: string[];
+  url?: string;
 }
 
