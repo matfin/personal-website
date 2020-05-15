@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { setBodyOverflow } from 'common/utils';
 import { IContentItem, IPage } from 'common/interfaces';
 import { ContentItem } from 'app/components/contentItem/ContentItem';
 import { Nav } from 'app/components/nav/Nav';
-import { SocialLinks } from 'app/components/socialLinks/SocialLinks';
 import {
   BurgerSt,
   ErrorSt,
@@ -40,8 +40,16 @@ const Page = ({
   resetPage,
 }: IProps): JSX.Element => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const toggleMenu = (): void => setShowMenu(!showMenu);
-  const hideMenu = (): void => setShowMenu(false);
+
+  const toggleMenu = (): void => {
+    setShowMenu(!showMenu);
+    setBodyOverflow(!!showMenu);
+  };
+
+  const hideMenu = (): void => {
+    setShowMenu(false);
+    document.body.style.overflow = 'auto';
+  };
 
   useEffect((): any => {
     setShowMenu(false);
@@ -52,14 +60,11 @@ const Page = ({
 
   return (
     <>
-      <BurgerSt onClick={toggleMenu}>
-        🍔
-      </BurgerSt>
+      <BurgerSt navRevealed={showMenu} onClick={toggleMenu} />
       <PageSt navRevealed={showMenu}>
         <SideSt revealed={showMenu} onClick={hideMenu}>
           <SideContainerSt>
             <Nav />
-            <SocialLinks />
           </SideContainerSt>
           <FooterSt />
         </SideSt>

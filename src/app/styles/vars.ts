@@ -63,8 +63,6 @@ export const layers: Layers = {
   lower: -1,
 }
 
-export const boxShadow = `
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3)
-`;
-
-export const defaultFont = '"Helvetica Neue", Helvetica, Arial, sans-serif';
+export const boxShadow: string = 'rgba(0, 0, 0, 0.3) 0 1px 3px';
+export const animationCurve: string = `cubic-bezier(0.91, 0.03, 0.12, 1)`
+export const defaultFont: string = '"Helvetica Neue", Helvetica, Arial, sans-serif';

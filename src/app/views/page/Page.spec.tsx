@@ -3,6 +3,7 @@ import { act } from 'react-dom/test-utils';
 import { fireEvent, screen } from '@testing-library/react';
 import 'jest-styled-components';
 import { renderWithRouter } from 'common/utils/testutils';
+import * as utils from 'common/utils/utils';
 import Page, { IProps } from './Page';
 
 const noop = (): void => {};
@@ -52,7 +53,7 @@ describe('Page tests', () => {
     const main = container.getElementsByTagName('main')[0];
 
     expect(container.getElementsByTagName('aside')[0])
-      .toHaveStyleRule('transform', 'translate3d(75vw,0,0)');
+      .toHaveStyleRule('transform', 'translate3d(100vw,0,0)');
 
     act((): void => {
       fireEvent.click(burger);
@@ -65,8 +66,30 @@ describe('Page tests', () => {
       fireEvent.click(main);
     });
 
-    expect(container.getElementsByTagName('aside')[0])
-      .toHaveStyleRule('transform', 'translate3d(75vw,0,0)');
+    await expect(container.getElementsByTagName('aside')[0])
+      .toHaveStyleRule('transform', 'translate3d(100vw,0,0)');
+  });
+
+  it('prevents body scroll when nav menu is open', async () => {
+    const spySetBodyOverflow = jest.spyOn(utils, 'setBodyOverflow');
+    const { container } = renderWithRouter(
+      <Page {...defaultProps} />
+    );
+    const burger = container.getElementsByTagName('button')[0];
+
+    // nav menu revealed
+    act((): void => {
+      fireEvent.click(burger);
+    });
+    await expect(spySetBodyOverflow).toHaveBeenCalledWith(false);
+
+    // nav menu hidden again
+    act((): void => {
+      fireEvent.click(burger);
+    });
+    await expect(spySetBodyOverflow).toHaveBeenCalledWith(true);
+
+    spySetBodyOverflow.mockReset();
   });
 
   it('renders the loading indicator', () => {
