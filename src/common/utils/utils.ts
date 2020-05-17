@@ -19,3 +19,7 @@ export const formatDate = (date: Date): string => {
 
   return `${months[month]} ${fullYear}`;
 };
+
+export const setBodyOverflow = (overflow: boolean): void => {
+  document.body.style.overflow = overflow ? 'auto' : 'hidden';
+};

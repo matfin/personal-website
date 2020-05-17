@@ -10,6 +10,13 @@ const common = {
         loader: 'babel-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.svg$/i,
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+        },
+      }
     ],
   },
   resolve: {
@@ -17,8 +24,9 @@ const common = {
       'app': path.resolve(__dirname, 'src/app/'),
       'common': path.resolve(__dirname, 'src/common/'),
       'server': path.resolve(__dirname, 'src/server/'),
+      'svg': path.resolve(__dirname, 'assets/images/svg/'),
     },
-    extensions: ['.ts', '.tsx', '.js', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.json', '.svg'],
   },
 };
 

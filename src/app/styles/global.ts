@@ -26,6 +26,10 @@ export const GlobalStyle = createGlobalStyle`
   button {
     border: none;
     background-color: inherit;
+
+    &:focus {
+      outline: 0;
+    }
   }
 `;
 

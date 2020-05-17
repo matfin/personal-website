@@ -1,6 +1,13 @@
 import styled, { css } from 'styled-components';
-import { boxShadow, colours, layers, media } from 'app/styles';
+import {
+  animationCurve,
+  boxShadow,
+  colours,
+  layers,
+  media
+} from 'app/styles';
 import { Footer } from 'app/components/footer/Footer';
+import { MenuButton } from 'app/components/menubutton/MenuButton';
 
 interface ISideStProps {
   revealed: boolean,
@@ -17,7 +24,7 @@ export const PageSt = styled.div<IPageStProps>`
   height: 100vh;
   overflow-x: hidden;
 
-  grid-template-columns: 1em auto 1em;
+  grid-template-columns: 1rem auto 1rem;
   grid-template-rows: auto;
   grid-template-areas:
     ". main .";
@@ -42,20 +49,19 @@ export const MainSt = styled.main`
 `;
 
 export const SideSt = styled.aside<ISideStProps>`
-  z-index: ${layers.top};
-  transform: translate3d(75vw, 0, 0);
+  z-index: ${layers.upper};
+  transform: translate3d(100vw, 0, 0);
   position: fixed;
   top: 0;
   right: 0;
-  width: 75vw;
+  width: 100vw;
   height: 100vh;
   background-color: ${colours.secondary};
   box-shadow: none;
-  transition-property: box-shadow transform;
-  transition-duration: 300ms;
+  transition: transform 0.5s ${animationCurve};
 
-  ${(props) => props.revealed && css`
-    ${boxShadow};
+  ${({ revealed }) => revealed && css`
+    box-shadow: ${boxShadow};
     transform: translate3d(0, 0, 0);
   `};
 
@@ -68,13 +74,13 @@ export const SideSt = styled.aside<ISideStProps>`
     transform: unset;
     background: transparent;
   `)};
-`
+`;
 
 export const SideContainerSt = styled.div`
-  padding: 0 1.5rem;
+  padding: 3rem 4rem;
 
   ${media.md(css`
-    padding: 0;
+    padding: 0 2rem;
     position: sticky;
     top: 0;
     left: 0;
@@ -85,14 +91,13 @@ export const FooterSt = styled(Footer)`
   display: none;
 `;
 
-export const BurgerSt = styled.button`
-  z-index: ${layers.upper};
+export const BurgerSt = styled(MenuButton)`
+  z-index: ${layers.top};
   position: fixed;
   top: 1rem;
   right: 1rem;
   width: 3rem;
   height: 3rem;
-  font-size: 2rem;
 
   ${media.md(css`
     display: none;
