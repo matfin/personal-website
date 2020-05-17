@@ -17,7 +17,7 @@ export const sizes: Breakpoints = {
 
 // units: em
 export const fontSize: Fonts = {
-  heading: 3.75,
+  heading: 2.5,
   subheading: 1.5,
   thirdHeading: 1,
   text: 1,
@@ -35,7 +35,7 @@ export const letterSpacing: Fonts = {
 
 // units: em
 export const lineHeight: Fonts = {
-  heading: 5,
+  heading: 4,
   subheading: 2.25,
   thirdHeading: 1.25,
   text: 1.25,

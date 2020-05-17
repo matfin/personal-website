@@ -6,6 +6,7 @@ import config from 'common/config';
 import * as pageActions from 'app/views/page/actions';
 import IndexComponent from 'server/IndexComponent';
 import SSRController from './SSRController';
+import { Helmet } from 'react-helmet';
 
 jest.mock('common/store');
 jest.mock('common/config', () => ({
@@ -13,6 +14,8 @@ jest.mock('common/config', () => ({
 }));
 jest.mock('server/IndexComponent');
 jest.mock('react-dom/server');
+
+Helmet.canUseDOM = false;
 
 const stripSpaces = (str: string): string => str.replace(/\s/g, '');
 

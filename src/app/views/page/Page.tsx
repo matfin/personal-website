@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Meta } from 'app/components/meta/Meta';
 import { setBodyOverflow } from 'common/utils';
 import { IContentItem, IPage } from 'common/interfaces';
 import { ContentItem } from 'app/components/contentItem/ContentItem';
@@ -70,10 +71,17 @@ const Page = ({
           pending ? (
             <LoadingSt />
           ) : (
-            <MainSt onClick={hideMenu}>
-              {!pending && error && errorMessage(error)}
-              {!pending && page && pageContents(page)}
-            </MainSt>
+            <>
+              <Meta
+                description={page?.description}
+                title={page?.title}
+                slug={page?.slug}
+              />
+              <MainSt onClick={hideMenu}>
+                {!pending && error && errorMessage(error)}
+                {!pending && page && pageContents(page)}
+              </MainSt>
+            </>
           )
         }
       </PageSt>

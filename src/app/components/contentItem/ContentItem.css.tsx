@@ -14,6 +14,7 @@ export const SectionSt = styled.section`
 
 export const HeadingSt = styled.h1`
   ${headingTypography};
+  padding-right: 3rem;
 `;
 
 export const SubHeadingSt = styled.h2`
