@@ -98,7 +98,7 @@ describe('Page tests', () => {
     );
 
     expect(container).toBeTruthy();
-    expect(screen.getByText('Loading!')).toBeTruthy();
+    expect(container.getElementsByTagName('img')).toBeTruthy();
   });
 
   it('renders page content', () => {

@@ -28,7 +28,6 @@ const pageContents = ({ contents }: IPage): JSX.Element[] =>
     <ContentItem {...item} key={`${key}`} />
   )
 );
-const loadingSpinner = (): JSX.Element => <LoadingSt>Loading!</LoadingSt>;
 const errorMessage = (error: any): JSX.Element => <ErrorSt>{error.toString()}</ErrorSt>;
 
 const Page = ({
@@ -66,13 +65,17 @@ const Page = ({
           <SideContainerSt>
             <Nav />
           </SideContainerSt>
-          <FooterSt />
         </SideSt>
-        <MainSt onClick={hideMenu}>
-          {pending && loadingSpinner()}
-          {!pending && error && errorMessage(error)}
-          {!pending && page && pageContents(page)}
-        </MainSt>
+        {
+          pending ? (
+            <LoadingSt />
+          ) : (
+            <MainSt onClick={hideMenu}>
+              {!pending && error && errorMessage(error)}
+              {!pending && page && pageContents(page)}
+            </MainSt>
+          )
+        }
       </PageSt>
     </>
   );

@@ -7,6 +7,7 @@ import {
   media
 } from 'app/styles';
 import { Footer } from 'app/components/footer/Footer';
+import { Loading } from 'app/components/loading/Loading';
 import { MenuButton } from 'app/components/menubutton/MenuButton';
 
 interface ISideStProps {
@@ -87,9 +88,7 @@ export const SideContainerSt = styled.div`
   `)};
 `;
 
-export const FooterSt = styled(Footer)`
-  display: none;
-`;
+export const FooterSt = styled(Footer)``;
 
 export const BurgerSt = styled(MenuButton)`
   z-index: ${layers.top};
@@ -107,7 +106,8 @@ export const BurgerSt = styled(MenuButton)`
 export const ErrorSt = styled.div`
 `;
 
-export const LoadingSt = styled.div`
+export const LoadingSt = styled(Loading)`
+  grid-area: main;
 `;
 
 
