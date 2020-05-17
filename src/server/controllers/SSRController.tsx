@@ -87,6 +87,9 @@ class SSRController implements IBaseController {
         ).replace(
           '<script>BASE_URL</script>',
           `<script type="text/javascript">window.BASE_URL = '${baseUrl}';</script>`,
+        ).replace(
+          '<script>CLIENT</script>',
+          `<script type="text/javascript">window.CLIENT = true;</script>`,
         );
 
       return res
