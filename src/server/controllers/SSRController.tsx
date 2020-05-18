@@ -1,5 +1,6 @@
 import React from 'react';
 import { Store } from 'redux';
+import { Helmet, HelmetData } from 'react-helmet';
 import { renderToString } from 'react-dom/server';
 import {
   NextFunction, Request, Response, Router,
@@ -44,6 +45,7 @@ class SSRController implements IBaseController {
     const { enableCache, baseUrl } = config;
     let reactAppHtml: string;
     let styleTags: string;
+    let helmet: HelmetData;
 
     try {
       reactAppHtml = renderToString(
@@ -56,6 +58,7 @@ class SSRController implements IBaseController {
         ),
       );
       styleTags = sheet.getStyleTags();
+      helmet = Helmet.renderStatic();
     } catch (error) {
       return res.status(500).json({ error });
     } finally {
@@ -90,6 +93,12 @@ class SSRController implements IBaseController {
         ).replace(
           '<script>CLIENT</script>',
           `<script type="text/javascript">window.CLIENT = true;</script>`,
+        ).replace(
+          '_HELMET_',
+          `
+            ${helmet.title.toString()}
+            ${helmet.meta.toString()}
+          `
         );
 
       return res

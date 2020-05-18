@@ -1,6 +1,6 @@
 {
-  "title": "Projects",
-  "description": "Projects",
+  "title": "Matt Finucane - Selected projects",
+  "description": "Some selected work, personal and Open-source projects I have worked on.",
   "slug": "projects",
   "contents": [
     {
@@ -13,7 +13,7 @@
         },
         {
           "tagName": "h2",
-          "content": "Some selected personal and work based projects that I am allowed to show."
+          "content": "Some selected work, personal and Open-source projects I have worked on."
         }
       ]
     },
@@ -76,7 +76,7 @@
             },
             {
               "archived": true,
-              "description": "This is my personal photography website and was created to explore using CSS Grid to layout photos.",
+              "description": "This is my personal photography website and was created to explore using CSS Grid to lay out photos.",
               "releaseDate": "2017-07-01",
               "slug": "cinematt",
               "title": "Cinematt",
@@ -179,7 +179,7 @@
               "description": "A small project where I could play around with graphics programming in MSDOS. I was able to use DosBox to compile and run these. A glimpse of what it would have been like to create video games in the latter half of the 20th century.",
               "releaseDate": "2015-06-01",
               "slug": "doscgraphics",
-              "title": "Doc Graphics",
+              "title": "Dos C Graphics",
               "topics": [
                 "c"
               ],

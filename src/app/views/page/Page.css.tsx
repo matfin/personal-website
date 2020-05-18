@@ -93,8 +93,8 @@ export const FooterSt = styled(Footer)``;
 export const BurgerSt = styled(MenuButton)`
   z-index: ${layers.top};
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: 0.5rem;
+  right: 0.5rem;
   width: 3rem;
   height: 3rem;
 
