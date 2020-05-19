@@ -22,6 +22,12 @@ export interface ITopic {
   title: string;
 }
 
+export interface ILink {
+  text: string,
+  title?: string,
+  url: string,
+}
+
 export interface IContentItem {
   content: ContentTypes;
   id?: string;

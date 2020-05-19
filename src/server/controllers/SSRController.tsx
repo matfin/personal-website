@@ -60,7 +60,7 @@ class SSRController implements IBaseController {
       styleTags = sheet.getStyleTags();
       helmet = Helmet.renderStatic();
     } catch (error) {
-      return res.status(500).json({ error });
+      return res.status(500).json({ error: error.toString() });
     } finally {
       sheet.seal();
     }

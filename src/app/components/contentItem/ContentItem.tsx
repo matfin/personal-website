@@ -2,14 +2,18 @@ import * as React from 'react';
 import { ContentTypes, IContentItem, ITopic, IPosition, IProject } from 'common/interfaces';
 import {
   isContentItem,
+  isLink,
   isTopic,
   isPosition,
   isProject,
+  splitContent,
+  toLinkObject,
 } from 'common/utils';
 import { Position } from 'app/components/position/Position';
 import { Project } from 'app/components/project/Project';
 import {
   HeadingSt,
+  LinkSt,
   ParagraphSt,
   SectionSt,
   ListSt,
@@ -23,13 +27,30 @@ export interface IProps extends IContentItem {
   key?: string,
 }
 
+export const processContent = (content: string): any => {
+  const split: string[] = splitContent(content);
+  const processed = split.map((item: string, idx: number) => {
+    if (isLink(item)) {
+      return <LinkSt {...toLinkObject(item)} key={idx} />
+    }
+
+    return item;
+  });
+
+  return processed;
+};
+
 export const renderTag = (tagName: string, content: any, key?: string): JSX.Element => {
   switch(tagName) {
     case 'section': {
       return <SectionSt key={key}>{content}</SectionSt>;
     }
     case 'p': {
-      return <ParagraphSt key={key}>{content}</ParagraphSt>;
+      return (
+        <ParagraphSt key={key}>
+          {processContent(content)}
+        </ParagraphSt>
+      );
     }
     case 'h1': {
       return <HeadingSt key={key}>{content}</HeadingSt>;
@@ -42,7 +63,11 @@ export const renderTag = (tagName: string, content: any, key?: string): JSX.Elem
       return <ListSt key={key}>{content}</ListSt>;
     }
     case 'li': {
-      return <ListItemSt key={key}>{content}</ListItemSt>;
+      return (
+        <ListItemSt key={key}>
+          {processContent(content)}
+        </ListItemSt>
+      );
     }
     case 'topics': {
       return <ListSt key={key}>{content}</ListSt>;

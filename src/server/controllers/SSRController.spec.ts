@@ -171,7 +171,7 @@ describe('SSRController tests', () => {
     const res: Response = {
       status: spyStatus,
     } as any;
-    const expected = { error: new Error('cannot-render-to-string') };
+    const expected = { error: new Error('cannot-render-to-string').toString() };
 
     spyGetState.mockResolvedValue({ test: 'state' });
     renderToString.mockImplementation(() => {

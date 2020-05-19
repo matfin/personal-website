@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { animationCurve, colours } from 'app/styles';
 import { Link } from 'react-router-dom';
 
 interface ILinkStProps {
@@ -22,9 +23,8 @@ export const LinkSt = styled(Link)<ILinkStProps>`
     left: 0;
     width: 0;
     height: 0.125rem;
-    background-color: currentColor;
-    transition-property: width;
-    transition-duration: 300ms;
+    background-color: ${colours.primary};
+    transition: width 200ms ${animationCurve};
     content: "";
   }
 

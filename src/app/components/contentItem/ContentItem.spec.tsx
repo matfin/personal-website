@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { IContentItem } from 'common/interfaces';
-import { ContentItem, IProps } from './ContentItem';
-import { ProjectSt } from '../project/Project.css';
+import { ContentItem, processContent } from './ContentItem';
+import { LinkSt } from './ContentItem.css';
 
 describe('ContentItem tests', () => {
   it('renders the component', () => {
@@ -15,6 +15,31 @@ describe('ContentItem tests', () => {
 
     expect(container).toBeTruthy();
     expect(screen.getByText('This is a test')).toBeTruthy();
+  });
+
+  it('processes content that contains links and renders them', () => {
+    const { container } = render(
+      <ContentItem
+        tagName="p"
+        content="This contains [a link](/test-link) to render"
+      />
+    );
+    const link = container.getElementsByTagName('a')[0];
+
+    expect(link).toBeTruthy();
+    expect(link.href).toContain('/test-link');
+  });
+
+  it('processes content that contains no links', () => {
+    const { container } = render(
+      <ContentItem
+        tagName="p"
+        content="This contains no links to render"
+      />
+    );
+    const link = container.getElementsByTagName('a')[0];
+
+    expect(link).toBeFalsy();
   });
 
   describe('rendering standard html tags', () => {
