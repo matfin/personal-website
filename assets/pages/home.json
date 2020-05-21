@@ -356,7 +356,7 @@
         },
         {
           "tagName": "p",
-          "content": "Please feel free to checkout my [CV](/cv), which details my qualifications, skillsets and work experience. Here are some of the [projects](/projects) I have worked on."
+          "content": "Please feel free to checkout my [cv](cv \"My CV/Resumé\"), which details my qualifications, skillsets and work experience. Here are some of the [projects](/projects \"My projects\") I have worked on."
         }
       ]
     }

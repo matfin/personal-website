@@ -1,11 +1,15 @@
 import styled, { css } from 'styled-components';
 import {
+  animationCurve,
+  colours,
   headingTypography,
+  layers,
   listItemStyle,
   media,
   subHeadingTypography,
   textTypography,
 } from 'app/styles';
+import { InlineLink } from 'app/components/inlinelink/InlineLink';
 import { Topic } from 'app/components/topic/Topic';
 
 export const SectionSt = styled.section`
@@ -43,4 +47,29 @@ export const TopicSt = styled(Topic)`
   ${media.md(css`
     margin: 0.25rem;
   `)}
+`;
+
+export const LinkSt = styled(InlineLink)`
+  position: relative;
+  transition: color 200ms ${animationCurve};
+
+  &::after {
+    z-index: ${layers.lower};
+    position: absolute;
+    bottom: -0.125rem;
+    left: 0;
+    width: 100%;
+    height: 0.125rem;
+    background-color: ${colours.primary};
+    content: "";
+    transition: height 200ms ${animationCurve};
+  }
+
+  &:hover {
+    color: ${colours.secondary};
+
+    &::after {
+      height: 100%;
+    }
+  }
 `;
