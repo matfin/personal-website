@@ -81,6 +81,7 @@ const Page = ({
                 {!pending && error && errorMessage(error)}
                 {!pending && page && pageContents(page)}
               </MainSt>
+              <FooterSt />
             </>
           )
         }
