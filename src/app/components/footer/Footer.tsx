@@ -1,5 +1,6 @@
 import React from 'react';
-import FooterSt, { FooterLink } from './Footer.css';
+import FooterSt from './Footer.css';
+import closingtag from 'svg/closingtag.svg';
 
 export interface IProps {
   className?: string
@@ -7,8 +8,6 @@ export interface IProps {
 
 export const Footer = ({ className }: IProps) => (
   <FooterSt className={className}>
-    <FooterLink href="https://mattfinucane.com">
-      Little stories by Matt Finucane
-    </FooterLink>
+    <img src={closingtag} width="48" height="48" />
   </FooterSt>
 );

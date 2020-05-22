@@ -12,13 +12,6 @@ export const ProjectSt = styled.a`
   display: block;
   margin: 1rem 0;
   padding: 0 0.5rem;
-  transition: all 200ms ${animationCurve};
-  transition-property: background-color colour;
-
-  &:hover {
-    background-color: ${colours.primary};
-    color: ${colours.secondary};
-  }
 
   &::after {
     display: flex;

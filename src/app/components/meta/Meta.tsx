@@ -30,5 +30,11 @@ export const Meta = ({ description, title, slug = '' }: IProps): JSX.Element => 
     <meta name="twitter:title" content={title} />
     <meta name="twitter:url" content={`${config.baseUrl}/${slug}`} />
     <meta name="twitter:description" content={description} />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/images/icons/logo-32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/images/icons/logo-128.png" sizes="128x128" />
+    <link rel="icon" type="image/png" href="/images/icons/logo-192.png" sizes="192x192" />
+    <link rel="icon" type="image/png" href="/images/icons/logo-196.png" sizes="196x196" />
   </Helmet>
 );

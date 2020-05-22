@@ -26,9 +26,10 @@ export const PageSt = styled.div<IPageStProps>`
   overflow-x: hidden;
 
   grid-template-columns: 1rem auto 1rem;
-  grid-template-rows: auto;
+  grid-template-rows: auto 6rem;
   grid-template-areas:
-    ". main .";
+    ". main ."
+    ". footer .";
 
   ${(props) => props.navRevealed && css`
     overflow: hidden;
@@ -36,8 +37,10 @@ export const PageSt = styled.div<IPageStProps>`
 
   ${media.md(css`
     grid-template-columns: auto 30rem 2rem 12.25rem auto;
+    grid-template-rows: auto 12rem;
     grid-template-areas:
-      ". main . side .";
+      ". main . side ."
+      ". footer . side .";
   `)};
 
   ${media.lg(css`
@@ -88,7 +91,9 @@ export const SideContainerSt = styled.div`
   `)};
 `;
 
-export const FooterSt = styled(Footer)``;
+export const FooterSt = styled(Footer)`
+  grid-area: footer;
+`;
 
 export const BurgerSt = styled(MenuButton)`
   z-index: ${layers.top};
