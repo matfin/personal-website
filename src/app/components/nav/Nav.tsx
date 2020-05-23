@@ -24,6 +24,9 @@ export const Nav = ({ className }: IProps) => {
       <LinkSt isactive={(pathname === '/projects').toString()} to="/projects">
         Projects
       </LinkSt>
+      <LinkSt isactive={(pathname === '/now').toString()} to="/now">
+        Now
+      </LinkSt>
     </NavSt>
   );
 };

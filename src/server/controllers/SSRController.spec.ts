@@ -58,7 +58,7 @@ describe('SSRController tests', () => {
 
     await new SSRController();
     expect(spyGet).toHaveBeenCalledTimes(1);
-    expect(spyGet).toHaveBeenCalledWith('/:slug(projects|cv)?', expect.any(Function), expect.any(Function));
+    expect(spyGet).toHaveBeenCalledWith('/:slug(projects|cv|now)?', expect.any(Function), expect.any(Function));
   });
 
   it('should dispatch to fetch a page and call next', async () => {

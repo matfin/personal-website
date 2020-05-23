@@ -70,11 +70,15 @@
     },
     {
       "tagName": "section",
-      "id": "topics",
+      "id": "current-topics",
       "content": [
         {
           "tagName": "h3",
-          "content": "Tech stack"
+          "content": "Current tech stack"
+        },
+        {
+          "tagName": "p",
+          "content": "These are the tools and languages I work with primarily over the last three years. I have used these every day on every project I have worked on."
         },
         {
           "tagName": "topics",
@@ -90,41 +94,6 @@
               "description": "Javascript (ES) is a modern version of Javascript.",
               "slug": "javascript-es",
               "title": "Javascript (ES)"
-            },
-            {
-              "category": "languages",
-              "deprecated": "true",
-              "description": "PHP is a high level programming language commonly used in server-side web development.",
-              "slug": "php",
-              "title": "PHP"
-            },
-            {
-              "category": "languages",
-              "deprecated": "true",
-              "description": "Objective C is a superset of C created by Apple. It was used primarily in application development but has been superseded by Swift.",
-              "slug": "objective-c",
-              "title": "Objective C"
-            },
-            {
-              "category": "languages",
-              "deprecated": "true",
-              "description": "Python is a high level language known for its power and simplicity.",
-              "slug": "python",
-              "title": "Python"
-            },
-            {
-              "category": "languages",
-              "deprecated": "true",
-              "description": "C++ is a general purpose strongly-typed programming language used in application development.",
-              "slug": "cpp",
-              "title": "C++"
-            },
-            {
-              "category": "languages",
-              "deprecated": "true",
-              "description": "C# is a high level, general purpose, strongly-typed language created my Microsoft.",
-              "slug": "csharp",
-              "title": "C#"
             },
             {
               "category": "frontend",
@@ -146,45 +115,21 @@
             },
             {
               "category": "frontend",
-              "description": "Progressive web apps are those that work (even offline) on any standards compliant browser",
-              "slug": "pwa",
-              "title": "PWA"
-            },
-            {
-              "category": "frontend",
               "description": "These act as CSS pre-processors and make it easier to manage styles for large, cross-browser applications.",
               "slug": "scss-sass-less",
               "title": "SCSS/SASS/LESS"
             },
             {
               "category": "frontend",
+              "description": "Progressive web apps are those that work (even offline) on any standards compliant browser",
+              "slug": "pwa",
+              "title": "PWA"
+            },
+            {
+              "category": "frontend",
               "description": "CSS Grid is modern technique for laying out web pages.",
               "slug": "css-grid",
               "title": "CSS Grid"
-            },
-            {
-              "category": "frontend",
-              "description": "PolymerJS is a Javascript based web application framework built by Google, which leverages Web Components.",
-              "slug": "polymerjs",
-              "title": "PolymerJS"
-            },
-            {
-              "category": "frontend",
-              "description": "MeteorJS is one of the earliest full-stack web application frameworks and works with MongoDB both client and server side.",
-              "slug": "meteorjs",
-              "title": "MeteorJS"
-            },
-            {
-              "category": "frontend",
-              "description": "jQuery is a javascript library commonly used for cross-browser UI development, especially for non single-page applications.",
-              "slug": "jquery",
-              "title": "jQuery"
-            },
-            {
-              "category": "frontend",
-              "description": "Gulp / Grunt are used to manage and pacakge web applications and their dependencies. Both of these have been deprecated in favour of WebPack.",
-              "slug": "gulp-grunt",
-              "title": "Gulp / Grunt"
             },
             {
               "category": "backend",
@@ -212,33 +157,15 @@
             },
             {
               "category": "backend",
-              "description": "MySQL is an Open-source relational database management system.",
-              "slug": "mysql",
-              "title": "MySQL"
-            },
-            {
-              "category": "backend",
               "description": "Nginx is a web server commonly used as a reverse-proxy for Javascript based web application development.",
               "slug": "nginx",
               "title": "Nginx"
             },
             {
               "category": "backend",
-              "description": "Apache is an Open-source web server commonly used with PHP and MySQL.",
-              "slug": "apache-http-server",
-              "title": "Apache"
-            },
-            {
-              "category": "backend",
               "description": "Linux is a Open-source Unix-like operating system.",
               "slug": "linux",
               "title": "Linux"
-            },
-            {
-              "category": "tools",
-              "description": "Hugo is a static site generator that generates HTML from tempaltes combined with Markdown.",
-              "slug": "hugo",
-              "title": "Hugo"
             },
             {
               "category": "tools",
@@ -260,33 +187,9 @@
             },
             {
               "category": "tools",
-              "description": "Mocha is a Javascript test runner.",
-              "slug": "mocha",
-              "title": "Mocha"
-            },
-            {
-              "category": "tools",
-              "description": "Chai is a helper library to facilitate test assertions.",
-              "slug": "chai",
-              "title": "Chai"
-            },
-            {
-              "category": "tools",
-              "description": "Sinon is a testing tool used to control tests by mocking function calls.",
-              "slug": "sinon",
-              "title": "SinonJS"
-            },
-            {
-              "category": "tools",
               "description": "React testing library is used to test the behaviour of function components in React.",
               "slug": "react-testing-library",
               "title": "React Testing Library"
-            },
-            {
-              "category": "tools",
-              "description": "Enzyme is a testing library normally used for unit testing class based components in React.",
-              "slug": "enzyme",
-              "title": "Enzyme"
             },
             {
               "category": "tools",
@@ -299,12 +202,6 @@
               "description": "VSCode is a powerful and simple integrated development environment (IDE).",
               "slug": "vscode",
               "title": "VSCode"
-            },
-            {
-              "category": "tools",
-              "description": "WebStorm is an IDE used for front end web development, primarily with Javascript",
-              "slug": "webstorm",
-              "title": "WebStorm"
             },
             {
               "category": "tools",
@@ -348,6 +245,179 @@
     },
     {
       "tagName": "section",
+      "id": "legacy-topics",
+      "content": [
+        {
+          "tagName": "h3",
+          "content": "Legacy tech stack"
+        },
+        {
+          "tagName": "p",
+          "content": "These were languages and tools I used in the past, but have not used in the last three years."
+        },
+        {
+          "tagName": "topics",
+          "content": [
+            {
+              "category": "languages",
+              "deprecated": "true",
+              "description": "PHP is a high level programming language commonly used in server-side web development.",
+              "slug": "php",
+              "title": "PHP"
+            },
+            {
+              "category": "languages",
+              "deprecated": "true",
+              "description": "Python is a high level language known for its power and simplicity.",
+              "slug": "python",
+              "title": "Python"
+            },
+            {
+              "category": "languages",
+              "deprecated": "true",
+              "description": "C++ is a general purpose strongly-typed programming language used in application development.",
+              "slug": "cpp",
+              "title": "C++"
+            },
+            {
+              "category": "languages",
+              "deprecated": "true",
+              "description": "Objective C is a superset of C created by Apple. It was used primarily in application development but has been superseded by Swift.",
+              "slug": "objective-c",
+              "title": "Objective C"
+            },
+            {
+              "category": "languages",
+              "deprecated": "true",
+              "description": "C# is a high level, general purpose, strongly-typed language created my Microsoft.",
+              "slug": "csharp",
+              "title": "C#"
+            },
+            {
+              "category": "frontend",
+              "deprecated": "true",
+              "description": "PolymerJS is a Javascript based web application framework built by Google, which leverages Web Components.",
+              "slug": "polymerjs",
+              "title": "PolymerJS"
+            },
+            {
+              "category": "frontend",
+              "deprecated": "true",
+              "description": "MeteorJS is one of the earliest full-stack web application frameworks and works with MongoDB both client and server side.",
+              "slug": "meteorjs",
+              "title": "MeteorJS"
+            },
+            {
+              "category": "frontend",
+              "deprecated": "true",
+              "description": "jQuery is a javascript library commonly used for cross-browser UI development, especially for non single-page applications.",
+              "slug": "jquery",
+              "title": "jQuery"
+            },
+            {
+              "category": "frontend",
+              "deprecated": "true",
+              "description": "Sencha Touch is a mobile application framework written in Javascript and html5.",
+              "slug": "sencha-touch",
+              "title": "Sencha Touch"
+            },
+            {
+              "category": "frontend",
+              "deprecated": "true",
+              "description": "Gulp / Grunt are used to manage and pacakge web applications and their dependencies. Both of these have been deprecated in favour of WebPack.",
+              "slug": "gulp-grunt",
+              "title": "Gulp / Grunt"
+            },
+            {
+              "category": "backend",
+              "deprecated": "true",
+              "description": "CodeIgniter is an MVC application framework written in PHP.",
+              "slug": "codeigiter",
+              "title": "CodeIgniter"
+            },
+            {
+              "category": "backend",
+              "deprecated": "true",
+              "description": "Perch is a small CMS tool written in PHP.",
+              "slug": "perch",
+              "title": "Perch CMS"
+            },
+            {
+              "category": "backend",
+              "deprecated": "true",
+              "description": "Wordpress is a blogging tool written in PHP.",
+              "slug": "wordpress",
+              "title": "Wordpress"
+            },
+            {
+              "category": "backend",
+              "deprecated": "true",
+              "description": "Django is a Python based web framework for building websites.",
+              "slug": "django",
+              "title": "Django"
+            },
+            {
+              "category": "backend",
+              "deprecated": "true",
+              "description": "MySQL is an Open-source relational database management system.",
+              "slug": "mysql",
+              "title": "MySQL"
+            },
+            {
+              "category": "backend",
+              "deprecated": "true",
+              "description": "Apache is an Open-source web server commonly used with PHP and MySQL.",
+              "slug": "apache-http-server",
+              "title": "Apache"
+            },
+            {
+              "category": "tools",
+              "deprecated": "true",
+              "description": "Hugo is a static site generator that generates HTML from tempaltes combined with Markdown.",
+              "slug": "hugo",
+              "title": "Hugo"
+            },
+            {
+              "category": "tools",
+              "deprecated": "true",
+              "description": "Mocha is a Javascript test runner.",
+              "slug": "mocha",
+              "title": "Mocha"
+            },
+            {
+              "category": "tools",
+              "deprecated": "true",
+              "description": "Chai is a helper library to facilitate test assertions.",
+              "slug": "chai",
+              "title": "Chai"
+            },
+            {
+              "category": "tools",
+              "deprecated": "true",
+              "description": "Sinon is a testing tool used to control tests by mocking function calls.",
+              "slug": "sinon",
+              "title": "SinonJS"
+            },
+            {
+              "category": "tools",
+              "deprecated": "true",
+              "description": "Enzyme is a testing library normally used for unit testing class based components in React.",
+              "slug": "enzyme",
+              "title": "Enzyme"
+            },
+            {
+              "category": "tools",
+              "deprecated": "true",
+              "description": "WebStorm is an IDE used for front end web development, primarily with Javascript",
+              "slug": "webstorm",
+              "title": "WebStorm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "section",
       "id": "outro",
       "content": [
         {
@@ -356,7 +426,7 @@
         },
         {
           "tagName": "p",
-          "content": "Please feel free to checkout my [cv](cv \"My CV/Resumé\"), which details my qualifications, skillsets and work experience. Here are some of the [projects](/projects \"My projects\") I have worked on."
+          "content": "Please feel free to checkout my [cv](/cv \"My CV/Resumé\"), which details my qualifications, skillsets and work experience. Here are some of the [projects](/projects \"My projects\") I have worked on."
         }
       ]
     }
