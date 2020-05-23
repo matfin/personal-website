@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
+import { renderWithRouter } from 'common/utils/testutils';
 import { IContentItem } from 'common/interfaces';
-import { ContentItem, processContent } from './ContentItem';
-import { LinkSt } from './ContentItem.css';
+import { ContentItem } from './ContentItem';
 
 describe('ContentItem tests', () => {
   it('renders the component', () => {
@@ -18,7 +18,7 @@ describe('ContentItem tests', () => {
   });
 
   it('processes content that contains links and renders them', () => {
-    const { container } = render(
+    const { container } = renderWithRouter(
       <ContentItem
         tagName="p"
         content="This contains [a link](/test-link) to render"

@@ -31,6 +31,12 @@ export const isLink = (text?: string): boolean => {
   return regexp.test(text || '');
 };
 
+export const isExternalUrl = (url: string): boolean => {
+  const regexp: RegExp = /https?:\/\//;
+
+  return regexp.test(url);
+};
+
 export const toLinkObject = (linkText: string): ILink => {
   const regexp: RegExp = /\[(?<text>.*?)\]\((?<url>.*?)("(?<title>.*?)")?\)/gm;
   const result: any = regexp.exec(linkText);
