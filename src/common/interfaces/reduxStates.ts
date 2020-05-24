@@ -1,4 +1,4 @@
-import { IPage } from 'common/interfaces';
+import { IPage, ThemeType } from 'common/interfaces';
 
 export interface IAction {
   error?: any,
@@ -10,4 +10,8 @@ export interface IPageState {
   error: any,
   pending: boolean,
   page?: IPage,
+}
+
+export interface IAppState {
+  currentTheme: ThemeType
 }

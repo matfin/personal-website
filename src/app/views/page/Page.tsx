@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Meta } from 'app/components/meta/Meta';
 import { setBodyOverflow } from 'common/utils';
-import { IContentItem, IPage } from 'common/interfaces';
+import { IContentItem, IPage, ToggleValue, ThemeType } from 'common/interfaces';
 import { ContentItem } from 'app/components/contentItem/ContentItem';
 import { Nav } from 'app/components/nav/Nav';
 import {
@@ -13,15 +13,18 @@ import {
   PageSt,
   SideContainerSt,
   SideSt,
+  ToggleSt,
 } from './Page.css';
 
 export interface IProps {
+  currentTheme: ThemeType,
   error: any,
   pending: boolean,
   page: IPage,
   slug: string,
   fetchPage(slug: string): void,
   resetPage(): void,
+  switchTheme(theme: ThemeType): void,
 };
 
 const pageContents = ({ contents }: IPage): JSX.Element[] =>
@@ -32,12 +35,14 @@ const pageContents = ({ contents }: IPage): JSX.Element[] =>
 const errorMessage = (error: any): JSX.Element => <ErrorSt>{error.toString()}</ErrorSt>;
 
 const Page = ({
+  currentTheme,
   error,
   pending,
   page,
   slug,
   fetchPage,
   resetPage,
+  switchTheme,
 }: IProps): JSX.Element => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
@@ -50,6 +55,14 @@ const Page = ({
     setShowMenu(false);
     document.body.style.overflow = 'auto';
   };
+
+  const toggleTheme = (toggleValue: ToggleValue): void => {
+    if (toggleValue === ToggleValue.ON) {
+      switchTheme(ThemeType.NIGHT);
+    } else {
+      switchTheme(ThemeType.DAY);
+    }
+  }
 
   useEffect((): any => {
     setShowMenu(false);
@@ -65,6 +78,11 @@ const Page = ({
         <SideSt revealed={showMenu} onClick={hideMenu}>
           <SideContainerSt>
             <Nav />
+            <ToggleSt
+              data-testid="toggle"
+              value={currentTheme === ThemeType.DAY ? ToggleValue.OFF : ToggleValue.ON}
+              onToggle={toggleTheme}
+            />
           </SideContainerSt>
         </SideSt>
         {

@@ -1,5 +1,5 @@
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
-import { animationCurve, colours } from 'app/styles';
+import { animationCurve } from 'app/styles';
 
 export enum LinePlacement {
   TOP = 'top',
@@ -37,13 +37,13 @@ export const MenuButtonSt = styled.button`
   flex-direction: column;
   justify-content: space-around;
   padding: 0.5rem;
-  background-color: ${colours.secondary};
+  background-color: ${props => props?.theme?.colours?.secondary};
 `;
 
 export const LineSt = styled.span<ListStProps>`
   width: 2rem;
   height: 1px;
-  background: ${colours.primary};
+  background: ${props => props?.theme?.colours?.primary};
   transform-origin: center center;
   transition: transform 0.5s ${animationCurve}, rotate 0.5s ${animationCurve};
 

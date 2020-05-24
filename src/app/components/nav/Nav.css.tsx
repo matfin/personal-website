@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { animationCurve, colours, layers } from 'app/styles';
+import { animationCurve, layers } from 'app/styles';
 import { Link } from 'react-router-dom';
 
 interface ILinkStProps {
@@ -28,27 +28,27 @@ export const LinkSt = styled(Link)<ILinkStProps>`
     left: 0;
     width: 100%;
     height: 0;
-    background: ${colours.primary};
+    background: ${props => props?.theme?.colours?.primary};
     transition: all 200ms ${animationCurve};
     transition-property: background height;
     content: "";
   }
 
   &:hover {
-    color: ${colours.secondary};
+    color: ${props => props?.theme?.colours?.secondary};
 
     &::after {
       height: 100%;
-      background: ${colours.primary};
+      background: ${props => props?.theme?.colours?.primary};
     }
   }
 
   ${(props) => props.isactive === 'true' && css`
-    color: ${colours.secondary};
+    color: ${props => props?.theme?.colours?.secondary};
 
     &::after {
       height: 100%;
-      background: ${colours.primary};
+      background: ${props => props?.theme?.colours?.primary};
     }
   `};
 `;

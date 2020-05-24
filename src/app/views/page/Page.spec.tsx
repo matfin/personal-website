@@ -4,10 +4,12 @@ import { fireEvent, screen } from '@testing-library/react';
 import 'jest-styled-components';
 import { renderWithRouter } from 'common/utils/testutils';
 import * as utils from 'common/utils/utils';
+import { ThemeType } from 'common/interfaces';
 import Page, { IProps } from './Page';
 
 const noop = (): void => {};
 const defaultProps: IProps = {
+  currentTheme: ThemeType.DAY,
   error: null,
   pending: false,
   page: {
@@ -19,6 +21,7 @@ const defaultProps: IProps = {
   slug: 'test-page',
   fetchPage: noop,
   resetPage: noop,
+  switchTheme: noop,
 };
 
 describe('Page tests', () => {
@@ -119,6 +122,36 @@ describe('Page tests', () => {
 
     expect(container).toBeTruthy();
     expect(screen.getByText('Test heading')).toBeTruthy();
+  });
+
+  it('switches to the night theme', async () => {
+    const spySwitchTheme = jest.fn();
+    const container = renderWithRouter(
+      <Page {...defaultProps} switchTheme={spySwitchTheme} />
+    );
+    const toggle = container.getByTestId('toggle');
+
+    act((): void => {
+      fireEvent.click(toggle);
+    });
+    await expect(spySwitchTheme).toHaveBeenCalledWith(ThemeType.NIGHT);
+  });
+
+  it('switches to the day theme', async () => {
+    const spySwitchTheme = jest.fn();
+    const container = renderWithRouter(
+      <Page
+        {...defaultProps}
+        currentTheme={ThemeType.NIGHT}
+        switchTheme={spySwitchTheme}
+      />
+    );
+    const toggle = container.getByTestId('toggle');
+
+    act((): void => {
+      fireEvent.click(toggle);
+    });
+    await expect(spySwitchTheme).toHaveBeenCalledWith(ThemeType.DAY);
   });
 
   it('renders an error message', () => {

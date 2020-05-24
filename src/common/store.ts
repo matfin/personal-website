@@ -1,9 +1,11 @@
 /* istanbul ignore file */
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import { appState } from 'app/reducer';
 import { pageState } from 'app/views/page/reducer';
 
 const rootReducer = combineReducers({
+  appState,
   pageState,
 });
 
