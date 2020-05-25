@@ -60,13 +60,13 @@ export const LinkSt = styled(InlineLink)`
     left: 0;
     width: 100%;
     height: 0.125rem;
-    background-color: ${colours.primary};
+    background-color: ${props => props?.theme?.colours?.primary};
     content: "";
     transition: height 200ms ${animationCurve};
   }
 
   &:hover {
-    color: ${colours.secondary};
+    color: ${props => props?.theme?.colours?.secondary};
 
     &::after {
       height: 100%;

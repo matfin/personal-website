@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { colours, defaultFont } from './vars';
+import { defaultFont } from './vars';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -9,8 +9,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: ${colours.primary};
-    background: ${colours.secondary};
+    color: ${props => props.theme.colours.primary};
+    background: ${props => props.theme.colours.secondary};
     font-family: ${defaultFont};
   }
 

@@ -2,13 +2,13 @@ import styled, { css } from 'styled-components';
 import {
   animationCurve,
   boxShadow,
-  colours,
   layers,
   media
 } from 'app/styles';
 import { Footer } from 'app/components/footer/Footer';
 import { Loading } from 'app/components/loading/Loading';
 import { MenuButton } from 'app/components/menubutton/MenuButton';
+import { Toggle } from 'app/components/toggle/Toggle';
 
 interface ISideStProps {
   revealed: boolean,
@@ -60,7 +60,7 @@ export const SideSt = styled.aside<ISideStProps>`
   right: 0;
   width: 100vw;
   height: 100vh;
-  background-color: ${colours.secondary};
+  background: ${props => props?.theme?.colours?.secondary};
   box-shadow: none;
   transition: transform 0.5s ${animationCurve};
 
@@ -113,6 +113,11 @@ export const ErrorSt = styled.div`
 
 export const LoadingSt = styled(Loading)`
   grid-area: main;
+`;
+
+export const ToggleSt = styled(Toggle)`
+  margin-top: 2rem;
+  margin-left: 0.25rem;
 `;
 
 

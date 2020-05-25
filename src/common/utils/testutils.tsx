@@ -6,18 +6,21 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { IPageState } from 'common/interfaces';
+import { IAppState, IPageState } from 'common/interfaces';
 import { defaultState as pageDefaultState } from 'app/views/page/reducer'
+import { defaultState as appDefaultState } from 'app/reducer';
 
-interface IAppState {
+interface ICombinedState {
   pageState?: IPageState,
+  appState?: IAppState,
 };
 
-export const defaultAppState: IAppState = {
-  pageState: pageDefaultState
+export const defaultAppState: ICombinedState = {
+  pageState: pageDefaultState,
+  appState: appDefaultState,
 };
 
-export const createMockStore = (state: IAppState = defaultAppState): Store => {
+export const createMockStore = (state: ICombinedState = defaultAppState): Store => {
   const middlewares = [thunk];
   const mockStore = configureMockStore(middlewares);
 

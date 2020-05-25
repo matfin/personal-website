@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { animationCurve, layers } from 'app/styles';
+import { layers } from 'app/styles';
 
 const rotate = keyframes`
   from {

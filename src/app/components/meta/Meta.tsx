@@ -1,7 +1,7 @@
 import React from 'react';
-import { colours } from 'app/styles';
 import { Helmet } from 'react-helmet';
 import config from 'common/config';
+import { colours } from 'app/styles/vars';
 
 export interface IProps {
   description: string,
