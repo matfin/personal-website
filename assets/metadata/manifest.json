@@ -39,9 +39,9 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#ecedef",
-  "theme_color": "#d1e6c9"
+  "theme_color": "#ecedef"
 }

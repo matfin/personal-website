@@ -17,6 +17,7 @@ export const Meta = ({ description, title, slug = '' }: IProps): JSX.Element => 
     <meta name="description" content={description} />
     <meta name="author" content="Matt Finucane" />
     <link rel="canonical" href={`${config.baseUrl}/${slug}`} />
+    <link rel="manifest" href="/manifest.json" />
 
     <meta property="og:url" content={`${config.baseUrl}/${slug}`} />
     <meta property="og:site_name" content="mattfinucane.com" />
@@ -32,6 +33,7 @@ export const Meta = ({ description, title, slug = '' }: IProps): JSX.Element => 
     <meta name="twitter:description" content={description} />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/images/icons/logo-32.png" sizes="16x16" />
     <link rel="icon" type="image/png" href="/images/icons/logo-32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="/images/icons/logo-128.png" sizes="128x128" />
     <link rel="icon" type="image/png" href="/images/icons/logo-192.png" sizes="192x192" />

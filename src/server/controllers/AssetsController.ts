@@ -19,7 +19,8 @@ class AssetsController implements IBaseController {
   initRoutes = () => {
     this.router.use('/scripts', expressStatic(`${this.distAppFilePath}/app`));
     this.router.use('/images', expressStatic(`${this.assetsFilePath}/images`));
-    this.router.use('/meta', expressStatic(`${this.assetsFilePath}/metadata`));
+    this.router.use('/manifest.json', expressStatic(`${this.assetsFilePath}/metadata/manifest.json`));
+    this.router.use('/worker.js', expressStatic(`${this.distAppFilePath}/app/worker.bundle.js`));
   }
 }
 

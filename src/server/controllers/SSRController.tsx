@@ -91,9 +91,6 @@ class SSRController implements IBaseController {
           '<script>BASE_URL</script>',
           `<script type="text/javascript">window.BASE_URL = '${baseUrl}';</script>`,
         ).replace(
-          '<script>CLIENT</script>',
-          `<script type="text/javascript">window.CLIENT = true;</script>`,
-        ).replace(
           '_HELMET_',
           `
             ${helmet.title.toString()}

@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     _HELMET_
-
     <style type="text/css"></style>
     <script>BASE_URL</script>
   </head>
@@ -16,7 +15,7 @@
         window.addEventListener('load', () => {
           navigator
             .serviceWorker
-            .register('/worker.bundle.js')
+            .register('/worker.js')
             .then(registration => {
               console.log('Worker registration succeeded', registration.scope);
             }, error => {
