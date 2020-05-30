@@ -15,6 +15,7 @@ export const Toggle = ({ className, value, onToggle }: IProps): JSX.Element => {
 
   return (
     <ToggleTrackSt
+      aria-label="Light / Dark theme toggle"
       className={className}
       data-testid="toggle"
       onClick={onToggleTrackClick}

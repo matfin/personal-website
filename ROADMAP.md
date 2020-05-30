@@ -24,5 +24,5 @@ We should have the basic files in place before we install any dependencies
 - use Redux Saga
 - use Storybook for component rendering/documentation
 - production bundling and CI flow
-- error boundary for better error handlind
-- animated UI to communicate flow effectively to the user 
+- error boundary for better error handling
+- animated UI to communicate flow effectively to the user
