@@ -99,7 +99,7 @@ export const BurgerSt = styled(MenuButton)`
   z-index: ${layers.top};
   position: fixed;
   top: 0.5rem;
-  right: 0.5rem;
+  right: 1rem;
   width: 3rem;
   height: 3rem;
 

@@ -23,7 +23,7 @@ export const ToggleTrackSt = styled.div`
 
   &::before {
     ${iconStyle};
-    left: 0.125rem;
+    left: 0;
     content: "☀️";
   }
 
