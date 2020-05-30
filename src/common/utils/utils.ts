@@ -38,7 +38,7 @@ export const isExternalUrl = (url: string): boolean => {
 };
 
 export const toLinkObject = (linkText: string): ILink => {
-  const regexp: RegExp = /\[(?<text>.*?)\]\((?<url>.*?)("(?<title>.*?)")?\)/gm;
+  const regexp: RegExp = /\[(.*?)\]\((.*?)("(.*?)")?\)/gm;
   const result: any = regexp.exec(linkText);
 
   if (!result) {
@@ -49,12 +49,14 @@ export const toLinkObject = (linkText: string): ILink => {
     };
   }
 
+  const [, text, url, , title] = result;
+
   return {
-    text: result?.groups?.text,
-    ...(result.groups.title && { title: result.groups.title }),
-    url: result?.groups?.url.trim(),
+    text,
+    title,
+    url: url.trim(),
   };
-}
+};
 
 export const splitContent = (text: string): string[] => {
   const regexp: RegExp = /(\[.*?\]\(.*?\))/gm;
