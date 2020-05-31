@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetData } from 'react-helmet';
 import { Meta, IProps } from './Meta';
 
 const defaultProps: IProps = {
@@ -11,7 +11,7 @@ const defaultProps: IProps = {
 describe('Meta tests', () => {
   it('renders the component', () => {
     const wrapper = render(<Meta {...defaultProps} />);
-    const helmet = Helmet.peek();
+    const helmet: HelmetData = Helmet.peek();
     const expectedMetaTags = [
       {
         name: 'viewport',
@@ -20,7 +20,7 @@ describe('Meta tests', () => {
       { name: 'theme-color', content: '#ecedef' },
       { name: 'description', content: 'Test description' },
       { name: 'author', content: 'Matt Finucane' },
-      { property: 'og:url', content: 'http://localhost/' },
+      { property: 'og:url', content: 'http://localhost:3000/' },
       { property: 'og:site_name', content: 'mattfinucane.com' },
       { property: 'og:type', content: 'website' },
       { property: 'og:locale', content: 'en-IE' },
@@ -29,7 +29,7 @@ describe('Meta tests', () => {
       { name: 'twitter:site', content: '@matfinucane' },
       { name: 'twitter:creator', content: '@matfinucane' },
       { name: 'twitter:title', content: 'Test title' },
-      { name: 'twitter:url', content: 'http://localhost/' },
+      { name: 'twitter:url', content: 'http://localhost:3000/' },
       { name: 'twitter:description', content: 'Test description' }
     ];
 
@@ -45,7 +45,7 @@ describe('Meta tests', () => {
     expect(wrapper).toBeTruthy();
     expect(helmet.metaTags[4]).toEqual({
       property: 'og:url',
-      content: 'http://localhost/test-slug'
+      content: 'http://localhost:3000/test-slug'
     });
   });
 });

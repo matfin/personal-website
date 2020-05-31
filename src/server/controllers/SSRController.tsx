@@ -42,7 +42,7 @@ class SSRController implements IBaseController {
     const preloadedState: any = this.store.getState();
     const indexPath: string = `${this.baseFilePath}/index.html`;
     const preloadedStateJson: string = JSON.stringify(preloadedState).replace(/</g, '\\u003c');
-    const { enableCache, baseUrl } = config;
+    const { apiUrl, canonicalUrl, enableCache } = config;
     let reactAppHtml: string;
     let styleTags: string;
     let helmet: HelmetData;
@@ -88,8 +88,11 @@ class SSRController implements IBaseController {
           'ENABLE_CACHE',
           enableCache ? 'true' : 'false'
         ).replace(
-          '<script>BASE_URL</script>',
-          `<script type="text/javascript">window.BASE_URL = '${baseUrl}';</script>`,
+          '<script>API_URL</script>',
+          `<script type="text/javascript">window.API_URL = '${apiUrl}';</script>`,
+        ).replace(
+          '<script>CANONICAL_URL</script>',
+          `<script type="text/javascript">window.CANONICAL_URL = '${canonicalUrl}';</script>`,
         ).replace(
           '_HELMET_',
           `

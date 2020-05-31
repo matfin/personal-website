@@ -1,10 +1,11 @@
 import fetch, { RequestInit, Response } from 'node-fetch';
 import config from 'common/config';
 
-export const apiCall = async (url: string, options: RequestInit = { method: 'GET' }): Promise<any> => {
-  const { baseUrl, port } = config;
+export const apiCall = async (resource: string, options: RequestInit = { method: 'GET' }): Promise<any> => {
+  const { apiUrl } = config;
+  const url = `${apiUrl}${resource}`;
 
-  return await fetch(`${baseUrl}:${port}${url}`, options) as Response;
+  return await fetch(url, options) as Response;
 };
 
 export default apiCall;

@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  app:
+    container_name: app
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: .docker/node/Dockerfile
+    environment:
+      - API_URL=https://mattfinucane.build
+      - CANONICAL_URL=https://mattfinucane.build
+      - PORT=3001
+      - CACHE_NAME=mattfinucane.build
+      - ENABLE_CACHE=true
+    command: yarn server
+
+  nginx:
+    container_name: nginx
+    build:
+      context: .docker/nginx
+      dockerfile: Dockerfile
+    links:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ~/ssl/mattfinucane.build:/etc/ssl/mattfinucane.build/
+    command: nginx -g "daemon off;"

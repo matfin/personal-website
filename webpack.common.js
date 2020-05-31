@@ -1,6 +1,5 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-const Visuaulizer = require('webpack-visualizer-plugin');
 
 const common = {
   module: {
@@ -36,11 +35,6 @@ const client = {
     main: path.resolve(__dirname, 'src/app/index.tsx'),
     worker: path.resolve(__dirname, 'src/app/worker.ts'),
   },
-  plugins: [
-    new Visuaulizer({
-      filename: './stats.html',
-    }),
-  ],
   output: {
     path: path.resolve(__dirname, 'dist/app'),
     filename: '[name].bundle.js',

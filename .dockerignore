@@ -1,0 +1,13 @@
+__mocks__
+.DS_Store
+.docker
+.git
+.gitignore
+coverage
+dist
+node_modules
+.dockerignore
+*.MD
+*.log
+**/*.spec.tsx
+**/*.spec.ts

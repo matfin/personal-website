@@ -4,16 +4,15 @@ import ContentController from 'server/controllers/ContentController';
 import config from 'common/config';
 import App from './app';
 
-const { baseUrl, port } = config;
+const { port } = config;
 
 const app = new App({
-  baseUrl,
-  port,
   controllers: [
     new ContentController(),
     new AssetsController(),
     new SSRController(),
   ],
+  port,
 });
 
 app.listen();
