@@ -1,6 +1,7 @@
 export interface IAppConfig {
+  readonly apiUrl: string;
+  readonly canonicalUrl: string;
   readonly appIconSizes: number[];
-  readonly baseUrl: string;
   readonly cacheName: string;
   readonly port: string;
   enableCache: boolean;

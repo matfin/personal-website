@@ -16,7 +16,7 @@ We should have the basic files in place before we install any dependencies
 - code lint tools
 - basic REST server to serve assets and content
 - better path aliasing for module imports
-- implemented server side rendering
+- implement server side rendering
 - progressive web app with offline capability
 - improved Lighthouse audit scores
 

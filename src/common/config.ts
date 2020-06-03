@@ -14,7 +14,8 @@ export const getConfig = (key: string, fallback: string): string | undefined => 
 };
 
 export const config = {
-  baseUrl: getConfig('BASE_URL', 'http://localhost'),
+  apiUrl: getConfig('API_URL', 'http://localhost:3000'),
+  canonicalUrl: getConfig('CANONICAL_URL', 'http://localhost:3000'),
   port: getConfig('PORT', '3000'),
   cacheName: getConfig('CACHE_NAME', 'mattfinucane.com'),
   enableCache: Boolean(process?.env?.ENABLE_CACHE),
