@@ -13,7 +13,7 @@ services:
       - PORT=3001
       - CACHE_NAME=mattfinucane.build
       - ENABLE_CACHE=true
-    command: yarn server
+    command: yarn prodserver
 
   nginx:
     container_name: nginx
