@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  app:
+    environment:
+      - API_URL=https://mattfinucane.com
+      - CANONICAL_URL=https://mattfinucane.com
+      - CACHE_NAME=mattfinucane.com
+
+  nginx:
+    environment:
+      - NGINX_HOST=mattfinucane.com
+      - SSL_CERTIFICATE=fullchain.pem
+      - SSL_CERTIFICATE_KEY=privkey.pem
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+
