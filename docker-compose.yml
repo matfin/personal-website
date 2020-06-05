@@ -3,6 +3,7 @@ version: '3'
 services:
   app:
     container_name: app
+    image: matfin/personal-website-app:latest
     restart: on-failure
     build:
       context: .
@@ -17,14 +18,21 @@ services:
 
   nginx:
     container_name: nginx
+    image: matfin/personal-website-nginx:latest
     build:
       context: .docker/nginx
       dockerfile: Dockerfile
+    environment:
+      - NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx
+      - NGINX_HOST=mattfinucane.build
+      - SSL_CERTIFICATE=server.crt
+      - SSL_CERTIFICATE_KEY=server.key
+      - PROXY_APP_PORT=3001
     links:
       - app
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ~/ssl/mattfinucane.build:/etc/ssl/mattfinucane.build/
+      - ~/ssl/letsencrypt:/etc/letsencrypt:ro
     command: nginx -g "daemon off;"

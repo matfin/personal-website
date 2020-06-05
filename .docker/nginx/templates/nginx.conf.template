@@ -5,7 +5,14 @@ events {
 http {
   server {
     listen 80;
-    server_name mattfinucane.build www.mattfinucane.build;
+    server_name mattfinucane.ie mattfinucane.eu;
+    return 301 https://${NGINX_HOST};
+  }
+
+  server {
+    listen 80;
+    server_name ${NGINX_HOST} www.${NGINX_HOST};
+
     location / {
       rewrite ^ https://$server_name$request_uri permanent;
     }
@@ -14,10 +21,10 @@ http {
   server {
     listen 443 ssl http2;
 
-    server_name mattfinucane.build;
+    server_name ${NGINX_HOST} www.${NGINX_HOST};
 
-    ssl_certificate       /etc/ssl/mattfinucane.build/server.crt;
-    ssl_certificate_key   /etc/ssl/mattfinucane.build/server.key;
+    ssl_certificate       /etc/letsencrypt/live/mattfinucane.com/${SSL_CERTIFICATE};
+    ssl_certificate_key   /etc/letsencrypt/live/mattfinucane.com/${SSL_CERTIFICATE_KEY};
     ssl_protocols         TLSv1 TLSv1.1 TLSv1.2;
     ssl_ciphers           HIGH:!aNULL:!MD5;
 
@@ -38,7 +45,7 @@ http {
     gzip_disable	"MSIE [1-6]\.";
 
     location / {
-      proxy_pass          http://app:3001;
+      proxy_pass          http://app:${PROXY_APP_PORT};
       proxy_http_version  1.1;
       proxy_set_header    Upgrade $http_upgrade;
       proxy_set_header    Connection 'upgrade';
