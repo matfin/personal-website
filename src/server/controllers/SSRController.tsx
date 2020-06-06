@@ -1,54 +1,67 @@
 import React from 'react';
 import { Store } from 'redux';
 import { Helmet, HelmetData } from 'react-helmet';
-import { renderToString } from 'react-dom/server';
+import { renderToNodeStream } from 'react-dom/server';
 import {
   NextFunction, Request, Response, Router,
 } from 'express';
-import fs from 'fs';
-import path from 'path';
 import { ServerStyleSheet } from 'styled-components';
 import createStoreWithPreloadedState from 'common/store';
 import { fetchPage } from 'app/views/page/actions';
 import config from 'common/config';
 import { IBaseController } from 'server/interfaces';
+import { indexTemplate } from 'common/utils';
+import { CacheDictionary } from 'common/interfaces';
 import IndexComponent from '../IndexComponent';
 
 class SSRController implements IBaseController {
-  private baseFilePath: string = path.resolve(__dirname, '../../../public');
-
   private store: Store;
+
+  private caches: CacheDictionary;
 
   public router = Router();
 
   constructor() {
+    this.caches = {} as CacheDictionary;
     this.store = createStoreWithPreloadedState();
     this.initRoutes();
   }
 
   initRoutes = () => {
-    this.router.get('/:slug(projects|cv|now)?', this.reduxFetchPage, this.renderSSR);
+    this.router.get('/:slug(projects|cv|now)?', this.reduxFetchPage, this.sendSSR);
   };
 
   reduxFetchPage = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     const { slug } = req.params;
 
-    await this.store.dispatch<any>(fetchPage(slug || 'home'));
+    await this.store.dispatch<any>(fetchPage(slug || 'home')); //TODO: Cache this
     next();
   };
 
-  renderSSR = async (req: Request, res: Response): Promise<any> => {
-    const sheet = new ServerStyleSheet();
-    const preloadedState: any = this.store.getState();
-    const indexPath: string = `${this.baseFilePath}/index.html`;
-    const preloadedStateJson: string = JSON.stringify(preloadedState).replace(/</g, '\\u003c');
-    const { apiUrl, canonicalUrl, enableCache } = config;
-    let reactAppHtml: string;
-    let styleTags: string;
-    let helmet: HelmetData;
+  sendSSR = async (req: Request, res: Response): Promise<any> => {
+    const { slug } = req.params;
+    const { npm_package_version } = process.env;
+    const cacheKey = `${slug}-${npm_package_version}`;
 
-    try {
-      reactAppHtml = renderToString(
+    if (!this.caches[cacheKey]) {
+      try {
+        this.caches[cacheKey] = await this.generateSSRContent(req);
+      } catch (e) {
+        return res.status(500).send({e: e.toString()});
+      }
+    }
+
+    return res.status(200).send(this.caches[cacheKey]);
+  };
+
+  generateSSRContent = (req: Request): Promise<string> => {
+    return new Promise((resolve, reject): void => {
+      const sheet = new ServerStyleSheet();
+      const { npm_package_version } = process.env;
+      const preloadedState: any = this.store.getState();
+      const preloadedStateJson: string = JSON.stringify(preloadedState).replace(/</g, '\\u003c');
+      const { apiUrl, canonicalUrl, enableCache } = config;
+      const bodyStream: NodeJS.ReadableStream = renderToNodeStream(
         sheet.collectStyles(
           <IndexComponent
             context={{}}
@@ -57,55 +70,38 @@ class SSRController implements IBaseController {
           />,
         ),
       );
-      styleTags = sheet.getStyleTags();
-      helmet = Helmet.renderStatic();
-    } catch (error) {
-      return res.status(500).json({ error: error.toString() });
-    } finally {
-      sheet.seal();
-    }
+      const body: string[] = [];
 
-    fs.readFile(indexPath, 'utf-8', (error: any, data: string): any => {
-      if (error) {
-        return res.status(500).json({ error });
-      }
+      bodyStream.on('data', (chunk: any) => {
+        body.push(chunk.toString());
+      });
 
-      const payload = data
-        .replace(
-          '<style type="text/css"></style>',
-          `${styleTags}`,
-        )
-        .replace(
-          // eslint-disable-next-line quotes
-          `<div id="root"></div>`,
-          `<div id="root">${reactAppHtml}</div>`,
-        )
-        .replace(
-          '<script>PRELOADED_STATE</script>',
-          `<script type="text/javascript">window._PRELOADED_STATE_ = ${preloadedStateJson};</script>`,
-        )
-        .replace(
-          'ENABLE_CACHE',
-          enableCache ? 'true' : 'false'
-        ).replace(
-          '<script>API_URL</script>',
-          `<script type="text/javascript">window.API_URL = '${apiUrl}';</script>`,
-        ).replace(
-          '<script>CANONICAL_URL</script>',
-          `<script type="text/javascript">window.CANONICAL_URL = '${canonicalUrl}';</script>`,
-        ).replace(
-          '_HELMET_',
-          `
-            ${helmet.title.toString()}
-            ${helmet.meta.toString()}
-          `
-        );
+      bodyStream.on('error', (error: any) => {
+        reject({
+          error: error.toString()
+        });
+      });
 
-      return res
-        .status(200)
-        .send(payload);
+      bodyStream.on('end', () => {
+        const styleTags: string = sheet.getStyleTags();
+        const helmet: HelmetData = Helmet.renderStatic();
+        const payload: string = indexTemplate({
+          apiUrl,
+          canonicalUrl,
+          enableServiceWorker: enableCache,
+          helmet,
+          packageVersion: npm_package_version,
+          preloadedState: preloadedStateJson,
+          reactAppHtml: body.join(''),
+          styleTags
+        });
+
+        sheet.seal();
+
+        resolve(payload);
+      });
     });
-  }
+  };
 }
 
 export default SSRController;

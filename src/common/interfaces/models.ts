@@ -61,3 +61,6 @@ export interface IProject {
   url?: string;
 }
 
+export interface CacheDictionary {
+  [index: string]: string,
+}

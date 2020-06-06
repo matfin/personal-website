@@ -12,6 +12,7 @@ export interface IProps {
 export const Meta = ({ description, title, slug = '' }: IProps): JSX.Element => (
   <Helmet>
     <title>{title}</title>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
     <meta name="theme-color" content={colours.secondary} />
     <meta name="description" content={description} />
