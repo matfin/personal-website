@@ -14,6 +14,7 @@ export const NavSt = styled.nav`
 export const LinkSt = styled(Link)<ILinkStProps>`
   position: relative;
   flex: 0 1 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   margin-top: 2rem;

@@ -1,10 +1,10 @@
 export interface IAppConfig {
-  readonly apiUrl: string;
-  readonly canonicalUrl: string;
   readonly appIconSizes: number[];
+  readonly apiUrl: string;
   readonly cacheName: string;
-  readonly port: string;
+  readonly canonicalUrl: string;
   enableCache: boolean;
+  readonly port: string;
 }
 
 export type ContentTypes = IContentItem | ITopic | IPosition | IProject | string;

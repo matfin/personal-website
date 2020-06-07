@@ -1,8 +1,8 @@
 import express, { Router } from 'express';
 import AssetsController from './AssetsController';
 
-describe('AssetsController tests', () => {
-  it('should initialise routes', async () => {
+describe('AssetsController tests', (): void => {
+  it('should initialise routes', async (): Promise<void> => {
     const spyUse = jest.fn() as jest.MockedFunction<typeof Router>;
 
     jest.spyOn(express, 'Router').mockReturnValue({

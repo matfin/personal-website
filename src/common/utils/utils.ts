@@ -63,3 +63,5 @@ export const splitContent = (text: string): string[] => {
 
   return text.split(regexp);
 };
+
+export const isServer = (): boolean => typeof window === 'undefined';
