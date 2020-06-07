@@ -8,7 +8,7 @@ import SSRController from './SSRController';
 import { Helmet } from 'react-helmet';
 
 jest.mock('common/store');
-jest.mock('common/config', () => ({
+jest.mock('common/config', (): any => ({
   enableCache: true,
 }));
 jest.mock('server/IndexComponent');
@@ -16,14 +16,7 @@ jest.mock('react-dom/server');
 
 Helmet.canUseDOM = false;
 
-const stripSpaces = (str: string): string => str.replace(/\s/g, '');
-
-const mockedHtml = `
-  <script>PRELOADED_STATE</script>
-  <script type="text/javascript">const enableServiceWorker = ENABLE_CACHE;</script>
-`;
-
-describe('SSRController tests', () => {
+describe('SSRController tests', (): void => {
   const spyDispatch = jest.fn();
   const spyGetState = jest.fn();
 
@@ -45,7 +38,7 @@ describe('SSRController tests', () => {
     config.mockReset();
   });
 
-  it('should initialise the routes and set up the redux store', async () => {
+  it('should initialise the routes and set up the redux store', async (): Promise<void> => {
     const spyGet = jest.fn() as jest.MockedFunction<typeof Router>;
 
     jest.spyOn(express, 'Router').mockReturnValue({
@@ -57,7 +50,7 @@ describe('SSRController tests', () => {
     expect(spyGet).toHaveBeenCalledWith('/:slug(projects|cv|now)?', expect.any(Function), expect.any(Function));
   });
 
-  it('should dispatch to fetch a page and call next', async () => {
+  it('should dispatch to fetch a page and call next', async (): Promise<void> => {
     const spyFetchStory = jest.spyOn(pageActions, 'fetchPage');
     const spyNext = jest.fn();
 
@@ -78,7 +71,7 @@ describe('SSRController tests', () => {
     spyFetchStory.mockReset();
   });
 
-  it('should dispatch to fetch home page by default and call next', async () => {
+  it('should dispatch to fetch home page by default and call next', async (): Promise<void> => {
     const spyFetchStory = jest.spyOn(pageActions, 'fetchPage');
     const spyNext = jest.fn();
 
@@ -95,7 +88,7 @@ describe('SSRController tests', () => {
     spyFetchStory.mockReset();
   });
 
-  it('should generate SSR content then send it', async () => {
+  it('should generate SSR content then send it', async (): Promise<void> => {
     const spySend = jest.fn();
     const spyStatus = jest.fn().mockReturnValue({
       send: spySend,
@@ -125,7 +118,7 @@ describe('SSRController tests', () => {
     spyGenerateSSRContent.mockReset();
   });
 
-  it('should send an error if content could not be generated', async () => {
+  it('should send an error if content could not be generated', async (): Promise<void> => {
     const spySend = jest.fn();
     const spyStatus = jest.fn().mockReturnValue({
       send: spySend,
@@ -150,7 +143,7 @@ describe('SSRController tests', () => {
     spyGenerateSSRContent.mockReset();
   });
 
-  it('generates SSR content', async() => {
+  it('generates SSR content', async(): Promise<void> => {
     const request = {
       params: {
         slug: 'test-slug'
@@ -174,7 +167,7 @@ describe('SSRController tests', () => {
     spyOn.mockRestore();
   });
 
-  it('fails to generate SSR content', async() => {
+  it('fails to generate SSR content', async (): Promise<void> => {
     const request = {
       params: {
         slug: 'test-slug'

@@ -14,6 +14,10 @@ describe('Meta tests', () => {
     const helmet: HelmetData = Helmet.peek();
     const expectedMetaTags = [
       {
+        name: 'apple-mobile-web-app-status-bar-style',
+        content: 'black-translucent',
+      },
+      {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1, user-scalable=yes'
       },
@@ -43,7 +47,7 @@ describe('Meta tests', () => {
     const helmet = Helmet.peek();
 
     expect(wrapper).toBeTruthy();
-    expect(helmet.metaTags[4]).toEqual({
+    expect(helmet.metaTags[5]).toEqual({
       property: 'og:url',
       content: 'http://localhost:3000/test-slug'
     });

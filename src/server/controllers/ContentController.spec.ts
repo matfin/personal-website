@@ -1,8 +1,8 @@
 import express, { Request, Response, Router } from 'express';
 import ContentController from './ContentController';
 
-describe('ContentController tests', () => {
-  it('should initialise routes', async () => {
+describe('ContentController tests', (): void => {
+  it('should initialise routes', async (): Promise<void> => {
     const spyGet = jest.fn() as jest.MockedFunction<typeof Router>;
 
     jest.spyOn(express, 'Router').mockReturnValue({

@@ -1,6 +1,6 @@
 import { indexTemplate, IProps } from './templates';
 
-describe('indexTemplate tests', () => {
+describe('indexTemplate tests', (): void => {
   it('should render the correct html output', (): void => {
     const defaultProps: IProps = {
       apiUrl: 'https://test.ie',
