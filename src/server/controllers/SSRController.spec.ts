@@ -1,6 +1,5 @@
-import fs from 'fs';
-import { renderToString } from 'react-dom/server';
-import express, { Request, Response, Router } from 'express';
+import express, { Response, Router } from 'express';
+import * as reactDomServer from 'react-dom/server';
 import createStoreWithPreloadedState from 'common/store';
 import config from 'common/config';
 import * as pageActions from 'app/views/page/actions';
@@ -27,7 +26,6 @@ const mockedHtml = `
 describe('SSRController tests', () => {
   const spyDispatch = jest.fn();
   const spyGetState = jest.fn();
-  const spyReadFile = jest.spyOn(fs, 'readFile');
 
   IndexComponent.mockReturnValue('div');
 
@@ -39,14 +37,12 @@ describe('SSRController tests', () => {
   afterEach(() => {
     spyDispatch.mockClear();
     spyGetState.mockClear();
-    spyReadFile.mockClear();
   });
 
   afterAll(() => {
     IndexComponent.mockReset();
     createStoreWithPreloadedState.mockReset();
     config.mockReset();
-    spyReadFile.mockReset();
   });
 
   it('should initialise the routes and set up the redux store', async () => {
@@ -99,115 +95,104 @@ describe('SSRController tests', () => {
     spyFetchStory.mockReset();
   });
 
-  it('should send SSR rendered content', async () => {
+  it('should generate SSR content then send it', async () => {
     const spySend = jest.fn();
     const spyStatus = jest.fn().mockReturnValue({
       send: spySend,
     });
-    const res: Response = {
-      status: spyStatus,
-    } as any;
-    const expected = stripSpaces(`
-      <script type="text/javascript">window._PRELOADED_STATE_ = {};</script>
-      <script type="text/javascript">const enableServiceWorker = true;</script>
-    `);
-
-    spyGetState.mockResolvedValue({ test: 'state' });
-    spyReadFile.mockImplementation(
-      (indexPath: unknown, charset: string, cb: Function): void => {
-        cb(null, mockedHtml as string);
+    const request: any = {
+      params: {
+        slug: 'test-slug'
       }
-    );
+    };
+    const response: any = {
+      status: spyStatus,
+    };
+    const ssrController = new SSRController();
+    const spyGenerateSSRContent = jest.spyOn(ssrController, 'generateSSRContent')
+      .mockReturnValue(Promise.resolve('<p>test</p>'));
 
-    await new SSRController().renderSSR({} as Request, res);
+    // make the call with no cache - cache miss
+    await ssrController.sendSSR(request, response);
+    await expect(spyGenerateSSRContent).toHaveBeenCalledWith(request);
+    await expect(spyStatus).toHaveBeenCalledWith(200);
+    await expect(spySend).toHaveBeenCalledWith('<p>test</p>');
 
-    expect(spyStatus).toHaveBeenCalled();
-    expect(spyStatus).toHaveBeenCalledWith(200);
-    expect(spySend).toHaveBeenCalled();
-    expect(
-      stripSpaces(spySend.mock.calls[0][0])
-    ).toEqual(expected);
+    // then make the call with cache present - cache hit
+    ssrController.sendSSR(request, response);
+    await expect(spyGenerateSSRContent).toHaveBeenCalledTimes(1);
 
-    spyReadFile.mockReset();
+    spyGenerateSSRContent.mockReset();
   });
 
-  it('should send SSR rendered content with caching disabled', async () => {
+  it('should send an error if content could not be generated', async () => {
     const spySend = jest.fn();
     const spyStatus = jest.fn().mockReturnValue({
       send: spySend,
     });
-    const res: Response = {
-      status: spyStatus,
-    } as any;
-    const expected = stripSpaces(`
-      <script type="text/javascript">window._PRELOADED_STATE_ = {};</script>
-      <script type="text/javascript">const enableServiceWorker = false;</script>
-    `);
-
-    spyGetState.mockResolvedValue({ test: 'state' });
-    config.enableCache = false;
-    spyReadFile.mockImplementation(
-      (indexPath: unknown, charset: string, cb: Function): void => {
-        cb(null, mockedHtml as string);
+    const request: any = {
+      params: {
+        slug: 'test-slug'
       }
-    );
+    };
+    const response: any = {
+      status: spyStatus,
+    };
+    const ssrController = new SSRController();
+    const spyGenerateSSRContent = jest.spyOn(ssrController, 'generateSSRContent')
+      .mockRejectedValue('dummy error');
 
-    await new SSRController().renderSSR({} as Request, res);
-    expect(spyStatus).toHaveBeenCalled();
-    expect(spyStatus).toHaveBeenCalledWith(200);
-    expect(spySend).toHaveBeenCalled();
-    expect(
-      stripSpaces(spySend.mock.calls[0][0])
-    ).toEqual(expected);
+    await ssrController.sendSSR(request, response);
+    await expect(spyStatus).toHaveBeenCalled();
+    await expect(spyStatus).toHaveBeenCalledWith(500);
+    await expect(spySend).toHaveBeenCalledWith({ e: 'dummy error' });
 
-    spyReadFile.mockReset();
+    spyGenerateSSRContent.mockReset();
   });
 
-  it('should fail to render and return an error', async () => {
-    const spyJson = jest.fn();
-    const spyStatus = jest.fn().mockReturnValue({
-      json: spyJson,
-    });
-    const res: Response = {
-      status: spyStatus,
-    } as any;
-    const expected = { error: new Error('cannot-render-to-string').toString() };
+  it('generates SSR content', async() => {
+    const request = {
+      params: {
+        slug: 'test-slug'
+      }
+    };
+    const spyOn = jest.spyOn(reactDomServer, 'renderToNodeStream')
+      .mockReturnValue({
+        on: (type: string, cb: Function) => {
+          if (type === 'data') {
+            cb('test-chunk');
+          } else if (type === 'end') {
+            cb();
+          }
+        }
+      } as any);
+    const ssrController = new SSRController();
 
     spyGetState.mockResolvedValue({ test: 'state' });
-    renderToString.mockImplementation(() => {
-      throw new Error('cannot-render-to-string');
-    });
+    await expect(ssrController.generateSSRContent(request as any)).resolves.toBeTruthy();
 
-    await new SSRController().renderSSR({} as Request, res);
-    expect(spyStatus).toHaveBeenCalled();
-    expect(spyStatus).toHaveBeenCalledWith(500);
-    expect(spyJson).toHaveBeenCalled();
-    expect(spyJson).toHaveBeenCalledWith(expected);
-
-    renderToString.mockReset();
+    spyOn.mockRestore();
   });
 
-  it('should fail to read in the index content and return an error', async () => {
-    const spyJson = jest.fn();
-    const spyStatus = jest.fn().mockReturnValue({
-      json: spyJson,
-    });
-    const res: Response = {
-      status: spyStatus,
-    } as any;
+  it('fails to generate SSR content', async() => {
+    const request = {
+      params: {
+        slug: 'test-slug'
+      }
+    };
+    const spyOn = jest.spyOn(reactDomServer, 'renderToNodeStream')
+      .mockReturnValue({
+        on: (type: string, cb: Function) => {
+          if (type === 'error') {
+            cb('error');
+          }
+        }
+      } as any);
+    const ssrController = new SSRController();
 
-    spyReadFile.mockImplementation(
-      (path: string, encoding: string, callback: Function): void => {
-        callback(new Error('cannot-read-index'));
-      },
-    );
+    spyGetState.mockResolvedValue({ test: 'state' });
+    await expect(ssrController.generateSSRContent(request as any)).rejects.toEqual({ error: 'error' });
 
-    await new SSRController().renderSSR({} as Request, res);
-    expect(spyStatus).toHaveBeenCalled();
-    expect(spyStatus).toHaveBeenCalledWith(500);
-    expect(spyJson).toHaveBeenCalled();
-    expect(spyJson).toHaveBeenCalledWith({ error: new Error('cannot-read-index') });
-
-    spyReadFile.mockReset();
+    spyOn.mockRestore();
   });
 });

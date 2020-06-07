@@ -17,7 +17,7 @@ export const config = {
   apiUrl: getConfig('API_URL', 'http://localhost:3000'),
   canonicalUrl: getConfig('CANONICAL_URL', 'http://localhost:3000'),
   port: getConfig('PORT', '3000'),
-  cacheName: getConfig('CACHE_NAME', 'mattfinucane.com'),
+  cacheName: getConfig('CACHE_NAME', 'localhost'),
   enableCache: Boolean(process?.env?.ENABLE_CACHE),
   appIconSizes: [32, 48, 72, 96, 128, 144, 168, 192, 196, 512],
 } as IAppConfig;
