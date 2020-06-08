@@ -22,7 +22,6 @@ export const PageSt = styled.div<IPageStProps>`
   position: relative;
   display: grid;
   width: 100vw;
-  height: 100vh;
   overflow-x: hidden;
 
   grid-template-columns: 1rem auto 1rem;
@@ -60,6 +59,7 @@ export const SideSt = styled.aside<ISideStProps>`
   right: 0;
   width: 100vw;
   height: 100vh;
+  padding: 3rem 4rem;
   background: ${props => props?.theme?.colours?.secondary};
   box-shadow: none;
   transition: transform 0.5s ${animationCurve};
@@ -74,20 +74,10 @@ export const SideSt = styled.aside<ISideStProps>`
     position: unset;
     width: unset;
     height: unset;
+    padding: 0 2rem;
     grid-area: side;
     transform: unset;
     background: transparent;
-  `)};
-`;
-
-export const SideContainerSt = styled.div`
-  padding: 3rem 4rem;
-
-  ${media.md(css`
-    padding: 0 2rem;
-    position: sticky;
-    top: 0;
-    left: 0;
   `)};
 `;
 
