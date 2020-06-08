@@ -76,14 +76,12 @@ const Page = ({
       <BurgerSt navRevealed={showMenu} onClick={toggleMenu} />
       <PageSt navRevealed={showMenu}>
         <SideSt revealed={showMenu} onClick={hideMenu}>
-          <SideContainerSt>
-            <Nav />
-            <ToggleSt
-              data-testid="toggle"
-              value={currentTheme === ThemeType.DAY ? ToggleValue.OFF : ToggleValue.ON}
-              onToggle={toggleTheme}
-            />
-          </SideContainerSt>
+          <Nav />
+          <ToggleSt
+            data-testid="toggle"
+            value={currentTheme === ThemeType.DAY ? ToggleValue.OFF : ToggleValue.ON}
+            onToggle={toggleTheme}
+          />
         </SideSt>
         {
           pending ? (
