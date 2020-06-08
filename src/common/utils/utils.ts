@@ -32,7 +32,7 @@ export const isLink = (text?: string): boolean => {
 };
 
 export const isExternalUrl = (url: string): boolean => {
-  const regexp: RegExp = /https?:\/\//;
+  const regexp: RegExp = /(https?:\/\/|mailto:)/;
 
   return regexp.test(url);
 };

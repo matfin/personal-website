@@ -9,6 +9,8 @@ export interface IProps {
   slug?: string,
 }
 
+export const canonicalSlug = (slug: string): string => slug === 'home' ? '' : `/${slug}`;
+
 export const Meta = ({ description, title, slug = '' }: IProps): JSX.Element => (
   <Helmet>
     <title>{title}</title>
@@ -17,10 +19,10 @@ export const Meta = ({ description, title, slug = '' }: IProps): JSX.Element => 
     <meta name="theme-color" content={colours.secondary} />
     <meta name="description" content={description} />
     <meta name="author" content="Matt Finucane" />
-    <link rel="canonical" href={`${config.canonicalUrl}/${slug}`} />
+    <link rel="canonical" href={`${config.canonicalUrl}${canonicalSlug(slug)}`} />
     <link rel="manifest" href="/manifest.json" />
 
-    <meta property="og:url" content={`${config.canonicalUrl}/${slug}`} />
+    <meta property="og:url" content={`${config.canonicalUrl}${canonicalSlug(slug)}`} />
     <meta property="og:site_name" content="mattfinucane.com" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en-IE" />
@@ -30,7 +32,7 @@ export const Meta = ({ description, title, slug = '' }: IProps): JSX.Element => 
     <meta name="twitter:site" content="@matfinucane" />
     <meta name="twitter:creator" content="@matfinucane" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:url" content={`${config.canonicalUrl}/${slug}`} />
+    <meta name="twitter:url" content={`${config.canonicalUrl}${canonicalSlug(slug)}`} />
     <meta name="twitter:description" content={description} />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png" />

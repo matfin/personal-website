@@ -52,4 +52,15 @@ describe('Meta tests', () => {
       content: 'http://localhost:3000/test-slug'
     });
   });
+
+  it('omits the slug for the home page', () => {
+    const wrapper = render(<Meta {...defaultProps} slug="home" />);
+    const helmet = Helmet.peek();
+
+    expect(wrapper).toBeTruthy();
+    expect(helmet.metaTags[5]).toEqual({
+      property: 'og:url',
+      content: 'http://localhost:3000'
+    });
+  });
 });

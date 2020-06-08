@@ -1,5 +1,5 @@
 {
-  "title": "Matt Finucane - Me right now",
+  "title": "Matt Finucane - What am I doing now?",
   "description": "This is where I am and what I'm doing right now.",
   "slug": "now",
   "contents": [
@@ -9,45 +9,163 @@
       "content": [
         {
           "tagName": "h1",
-          "content": "Me right now"
+          "content": "What am I doing now?"
         },
         {
           "tagName": "h2",
-          "content": "This is where I am and where I want to go."
+          "content": "This is what is currently occupying my days."
+        },
+        {
+          "tagName": "p",
+          "content": "I created this page in addition to others as part of the [/now page movement](https://sivers.org/nowff). If I were to meet up with someone I had not seen in quite a while and talk shop, this is what we would cover. I will keep this up to date as much as I can."
         }
       ]
     },
     {
       "tagName": "section",
-      "id": "content",
+      "id": "at-home",
       "content": [
         {
-          "tagName": "p",
-          "content": "I am currently working (remotely) as a senior frontend engineer for [TravelPort Digital](https://www.travelport.com \"TravelPort Digital\"), a Dublin-based company specialising in IT solutions for the corporate travel industry. I act as a consultant and build solutions to problems with a team made up of many disciplines including UX designers, product owners and other engineers."
+          "tagName": "h3",
+          "content": "At home"
         },
         {
           "tagName": "p",
-          "content": "For the last three years, my primary focus has been on frontend development using ReactJS and the usual industry standard tools that come with it - [Jest](https://jestjs.io/ \"Jest\"), [webpack](https://webpack.js.org/ \"webpack\"), [TypeScript](https://www.typescriptlang.org/ \"TypeScript\") and [Babel](https://babeljs.io/ \"Babel\") - to name but a few. These are the tools I am most comfortable working with, but I am always open to trying out new things and experimenting. For instance, I have tested the components for this website with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro \"Testing Library\")."
+          "content": "Aside from doing my day job at home (given the restrictions in place due to Covid19), I have been honing my skills in front end development by building this website."
         },
         {
           "tagName": "p",
-          "content": "I am a strong proponent of a remote-first or hybrid work policy, and I don’t believe it is necessary to have to go into an office five days of the week. Our World is changing right now, and we are already starting to see remote work become the norm."
+          "content": "I have always maintained a good home office set up in any place I have lived, because I want to be able to work and learn in a distraction-free environment."
         },
         {
           "tagName": "p",
-          "content": "I think that governments around the World need to take the initiative and invest heavily in broadband infrastructure, so that it can be brought to more homes (especially in more remote areas). With that, we will see the return of skilled workers to these areas and thus, rejuvenation."
+          "content": "When I am not coding, I like taking and editing photos. I have my own personal photography website at [https://cinematt.photography](https://cinematt.photography \"Personal photography website\") which showcases some of my work."
         },
         {
           "tagName": "p",
-          "content": "I work best with well thought out, documented and supported frameworks and libraries. I love working with [ReactJS](https://reactjs.org/ \"ReactJS\"), and thoroughly enjoyed [Meteor](https://www.meteor.com/ \"Meteor\") and [PolymerJS](https://www.polymer-project.org/ \"Polymer Project\"). They adhere to the principles of testability, simplicity and re-usability and they have some very clever people working behind them."
+          "content": "When I am not in front of my computer, I enjoy cycling, hiking and running. In 2017, I completed a 1,200km round-trip cycle tour which took me through Germany, Denmark, Sweden and Poland."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "my-setup",
+      "content": [
+        {
+          "tagName": "h3",
+          "content": "My setup"
+        },
+        {
+          "tagName": "ul",
+          "content": [
+            {
+              "tagName": "li",
+              "content": "MacBook Pro (16-inch, 2019)"
+            },
+            {
+              "tagName": "li",
+              "content": "2.4ghz Intel Core i9"
+            },
+            {
+              "tagName": "li",
+              "content": "32gb Ram"
+            },
+            {
+              "tagName": "li",
+              "content": "1TB SSD"
+            },
+            {
+              "tagName": "li",
+              "content": "27-inch LG HDR 4K display"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "currently-learning",
+      "content": [
+        {
+          "tagName": "h3",
+          "content": "What I am learning now"
         },
         {
           "tagName": "p",
-          "content": "When I am not in front of the computer, I like taking photos, cycling, running and sitting in front of the computer experimenting with new things. My [GitHub profile](https://github.com/matfin \"matfin (Matt Finucane) on GitHub\") has a ton of my personal projects that I have worked on in my spare time. If you like photos, you can check out my [personal photography website](https://cinematt.photography \"Personal Photography Website\")."
+          "content": "I have been working on this website as part of a learning exercise to sharpen my skills in the important areas of web application development. I built this from scratch so I could gain a deeper understanding of all the moving parts, and how they interact with one another. I wanted to know more about topics such as:"
+        },
+        {
+          "tagName": "ul",
+          "content": [
+            {
+              "tagName": "li",
+              "content": "Exploring TypeScript more and applying this to the whole React / Redux set up."
+            },
+            {
+              "tagName": "li",
+              "content": "Building a performant website and PWA (progressive web application) with content caching and offline capability."
+            },
+            {
+              "tagName": "li",
+              "content": "Better dependency management and code splitting with webpack."
+            },
+            {
+              "tagName": "li",
+              "content": "Server side rendering to improve content delivery timing."
+            },
+            {
+              "tagName": "li",
+              "content": "Building and deploying the website with Docker / Compose and using an Nginx reverse proxy to serve secure and compressed content."
+            }
+          ]
         },
         {
           "tagName": "p",
-          "content": "I am also somewhat active on [Twitter](https://twitter.com/matfinucane \"@matfinucane on Twitter\") but use it more for catching up on news and tech related discussion. You can also find me on [LinkedIn](https://www.linkedin.com/in/mattfinucane/ \"Matt Finucane on LinkedIn\")."
+          "content": "I had dabbled in the above topics when working on the hey.car website, but I never had a deep understanding of how they worked until I took them on myself and built from the ground up, facing the challenges along the way."
+        },
+        {
+          "tagName": "p",
+          "content": "So why didn’t I use something like Gatsby or Netlify or even WordPress? I would consider using these at a later date, but the purpose of this website is to know exactly what is going on, so I can understand the magic happening underneath the magic."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "in-work",
+      "content": [
+        {
+          "tagName": "h3",
+          "content": "In work"
+        },
+        {
+          "tagName": "p",
+          "content": "In my career, I would ascribe to being an individual contributor / principal engineer as opposed to someone in a managerial role (think CTO or engineering manager)."
+        },
+        {
+          "tagName": "p",
+          "content": "I work as a senior front end engineer for a company called TravelPort Digital who are based in Dublin, Ireland. My day to day job involves migrating an old legacy code base to ReactJS and this includes the gradual adoption of styled-components, improving test coverage and rewriting components in ReactJS."
+        },
+        {
+          "tagName": "p",
+          "content": "I have experience working as a freelance contractor as well as a full-time employee, and I have worked remotely (from shared offices or at home) as well as being on-site full time."
+        },
+        {
+          "tagName": "p",
+          "content": "My preference is to work on site, as long as getting there is easy. In the situation where commutes are very long and drawn out, I would prefer the hybrid approach of working from home - coming into the office one or two days during the week to maintain a presence and human contact."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "privacy",
+      "content": [
+        {
+          "tagName": "h3",
+          "content": "Privacy"
+        },
+        {
+          "tagName": "p",
+          "content": "I am a strong advocate for user privacy and as a visitor to to site, I respect your right to your own privacy and anonymity. This is why I will never install any tracking or analytical tools. Thanks for visiting."
         }
       ]
     }

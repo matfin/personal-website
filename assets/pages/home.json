@@ -17,11 +17,11 @@
         },
         {
           "tagName": "p",
-          "content": "I have 15 years of experience under my belt working on a wide variety of projects across multiple domains and in differnt workplace settings."
+          "content": "I have fifteen years of experience working with a wide variety of projects across multiple domains and in different workplace settings."
         },
         {
           "tagName": "p",
-          "content": "I have worked on projects in-house, for agencies and as a freelancer in both capacities. I have worked from shared offices and remotely."
+          "content": "I have worked with agencies on their client's projects, as well as in-house - both on-site and remotely from home and from shared office spaces."
         },
         {
           "tagName": "p",
@@ -29,7 +29,7 @@
         },
         {
           "tagName": "p",
-          "content": "Please feel free to take a look around this website, which showcases my skills and experience, and get in touch if you need anything :)"
+          "content": "Please feel free to take a look around this website, which showcases my skills, experience, projects and where I am now."
         }
       ]
     },
@@ -177,7 +177,7 @@
               "category": "tools",
               "description": "Webpack is a module bundler that delivers assets for a web application to the browser.",
               "slug": "webpack",
-              "title": "Webpack"
+              "title": "webpack"
             },
             {
               "category": "tools",
@@ -422,7 +422,11 @@
       "content": [
         {
           "tagName": "p",
-          "content": "If you are looking for somebody with strong technical and communication skills to take on a project at any stage in its lifecycle, I would be more than happy to work with you on that."
+          "content": "If you are looking for somebody with strong technical and communication skills to take on a project at any stage in its lifecycle, please feel free to reach out to [me@mattfinucane.com](mailto:me@mattfinucane.com)."
+        },
+        {
+          "tagName": "p",
+          "content": "Just a small note. If you are contacting me to offer me website optimisation / SEO / engineering services, I already have these covered. Thank you."
         },
         {
           "tagName": "p",

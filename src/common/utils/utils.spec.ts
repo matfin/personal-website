@@ -1,5 +1,10 @@
-import { formatDate, isLink, toLinkObject, splitContent } from './utils';
-import { utimes } from 'fs';
+import {
+  formatDate,
+  isExternalUrl,
+  isLink,
+  toLinkObject,
+  splitContent
+} from './utils';
 
 describe('utils tests', (): void => {
   it('should format a date', (): void => {
@@ -18,6 +23,13 @@ describe('utils tests', (): void => {
     expect(isLink('I do indeed [have a link](/link "A link!") contained in me!')).toBe(true);
     expect(isLink('I am [a link](/a-link) with no title!')).toBe(true);
     expect(isLink('I am [a malformed] (/a-link) because of the space!')).toBe(false);
+  });
+
+  it('checks to see if a url is external', () => {
+    expect(isExternalUrl('https://www.test.de')).toBe(true);
+    expect(isExternalUrl('http://www.test.de')).toBe(true);
+    expect(isExternalUrl('/test-content')).toBe(false);
+    expect(isExternalUrl('mailto:test@test.de')).toBe(true);
   });
 
   it('converts a markdown style link to a link object', (): void => {
