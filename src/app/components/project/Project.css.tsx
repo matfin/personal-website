@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 import {
-  animationCurve,
-  colours,
-  media,
+  blackEmoji,
   subHeadingTypography,
   textTypography,
 } from 'app/styles';
@@ -17,6 +15,7 @@ export const ProjectSt = styled.a`
     display: flex;
     justify-content: center;
     margin: 1rem 0;
+    ${blackEmoji};
     content: "⚡";
   }
 `;

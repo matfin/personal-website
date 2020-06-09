@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {
+  fontWeight,
   listItemStyle,
   subHeadingTypography,
   textTypography,
@@ -21,6 +22,7 @@ export const LocationAndRoleSt = styled.h4`
 
 export const DateFromToSt = styled.h4`
   ${thirdHeadingTypography};
+  font-weight: ${fontWeight.bold};
 `;
 
 export const TaskListSt = styled.ul`

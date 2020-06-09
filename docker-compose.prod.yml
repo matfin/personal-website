@@ -5,7 +5,6 @@ services:
     environment:
       - API_URL=https://mattfinucane.com
       - CANONICAL_URL=https://mattfinucane.com
-      - CACHE_NAME=mattfinucane.com
 
   nginx:
     environment:

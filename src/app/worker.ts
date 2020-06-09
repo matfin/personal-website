@@ -8,7 +8,6 @@ const urlsToCache = [
   '/manifest.json',
   '/scripts/main.bundle.js',
   '/scripts/vendors~main.bundle.js',
-  '/scripts/worker.bundle.js',
   ...appIconPaths,
 ];
 
@@ -28,8 +27,7 @@ const onActivate = (event: ExtendableEvent): void => {
   );
 
   event.waitUntil([
-    clearCaches,
-    self.clients.claim(),
+    clearCaches(),
   ]);
 };
 

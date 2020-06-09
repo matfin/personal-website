@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { animationCurve, layers } from 'app/styles';
+import { animationCurve, blackEmoji, layers } from 'app/styles';
 
 interface IToggleIndicatorStProps {
   switchedOn?: boolean
@@ -7,11 +7,10 @@ interface IToggleIndicatorStProps {
 
 const iconStyle = css`
   position: absolute;
-  font-size: 1rem;
-  line-height: 1.25rem;
-  color: transparent;
-  text-shadow: 0 0 0 ${props => props?.theme?.colours?.primary};
-  top: 0;
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+  ${blackEmoji};
+  top: -2px;
 `;
 
 export const ToggleTrackSt = styled.div`
@@ -23,13 +22,13 @@ export const ToggleTrackSt = styled.div`
 
   &::before {
     ${iconStyle};
-    left: 0;
+    left: 4px;
     content: "☀️";
   }
 
   &::after {
     ${iconStyle};
-    right: 0;
+    right: 2px;
     content: "🌙";
   }
 `;
@@ -37,10 +36,10 @@ export const ToggleTrackSt = styled.div`
 export const ToggleIndicatorSt = styled.div<IToggleIndicatorStProps>`
   z-index: ${layers.upper};
   position: absolute;
-  top: 0;
-  left: ${props => props.switchedOn ? '1.5rem' : 0};
-  width: 1.25rem;
-  height: 1.25rem;
+  top: -2px;
+  left: ${props => props.switchedOn ? '1.5rem' : '-2px'};
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   background: ${props => props?.theme?.colours?.primary};
 
