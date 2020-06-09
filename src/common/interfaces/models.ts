@@ -3,7 +3,7 @@ export interface IAppConfig {
   readonly apiUrl: string;
   readonly cacheName: string;
   readonly canonicalUrl: string;
-  enableCache: boolean;
+  readonly enableCache: boolean;
   readonly port: string;
 }
 

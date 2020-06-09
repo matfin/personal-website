@@ -12,7 +12,6 @@ services:
       - API_URL=https://mattfinucane.build
       - CANONICAL_URL=https://mattfinucane.build
       - PORT=3001
-      - CACHE_NAME=mattfinucane.build
       - ENABLE_CACHE=true
     command: yarn prodserver
 

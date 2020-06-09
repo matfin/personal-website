@@ -23,6 +23,41 @@
     },
     {
       "tagName": "section",
+      "id": "finding-me",
+      "content": [
+        {
+          "tagName": "h3",
+          "content": "Where can I be found?"
+        },
+        {
+          "tagName": "ul",
+          "content": [
+            {
+              "tagName": "li",
+              "content": "[GitHub](https://github.com/matfin \"Matt Finucane on GitHub\") is where I have several repositories of the various projects I have worked on over the years."
+            },
+            {
+              "tagName": "li",
+              "content": "[Twitter](https://twitter.com/matfinucane \"Matt Finucane on Twitter\") is a great resource for news and I use this regularly."
+            },
+            {
+              "tagName": "li",
+              "content": "[LinkedIn](https://www.linkedin.com/in/mattfinucane/ \"Matt Finucane on LinkedIn\") is what I use on occasion."
+            },
+            {
+              "tagName": "li",
+              "content": "[StackOverflow](https://stackoverflow.com/users/1515180/matfin \"Matt Finucane on StackOverflow\") is a very useful resource."
+            },
+            {
+              "tagName": "li",
+              "content": "[me@mattfinucane.com](mailto:me@mattfinucane.com \"Email Matt Finucane\") is where I can be reached, but please don’t mail me offering web or SEO services. I have these covered already."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "section",
       "id": "at-home",
       "content": [
         {
@@ -152,6 +187,74 @@
         {
           "tagName": "p",
           "content": "My preference is to work on site, as long as getting there is easy. In the situation where commutes are very long and drawn out, I would prefer the hybrid approach of working from home - coming into the office one or two days during the week to maintain a presence and human contact."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "blogs-and-books",
+      "content": [
+        {
+          "tagName": "h3",
+          "content": "Some recommended reading"
+        },
+        {
+          "tagName": "p",
+          "content": "Here are some blogs I like to read and would highly recommend for engineers at any level."
+        },
+        {
+          "tagName": "ul",
+          "content": [
+            {
+              "tagName": "li",
+              "content": "[Overreacted](https://overreacted.io/ \"Dan Abramov’s personal blog\") is the personal blog of Dan Abrambov."
+            },
+            {
+              "tagName": "li",
+              "content": "[Sara Soueidan](https://www.sarasoueidan.com/ \"Sara Soueidan\") is a prominent developer, designer and voice for UX and accessibility."
+            },
+            {
+              "tagName": "li",
+              "content": "[CSS Tricks](https://css-tricks.com/ \"CSS Tricks by Chris Coyier\") which is a very useful resource for CSS related knowledge."
+            },
+            {
+              "tagName": "li",
+              "content": "[Kent Dodds](https://kentcdodds.com/ \"Kent Dodds\") curated by the person who created the React Testing Library."
+            },
+            {
+              "tagName": "li",
+              "content": "[Monica Dinculescu](https://meowni.ca/ \"Monica Dinculescu\") works for Google and helped create the PolymerJS web framework."
+            }
+          ]
+        },
+        {
+          "tagName": "p",
+          "content": "As well as this, here are some books I have read that made a big impact on me."
+        },
+        {
+          "tagName": "ul",
+          "content": [
+            {
+              "tagName": "li",
+              "content": "JavaScript: The Good Parts - Douglas Crockford"
+            },
+            {
+              "tagName": "li",
+              "content": "Get Sh*t Done - Niall Harbison"
+            },
+            {
+              "tagName": "li",
+              "content": "Ishmael - Daniel Quinn"
+            },
+            {
+              "tagName": "li",
+              "content": "A Language Older Than Words - Derrick Jensen"
+            },
+            {
+              "tagName": "li",
+              "content": "The Great War for Civilisation - Robert Fisk"
+            }
+          ]
         }
       ]
     },

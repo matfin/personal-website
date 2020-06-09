@@ -14,7 +14,10 @@ export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
   {} as { [key in keyof typeof sizes]: any },
 );
 
-export default media;
+export const blackEmoji = css`
+  color: transparent;
+  text-shadow: 0 0 0 ${props => props?.theme?.colours?.primary};
+`;
 
 export const listItemStyle = css`
   position: relative;
@@ -23,7 +26,11 @@ export const listItemStyle = css`
 
   &::before {
     position: absolute;
+    ${blackEmoji}
+    font-size: 0.75rem;
     left: 0;
     content: "⚡";
   }
 `;
+
+export default media;

@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import {
   animationCurve,
-  colours,
   headingTypography,
   layers,
   listItemStyle,

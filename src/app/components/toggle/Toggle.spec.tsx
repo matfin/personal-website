@@ -39,7 +39,7 @@ describe('Toggle tests', () => {
     const wrapper = render(<Toggle {...defaultProps} />);
     const indicator = wrapper.getByTestId('indicator');
 
-    expect(indicator).toHaveStyleRule('left', '0');
+    expect(indicator).toHaveStyleRule('left', '-2px');
   });
 
   it('shows the correct toggle position given ON state', () => {
