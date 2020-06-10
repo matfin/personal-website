@@ -36,6 +36,10 @@ class AssetsController implements IBaseController {
         dir: `${this.assetsFilePath}/metadata/manifest.json`
       },
       {
+        path: '/robots.txt',
+        dir: `${this.assetsFilePath}/metadata/robots.txt`
+      },
+      {
         path: '/scripts',
         dir: `${this.distAppFilePath}/app`
       },
