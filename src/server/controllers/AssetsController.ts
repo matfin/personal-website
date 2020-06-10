@@ -5,6 +5,11 @@ import {
 import path from 'path';
 import { IBaseController } from 'server/interfaces';
 
+interface IRoutePair {
+  path: string,
+  dir: string,
+}
+
 class AssetsController implements IBaseController {
   private distAppFilePath: string = path.resolve(__dirname, '../../../dist');
 
@@ -17,10 +22,31 @@ class AssetsController implements IBaseController {
   }
 
   initRoutes = () => {
-    this.router.use('/scripts', expressStatic(`${this.distAppFilePath}/app`));
-    this.router.use('/images', expressStatic(`${this.assetsFilePath}/images`));
-    this.router.use('/manifest.json', expressStatic(`${this.assetsFilePath}/metadata/manifest.json`));
-    this.router.use('/worker.js', expressStatic(`${this.distAppFilePath}/app/worker.bundle.js`));
+    const routes: IRoutePair[] = [
+      {
+        path: '/docs',
+        dir: `${this.assetsFilePath}/docs`
+      },
+      {
+        path: '/images',
+        dir: `${this.assetsFilePath}/images`
+      },
+      {
+        path: '/manifest.json',
+        dir: `${this.assetsFilePath}/metadata/manifest.json`
+      },
+      {
+        path: '/scripts',
+        dir: `${this.distAppFilePath}/app`
+      },
+      {
+        path: '/worker.js',
+        dir: `${this.distAppFilePath}/app/worker.bundle.js`
+      }
+    ];
+
+    routes.forEach(({ dir, path }: IRoutePair) =>
+      this.router.use(path, expressStatic(dir)));
   }
 }
 

@@ -1,0 +1,47 @@
+
+{
+  "title": "Matt Finucane - Not found",
+  "description": "Content not found",
+  "slug": "404",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "notfound",
+      "content": [
+        {
+          "tagName": "h1",
+          "content": "Not found!"
+        },
+        {
+          "tagName": "h2",
+          "content": "Sorry. It looks like we don't have what you're looking for."
+        },
+        {
+          "tagName": "p",
+          "content": "Don't worry! There is plenty of other engaging content on this site."
+        },
+        {
+          "tagName": "ul",
+          "content": [
+            {
+              "tagName": "li",
+              "content": "[Home](/home)"
+            },
+            {
+              "tagName": "li",
+              "content": "[My CV / Résumé](/cv)"
+            },
+            {
+              "tagName": "li",
+              "content": "[Projects I have worked on](/projects)"
+            },
+            {
+              "tagName": "li",
+              "content": "[What I am doing now](/now)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

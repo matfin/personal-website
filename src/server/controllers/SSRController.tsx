@@ -28,8 +28,11 @@ class SSRController implements IBaseController {
   }
 
   initRoutes = () => {
-    this.router.get('/:slug(projects|cv|now)?', this.reduxFetchPage, this.sendSSR);
+    this.router.get('/:slug(404|projects|cv|now)?', this.reduxFetchPage, this.sendSSR);
+    this.router.use(this.redirectToNotFound);
   };
+
+  redirectToNotFound = (req: Request, res: Response): void => res.redirect('/404');
 
   reduxFetchPage = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     const { slug } = req.params;

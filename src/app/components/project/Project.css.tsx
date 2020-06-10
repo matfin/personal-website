@@ -8,16 +8,7 @@ import {
 export const ProjectSt = styled.a`
   position: relative;
   display: block;
-  margin: 1rem 0;
-  padding: 0 0.5rem;
-
-  &::after {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
-    ${blackEmoji};
-    content: "⚡";
-  }
+  margin: 1rem 0 2rem;
 `;
 
 export const TitleSt = styled.h3`
@@ -28,5 +19,3 @@ export const TitleSt = styled.h3`
 export const DescriptionSt = styled.p`
   ${textTypography};
 `;
-
-

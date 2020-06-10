@@ -207,6 +207,10 @@
           "content": [
             {
               "tagName": "li",
+              "content": "[2ality.com](https://2ality.com) by Axel Rauschmayer is an excellent resource for Javascript and TypeScript developers."
+            },
+            {
+              "tagName": "li",
               "content": "[Overreacted](https://overreacted.io/ \"Dan Abramov’s personal blog\") is the personal blog of Dan Abrambov."
             },
             {
@@ -268,7 +272,7 @@
         },
         {
           "tagName": "p",
-          "content": "I am a strong advocate for user privacy and as a visitor to to site, I respect your right to your own privacy and anonymity. This is why I will never install any tracking or analytical tools. Thanks for visiting."
+          "content": "I am a strong advocate for user privacy and as a visitor to this site, I respect your right to your own privacy and anonymity. This is why I will never install any tracking or analytical tools. Thanks for visiting."
         }
       ]
     }

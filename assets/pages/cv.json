@@ -9,13 +9,17 @@
       "content": [
         {
           "tagName": "h1",
-          "content": "CV / Resume"
+          "content": "CV / Résumé"
         },
         {
           "tagName": "h2",
           "content": "My work experience and qualifications from 2001 to present."
         }
       ]
+    },
+    {
+      "tagName": "p",
+      "content": "My CV is also available in [PDF format](https://mattfinucane.com/docs/matt-finucane-cv.pdf \"Matt Finucane CV\")."
     },
     {
       "tagName": "section",
@@ -31,7 +35,7 @@
               "startDate": "2020-01-06",
               "tasks": [
                 "Migrated client project from AngularJS to ReactJS with TypeScript.",
-                "Replaced LESS/SASS with syled-components (CSS in JS).",
+                "Replaced LESS/SASS with styled components (CSS in JS).",
                 "Planned and implemented strategy to recover test coverage.",
                 "Provided consultation to implement third party features seamlessly in client application."
               ],
@@ -39,7 +43,7 @@
             },
             {
               "company": "heycar",
-              "endDate": "2020-12-31",
+              "endDate": "2019-12-31",
               "location": "Berlin, Germany",
               "role": "Senior front-end engineer",
               "startDate": "2017-08-08",
@@ -67,7 +71,7 @@
             },
             {
               "company": "Things I Like GMBH",
-              "endDate": "2014-11-31",
+              "endDate": "2014-11-30",
               "location": "Berlin, Germany",
               "role": "Senior full-stack engineer",
               "startDate": "2014-06-01",
@@ -81,7 +85,7 @@
             },
             {
               "company": "Axel Springer Ideas",
-              "endDate": "2014-04-31",
+              "endDate": "2014-04-30",
               "location": "Berlin, Germany",
               "role": "Senior front-end engineer",
               "startDate": "2013-10-10",
@@ -155,7 +159,7 @@
               "company": "Net a Porter",
               "endDate": "2008-07-01",
               "location": "London, UK",
-              "role": "Full stack engineer (Java)",
+              "role": "Full-stack engineer",
               "startDate": "2007-06-01",
               "tasks": [
                 "Redeveloped the HTML and CSS during a complete overhaul of the company website.",
@@ -169,7 +173,7 @@
               "company": "FindMyPast.com",
               "endDate": "2007-06-01",
               "location": "London, UK",
-              "role": "Full stack engineer (Java)",
+              "role": "Full-stack engineer",
               "startDate": "2006-09-15",
               "tasks": [
                 "Upgraded site standards compliancy in XHTML and CSS.",
@@ -181,7 +185,7 @@
             },
             {
               "company": "AOL Technologies Ltd",
-              "endDate": "2006-06-31",
+              "endDate": "2006-06-30",
               "location": "Dublin, Ireland",
               "role": "Associate software engineer",
               "startDate": "2005-07-01",
