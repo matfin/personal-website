@@ -11,12 +11,13 @@ describe('AssetsController tests', (): void => {
 
     await new AssetsController();
 
-    expect(spyUse).toHaveBeenCalledTimes(6);
+    expect(spyUse).toHaveBeenCalledTimes(7);
     expect(spyUse.mock.calls[0][0]).toEqual('/docs');
     expect(spyUse.mock.calls[1][0]).toEqual('/images');
     expect(spyUse.mock.calls[2][0]).toEqual('/manifest.json');
     expect(spyUse.mock.calls[3][0]).toEqual('/robots.txt');
-    expect(spyUse.mock.calls[4][0]).toEqual('/scripts');
-    expect(spyUse.mock.calls[5][0]).toEqual('/worker.js');
+    expect(spyUse.mock.calls[4][0]).toEqual('/sitemap.xml');
+    expect(spyUse.mock.calls[5][0]).toEqual('/scripts');
+    expect(spyUse.mock.calls[6][0]).toEqual('/worker.js');
   });
 });
