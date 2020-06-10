@@ -28,7 +28,7 @@ const App = ({ currentTheme }: IProps): JSX.Element => {
         slug="/"
       />
       <Switch>
-        <Route path="/:slug?" exact component={ConnectedPage} />
+        <Route path="/:slug(404|cv|now|projects)?" exact component={ConnectedPage} />
       </Switch>
       <GlobalStyle />
     </ThemeProvider>

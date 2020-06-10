@@ -40,14 +40,29 @@ describe('SSRController tests', (): void => {
 
   it('should initialise the routes and set up the redux store', async (): Promise<void> => {
     const spyGet = jest.fn() as jest.MockedFunction<typeof Router>;
+    const spyUse = jest.fn() as jest.MockedFunction<typeof Router>;
 
-    jest.spyOn(express, 'Router').mockReturnValue({
+    const spyExpress = jest.spyOn(express, 'Router').mockReturnValue({
       get: spyGet,
+      use: spyUse,
     } as any);
 
     await new SSRController();
-    expect(spyGet).toHaveBeenCalledTimes(1);
-    expect(spyGet).toHaveBeenCalledWith('/:slug(projects|cv|now)?', expect.any(Function), expect.any(Function));
+    expect(spyGet).toHaveBeenCalled();
+    expect(spyUse).toHaveBeenCalled();
+    expect(spyGet).toHaveBeenCalledWith('/:slug(404|projects|cv|now)?', expect.any(Function), expect.any(Function));
+
+    spyExpress.mockRestore();
+  });
+
+  it('should redirect by default when there is no route match', async(): Promise<void> => {
+    const spyRedirect = jest.fn();
+    const res = {
+      redirect: spyRedirect
+    };
+
+    await new SSRController().redirectToNotFound({} as any, res as any);
+    expect(spyRedirect).toHaveBeenCalledWith('/404');
   });
 
   it('should dispatch to fetch a page and call next', async (): Promise<void> => {
