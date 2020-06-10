@@ -1,0 +1,31 @@
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+>
+  <url>
+    <loc>https://mattfinucane.com/</loc>
+    <lastmod>2020-06-10T16:41:02+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://mattfinucane.com/cv</loc>
+    <lastmod>2020-06-10T16:41:02+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://mattfinucane.com/projects</loc>
+    <lastmod>2020-06-10T16:41:02+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://mattfinucane.com/now</loc>
+    <lastmod>2020-06-10T16:41:02+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://mattfinucane.com/docs/matt-finucane-cv.pdf</loc>
+    <lastmod>2020-06-10T12:47:32+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+</urlset>

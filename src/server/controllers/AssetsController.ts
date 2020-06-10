@@ -1,4 +1,6 @@
 import {
+  Request,
+  Response,
   Router,
   static as expressStatic,
 } from 'express';
@@ -40,6 +42,10 @@ class AssetsController implements IBaseController {
         dir: `${this.assetsFilePath}/metadata/robots.txt`
       },
       {
+        path: '/sitemap.xml',
+        dir: `${this.assetsFilePath}/metadata/sitemap.xml`
+      },
+      {
         path: '/scripts',
         dir: `${this.distAppFilePath}/app`
       },
@@ -51,7 +57,7 @@ class AssetsController implements IBaseController {
 
     routes.forEach(({ dir, path }: IRoutePair) =>
       this.router.use(path, expressStatic(dir)));
-  }
+  };
 }
 
 export default AssetsController;
