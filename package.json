@@ -1,9 +1,10 @@
 {
   "name": "mattfinucane.com",
-  "version": "1.0.7",
+  "version": "1.0.11",
   "description": "Personal website built using React and TypeScript",
   "main": "src/index.js",
   "scripts": {
+    "checks": "yarn coverage && yarn lint && yarn csslint",
     "server": "node-dev ./dist/server/server.js",
     "prodserver": "node ./dist/server/server.js",
     "dev": "webpack --config webpack.dev.js --watch --progress --colors --open",
@@ -104,8 +105,6 @@
     }
   },
   "pre-commit": [
-    "coverage",
-    "lint",
-    "csslint"
+    "checks"
   ]
 }
