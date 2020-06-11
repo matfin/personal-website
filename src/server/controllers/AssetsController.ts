@@ -1,6 +1,4 @@
 import {
-  Request,
-  Response,
   Router,
   static as expressStatic,
 } from 'express';
@@ -8,7 +6,7 @@ import path from 'path';
 import { IBaseController } from 'server/interfaces';
 
 interface IRoutePair {
-  path: string,
+  itemPath: string,
   dir: string,
 }
 
@@ -26,37 +24,38 @@ class AssetsController implements IBaseController {
   initRoutes = () => {
     const routes: IRoutePair[] = [
       {
-        path: '/docs',
-        dir: `${this.assetsFilePath}/docs`
+        itemPath: '/docs',
+        dir: `${this.assetsFilePath}/docs`,
       },
       {
-        path: '/images',
-        dir: `${this.assetsFilePath}/images`
+        itemPath: '/images',
+        dir: `${this.assetsFilePath}/images`,
       },
       {
-        path: '/manifest.json',
-        dir: `${this.assetsFilePath}/metadata/manifest.json`
+        itemPath: '/manifest.json',
+        dir: `${this.assetsFilePath}/metadata/manifest.json`,
       },
       {
-        path: '/robots.txt',
-        dir: `${this.assetsFilePath}/metadata/robots.txt`
+        itemPath: '/robots.txt',
+        dir: `${this.assetsFilePath}/metadata/robots.txt`,
       },
       {
-        path: '/sitemap.xml',
-        dir: `${this.assetsFilePath}/metadata/sitemap.xml`
+        itemPath: '/sitemap.xml',
+        dir: `${this.assetsFilePath}/metadata/sitemap.xml`,
       },
       {
-        path: '/scripts',
-        dir: `${this.distAppFilePath}/app`
+        itemPath: '/scripts',
+        dir: `${this.distAppFilePath}/app`,
       },
       {
-        path: '/worker.js',
-        dir: `${this.distAppFilePath}/app/worker.bundle.js`
-      }
+        itemPath: '/worker.js',
+        dir: `${this.distAppFilePath}/app/worker.bundle.js`,
+      },
     ];
 
-    routes.forEach(({ dir, path }: IRoutePair) =>
-      this.router.use(path, expressStatic(dir)));
+    routes.forEach(({ dir, itemPath }: IRoutePair) => (
+      this.router.use(itemPath, expressStatic(dir))
+    ));
   };
 }
 

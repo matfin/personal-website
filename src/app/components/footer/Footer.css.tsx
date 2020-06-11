@@ -10,7 +10,7 @@ export const FooterSt = styled.footer`
 export const ClosingTagSt = styled(ClosingTag)`
   width: 48px;
   height: 48px;
-  fill: ${props => props?.theme?.colours?.primary};
+  fill: ${(props) => props?.theme?.colours?.primary};
 `;
 
 export default FooterSt;

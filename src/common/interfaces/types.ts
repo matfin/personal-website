@@ -41,4 +41,5 @@ export type Layers = {
 
 export type AppState = IPageState;
 
-export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, AppState, unknown, Action<string>>;
+export type AppThunk<ReturnType = void>
+  = ThunkAction<ReturnType, AppState, unknown, Action<string>>;

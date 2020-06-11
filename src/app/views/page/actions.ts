@@ -38,12 +38,12 @@ export type PageActionTypes =
  * Exported actions
  */
 export const fetchPageRequest = (): PageActionTypes => ({
-  type: FETCH_PAGE_REQUEST
+  type: FETCH_PAGE_REQUEST,
 });
 
 export const fetchPageSuccess = (page: IPage): PageActionTypes => ({
   type: FETCH_PAGE_SUCCESS,
-  payload: page
+  payload: page,
 });
 
 export const fetchPageFailure = (error: any): PageActionTypes => ({
@@ -52,10 +52,10 @@ export const fetchPageFailure = (error: any): PageActionTypes => ({
 });
 
 export const resetPage = (): PageActionTypes => ({
-  type: RESET_PAGE
+  type: RESET_PAGE,
 });
 
-export const fetchPage = (slug: string): AppThunk => async dispatch => {
+export const fetchPage = (slug: string): AppThunk => async (dispatch) => {
   dispatch(fetchPageRequest());
 
   try {

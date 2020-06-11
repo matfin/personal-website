@@ -16,7 +16,7 @@ export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
 
 export const blackEmoji = css`
   color: transparent;
-  text-shadow: 0 0 0 ${props => props?.theme?.colours?.primary};
+  text-shadow: 0 0 0 ${(props) => props?.theme?.colours?.primary};
 `;
 
 export const listItemStyle = css`

@@ -5,13 +5,14 @@ import { ToggleValue } from 'common/interfaces';
 import { Toggle, IProps } from './Toggle';
 
 const defaultProps: IProps = {
-  value: ToggleValue.OFF
+  value: ToggleValue.OFF,
+  onToggle: (): void => {},
 };
 
 describe('Toggle tests', () => {
   it('renders the component', () => {
     expect(
-      render(<Toggle {...defaultProps} />)
+      render(<Toggle {...defaultProps} />),
     ).toBeTruthy();
   });
 
@@ -27,7 +28,7 @@ describe('Toggle tests', () => {
   it('toggles to the OFF value', () => {
     const spyOnToggle = jest.fn();
     const wrapper = render(
-      <Toggle {...defaultProps} onToggle={spyOnToggle} value={ToggleValue.ON} />
+      <Toggle {...defaultProps} onToggle={spyOnToggle} value={ToggleValue.ON} />,
     );
     const toggle = wrapper.getByTestId('toggle');
 

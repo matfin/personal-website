@@ -1,5 +1,5 @@
 import React from 'react';
-import loadingSpinner from 'svg/loadingSpinner.svg';
+import loadingSpinner from 'svg/loadingSpinner';
 import { LoadingSpinnerSt, LoadingSt } from './Loading.css';
 
 interface IProps {
@@ -11,3 +11,5 @@ export const Loading = ({ className }: IProps): JSX.Element => (
     <LoadingSpinnerSt src={loadingSpinner} />
   </LoadingSt>
 );
+
+export default Loading;

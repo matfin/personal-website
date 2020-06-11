@@ -9,7 +9,7 @@ export interface IProps {
   preloadedState: string,
   reactAppHtml: string,
   styleTags: string,
-};
+}
 
 export const indexTemplate = ({
   apiUrl,

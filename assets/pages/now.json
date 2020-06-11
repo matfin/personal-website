@@ -8,14 +8,17 @@
       "id": "intro",
       "content": [
         {
+          "id": "now-1",
           "tagName": "h1",
           "content": "What am I doing now?"
         },
         {
+          "id": "now-2",
           "tagName": "h2",
           "content": "This is what is currently occupying my days."
         },
         {
+          "id": "now-3",
           "tagName": "p",
           "content": "I created this page in addition to others as part of [this page movement](https://sivers.org/nowff). If I were to meet up with someone I had not seen in quite a while and talk shop, this is what we would cover. I will keep this up to date as much as I can."
         }
@@ -26,29 +29,36 @@
       "id": "finding-me",
       "content": [
         {
+          "id": "now-4",
           "tagName": "h3",
           "content": "Where can I be found?"
         },
         {
+          "id": "now-5",
           "tagName": "ul",
           "content": [
             {
+              "id": "now-6",
               "tagName": "li",
               "content": "[GitHub](https://github.com/matfin \"Matt Finucane on GitHub\") is where I have several repositories of the various projects I have worked on over the years."
             },
             {
+              "id": "now-7",
               "tagName": "li",
               "content": "[Twitter](https://twitter.com/matfinucane \"Matt Finucane on Twitter\") is a great resource for news and I use this regularly."
             },
             {
+              "id": "now-8",
               "tagName": "li",
               "content": "[LinkedIn](https://www.linkedin.com/in/mattfinucane/ \"Matt Finucane on LinkedIn\") is what I use on occasion."
             },
             {
+              "id": "now-9",
               "tagName": "li",
               "content": "[StackOverflow](https://stackoverflow.com/users/1515180/matfin \"Matt Finucane on StackOverflow\") is a very useful resource."
             },
             {
+              "id": "now-10",
               "tagName": "li",
               "content": "[me@mattfinucane.com](mailto:me@mattfinucane.com \"Email Matt Finucane\") is where I can be reached, but please don’t mail me offering web or SEO services. I have these covered already."
             }
@@ -61,22 +71,27 @@
       "id": "at-home",
       "content": [
         {
+          "id": "now-11",
           "tagName": "h3",
           "content": "At home"
         },
         {
+          "id": "now-12",
           "tagName": "p",
           "content": "Aside from doing my day job at home (given the restrictions in place due to Covid19), I have been honing my skills in front end development by building this website."
         },
         {
+          "id": "now-13",
           "tagName": "p",
           "content": "I have always maintained a good home office set up in any place I have lived, because I want to be able to work and learn in a distraction-free environment."
         },
         {
+          "id": "now-14",
           "tagName": "p",
           "content": "When I am not coding, I like taking and editing photos. I have my own personal photography website at [https://cinematt.photography](https://cinematt.photography \"Personal photography website\") which showcases some of my work."
         },
         {
+          "id": "now-15",
           "tagName": "p",
           "content": "When I am not in front of my computer, I enjoy cycling, hiking and running. In 2017, I completed a 1,200km round-trip cycle tour which took me through Germany, Denmark, Sweden and Poland."
         }
@@ -87,29 +102,36 @@
       "id": "my-setup",
       "content": [
         {
+          "id": "now-16",
           "tagName": "h3",
           "content": "My setup"
         },
         {
+          "id": "now-17",
           "tagName": "ul",
           "content": [
             {
+              "id": "now-18",
               "tagName": "li",
               "content": "MacBook Pro (16-inch, 2019)"
             },
             {
+              "id": "now-19",
               "tagName": "li",
               "content": "2.4ghz Intel Core i9"
             },
             {
+              "id": "now-20",
               "tagName": "li",
               "content": "32gb Ram"
             },
             {
+              "id": "now-21",
               "tagName": "li",
               "content": "1TB SSD"
             },
             {
+              "id": "now-22",
               "tagName": "li",
               "content": "27-inch LG HDR 4K display"
             }
@@ -122,43 +144,53 @@
       "id": "currently-learning",
       "content": [
         {
+          "id": "now-23",
           "tagName": "h3",
           "content": "What I am learning now"
         },
         {
+          "id": "now-24",
           "tagName": "p",
           "content": "I have been working on this website as part of a learning exercise to sharpen my skills in the important areas of web application development. I built this from scratch so I could gain a deeper understanding of all the moving parts, and how they interact with one another. I wanted to know more about topics such as:"
         },
         {
+          "id": "now-25",
           "tagName": "ul",
           "content": [
             {
+              "id": "now-26",
               "tagName": "li",
               "content": "Exploring TypeScript more and applying this to the whole React / Redux set up."
             },
             {
+              "id": "now-27",
               "tagName": "li",
               "content": "Building a performant website and PWA (progressive web application) with content caching and offline capability."
             },
             {
+              "id": "now-28",
               "tagName": "li",
               "content": "Better dependency management and code splitting with webpack."
             },
             {
+              "id": "now-29",
               "tagName": "li",
               "content": "Server side rendering to improve content delivery timing."
             },
             {
+              "id": "now-30",
               "tagName": "li",
               "content": "Building and deploying the website with Docker / Compose and using an Nginx reverse proxy to serve secure and compressed content."
             }
           ]
         },
         {
+          "id": "now-31",
           "tagName": "p",
           "content": "I had dabbled in the above topics when working on the hey.car website, but I never had a deep understanding of how they worked until I took them on myself and built from the ground up, facing the challenges along the way."
         },
         {
+          "id": "now-32",
           "tagName": "p",
           "content": "So why didn’t I use something like Gatsby or Netlify or even WordPress? I would consider using these at a later date, but the purpose of this website is to know exactly what is going on, so I can understand the magic happening underneath the magic."
         }
@@ -169,22 +201,27 @@
       "id": "in-work",
       "content": [
         {
+          "id": "now-33",
           "tagName": "h3",
           "content": "In work"
         },
         {
+          "id": "now-34",
           "tagName": "p",
           "content": "In my career, I would ascribe to being an individual contributor / principal engineer as opposed to someone in a managerial role (think CTO or engineering manager)."
         },
         {
+          "id": "now-35",
           "tagName": "p",
           "content": "I work as a senior front end engineer for a company called TravelPort Digital who are based in Dublin, Ireland. My day to day job involves migrating an old legacy code base to ReactJS and this includes the gradual adoption of styled-components, improving test coverage and rewriting components in ReactJS."
         },
         {
+          "id": "now-36",
           "tagName": "p",
           "content": "I have experience working as a freelance contractor as well as a full-time employee, and I have worked remotely (from shared offices or at home) as well as being on-site full time."
         },
         {
+          "id": "now-37",
           "tagName": "p",
           "content": "My preference is to work on site, as long as getting there is easy. In the situation where commutes are very long and drawn out, I would prefer the hybrid approach of working from home - coming into the office one or two days during the week to maintain a presence and human contact."
         }
@@ -195,66 +232,82 @@
       "id": "blogs-and-books",
       "content": [
         {
+          "id": "now-38",
           "tagName": "h3",
           "content": "Some recommended reading"
         },
         {
+          "id": "now-39",
           "tagName": "p",
           "content": "Here are some blogs I like to read and would highly recommend for engineers at any level."
         },
         {
+          "id": "now-40",
           "tagName": "ul",
           "content": [
             {
+              "id": "now-41",
               "tagName": "li",
               "content": "[2ality.com](https://2ality.com) by Axel Rauschmayer is an excellent resource for Javascript and TypeScript developers."
             },
             {
+              "id": "now-42",
               "tagName": "li",
               "content": "[Overreacted](https://overreacted.io/ \"Dan Abramov’s personal blog\") is the personal blog of Dan Abrambov."
             },
             {
+              "id": "now-43",
               "tagName": "li",
               "content": "[Sara Soueidan](https://www.sarasoueidan.com/ \"Sara Soueidan\") is a prominent developer, designer and voice for UX and accessibility."
             },
             {
+              "id": "now-44",
               "tagName": "li",
               "content": "[CSS Tricks](https://css-tricks.com/ \"CSS Tricks by Chris Coyier\") which is a very useful resource for CSS related knowledge."
             },
             {
+              "id": "now-45",
               "tagName": "li",
               "content": "[Kent Dodds](https://kentcdodds.com/ \"Kent Dodds\") curated by the person who created the React Testing Library."
             },
             {
+              "id": "now-46",
               "tagName": "li",
               "content": "[Monica Dinculescu](https://meowni.ca/ \"Monica Dinculescu\") works for Google and helped create the PolymerJS web framework."
             }
           ]
         },
         {
+          "id": "now-47",
           "tagName": "p",
           "content": "As well as this, here are some books I have read that made a big impact on me."
         },
         {
+          "id": "now-48",
           "tagName": "ul",
           "content": [
             {
+              "id": "now-49",
               "tagName": "li",
               "content": "JavaScript: The Good Parts - Douglas Crockford"
             },
             {
+              "id": "now-50",
               "tagName": "li",
               "content": "Get Sh*t Done - Niall Harbison"
             },
             {
+              "id": "now-51",
               "tagName": "li",
               "content": "Ishmael - Daniel Quinn"
             },
             {
+              "id": "now-52",
               "tagName": "li",
               "content": "A Language Older Than Words - Derrick Jensen"
             },
             {
+              "id": "now-53",
               "tagName": "li",
               "content": "The Great War for Civilisation - Robert Fisk"
             }
@@ -267,10 +320,12 @@
       "id": "privacy",
       "content": [
         {
+          "id": "now-54",
           "tagName": "h3",
           "content": "Privacy"
         },
         {
+          "id": "now-55",
           "tagName": "p",
           "content": "I am a strong advocate for user privacy and as a visitor to this site, I respect your right to your own privacy and anonymity. This is why I will never install any tracking or analytical tools. Thanks for visiting."
         }

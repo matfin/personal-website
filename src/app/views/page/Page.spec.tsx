@@ -16,7 +16,7 @@ const defaultProps: IProps = {
     contents: [],
     description: 'Test page',
     slug: 'test-page',
-    title: 'Test page'
+    title: 'Test page',
   },
   slug: 'test-page',
   fetchPage: noop,
@@ -27,7 +27,7 @@ const defaultProps: IProps = {
 describe('Page tests', () => {
   it('renders the component', () => {
     const { container } = renderWithRouter(
-      <Page {...defaultProps} />
+      <Page {...defaultProps} />,
     );
 
     expect(container).toBeTruthy();
@@ -41,7 +41,7 @@ describe('Page tests', () => {
         {...defaultProps}
         fetchPage={spyFetchPage}
         slug="new-test-slug"
-      />
+      />,
     );
 
     expect(spyFetchPage).toHaveBeenCalled();
@@ -50,7 +50,7 @@ describe('Page tests', () => {
 
   it('reveals and hides the side navigation menu', async () => {
     const { container } = renderWithRouter(
-      <Page {...defaultProps} />
+      <Page {...defaultProps} />,
     );
     const burger = container.getElementsByTagName('button')[0];
     const main = container.getElementsByTagName('main')[0];
@@ -76,7 +76,7 @@ describe('Page tests', () => {
   it('prevents body scroll when nav menu is open', async () => {
     const spySetBodyOverflow = jest.spyOn(utils, 'setBodyOverflow');
     const { container } = renderWithRouter(
-      <Page {...defaultProps} />
+      <Page {...defaultProps} />,
     );
     const burger = container.getElementsByTagName('button')[0];
 
@@ -97,7 +97,7 @@ describe('Page tests', () => {
 
   it('renders the loading indicator', () => {
     const { container } = renderWithRouter(
-      <Page {...defaultProps} pending />
+      <Page {...defaultProps} pending />,
     );
 
     expect(container).toBeTruthy();
@@ -113,11 +113,12 @@ describe('Page tests', () => {
           contents: [
             {
               tagName: 'h1',
-              content: 'Test heading'
-            }
-          ]
+              content: 'Test heading',
+              id: 'test-h1',
+            },
+          ],
         }}
-      />
+      />,
     );
 
     expect(container).toBeTruthy();
@@ -127,7 +128,7 @@ describe('Page tests', () => {
   it('switches to the night theme', async () => {
     const spySwitchTheme = jest.fn();
     const container = renderWithRouter(
-      <Page {...defaultProps} switchTheme={spySwitchTheme} />
+      <Page {...defaultProps} switchTheme={spySwitchTheme} />,
     );
     const toggle = container.getByTestId('toggle');
 
@@ -144,7 +145,7 @@ describe('Page tests', () => {
         {...defaultProps}
         currentTheme={ThemeType.NIGHT}
         switchTheme={spySwitchTheme}
-      />
+      />,
     );
     const toggle = container.getByTestId('toggle');
 
@@ -156,7 +157,7 @@ describe('Page tests', () => {
 
   it('renders an error message', () => {
     const { container } = renderWithRouter(
-      <Page {...defaultProps} error="Test error" />
+      <Page {...defaultProps} error="Test error" />,
     );
 
     expect(container).toBeTruthy();

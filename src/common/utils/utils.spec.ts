@@ -3,7 +3,7 @@ import {
   isExternalUrl,
   isLink,
   toLinkObject,
-  splitContent
+  splitContent,
 } from './utils';
 
 describe('utils tests', (): void => {
@@ -34,44 +34,44 @@ describe('utils tests', (): void => {
 
   it('converts a markdown style link to a link object', (): void => {
     expect(
-      toLinkObject('[test link with title](/test "Test")')
+      toLinkObject('[test link with title](/test "Test")'),
     ).toEqual({
       text: 'test link with title',
       title: 'Test',
-      url: '/test'
+      url: '/test',
     });
 
     expect(
-      toLinkObject('[test link without title](/test)')
+      toLinkObject('[test link without title](/test)'),
     ).toEqual({
       text: 'test link without title',
-      url: '/test'
+      url: '/test',
     });
 
     expect(
-      toLinkObject('A normal line of text with no links')
+      toLinkObject('A normal line of text with no links'),
     ).toEqual({
       text: 'malformed link',
       title: 'malformed link',
-      url: '/'
+      url: '/',
     });
   });
 
   it('splits out content if a markdown flavoured link is found', (): void => {
     expect(
-      splitContent('I am a normal parahraph with no links')
+      splitContent('I am a normal parahraph with no links'),
     ).toEqual([
-      'I am a normal parahraph with no links'
+      'I am a normal parahraph with no links',
     ]);
 
     expect(
-      splitContent('I have [a couple](/some-links "Links") of links and [another one](/another) right here!')
+      splitContent('I have [a couple](/some-links "Links") of links and [another one](/another) right here!'),
     ).toEqual([
       'I have ',
       '[a couple](/some-links "Links")',
       ' of links and ',
       '[another one](/another)',
-      ' right here!'
+      ' right here!',
     ]);
   });
 });

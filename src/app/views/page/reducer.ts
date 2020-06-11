@@ -14,17 +14,17 @@ export const defaultState: IPageState = {
 
 export const pageState = (
   state: IPageState = defaultState,
-  action: IAction)
-: IPageState => {
+  action: IAction,
+) : IPageState => {
   const { error, payload, type } = action;
 
-  switch(type) {
+  switch (type) {
     case FETCH_PAGE_REQUEST: {
       return {
         ...defaultState,
         error: null,
         pending: true,
-      }
+      };
     }
     case FETCH_PAGE_SUCCESS: {
       return {
@@ -32,14 +32,14 @@ export const pageState = (
         error: null,
         pending: false,
         page: payload,
-      }
+      };
     }
     case FETCH_PAGE_FAILURE: {
       return {
         ...defaultState,
         error,
         pending: false,
-      }
+      };
     }
     case RESET_PAGE: {
       return defaultState;
@@ -48,4 +48,4 @@ export const pageState = (
       return state;
     }
   }
-}
+};

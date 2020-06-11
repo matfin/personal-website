@@ -29,7 +29,7 @@ describe('page actions tests', () => {
       pageState: {
         error: null,
         pending: false,
-      }
+      },
     });
   });
 
@@ -42,7 +42,7 @@ describe('page actions tests', () => {
   it('returns the correct type on fetch page success', () => {
     expect(fetchPageSuccess(page)).toEqual({
       type: FETCH_PAGE_SUCCESS,
-      payload: page
+      payload: page,
     });
   });
 
@@ -51,7 +51,7 @@ describe('page actions tests', () => {
 
     expect(fetchPageFailure(error)).toEqual({
       type: FETCH_PAGE_FAILURE,
-      error
+      error,
     });
   });
 

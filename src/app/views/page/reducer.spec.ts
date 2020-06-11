@@ -17,7 +17,7 @@ describe('page reducer tests', () => {
 
   it('sets the state when the action type is fetch page request', () => {
     const state = pageState(undefined, {
-      type: FETCH_PAGE_REQUEST
+      type: FETCH_PAGE_REQUEST,
     });
     const check = {
       ...defaultState,
@@ -30,7 +30,7 @@ describe('page reducer tests', () => {
   it('sets the state when the action type is fetch page success', () => {
     const state = pageState(undefined, {
       type: FETCH_PAGE_SUCCESS,
-      payload: page
+      payload: page,
     });
     const check = {
       ...defaultState,
@@ -46,12 +46,12 @@ describe('page reducer tests', () => {
     const error = { dummy: 'error' };
     const state = pageState(undefined, {
       type: FETCH_PAGE_FAILURE,
-      error
+      error,
     });
     const check = {
       ...defaultState,
       error,
-      pending: false
+      pending: false,
     };
 
     expect(state).toEqual(check);
@@ -59,7 +59,7 @@ describe('page reducer tests', () => {
 
   it('sets the state when the action type is reset page', () => {
     const state = pageState(undefined, {
-      type: RESET_PAGE
+      type: RESET_PAGE,
     });
 
     expect(state).toEqual(defaultState);
@@ -67,7 +67,7 @@ describe('page reducer tests', () => {
 
   it('does not modify the state if there is no type match', () => {
     const state = pageState(undefined, {
-      type: 'UNKNOWN'
+      type: 'UNKNOWN',
     });
 
     expect(state).toEqual(defaultState);

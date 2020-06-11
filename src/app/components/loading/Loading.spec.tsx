@@ -5,7 +5,7 @@ import { Loading } from './Loading';
 describe('Loading tests', () => {
   it('renders the component', () => {
     expect(
-      render(<Loading />)
+      render(<Loading />),
     ).toBeTruthy();
   });
 });

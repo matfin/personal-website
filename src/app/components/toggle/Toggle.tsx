@@ -5,13 +5,13 @@ import { ToggleIndicatorSt, ToggleTrackSt } from './Toggle.css';
 export interface IProps {
   className?: string,
   value: ToggleValue,
-  onToggle?(value: ToggleValue): void,
-};
+  onToggle(value: ToggleValue): void,
+}
 
 export const Toggle = ({ className, value, onToggle }: IProps): JSX.Element => {
   const onToggleTrackClick = (): void => {
-    onToggle && onToggle(value === ToggleValue.ON ? ToggleValue.OFF : ToggleValue.ON);
-  }
+    onToggle(value === ToggleValue.ON ? ToggleValue.OFF : ToggleValue.ON);
+  };
 
   return (
     <ToggleTrackSt
@@ -20,7 +20,7 @@ export const Toggle = ({ className, value, onToggle }: IProps): JSX.Element => {
       data-testid="toggle"
       onClick={onToggleTrackClick}
     >
-      <ToggleIndicatorSt data-testid="indicator" switchedOn={value === ToggleValue.ON} />
+      <ToggleIndicatorSt data-testid="indicator" switchedon={value === ToggleValue.ON} />
     </ToggleTrackSt>
   );
 };

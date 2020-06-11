@@ -7,20 +7,50 @@ export interface IProps {
   text: string,
   title?: string,
   url: string,
-};
+}
 
-const ExternalLink = ({ className, text, title, url }: IProps): JSX.Element => (
+const ExternalLink = ({
+  className,
+  text,
+  title,
+  url,
+}: IProps): JSX.Element => (
   <a className={className} href={url} title={title} rel="external">
     {text}
   </a>
 );
 
-const InternalLink = ({ className, text, title, url }: IProps): JSX.Element => (
+const InternalLink = ({
+  className,
+  text,
+  title,
+  url,
+}: IProps): JSX.Element => (
   <Link className={className} title={title} to={url}>
     {text}
   </Link>
 );
 
-export const InlineLink = (props: IProps): JSX.Element => isExternalUrl(props.url)
-  ? <ExternalLink {...props} />
-  : <InternalLink {...props} />;
+export const InlineLink = ({
+  className,
+  text,
+  title,
+  url,
+}: IProps): JSX.Element => (
+  isExternalUrl(url)
+    ? (
+      <ExternalLink
+        className={className}
+        text={text}
+        title={title}
+        url={url}
+      />
+    ) : (
+      <InternalLink
+        className={className}
+        text={text}
+        title={title}
+        url={url}
+      />
+    )
+);

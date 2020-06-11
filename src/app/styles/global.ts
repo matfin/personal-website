@@ -9,8 +9,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: ${props => props?.theme?.colours?.primary};
-    background: ${props => props?.theme?.colours?.secondary};
+    color: ${(props) => props?.theme?.colours?.primary};
+    background: ${(props) => props?.theme?.colours?.secondary};
     font-family: ${defaultFont};
     font-variant-ligatures: no-common-ligatures;
   }

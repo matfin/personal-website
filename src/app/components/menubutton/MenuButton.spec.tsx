@@ -11,7 +11,7 @@ const defaultProps: IProps = {
 describe('MenuButton tests', () => {
   it('renders the component', () => {
     expect(
-      render(<MenuButton {...defaultProps} />)
+      render(<MenuButton {...defaultProps} />),
     ).toBeTruthy();
   });
 
@@ -21,7 +21,7 @@ describe('MenuButton tests', () => {
       <MenuButton
         {...defaultProps}
         onClick={spyOnClick}
-      />
+      />,
     );
     const button = wrapper.getByTestId('menubutton');
 
@@ -34,7 +34,7 @@ describe('MenuButton tests', () => {
       <MenuButton
         {...defaultProps}
         navRevealed
-      />
+      />,
     );
     const lines = container.getElementsByTagName('span');
 

@@ -1,4 +1,5 @@
 import { ILink } from 'common/interfaces';
+
 const months: string[] = [
   'January',
   'February',
@@ -11,7 +12,7 @@ const months: string[] = [
   'September',
   'October',
   'November',
-  'December'
+  'December',
 ];
 
 export const formatDate = (date: Date): string => {
