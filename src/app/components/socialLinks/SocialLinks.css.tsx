@@ -6,3 +6,5 @@ export const SocialLinksSt = styled.ul`
   justify-content: space-between;
   margin-top: 1rem;
 `;
+
+export default SocialLinksSt;

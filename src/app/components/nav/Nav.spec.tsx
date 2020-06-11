@@ -6,8 +6,8 @@ describe('Nav tests', () => {
   it('renders the component with children', () => {
     expect(
       renderWithRouter(
-        <Nav />
-      )
+        <Nav />,
+      ),
     ).toBeTruthy();
   });
 });

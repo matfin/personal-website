@@ -7,13 +7,13 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { IAppState, IPageState } from 'common/interfaces';
-import { defaultState as pageDefaultState } from 'app/views/page/reducer'
+import { defaultState as pageDefaultState } from 'app/views/page/reducer';
 import { defaultState as appDefaultState } from 'app/reducer';
 
 interface ICombinedState {
   pageState?: IPageState,
   appState?: IAppState,
-};
+}
 
 export const defaultAppState: ICombinedState = {
   pageState: pageDefaultState,

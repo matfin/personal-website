@@ -10,7 +10,7 @@ describe('ContentItem tests', () => {
       <ContentItem
         tagName="p"
         content="This is a test"
-      />
+      />,
     );
 
     expect(container).toBeTruthy();
@@ -22,7 +22,7 @@ describe('ContentItem tests', () => {
       <ContentItem
         tagName="p"
         content="This contains [a link](/test-link) to render"
-      />
+      />,
     );
     const link = container.getElementsByTagName('a')[0];
 
@@ -35,7 +35,7 @@ describe('ContentItem tests', () => {
       <ContentItem
         tagName="p"
         content="This contains no links to render"
-      />
+      />,
     );
     const link = container.getElementsByTagName('a')[0];
 
@@ -48,7 +48,7 @@ describe('ContentItem tests', () => {
         <ContentItem
           tagName="section"
           content="This is a section"
-        />
+        />,
       );
 
       expect(container.querySelector('section')).toBeTruthy();
@@ -60,7 +60,7 @@ describe('ContentItem tests', () => {
         <ContentItem
           tagName="h1"
           content="This is a heading"
-        />
+        />,
       );
 
       expect(container.querySelector('h1')).toBeTruthy();
@@ -72,7 +72,7 @@ describe('ContentItem tests', () => {
         <ContentItem
           tagName="h2"
           content="This is a subheading"
-        />
+        />,
       );
 
       expect(container.querySelector('h2')).toBeTruthy();
@@ -84,7 +84,7 @@ describe('ContentItem tests', () => {
         <ContentItem
           tagName="p"
           content="This is a paragraph"
-        />
+        />,
       );
 
       expect(container.querySelector('p')).toBeTruthy();
@@ -98,10 +98,10 @@ describe('ContentItem tests', () => {
           { tagName: 'li', content: 'First' },
           { tagName: 'li', content: 'Second' },
           { tagName: 'li', content: 'Third' },
-        ] as any
+        ] as any,
       };
       const { container } = render(
-        <ContentItem {...props} />
+        <ContentItem {...props} />,
       );
 
       expect(container.querySelector('ul')).toBeTruthy();
@@ -114,10 +114,10 @@ describe('ContentItem tests', () => {
     it('renders a span the tag is not recognised', () => {
       const props: IContentItem = {
         tagName: 'unknown',
-        content: 'Test content'
+        content: 'Test content',
       };
       const { container } = render(
-        <ContentItem {...props} />
+        <ContentItem {...props} />,
       );
 
       expect(container.querySelector('span')).toBeTruthy();
@@ -130,21 +130,21 @@ describe('ContentItem tests', () => {
       tagName: 'topics',
       content: [
         {
-          category: "test",
-          description: "Test description",
-          slug: "test",
-          title: "Test"
+          category: 'test',
+          description: 'Test description',
+          slug: 'test',
+          title: 'Test',
         },
         {
-          category: "test",
-          description: "Another test description",
-          slug: "another-test",
-          title: "Another test"
-        }
-      ] as any
+          category: 'test',
+          description: 'Another test description',
+          slug: 'another-test',
+          title: 'Another test',
+        },
+      ] as any,
     };
     const { container } = render(
-      <ContentItem {...props} />
+      <ContentItem {...props} />,
     );
 
     expect(container.querySelector('ul')).toBeTruthy();
@@ -161,17 +161,17 @@ describe('ContentItem tests', () => {
           company: 'Test Company',
           location: 'Test, Location',
           role: 'Test role',
-          startDate: "2020-01-06",
+          startDate: '2020-01-06',
           tasks: [
             'Task one',
             'Task two',
           ],
-          topics: []
-        }
-      ] as any
+          topics: [],
+        },
+      ] as any,
     };
     const { container } = render(
-      <ContentItem {...props} />
+      <ContentItem {...props} />,
     );
 
     expect(container.querySelector('section')).toBeTruthy();
@@ -191,13 +191,13 @@ describe('ContentItem tests', () => {
           title: 'Test Project',
           topics: [
             'test topic one',
-            'test topic two'
-          ]
-        }
-      ] as any
+            'test topic two',
+          ],
+        },
+      ] as any,
     };
     const { container } = render(
-      <ContentItem {...props} />
+      <ContentItem {...props} />,
     );
 
     expect(container.querySelector('section')).toBeTruthy();
@@ -209,10 +209,10 @@ describe('ContentItem tests', () => {
   it('renders a warning if the element is unknown', () => {
     const props: IContentItem = {} as any;
     const { container } = render(
-      <ContentItem {...props} />
+      <ContentItem {...props} />,
     );
 
     expect(container.querySelector('span')).toBeTruthy();
     expect(screen.getByText('Unknown element')).toBeTruthy();
-  })
+  });
 });

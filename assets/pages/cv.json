@@ -8,16 +8,19 @@
       "id": "intro",
       "content": [
         {
+          "id": "cv-1",
           "tagName": "h1",
           "content": "CV / Résumé"
         },
         {
+          "id": "cv-2",
           "tagName": "h2",
           "content": "My work experience and qualifications from 2001 to present."
         }
       ]
     },
     {
+      "id": "cv-3",
       "tagName": "p",
       "content": "My CV is also available in [PDF format](https://mattfinucane.com/docs/matt-finucane-cv.pdf \"Matt Finucane CV\")."
     },
@@ -26,6 +29,7 @@
       "id": "work-experience",
       "content": [
         {
+          "id": "cv-4",
           "tagName": "jobs",
           "content": [
             {

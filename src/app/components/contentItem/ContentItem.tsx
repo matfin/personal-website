@@ -1,5 +1,11 @@
 import * as React from 'react';
-import { ContentTypes, IContentItem, ITopic, IPosition, IProject } from 'common/interfaces';
+import {
+  ContentTypes,
+  IContentItem,
+  ITopic,
+  IPosition,
+  IProject,
+} from 'common/interfaces';
 import {
   isContentItem,
   isLink,
@@ -29,9 +35,9 @@ export interface IProps extends IContentItem {
 
 export const processContent = (content: string): any => {
   const split: string[] = splitContent(content);
-  const processed = split.map((item: string, idx: number) => {
+  const processed = split.map((item: string) => {
     if (isLink(item)) {
-      return <LinkSt {...toLinkObject(item)} key={idx} />
+      return <LinkSt {...toLinkObject(item)} key={item} />;
     }
 
     return item;
@@ -41,7 +47,7 @@ export const processContent = (content: string): any => {
 };
 
 export const renderTag = (tagName: string, content: any, key?: string): JSX.Element => {
-  switch(tagName) {
+  switch (tagName) {
     case 'section': {
       return <SectionSt key={key}>{content}</SectionSt>;
     }
@@ -74,18 +80,17 @@ export const renderTag = (tagName: string, content: any, key?: string): JSX.Elem
     }
     case 'jobs':
     case 'projects': {
-      return <SectionSt key={key}>{content}</SectionSt>
+      return <SectionSt key={key}>{content}</SectionSt>;
+    }
+    default: {
+      return <span>{content}</span>;
     }
   }
-
-  return <span>{content}</span>;
-}
-
-export const renderTopic = (topic: ITopic): JSX.Element => {
-  return (
-    <TopicSt {...topic} key={topic.title} />
-  );
 };
+
+export const renderTopic = (topic: ITopic): JSX.Element => (
+  <TopicSt {...topic} key={topic.title} />
+);
 
 export const renderPosition = (position: IPosition): JSX.Element => (
   <Position
@@ -109,16 +114,22 @@ export const renderContent = (item: ContentTypes, key?: string): JSX.Element => 
       return renderTag(
         tagName,
         content.map((contentItem: ContentTypes, idx: number) => renderContent(contentItem, `${tagName}-${idx}`)),
-        key
+        key,
       );
     }
 
     return renderTag(tagName, content, key);
-  } else if (isTopic(item)) {
+  }
+
+  if (isTopic(item)) {
     return renderTopic(item);
-  } else if (isPosition(item)) {
+  }
+
+  if (isPosition(item)) {
     return renderPosition(item);
-  } else if (isProject(item)) {
+  }
+
+  if (isProject(item)) {
     return renderProject(item);
   }
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IPosition, ITopic } from 'common/interfaces';
+import { IPosition } from 'common/interfaces';
 import { formatDate } from 'common/utils';
 import {
   CompanyNameSt,
@@ -22,7 +22,6 @@ export const Position = ({
   role,
   startDate,
   tasks,
-  topics,
 }: IProps): JSX.Element => {
   const dateFrom = formatDate(new Date(startDate));
   const dateTo = endDate ? ` to ${formatDate(new Date(endDate))}` : ' to present';
@@ -46,7 +45,7 @@ export const Position = ({
         {role} / {location}
       </LocationAndRoleSt>
       <TaskListSt>
-        {tasks.map((task: string, idx: number) => <TaskItemSt key={idx}>{task}</TaskItemSt>)}
+        {tasks.map((task: string) => <TaskItemSt key={task}>{task}</TaskItemSt>)}
       </TaskListSt>
     </PositionSt>
   );

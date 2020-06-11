@@ -10,24 +10,24 @@ const defaultProps: IProps = {
   tasks: ['Task one', 'Task two'],
   topics: [
     {
-      "category": "languages",
-      "description": "Test description",
-      "slug": "test-language",
-      "title": "TestLanguage"
+      category: 'languages',
+      description: 'Test description',
+      slug: 'test-language',
+      title: 'TestLanguage',
     },
     {
-      "category": "tools",
-      "description": "Test description",
-      "slug": "test-tool",
-      "title": "TestTool"
+      category: 'tools',
+      description: 'Test description',
+      slug: 'test-tool',
+      title: 'TestTool',
     },
-  ]
+  ],
 };
 
 describe('Position tests', () => {
   it('renders the component with the correct content', () => {
     const { container } = render(
-      <Position {...defaultProps} />
+      <Position {...defaultProps} />,
     );
 
     expect(container).toBeTruthy();
@@ -41,7 +41,7 @@ describe('Position tests', () => {
 
   it('renders the end date', () => {
     const { container } = render(
-      <Position {...defaultProps} endDate="2020-04-26" />
+      <Position {...defaultProps} endDate="2020-04-26" />,
     );
 
     expect(container).toBeTruthy();
@@ -49,4 +49,3 @@ describe('Position tests', () => {
     expect(screen.getByText('to April 2020')).toBeTruthy();
   });
 });
-

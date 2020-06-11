@@ -12,16 +12,16 @@ export const PositionSt = styled.div`
 `;
 
 export const CompanyNameSt = styled.h3`
-  ${subHeadingTypography};
+  ${subHeadingTypography}
 `;
 
 export const LocationAndRoleSt = styled.h4`
-  ${thirdHeadingTypography};
+  ${thirdHeadingTypography}
   margin-bottom: 1rem;
 `;
 
 export const DateFromToSt = styled.h4`
-  ${thirdHeadingTypography};
+  ${thirdHeadingTypography}
   font-weight: ${fontWeight.bold};
 `;
 
@@ -30,6 +30,6 @@ export const TaskListSt = styled.ul`
 `;
 
 export const TaskItemSt = styled.li`
-  ${listItemStyle};
-  ${textTypography};
+  ${listItemStyle}
+  ${textTypography}
 `;

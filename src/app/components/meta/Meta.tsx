@@ -9,7 +9,9 @@ export interface IProps {
   slug?: string,
 }
 
-export const canonicalSlug = (slug: string): string => slug === 'home' ? '' : `/${slug}`;
+export const canonicalSlug = (slug: string): string => (
+  slug === 'home' ? '' : `/${slug}`
+);
 
 export const Meta = ({ description, title, slug = '' }: IProps): JSX.Element => (
   <Helmet>

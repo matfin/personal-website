@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Meta } from 'app/components/meta/Meta';
 import { setBodyOverflow } from 'common/utils';
-import { IContentItem, IPage, ToggleValue, ThemeType } from 'common/interfaces';
+import {
+  IContentItem,
+  IPage,
+  ToggleValue,
+  ThemeType,
+} from 'common/interfaces';
 import { ContentItem } from 'app/components/contentItem/ContentItem';
 import { Nav } from 'app/components/nav/Nav';
 import {
@@ -11,7 +16,6 @@ import {
   LoadingSt,
   MainSt,
   PageSt,
-  SideContainerSt,
   SideSt,
   ToggleSt,
 } from './Page.css';
@@ -25,13 +29,14 @@ export interface IProps {
   fetchPage(slug: string): void,
   resetPage(): void,
   switchTheme(theme: ThemeType): void,
-};
+}
 
-const pageContents = ({ contents }: IPage): JSX.Element[] =>
-  contents.map((item: IContentItem, key: number): JSX.Element => (
-    <ContentItem {...item} key={`${key}`} />
-  )
+const pageContents = ({ contents }: IPage): JSX.Element[] => (
+  contents.map((item: IContentItem): JSX.Element => (
+    <ContentItem {...item} key={item.id} />
+  ))
 );
+
 const errorMessage = (error: any): JSX.Element => <ErrorSt>{error.toString()}</ErrorSt>;
 
 const Page = ({
@@ -62,7 +67,7 @@ const Page = ({
     } else {
       switchTheme(ThemeType.DAY);
     }
-  }
+  };
 
   useEffect((): any => {
     setShowMenu(false);

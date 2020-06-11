@@ -3,7 +3,7 @@ import {
   Colours,
   Fonts,
   FontWeights,
-  Layers
+  Layers,
 } from 'common/interfaces';
 
 // units: px
@@ -12,7 +12,7 @@ export const sizes: Breakpoints = {
   md: 768,
   lg: 1024,
   xl: 1280,
-  xxl: 1440
+  xxl: 1440,
 };
 
 // units: em
@@ -40,7 +40,7 @@ export const lineHeight: Fonts = {
   thirdHeading: 1.25,
   text: 1.25,
   small: 1.25,
-}
+};
 
 export const fontWeight: FontWeights = {
   bold: 500,
@@ -61,8 +61,8 @@ export const layers: Layers = {
   upper: 1,
   base: 0,
   lower: -1,
-}
+};
 
 export const boxShadow: string = 'rgba(0, 0, 0, 0.3) 0 1px 3px';
-export const animationCurve: string = `cubic-bezier(0.91, 0.03, 0.12, 1)`
+export const animationCurve: string = 'cubic-bezier(0.91, 0.03, 0.12, 1)';
 export const defaultFont: string = '"Helvetica Neue", Helvetica, Arial, sans-serif';

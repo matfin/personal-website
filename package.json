@@ -11,8 +11,8 @@
     "build": "webpack --config webpack.prod.js",
     "test": "jest",
     "coverage": "jest --collect-coverage",
-    "csslint": "stylelint './src/app/styles/**' './src/**/*.css.ts'",
-    "lint": "eslint ./src/**/*.{ts,tsx}"
+    "csslint": "stylelint \"./src/app/styles/**/*\" \"./src/**/*.css.tsx\"",
+    "lint": "eslint \"./src/**/*.{ts,tsx}\""
   },
   "repository": {
     "type": "git",

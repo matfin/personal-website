@@ -22,6 +22,10 @@ export const LinkSt = styled(Link)<ILinkStProps>`
   transition: all 200ms ${animationCurve};
   transition-property: color padding;
 
+  ${(linkProps) => linkProps.isactive === 'true' && css`
+    color: ${(props) => props?.theme?.colours?.secondary};
+  `}
+
   &::after {
     z-index: ${layers.lower};
     position: absolute;
@@ -29,27 +33,23 @@ export const LinkSt = styled(Link)<ILinkStProps>`
     left: 0;
     width: 100%;
     height: 0;
-    background: ${props => props?.theme?.colours?.primary};
+    background: ${(props) => props?.theme?.colours?.primary};
     transition: all 200ms ${animationCurve};
     transition-property: background height;
     content: "";
+
+    ${(linkProps) => linkProps.isactive === 'true' && css`
+      color: ${(props) => props?.theme?.colours?.secondary};
+      height: 100%;
+    `}
   }
 
   &:hover {
-    color: ${props => props?.theme?.colours?.secondary};
+    color: ${(props) => props?.theme?.colours?.secondary};
 
     &::after {
       height: 100%;
-      background: ${props => props?.theme?.colours?.primary};
+      background: ${(props) => props?.theme?.colours?.primary};
     }
   }
-
-  ${(props) => props.isactive === 'true' && css`
-    color: ${props => props?.theme?.colours?.secondary};
-
-    &::after {
-      height: 100%;
-      background: ${props => props?.theme?.colours?.primary};
-    }
-  `};
 `;

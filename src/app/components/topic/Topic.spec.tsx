@@ -3,13 +3,16 @@ import { render, screen } from '@testing-library/react';
 import { Topic, IProps } from './Topic';
 
 const defaultProps: IProps = {
-  title: 'Test title'
+  category: 'Test category',
+  description: 'Test description',
+  slug: 'test-slug',
+  title: 'Test title',
 };
 
 describe('Topic tests', () => {
   it('renders the component', () => {
     const { container } = render(
-      <Topic {...defaultProps} />
+      <Topic {...defaultProps} />,
     );
 
     expect(container).toBeTruthy();

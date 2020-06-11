@@ -17,13 +17,13 @@ const mapStateToProps = (state: any) => ({
 
 export const mapDispatchToProps = (dispatch: Dispatch<PageActionTypes>) => ({
   fetchPage: (slug: string): void => {
-    dispatch<any>(fetchPage(slug))
+    dispatch<any>(fetchPage(slug));
   },
   resetPage: (): void => {
-    dispatch<any>(resetPage())
+    dispatch<any>(resetPage());
   },
   switchTheme: (theme: ThemeType): void => {
-    dispatch<any>(switchTheme(theme))
+    dispatch<any>(switchTheme(theme));
   },
 });
 
@@ -31,6 +31,6 @@ const Component = (props: IProps): JSX.Element => {
   const { slug } = useParams();
 
   return <Page {...props} slug={slug || 'home'} />;
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component);

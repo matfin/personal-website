@@ -3,7 +3,7 @@ import {
   animationCurve,
   boxShadow,
   layers,
-  media
+  media,
 } from 'app/styles';
 import { Footer } from 'app/components/footer/Footer';
 import { Loading } from 'app/components/loading/Loading';
@@ -32,7 +32,7 @@ export const PageSt = styled.div<IPageStProps>`
 
   ${(props) => props.navRevealed && css`
     overflow: hidden;
-  `};
+  `}
 
   ${media.md(css`
     grid-template-columns: auto 30rem 2rem 12.25rem auto;
@@ -40,11 +40,11 @@ export const PageSt = styled.div<IPageStProps>`
     grid-template-areas:
       ". main . side ."
       ". footer . side .";
-  `)};
+  `)}
 
   ${media.lg(css`
     grid-template-columns: auto 40rem 4rem 12.25rem auto;
-  `)};
+  `)}
 `;
 
 export const MainSt = styled.main`
@@ -60,14 +60,14 @@ export const SideSt = styled.aside<ISideStProps>`
   width: 100vw;
   height: 100vh;
   padding: 3rem 4rem;
-  background: ${props => props?.theme?.colours?.secondary};
+  background: ${(props) => props?.theme?.colours?.secondary};
   box-shadow: none;
   transition: transform 0.5s ${animationCurve};
 
   ${({ revealed }) => revealed && css`
     box-shadow: ${boxShadow};
     transform: translate3d(0, 0, 0);
-  `};
+  `}
 
   ${media.md(css`
     box-shadow: none;
@@ -78,7 +78,7 @@ export const SideSt = styled.aside<ISideStProps>`
     grid-area: side;
     transform: unset;
     background: transparent;
-  `)};
+  `)}
 `;
 
 export const FooterSt = styled(Footer)`
@@ -95,10 +95,11 @@ export const BurgerSt = styled(MenuButton)`
 
   ${media.md(css`
     display: none;
-  `)};
+  `)}
 `;
 
 export const ErrorSt = styled.div`
+  grid-area: main;
 `;
 
 export const LoadingSt = styled(Loading)`
@@ -109,5 +110,3 @@ export const ToggleSt = styled(Toggle)`
   margin-top: 2rem;
   margin-left: 0.25rem;
 `;
-
-

@@ -5,7 +5,7 @@ import { Meta, IProps } from './Meta';
 
 const defaultProps: IProps = {
   description: 'Test description',
-  title: 'Test title'
+  title: 'Test title',
 };
 
 describe('Meta tests', () => {
@@ -19,7 +19,7 @@ describe('Meta tests', () => {
       },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1, user-scalable=yes'
+        content: 'width=device-width, initial-scale=1, user-scalable=yes',
       },
       { name: 'theme-color', content: '#ecedef' },
       { name: 'description', content: 'Test description' },
@@ -34,7 +34,7 @@ describe('Meta tests', () => {
       { name: 'twitter:creator', content: '@matfinucane' },
       { name: 'twitter:title', content: 'Test title' },
       { name: 'twitter:url', content: 'http://localhost:3000/' },
-      { name: 'twitter:description', content: 'Test description' }
+      { name: 'twitter:description', content: 'Test description' },
     ];
 
     expect(wrapper).toBeTruthy();
@@ -49,7 +49,7 @@ describe('Meta tests', () => {
     expect(wrapper).toBeTruthy();
     expect(helmet.metaTags[5]).toEqual({
       property: 'og:url',
-      content: 'http://localhost:3000/test-slug'
+      content: 'http://localhost:3000/test-slug',
     });
   });
 
@@ -60,7 +60,7 @@ describe('Meta tests', () => {
     expect(wrapper).toBeTruthy();
     expect(helmet.metaTags[5]).toEqual({
       property: 'og:url',
-      content: 'http://localhost:3000'
+      content: 'http://localhost:3000',
     });
   });
 });

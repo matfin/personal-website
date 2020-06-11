@@ -17,7 +17,7 @@ const defaultProps: IProps = {
 describe('Project tests', () => {
   it('renders the component with the correct content', () => {
     const { container } = render(
-      <Project {...defaultProps} />
+      <Project {...defaultProps} />,
     );
 
     expect(container).toBeTruthy();

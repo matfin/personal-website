@@ -37,7 +37,7 @@ class SSRController implements IBaseController {
   reduxFetchPage = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     const { slug } = req.params;
 
-    await this.store.dispatch<any>(fetchPage(slug || 'home')); //TODO: Cache this
+    await this.store.dispatch<any>(fetchPage(slug || 'home'));
     next();
   };
 
@@ -50,61 +50,57 @@ class SSRController implements IBaseController {
       try {
         this.caches[cacheKey] = await this.generateSSRContent(req);
       } catch (e) {
-        return res.status(500).send({e: e.toString()});
+        return res.status(500).send({ e: e.toString() });
       }
     }
 
     return res.status(200).send(this.caches[cacheKey]);
   };
 
-  generateSSRContent = (req: Request): Promise<string> => {
-    return new Promise((resolve, reject): void => {
-      const sheet = new ServerStyleSheet();
-      const { npm_package_version } = process.env;
-      const preloadedState: any = this.store.getState();
-      const preloadedStateJson: string = JSON.stringify(preloadedState).replace(/</g, '\\u003c');
-      const { apiUrl, canonicalUrl, enableCache } = config;
-      const bodyStream: NodeJS.ReadableStream = renderToNodeStream(
-        sheet.collectStyles(
-          <IndexComponent
-            context={{}}
-            req={req}
-            store={this.store}
-          />,
-        ),
-      );
-      const body: string[] = [];
+  generateSSRContent = (req: Request): Promise<string> => new Promise((resolve, reject): void => {
+    const sheet = new ServerStyleSheet();
+    const { npm_package_version } = process.env;
+    const preloadedState: any = this.store.getState();
+    const preloadedStateJson: string = JSON.stringify(preloadedState).replace(/</g, '\\u003c');
+    const { apiUrl, canonicalUrl, enableCache } = config;
+    const bodyStream: NodeJS.ReadableStream = renderToNodeStream(
+      sheet.collectStyles(
+        <IndexComponent
+          context={{}}
+          req={req}
+          store={this.store}
+        />,
+      ),
+    );
+    const body: string[] = [];
 
-      bodyStream.on('data', (chunk: any) => {
-        body.push(chunk.toString());
-      });
-
-      bodyStream.on('error', (error: any) => {
-        reject({
-          error: error.toString()
-        });
-      });
-
-      bodyStream.on('end', () => {
-        const styleTags: string = sheet.getStyleTags();
-        const helmet: HelmetData = Helmet.renderStatic();
-        const payload: string = indexTemplate({
-          apiUrl,
-          canonicalUrl,
-          enableServiceWorker: enableCache,
-          helmet,
-          packageVersion: npm_package_version,
-          preloadedState: preloadedStateJson,
-          reactAppHtml: body.join(''),
-          styleTags
-        });
-
-        sheet.seal();
-
-        resolve(payload);
-      });
+    bodyStream.on('data', (chunk: any) => {
+      body.push(chunk.toString());
     });
-  };
+
+    bodyStream.on('error', (error: any) => {
+      reject(new Error(error.toString()));
+    });
+
+    bodyStream.on('end', () => {
+      const styleTags: string = sheet.getStyleTags();
+      const helmet: HelmetData = Helmet.renderStatic();
+      const payload: string = indexTemplate({
+        apiUrl,
+        canonicalUrl,
+        enableServiceWorker: enableCache,
+        helmet,
+        packageVersion: npm_package_version,
+        preloadedState: preloadedStateJson,
+        reactAppHtml: body.join(''),
+        styleTags,
+      });
+
+      sheet.seal();
+
+      resolve(payload);
+    });
+  });
 }
 
 export default SSRController;

@@ -16,17 +16,17 @@ export const SectionSt = styled.section`
 `;
 
 export const HeadingSt = styled.h1`
-  ${headingTypography};
+  ${headingTypography}
   padding-right: 3rem;
 `;
 
 export const SubHeadingSt = styled.h2`
-  ${subHeadingTypography};
+  ${subHeadingTypography}
   padding: 1rem 0;
 `;
 
 export const ParagraphSt = styled.p`
-  ${textTypography};
+  ${textTypography}
   margin: 1rem 0;
 `;
 
@@ -35,8 +35,8 @@ export const ListSt = styled.ul`
 `;
 
 export const ListItemSt = styled.li`
-  ${listItemStyle};
-  ${textTypography};
+  ${listItemStyle}
+  ${textTypography}
 `;
 
 export const TopicSt = styled(Topic)`
@@ -59,13 +59,13 @@ export const LinkSt = styled(InlineLink)`
     left: 0;
     width: 100%;
     height: 0.125rem;
-    background-color: ${props => props?.theme?.colours?.primary};
+    background-color: ${(props) => props?.theme?.colours?.primary};
     content: "";
     transition: height 200ms ${animationCurve};
   }
 
   &:hover {
-    color: ${props => props?.theme?.colours?.secondary};
+    color: ${(props) => props?.theme?.colours?.secondary};
 
     &::after {
       height: 100%;

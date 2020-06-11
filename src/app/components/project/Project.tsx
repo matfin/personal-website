@@ -8,7 +8,7 @@ import {
 
 export interface IProps extends IProject {
   className?: string
-};
+}
 
 export const Project = ({
   className,
