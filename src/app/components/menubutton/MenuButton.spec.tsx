@@ -1,6 +1,7 @@
 import React from 'react';
 import 'jest-styled-components';
 import { fireEvent, render } from '@testing-library/react';
+import * as utils from 'common/utils/utils';
 import { MenuButton, IProps } from './MenuButton';
 
 const defaultProps: IProps = {
@@ -16,6 +17,7 @@ describe('MenuButton tests', () => {
   });
 
   it('executes the callback on click', () => {
+    const spyIsTouchDevice = jest.spyOn(utils, 'isTouchDevice').mockReturnValue(false);
     const spyOnClick = jest.fn();
     const wrapper = render(
       <MenuButton
@@ -26,7 +28,30 @@ describe('MenuButton tests', () => {
     const button = wrapper.getByTestId('menubutton');
 
     fireEvent.click(button);
-    expect(spyOnClick).toHaveBeenCalled();
+    fireEvent.touchStart(button);
+
+    expect(spyOnClick).toHaveBeenCalledTimes(1);
+
+    spyIsTouchDevice.mockRestore();
+  });
+
+  it('executes the callback on touch', () => {
+    const spyIsTouchDevice = jest.spyOn(utils, 'isTouchDevice').mockReturnValue(true);
+    const spyOnClick = jest.fn();
+    const wrapper = render(
+      <MenuButton
+        {...defaultProps}
+        onClick={spyOnClick}
+      />,
+    );
+    const button = wrapper.getByTestId('menubutton');
+
+    fireEvent.click(button);
+    fireEvent.touchStart(button);
+
+    expect(spyOnClick).toHaveBeenCalledTimes(1);
+
+    spyIsTouchDevice.mockRestore();
   });
 
   it('has the correct style when revealed', async () => {

@@ -66,3 +66,7 @@ export const splitContent = (text: string): string[] => {
 };
 
 export const isServer = (): boolean => typeof window === 'undefined';
+
+export const isTouchDevice = (): boolean => (
+  typeof window !== 'undefined' && 'ontouchstart' in window
+);

@@ -2,6 +2,7 @@ import {
   formatDate,
   isExternalUrl,
   isLink,
+  isTouchDevice,
   toLinkObject,
   splitContent,
 } from './utils';
@@ -73,5 +74,14 @@ describe('utils tests', (): void => {
       '[another one](/another)',
       ' right here!',
     ]);
+  });
+
+  it('checks for touch devices', () => {
+    expect(isTouchDevice()).toBe(false);
+
+    global.ontouchstart = () => {};
+    expect(isTouchDevice()).toBe(true);
+
+    global.ontouchstart = undefined;
   });
 });
