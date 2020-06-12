@@ -11,9 +11,9 @@ This is what we need to do to build a nice, simple, well maintained application.
 - progressive web app with offline capability
 - improved Lighthouse audit scores
 - animated UI to communicate flow effectively to the user
+- production bundling and CI flow with CircleCI and Docker
 
 ## Nice to have
 - use Redux Saga
 - use Storybook for component rendering/documentation
-- production bundling and CI flow
 - error boundary for better error handling

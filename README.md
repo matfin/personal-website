@@ -3,8 +3,6 @@ As the title says, this is my personal website which contains my portfolio and c
 
 My motivation in creating this was to gain a deeper understanding of modern web development practices, while at the same time refreshing my online presence, which was due an overhaul after almost three years.
 
-Upon the initial release of this project, I now have a better understanding of:
-
 ### What did I learn from making this?
 - dependency management with [webpack](https://webpack.js.org/), including code splitting and bundling.
 - [TypeScript](https://www.typescriptlang.org/), which is a superset of JavaScript and includes type-checking.
@@ -35,6 +33,21 @@ If you want to turn something like this on for local development, you could use 
 This website was built to run on modern desktop and mobile browsers. It is fully responsive, can be added to the user's home screen as an application (for that native-like experience) and it can even be used offline.
 
 I decided to deprecate Internet Explorer, given that it is nearing the end of its life and has been superseded by Microsoft Edge (which can now even run on Windows 7!). Supporting this old beast (released late in 2013) just doesn't make sense anymore.
+
+### How is this deployed?
+For CI (continuous integration), a very popular and well documented tool called [CircleCI](https://circleci.com/) is used.
+
+So what is continuous integration? It's a list of instructions that get carried out automatically when triggered.
+
+It's really important, because you want to make sure everything runs smoothly when you release changes to your product to the public.
+
+CI lets us run tests and build the product, a process that is otherwise cumbersome and error-prone when done by a human.
+
+In this case, we run tests on the code and check it for quality when we create a PR (and push to a branch other than master).
+
+When we merge a PR (merging to master), we don't run any tests, since this was already taken care of in the previous step.
+
+Instead, we build Docker images with the latest version of the product, push these to Docker Hub, then finally connect to the production server and pull down the latest images, restarting the running containers with the latest copies.
 
 ### What are the nice to haves?
 I have documented these in the [Tech Roadmap](ROADMAP.md) and will keep working on them.
