@@ -70,17 +70,13 @@ workflows:
             branches:
               ignore: master
       - build:
-          requires:
-            - test
           filters:
             branches:
-              only:
-                - master
+              only: master
       - deploy:
           requires:
             - build
           filters:
             branches:
-              only:
-                - master
+              only: master
 
