@@ -11,3 +11,6 @@ node_modules
 *.log
 **/*.spec.tsx
 **/*.spec.ts
+.vscode
+docker-compose*
+webpack.dev.js

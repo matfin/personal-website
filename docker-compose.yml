@@ -11,8 +11,9 @@ services:
     environment:
       - API_URL=https://mattfinucane.build
       - CANONICAL_URL=https://mattfinucane.build
-      - PORT=3001
       - ENABLE_CACHE=true
+      - NODE_ENV-production
+      - PORT=3001
     command: yarn prodserver
 
   nginx:
