@@ -1,6 +1,7 @@
 import {
   formatDate,
   isExternalUrl,
+  isIE,
   isLink,
   isTouchDevice,
   toLinkObject,
@@ -83,5 +84,23 @@ describe('utils tests', (): void => {
     expect(isTouchDevice()).toBe(true);
 
     global.ontouchstart = undefined;
+  });
+
+  it('checks the user agent string for IE', () => {
+    expect(
+      isIE('Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko'),
+    ).toBe(true);
+
+    expect(
+      isIE('Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)'),
+    ).toBe(true);
+
+    expect(
+      isIE('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36'),
+    ).toBe(false);
+
+    expect(
+      isIE(),
+    ).toBe(false);
   });
 });

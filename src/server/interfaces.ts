@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
 export interface IBaseController {
-  initRoutes(): void;
+  initRoutes?(): void;
   router: Router;
 }

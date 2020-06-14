@@ -10,7 +10,7 @@ import createStoreWithPreloadedState from 'common/store';
 import { fetchPage } from 'app/views/page/actions';
 import config from 'common/config';
 import { IBaseController } from 'server/interfaces';
-import { indexTemplate } from 'common/utils';
+import { indexTemplate, isIE, unsupported } from 'common/utils';
 import { CacheDictionary } from 'common/interfaces';
 import IndexComponent from '../IndexComponent';
 
@@ -28,11 +28,27 @@ class SSRController implements IBaseController {
   }
 
   initRoutes = () => {
-    this.router.get('/:slug(404|projects|cv|now)?', this.reduxFetchPage, this.sendSSR);
+    this.router.get(
+      '/:slug(404|projects|cv|now)?',
+      this.browserVersionGuard,
+      this.reduxFetchPage,
+      this.sendSSR,
+    );
     this.router.use(this.redirectToNotFound);
   };
 
   redirectToNotFound = (req: Request, res: Response): void => res.redirect('/404');
+
+  browserVersionGuard = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+    const { headers } = req;
+    const ua: string | undefined = headers['user-agent'];
+
+    if (isIE(ua)) {
+      return res.status(200).send(unsupported());
+    }
+
+    return next();
+  };
 
   reduxFetchPage = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     const { slug } = req.params;

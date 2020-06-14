@@ -70,3 +70,9 @@ export const isServer = (): boolean => typeof window === 'undefined';
 export const isTouchDevice = (): boolean => (
   typeof window !== 'undefined' && 'ontouchstart' in window
 );
+
+export const isIE = (ua?: string): boolean => {
+  const regexp: RegExp = /(Trident|MSIE)/gm;
+
+  return regexp.test(ua || '');
+};

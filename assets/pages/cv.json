@@ -1,5 +1,5 @@
 {
-  "title": "Matt Finucane - CV / Resume",
+  "title": "Matt Finucane - CV / Resumé",
   "description": "My work experience and qualifications from 2001 to present.",
   "slug": "cv",
   "contents": [
@@ -10,7 +10,7 @@
         {
           "id": "cv-1",
           "tagName": "h1",
-          "content": "CV / Résumé"
+          "content": "CV / Resumé"
         },
         {
           "id": "cv-2",
