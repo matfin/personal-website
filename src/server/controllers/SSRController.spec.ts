@@ -51,7 +51,13 @@ describe('SSRController tests', (): void => {
     await new SSRController();
     expect(spyGet).toHaveBeenCalled();
     expect(spyUse).toHaveBeenCalled();
-    expect(spyGet).toHaveBeenCalledWith('/:slug(404|projects|cv|now)?', expect.any(Function), expect.any(Function));
+    expect(spyGet)
+      .toHaveBeenCalledWith(
+        '/:slug(404|projects|cv|now)?',
+        expect.any(Function),
+        expect.any(Function),
+        expect.any(Function),
+      );
 
     spyExpress.mockRestore();
   });
@@ -131,7 +137,7 @@ describe('SSRController tests', (): void => {
     ssrController.sendSSR(request, response);
     await expect(spyGenerateSSRContent).toHaveBeenCalledTimes(1);
 
-    spyGenerateSSRContent.mockReset();
+    spyGenerateSSRContent.mockRestore();
   });
 
   it('should send an error if content could not be generated', async (): Promise<void> => {
@@ -203,5 +209,40 @@ describe('SSRController tests', (): void => {
     await expect(ssrController.generateSSRContent(request as any)).rejects.toEqual(new Error('error'));
 
     spyOn.mockRestore();
+  });
+
+  it('should send content for unsupported browsers', async (): Promise<void> => {
+    const spySend = jest.fn();
+    const spyStatus = jest.fn().mockReturnValue({
+      send: spySend,
+    });
+    const spyNext = jest.fn();
+    const request = {
+      headers: {
+        'user-agent': 'MSIE / Trident',
+      },
+    };
+    const response: any = {
+      status: spyStatus,
+    };
+    const ssrController = new SSRController();
+
+    // if we are dealing with IE
+    await ssrController.browserVersionGuard(request as any, response, spyNext);
+
+    expect(spyNext).not.toHaveBeenCalled();
+    expect(spyStatus).toHaveBeenCalledWith(200);
+    expect(spySend).toHaveBeenCalled();
+    spyNext.mockReset();
+    spyStatus.mockReset();
+    spySend.mockReset();
+
+    // if we are not dealing with IE
+    request.headers['user-agent'] = 'Non IE Test';
+    await ssrController.browserVersionGuard(request as any, response, spyNext);
+
+    expect(spyNext).toHaveBeenCalled();
+    expect(spyStatus).not.toHaveBeenCalledWith();
+    expect(spySend).not.toHaveBeenCalled();
   });
 });

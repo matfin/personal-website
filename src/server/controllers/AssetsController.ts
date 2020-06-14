@@ -18,30 +18,38 @@ class AssetsController implements IBaseController {
   public router = Router();
 
   constructor() {
-    this.initRoutes();
+    this.initMetadataRoutes();
+    this.initAssetRoutes();
   }
 
-  initRoutes = () => {
+  initMetadataRoutes = (): void => {
+    const items: string[] = [
+      '/manifest.json',
+      '/robots.txt',
+      '/sitemap.xml',
+    ];
+
+    items.forEach((item: string): Router => (
+      this.router.use(
+        item,
+        expressStatic(`${this.assetsFilePath}/metadata/${item}`),
+      )
+    ));
+  };
+
+  initAssetRoutes = (): void => {
     const routes: IRoutePair[] = [
       {
         itemPath: '/docs',
         dir: `${this.assetsFilePath}/docs`,
       },
       {
+        itemPath: '/favicon.ico',
+        dir: `${this.assetsFilePath}/images/icons/favicon.ico`,
+      },
+      {
         itemPath: '/images',
         dir: `${this.assetsFilePath}/images`,
-      },
-      {
-        itemPath: '/manifest.json',
-        dir: `${this.assetsFilePath}/metadata/manifest.json`,
-      },
-      {
-        itemPath: '/robots.txt',
-        dir: `${this.assetsFilePath}/metadata/robots.txt`,
-      },
-      {
-        itemPath: '/sitemap.xml',
-        dir: `${this.assetsFilePath}/metadata/sitemap.xml`,
       },
       {
         itemPath: '/scripts',
@@ -53,7 +61,7 @@ class AssetsController implements IBaseController {
       },
     ];
 
-    routes.forEach(({ dir, itemPath }: IRoutePair) => (
+    routes.forEach(({ dir, itemPath }: IRoutePair): Router => (
       this.router.use(itemPath, expressStatic(dir))
     ));
   };
