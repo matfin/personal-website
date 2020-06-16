@@ -9,7 +9,6 @@ import {
   textTypography,
 } from 'app/styles';
 import { InlineLink } from 'app/components/inlinelink/InlineLink';
-import { Topic } from 'app/components/topic/Topic';
 
 export const SectionSt = styled.section`
   display: block;
@@ -39,12 +38,15 @@ export const ListItemSt = styled.li`
   ${textTypography}
 `;
 
-export const TopicSt = styled(Topic)`
-  display: inline-block;
-  margin: 0.125rem;
+export const TopicsSt = styled.ul`
+  list-style: none;
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0.5rem;
 
   ${media.md(css`
-    margin: 0.25rem;
+    grid-template-columns: repeat(3, 1fr);
   `)}
 `;
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ITopic } from 'common/interfaces';
-import { TopicSt } from './Topic.css';
+import TopicSt from './Topic.css';
 
 export interface IProps extends ITopic {
   className?: string,

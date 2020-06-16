@@ -92,8 +92,8 @@
             {
               "category": "languages",
               "description": "Javascript (ES) is a modern version of Javascript.",
-              "slug": "javascript-es",
-              "title": "Javascript (ES)"
+              "slug": "ecmascript",
+              "title": "ECMAScript"
             },
             {
               "category": "frontend",
@@ -103,21 +103,27 @@
             },
             {
               "category": "frontend",
+              "description": "React Native is a framework for building native apps using React.",
+              "slug": "react-native",
+              "title": "React Native"
+            },
+            {
+              "category": "frontend",
               "description": "Redux is a state management system used in web application development.",
               "slug": "redux",
               "title": "Redux"
             },
             {
               "category": "frontend",
-              "description": "Styled components works with React and facilitates styling via CSS in JS.",
-              "slug": "styled-components",
-              "title": "Styled Components"
+              "description": "CSS in JS allows you to use Javascript to define CSS styles for components. Two common frameworks I have used for this include styled-components, styled-system and design tokens.",
+              "slug": "css-in-js",
+              "title": "CSS in JS"
             },
             {
               "category": "frontend",
               "description": "These act as CSS pre-processors and make it easier to manage styles for large, cross-browser applications.",
               "slug": "scss-sass-less",
-              "title": "SCSS/SASS/LESS"
+              "title": "SCSS/SASS"
             },
             {
               "category": "frontend",
@@ -145,15 +151,21 @@
             },
             {
               "category": "backend",
-              "description": "Docker is a tool that makes it easier to manage complex tools and environments, and ties each piece of infrastructure together (as containers) to form a working project.",
-              "slug": "docker",
-              "title": "Docker"
+              "description": "Docker Compose is a tool that makes it easier to manage complex tools and environments, and ties each piece of infrastructure together (as containers) to form a working project.",
+              "slug": "docker-compose",
+              "title": "Docker Compose"
             },
             {
               "category": "backend",
-              "description": "MongoDB is a document oriented database and Mongoose is a library for NodeJS that makes it easier to interact with it.",
-              "slug": "mongodb-mongoose",
-              "title": "MongoDB/Mongoose"
+              "description": "MongoDB is a document oriented non-relational database management system.",
+              "slug": "mongodb",
+              "title": "MongoDB"
+            },
+            {
+              "category": "backend",
+              "description": "Mongoose is a library for NodeJS that makes it easier to interact with MongoDB.",
+              "slug": "mongoose",
+              "title": "Mongoose"
             },
             {
               "category": "backend",
@@ -189,7 +201,7 @@
               "category": "tools",
               "description": "React testing library is used to test the behaviour of function components in React.",
               "slug": "react-testing-library",
-              "title": "React Testing Library"
+              "title": "Testing Library"
             },
             {
               "category": "tools",
@@ -317,16 +329,16 @@
             {
               "category": "frontend",
               "deprecated": "true",
-              "description": "Sencha Touch is a mobile application framework written in Javascript and html5.",
+              "description": "ExtJS/Sencha is a web and mobile application framework written in Javascript that leverages HTML5 and comes with its own component library of widgets.",
               "slug": "sencha-touch",
-              "title": "Sencha Touch"
+              "title": "ExtJS/Sencha"
             },
             {
               "category": "frontend",
               "deprecated": "true",
-              "description": "Gulp / Grunt are used to manage and pacakge web applications and their dependencies. Both of these have been deprecated in favour of WebPack.",
-              "slug": "gulp-grunt",
-              "title": "Gulp / Grunt"
+              "description": "Gulp is used to manage and package web applications and their dependencies. This has been deprecated in favour of webpack.",
+              "slug": "gulp",
+              "title": "Gulp"
             },
             {
               "category": "backend",
@@ -347,7 +359,7 @@
               "deprecated": "true",
               "description": "Wordpress is a blogging tool written in PHP.",
               "slug": "wordpress",
-              "title": "Wordpress"
+              "title": "WorPpress"
             },
             {
               "category": "backend",
