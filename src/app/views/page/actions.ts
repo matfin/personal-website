@@ -56,13 +56,16 @@ export const resetPage = (): PageActionTypes => ({
 });
 
 export const fetchPage = (slug: string): AppThunk => async (dispatch) => {
-  dispatch(fetchPageRequest());
+  const pageRequestTimeout: number = setTimeout(
+    (): PageActionTypes => dispatch(fetchPageRequest()), 200,
+  );
 
   try {
     const response: Response = await apiCall(`/content/page/${slug}`);
     const page: IPage = await response.json();
 
     dispatch(fetchPageSuccess(page));
+    clearTimeout(pageRequestTimeout);
   } catch (error) {
     dispatch(fetchPageFailure(error));
   }

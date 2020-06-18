@@ -17,6 +17,7 @@ import {
 } from 'common/utils';
 import { Position } from 'app/components/position/Position';
 import { Project } from 'app/components/project/Project';
+import { Topic } from 'app/components/topic/Topic';
 import {
   HeadingSt,
   LinkSt,
@@ -25,7 +26,7 @@ import {
   ListSt,
   ListItemSt,
   SubHeadingSt,
-  TopicSt,
+  TopicsSt,
 } from './ContentItem.css';
 
 export interface IProps extends IContentItem {
@@ -76,7 +77,7 @@ export const renderTag = (tagName: string, content: any, key?: string): JSX.Elem
       );
     }
     case 'topics': {
-      return <ListSt key={key}>{content}</ListSt>;
+      return <TopicsSt key={key}>{content}</TopicsSt>;
     }
     case 'jobs':
     case 'projects': {
@@ -89,7 +90,7 @@ export const renderTag = (tagName: string, content: any, key?: string): JSX.Elem
 };
 
 export const renderTopic = (topic: ITopic): JSX.Element => (
-  <TopicSt {...topic} key={topic.title} />
+  <Topic {...topic} key={topic.title} />
 );
 
 export const renderPosition = (position: IPosition): JSX.Element => (

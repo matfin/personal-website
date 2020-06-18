@@ -24,7 +24,7 @@ describe('page actions tests', () => {
   };
   let store: any;
 
-  beforeEach(() => {
+  beforeEach((): void => {
     store = createMockStore({
       pageState: {
         error: null,
@@ -61,32 +61,55 @@ describe('page actions tests', () => {
     });
   });
 
-  it('dispatches correctly when fetching a page with success', async () => {
+  it('dispatches correctly when fetching a page with success (less than 200ms)', async () => {
     const expectedActions = [
-      { type: FETCH_PAGE_REQUEST },
       { type: FETCH_PAGE_SUCCESS, payload: page },
     ];
-
-    jest.spyOn(api, 'apiCall').mockResolvedValue({
+    const spyApiCall = jest.spyOn(api, 'apiCall').mockResolvedValue({
       json: jest.fn().mockResolvedValue(page),
     });
 
     await (store.dispatch(fetchPage('test')));
-    expect(store.getActions()).toEqual(expectedActions);
+    await expect(store.getActions()).toEqual(expectedActions);
+
+    spyApiCall.mockRestore();
+  });
+
+  it('dispatches correctly when fetching a page with success (more than 200ms)', async (done) => {
+    const expectedActions = [
+      { type: FETCH_PAGE_REQUEST },
+      { type: FETCH_PAGE_SUCCESS, payload: page },
+    ];
+    const spyApiCall = jest.spyOn(api, 'apiCall').mockResolvedValue({
+      json: () => (
+        new Promise((resolve: any): void => {
+          setTimeout(() => resolve(page), 300);
+        })
+      ),
+    });
+
+    await (store.dispatch(fetchPage('test')));
+
+    setTimeout(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+      done();
+    }, 400);
+
+    spyApiCall.mockRestore();
   });
 
   it('dispatches correctly when fetching a page failed', async () => {
     const error = { dummy: 'error' };
     const expectedActions = [
-      { type: FETCH_PAGE_REQUEST },
       { type: FETCH_PAGE_FAILURE, error },
     ];
-
-    jest.spyOn(api, 'apiCall').mockResolvedValue({
+    const spyApiCall = jest.spyOn(api, 'apiCall').mockResolvedValue({
       json: jest.fn().mockRejectedValue(error),
     });
 
     await (store.dispatch(fetchPage('test')));
     expect(store.getActions()).toEqual(expectedActions);
+
+    spyApiCall.mockRestore();
   });
 });

@@ -22,6 +22,7 @@ export const PageSt = styled.div<IPageStProps>`
   position: relative;
   display: grid;
   width: 100vw;
+  min-height: 100vh;
   overflow-x: hidden;
 
   grid-template-columns: 1rem auto 1rem;

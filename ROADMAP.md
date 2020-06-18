@@ -14,6 +14,7 @@ This is what we need to do to build a nice, simple, well maintained application.
 - production bundling and CI flow with CircleCI and Docker
 
 ## Nice to have
+- explore the use of a generator function for server side rendering so we can send out the response piece by piece
 - use Redux Saga
 - use Storybook for component rendering/documentation
 - error boundary for better error handling
