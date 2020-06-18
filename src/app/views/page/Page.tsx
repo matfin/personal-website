@@ -9,6 +9,7 @@ import {
 } from 'common/interfaces';
 import { ContentItem } from 'app/components/contentItem/ContentItem';
 import { Nav } from 'app/components/nav/Nav';
+import { Toggle } from 'app/components/toggle/Toggle';
 import {
   BurgerSt,
   ErrorSt,
@@ -17,7 +18,6 @@ import {
   MainSt,
   PageSt,
   SideSt,
-  ToggleSt,
 } from './Page.css';
 
 export interface IProps {
@@ -81,12 +81,13 @@ const Page = ({
       <BurgerSt navRevealed={showMenu} onClick={toggleMenu} />
       <PageSt navRevealed={showMenu}>
         <SideSt revealed={showMenu} onClick={hideMenu}>
-          <Nav />
-          <ToggleSt
-            data-testid="toggle"
-            value={currentTheme === ThemeType.DAY ? ToggleValue.OFF : ToggleValue.ON}
-            onToggle={toggleTheme}
-          />
+          <Nav>
+            <Toggle
+              data-testid="toggle"
+              value={currentTheme === ThemeType.DAY ? ToggleValue.OFF : ToggleValue.ON}
+              onToggle={toggleTheme}
+            />
+          </Nav>
         </SideSt>
         {
           pending ? (

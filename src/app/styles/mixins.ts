@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { sizes } from './vars';
+import { orientations, sizes } from './vars';
 
 export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
   (acc, label) => {
@@ -12,6 +12,19 @@ export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
     return acc;
   },
   {} as { [key in keyof typeof sizes]: any },
+);
+
+export const orientation = (Object.keys(orientations) as (keyof typeof orientations)[]).reduce(
+  (acc, label) => {
+    acc[label] = (st: any): any => css`
+      @media (orientation: ${orientations[label]}) {
+        ${st}
+      }
+    `;
+
+    return acc;
+  },
+  {} as { [key in keyof typeof orientations]: any },
 );
 
 export const blackEmoji = css`

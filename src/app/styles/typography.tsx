@@ -15,7 +15,6 @@ export const headingTypography = css`
 
   ${media.md(css`
     font-size: ${fontSize.heading * 1.5}rem;
-    line-height: ${lineHeight.heading * 1.5}rem;
     letter-spacing: ${letterSpacing.heading * 4}rem;
   `)}
 `;
