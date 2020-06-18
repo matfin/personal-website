@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import {
+  ChildrenSt,
   LinkSt,
   NavSt,
 } from './Nav.css';
@@ -10,7 +11,7 @@ export interface IProps {
   className?: string,
 }
 
-export const Nav = ({ className }: IProps) => {
+export const Nav = ({ children, className }: IProps) => {
   const { pathname } = useLocation();
 
   return (
@@ -27,6 +28,9 @@ export const Nav = ({ className }: IProps) => {
       <LinkSt isactive={(pathname === '/now').toString()} to="/now">
         Now
       </LinkSt>
+      <ChildrenSt>
+        {children}
+      </ChildrenSt>
     </NavSt>
   );
 };

@@ -4,6 +4,7 @@ import {
   Fonts,
   FontWeights,
   Layers,
+  Orientations,
 } from 'common/interfaces';
 
 // units: px
@@ -27,9 +28,9 @@ export const fontSize: Fonts = {
 // units: em
 export const letterSpacing: Fonts = {
   heading: 0.125,
-  subheading: 0.25,
+  subheading: 0.125,
   thirdHeading: 0.0625,
-  text: 0.125,
+  text: 0.0625,
   small: 0.25,
 };
 
@@ -38,7 +39,7 @@ export const lineHeight: Fonts = {
   heading: 4,
   subheading: 2.25,
   thirdHeading: 1.25,
-  text: 1.25,
+  text: 1.5,
   small: 1.25,
 };
 
@@ -61,6 +62,11 @@ export const layers: Layers = {
   upper: 1,
   base: 0,
   lower: -1,
+};
+
+export const orientations: Orientations = {
+  landscape: 'landscape',
+  portrait: 'portrait',
 };
 
 export const boxShadow: string = 'rgba(0, 0, 0, 0.3) 0 1px 3px';

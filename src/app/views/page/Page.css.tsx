@@ -8,7 +8,6 @@ import {
 import { Footer } from 'app/components/footer/Footer';
 import { Loading } from 'app/components/loading/Loading';
 import { MenuButton } from 'app/components/menubutton/MenuButton';
-import { Toggle } from 'app/components/toggle/Toggle';
 
 interface ISideStProps {
   revealed: boolean,
@@ -26,8 +25,9 @@ export const PageSt = styled.div<IPageStProps>`
   overflow-x: hidden;
 
   grid-template-columns: 1rem auto 1rem;
-  grid-template-rows: auto 6rem;
+  grid-template-rows: 2rem auto 6rem;
   grid-template-areas:
+    ". . ."
     ". main ."
     ". footer .";
 
@@ -36,15 +36,16 @@ export const PageSt = styled.div<IPageStProps>`
   `}
 
   ${media.md(css`
-    grid-template-columns: auto 30rem 2rem 12.25rem auto;
-    grid-template-rows: auto 12rem;
+    grid-template-columns: auto 30rem auto 10rem auto;
+    grid-template-rows: 2rem auto 12rem;
     grid-template-areas:
+      ". . . . ."
       ". main . side ."
       ". footer . side .";
   `)}
 
   ${media.lg(css`
-    grid-template-columns: auto 40rem 4rem 12.25rem auto;
+    grid-template-columns: auto 40rem auto 10rem auto;
   `)}
 `;
 
@@ -58,9 +59,9 @@ export const SideSt = styled.aside<ISideStProps>`
   position: fixed;
   top: 0;
   right: 0;
+
   width: 100vw;
   height: 100vh;
-  padding: 3rem 4rem;
   background: ${(props) => props?.theme?.colours?.secondary};
   box-shadow: none;
   transition: transform 0.5s ${animationCurve};
@@ -75,7 +76,6 @@ export const SideSt = styled.aside<ISideStProps>`
     position: unset;
     width: unset;
     height: unset;
-    padding: 0 2rem;
     grid-area: side;
     transform: unset;
     background: transparent;
@@ -105,9 +105,4 @@ export const ErrorSt = styled.div`
 
 export const LoadingSt = styled(Loading)`
   grid-area: main;
-`;
-
-export const ToggleSt = styled(Toggle)`
-  margin-top: 2rem;
-  margin-left: 0.25rem;
 `;

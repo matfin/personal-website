@@ -1,5 +1,10 @@
 import styled, { css } from 'styled-components';
-import { animationCurve, layers } from 'app/styles';
+import {
+  animationCurve,
+  layers,
+  media,
+  orientation,
+} from 'app/styles';
 import { Link } from 'react-router-dom';
 
 interface ILinkStProps {
@@ -7,20 +12,38 @@ interface ILinkStProps {
 }
 
 export const NavSt = styled.nav`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 2rem 1fr 2rem;
+  grid-template-rows: repeat(5, 3rem);
+  grid-row-gap: 2rem;
+  margin-top: 4rem;
+
+  ${orientation.landscape(css`
+    grid-template-columns: 2rem 1fr 8rem;
+    grid-template-rows: repeat(5, 2rem);
+    grid-row-gap: 1rem;
+    margin-top: 3.5rem;
+  `)}
+
+  ${media.md(css`
+    grid-template-rows: repeat(5, 3rem);
+    grid-row-gap: 2rem;
+    margin-top: 0;
+  `)}
 `;
 
 export const LinkSt = styled(Link)<ILinkStProps>`
+  grid-column: 2 / 3;
   position: relative;
-  flex: 0 1 3rem;
-  height: 3rem;
   display: flex;
   align-items: center;
-  margin-top: 2rem;
   padding-left: 0.5rem;
   transition: all 200ms ${animationCurve};
   transition-property: color padding;
+
+  ${media.md(css`
+    grid-column: 1 / 4;
+  `)}
 
   ${(linkProps) => linkProps.isactive === 'true' && css`
     color: ${(props) => props?.theme?.colours?.secondary};
@@ -52,4 +75,15 @@ export const LinkSt = styled(Link)<ILinkStProps>`
       background: ${(props) => props?.theme?.colours?.primary};
     }
   }
+`;
+
+export const ChildrenSt = styled.div`
+  grid-column: 2 / 3;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+
+  ${media.md(css`
+    grid-column: 1 / 4;
+  `)}
 `;

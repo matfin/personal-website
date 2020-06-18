@@ -39,6 +39,11 @@ export type Layers = {
   lower: number,
 }
 
+export type Orientations = {
+  landscape: string,
+  portrait: string,
+}
+
 export type AppState = IPageState;
 
 export type AppThunk<ReturnType = void>
