@@ -425,13 +425,7 @@
               "title": "WebStorm"
             }
           ]
-        }
-      ]
-    },
-    {
-      "tagName": "section",
-      "id": "outro",
-      "content": [
+        },
         {
           "tagName": "p",
           "content": "If you are looking for somebody with strong technical and communication skills to take on a project at any stage in its lifecycle, please feel free to reach out to [me@mattfinucane.com](mailto:me@mattfinucane.com)."

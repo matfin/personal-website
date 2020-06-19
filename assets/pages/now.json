@@ -246,6 +246,11 @@
           "tagName": "ul",
           "content": [
             {
+              "id": "now-57",
+              "tagName": "li",
+              "content": "Everyone should look at the [Web Developer Roadmap 2020](https://github.com/kamranahmedse/developer-roadmap \"Web Developer Roadmap 2020\") which goes into great detail about what you should be learning."
+            },
+            {
               "id": "now-41",
               "tagName": "li",
               "content": "[2ality.com](https://2ality.com) by Axel Rauschmayer is an excellent resource for Javascript and TypeScript developers."
@@ -322,12 +327,17 @@
         {
           "id": "now-54",
           "tagName": "h3",
-          "content": "Privacy"
+          "content": "Privacy and Credits"
         },
         {
           "id": "now-55",
           "tagName": "p",
           "content": "I am a strong advocate for user privacy and as a visitor to this site, I respect your right to your own privacy and anonymity. This is why I will never install any tracking or analytical tools. Thanks for visiting."
+        },
+        {
+          "id": "now-56",
+          "tagName": "p",
+          "content": "Credit must be given to all those who create and contribute to the Open-source movement and provide their work free of charge. None of this would be possible without their efforts."
         }
       ]
     }
