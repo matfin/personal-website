@@ -5,10 +5,10 @@ import {
   media,
   orientation,
 } from 'app/styles';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 interface ILinkStProps {
-  isactive?: string
+  highlighted?: string
 }
 
 export const NavSt = styled.nav`
@@ -32,47 +32,47 @@ export const NavSt = styled.nav`
   `)}
 `;
 
-export const LinkSt = styled(Link)<ILinkStProps>`
+export const LinkSt = styled(NavLink)`
   grid-column: 2 / 3;
   position: relative;
   display: flex;
   align-items: center;
   padding-left: 0.5rem;
-  transition: all 200ms ${animationCurve};
-  transition-property: color padding;
+  transition: color 200ms ${animationCurve};
 
   ${media.md(css`
     grid-column: 1 / 4;
   `)}
 
-  ${(linkProps) => linkProps.isactive === 'true' && css`
-    color: ${(props) => props?.theme?.colours?.secondary};
-  `}
-
   &::after {
     z-index: ${layers.lower};
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
     background: ${(props) => props?.theme?.colours?.primary};
-    transition: all 200ms ${animationCurve};
-    transition-property: background height;
+    transition: width 200ms ${animationCurve};
     content: "";
-
-    ${(linkProps) => linkProps.isactive === 'true' && css`
-      color: ${(props) => props?.theme?.colours?.secondary};
-      height: 100%;
-    `}
   }
 
-  &:hover {
+  &.active {
     color: ${(props) => props?.theme?.colours?.secondary};
 
     &::after {
-      height: 100%;
-      background: ${(props) => props?.theme?.colours?.primary};
+      width: 100%;
+    }
+  }
+
+  &:hover {
+    &::after {
+      width: 1rem;
+    }
+
+    &.active {
+      &::after {
+        width: 100%;
+      }
     }
   }
 `;

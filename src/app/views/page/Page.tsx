@@ -80,10 +80,19 @@ const Page = ({
     <>
       <BurgerSt navRevealed={showMenu} onClick={toggleMenu} />
       <PageSt navRevealed={showMenu}>
-        <SideSt revealed={showMenu} onClick={hideMenu}>
-          <Nav>
+        <SideSt
+          aria-labelledby="sidebar"
+          revealed={showMenu}
+          role="region"
+          onClick={hideMenu}
+        >
+          <Nav
+            aria-labelledby="Navigation"
+            role="region"
+          >
             <Toggle
               data-testid="toggle"
+              label="Theme"
               value={currentTheme === ThemeType.DAY ? ToggleValue.OFF : ToggleValue.ON}
               onToggle={toggleTheme}
             />
@@ -99,7 +108,11 @@ const Page = ({
                 title={page?.title}
                 slug={page?.slug}
               />
-              <MainSt onClick={hideMenu}>
+              <MainSt
+                aria-labelledby="content"
+                role="region"
+                onClick={hideMenu}
+              >
                 {!pending && error && errorMessage(error)}
                 {!pending && page && pageContents(page)}
               </MainSt>

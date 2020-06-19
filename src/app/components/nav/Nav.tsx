@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import {
   ChildrenSt,
   LinkSt,
@@ -9,28 +8,25 @@ import {
 export interface IProps {
   children?: any,
   className?: string,
+  [key: string]: any,
 }
 
-export const Nav = ({ children, className }: IProps) => {
-  const { pathname } = useLocation();
-
-  return (
-    <NavSt className={className}>
-      <LinkSt isactive={(pathname === '/').toString()} to="/">
-        Home
-      </LinkSt>
-      <LinkSt isactive={(pathname === '/cv').toString()} to="/cv">
-        CV
-      </LinkSt>
-      <LinkSt isactive={(pathname === '/projects').toString()} to="/projects">
-        Projects
-      </LinkSt>
-      <LinkSt isactive={(pathname === '/now').toString()} to="/now">
-        Now
-      </LinkSt>
-      <ChildrenSt>
-        {children}
-      </ChildrenSt>
-    </NavSt>
-  );
-};
+export const Nav = ({ children, className }: IProps) => (
+  <NavSt className={className}>
+    <LinkSt exact to="/">
+      Home
+    </LinkSt>
+    <LinkSt exact to="/cv">
+      CV
+    </LinkSt>
+    <LinkSt exact to="/projects">
+      Projects
+    </LinkSt>
+    <LinkSt exact to="/now">
+      Now
+    </LinkSt>
+    <ChildrenSt>
+      {children}
+    </ChildrenSt>
+  </NavSt>
+);

@@ -6,6 +6,7 @@ import { Toggle, IProps } from './Toggle';
 
 const defaultProps: IProps = {
   value: ToggleValue.OFF,
+  label: 'Test',
   onToggle: (): void => {},
 };
 
