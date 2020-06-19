@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 import {
   animationCurve,
+  boxShadow,
+  colours,
   headingTypography,
   layers,
   listItemStyle,
@@ -8,6 +10,7 @@ import {
   subHeadingTypography,
   textTypography,
 } from 'app/styles';
+import { Image } from 'app/components/image/Image';
 import { InlineLink } from 'app/components/inlinelink/InlineLink';
 
 export const SectionSt = styled.section`
@@ -27,6 +30,28 @@ export const SubHeadingSt = styled.h2`
 export const ParagraphSt = styled.p`
   ${textTypography}
   margin: 1rem 0;
+`;
+
+export const ImageContainerSt = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+`;
+
+export const ImageSt = styled(Image)`
+  background-color: ${colours.primary};
+  border-radius: 50%;
+  border: 2px solid ${colours.tertiary};
+  box-shadow: ${boxShadow};
+  filter: brightness(${(props) => props?.theme?.brightness});
+
+  width: 15rem;
+  height: 15rem;
+
+  ${media.md(css`
+    width: 20rem;
+    height: 20rem;
+  `)}
 `;
 
 export const ListSt = styled.ul`

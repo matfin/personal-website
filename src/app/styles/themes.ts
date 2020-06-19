@@ -6,6 +6,7 @@ export const day = {
     secondary: colours.secondary,
     tertiary: colours.tertiary,
   },
+  brightness: 1.0,
 };
 
 export const night = {
@@ -14,4 +15,5 @@ export const night = {
     secondary: colours.primary,
     tertiary: colours.tertiary,
   },
+  brightness: 0.6,
 };

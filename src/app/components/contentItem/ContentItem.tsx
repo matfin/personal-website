@@ -20,6 +20,8 @@ import { Project } from 'app/components/project/Project';
 import { Topic } from 'app/components/topic/Topic';
 import {
   HeadingSt,
+  ImageContainerSt,
+  ImageSt,
   LinkSt,
   ParagraphSt,
   SectionSt,
@@ -51,6 +53,13 @@ export const renderTag = (tagName: string, content: any, key?: string): JSX.Elem
   switch (tagName) {
     case 'section': {
       return <SectionSt key={key}>{content}</SectionSt>;
+    }
+    case 'img': {
+      return (
+        <ImageContainerSt key={key}>
+          <ImageSt {...content} />
+        </ImageContainerSt>
+      );
     }
     case 'p': {
       return (

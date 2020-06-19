@@ -67,6 +67,21 @@ describe('ContentItem tests', () => {
       expect(screen.getByText('This is a heading')).toBeTruthy();
     });
 
+    it('renders an image', () => {
+      const { container } = render(
+        <ContentItem
+          tagName="img"
+          content={{
+            name: 'test',
+            fileType: 'jpg',
+            title: 'Test',
+          }}
+        />,
+      );
+
+      expect(container.querySelector('img')).toBeTruthy();
+    });
+
     it('renders a subheading', () => {
       const { container } = render(
         <ContentItem

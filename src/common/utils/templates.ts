@@ -55,6 +55,7 @@ export const indexTemplate = ({
       <div id="root">${reactAppHtml}</div>
       <script>
         console.log(\`${banner}\`);
+        console.log(\`Version: ${packageVersion}\`);
         console.log('Curious to see how this was built? 👉🏼 https://github.com/matfin/personal-website');
       </script>
       <script>
