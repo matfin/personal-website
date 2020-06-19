@@ -8,6 +8,8 @@ const urlsToCache = [
   '/manifest.json',
   '/scripts/main.bundle.js',
   '/scripts/vendors~main.bundle.js',
+  '/images/profile-lg.jpg',
+  '/images/profile-sm.jpg',
   ...appIconPaths,
 ];
 
