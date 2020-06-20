@@ -30,7 +30,6 @@ export interface ILink {
 }
 
 export interface IImage {
-  fileType: string,
   name: string,
   title: string,
 }

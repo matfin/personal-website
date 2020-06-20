@@ -81,14 +81,13 @@ const Page = ({
       <BurgerSt navRevealed={showMenu} onClick={toggleMenu} />
       <PageSt navRevealed={showMenu}>
         <SideSt
-          aria-labelledby="sidebar"
+          aria-label="Sidebar with navigation"
           revealed={showMenu}
-          role="region"
           onClick={hideMenu}
         >
           <Nav
-            aria-labelledby="Navigation"
-            role="region"
+            aria-label="Navigation"
+            role="navigation"
           >
             <Toggle
               data-testid="toggle"
@@ -109,8 +108,7 @@ const Page = ({
                 slug={page?.slug}
               />
               <MainSt
-                aria-labelledby="content"
-                role="region"
+                aria-label="Main content"
                 onClick={hideMenu}
               >
                 {!pending && error && errorMessage(error)}
