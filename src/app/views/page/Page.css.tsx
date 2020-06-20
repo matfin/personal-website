@@ -58,8 +58,6 @@ export const SideSt = styled.aside<ISideStProps>`
   transform: translate3d(100vw, 0, 0);
   position: fixed;
   top: 0;
-  right: 0;
-
   width: 100vw;
   height: 100vh;
   background: ${(props) => props?.theme?.colours?.secondary};

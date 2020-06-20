@@ -10,8 +10,8 @@ import {
   subHeadingTypography,
   textTypography,
 } from 'app/styles';
-import { Image } from 'app/components/image/Image';
 import { InlineLink } from 'app/components/inlinelink/InlineLink';
+import { Picture } from 'app/components/picture/Picture';
 
 export const SectionSt = styled.section`
   display: block;
@@ -38,20 +38,21 @@ export const ImageContainerSt = styled.div`
   margin: 2rem 0;
 `;
 
-export const ImageSt = styled(Image)`
-  background-color: ${colours.primary};
-  border-radius: 50%;
-  border: 2px solid ${colours.tertiary};
-  box-shadow: ${boxShadow};
-  filter: brightness(${(props) => props?.theme?.brightness});
+export const PictureSt = styled(Picture)`
+  img {
+    width: 15rem;
+    height: 15rem;
+    background-color: ${colours.primary};
+    border-radius: 50%;
+    border: 2px solid ${colours.tertiary};
+    box-shadow: ${boxShadow};
+    filter: brightness(${(props) => props?.theme?.brightness});
 
-  width: 15rem;
-  height: 15rem;
-
-  ${media.md(css`
-    width: 20rem;
-    height: 20rem;
-  `)}
+    ${media.md(css`
+      width: 20rem;
+      height: 20rem;
+    `)}
+  }
 `;
 
 export const ListSt = styled.ul`

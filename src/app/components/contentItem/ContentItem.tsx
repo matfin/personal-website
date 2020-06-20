@@ -21,9 +21,9 @@ import { Topic } from 'app/components/topic/Topic';
 import {
   HeadingSt,
   ImageContainerSt,
-  ImageSt,
   LinkSt,
   ParagraphSt,
+  PictureSt,
   SectionSt,
   ListSt,
   ListItemSt,
@@ -57,7 +57,7 @@ export const renderTag = (tagName: string, content: any, key?: string): JSX.Elem
     case 'img': {
       return (
         <ImageContainerSt key={key}>
-          <ImageSt {...content} />
+          <PictureSt {...content} />
         </ImageContainerSt>
       );
     }
