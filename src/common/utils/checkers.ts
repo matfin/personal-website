@@ -18,5 +18,5 @@ export const isPosition = (position: any): position is IPosition => (
 );
 
 export const isProject = (project: any): project is IProject => (
-  (project as IProject).releaseDate !== undefined
+  (project as IProject).description !== undefined
 );

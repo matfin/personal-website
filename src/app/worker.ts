@@ -4,13 +4,26 @@ declare const self: ServiceWorkerGlobalScope;
 
 const { appIconSizes, cacheName } = config;
 const appIconPaths: string[] = appIconSizes.map((size: number) => `/images/icons/logo-${size}.png`);
+const profilePicPaths: string[] = [
+  '/images/profile-lg@1x.jpg',
+  '/images/profile-lg@1x.webp',
+  '/images/profile-lg@2x.jpg',
+  '/images/profile-lg@2x.webp',
+  '/images/profile-lg@3x.jpg',
+  '/images/profile-lg@3x.webp',
+  '/images/profile-sm@1x.jpg',
+  '/images/profile-sm@1x.webp',
+  '/images/profile-sm@2x.jpg',
+  '/images/profile-sm@2x.webp',
+  '/images/profile-sm@3x.jpg',
+  '/images/profile-sm@3x.webp',
+];
 const urlsToCache = [
   '/manifest.json',
   '/scripts/main.bundle.js',
   '/scripts/vendors~main.bundle.js',
-  '/images/profile-lg.jpg',
-  '/images/profile-sm.jpg',
   ...appIconPaths,
+  ...profilePicPaths,
 ];
 
 const onActivate = (event: ExtendableEvent): void => {
@@ -38,9 +51,27 @@ const onInstall = (event: ExtendableEvent): void => {
     const cache = await caches.open(cacheName);
     const pageUrls = [
       '/', '/cv', '/projects', '/now',
+      '/projects/personal-portfolio',
+      '/projects/heycar',
+      '/projects/cinematt',
+      '/projects/personal-portfolio-static',
+      '/projects/profitbricks-community',
+      '/projects/spc-community',
+      '/projects/meteor-contentful',
+      '/projects/slider',
+      '/projects/tunedin',
     ];
     const pageSlugs = [
       'home', 'cv', 'projects', 'now',
+      'projects/personal-portfolio',
+      'projects/heycar',
+      'projects/cinematt',
+      'projects/personal-portfolio-static',
+      'projects/profitbricks-community',
+      'projects/spc-community',
+      'projects/meteor-contentful',
+      'projects/slider',
+      'projects/tunedin',
     ];
 
     return cache.addAll(

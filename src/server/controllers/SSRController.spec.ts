@@ -49,15 +49,21 @@ describe('SSRController tests', (): void => {
     } as any);
 
     await new SSRController();
-    expect(spyGet).toHaveBeenCalled();
+
+    expect(spyGet).toHaveBeenCalledTimes(2);
     expect(spyUse).toHaveBeenCalled();
-    expect(spyGet)
-      .toHaveBeenCalledWith(
-        '/:slug(404|projects|cv|now)?',
-        expect.any(Function),
-        expect.any(Function),
-        expect.any(Function),
-      );
+    expect(spyGet.mock.calls[0]).toEqual([
+      '/:slug(404|projects|cv|now)?',
+      expect.any(Function),
+      expect.any(Function),
+      expect.any(Function),
+    ]);
+    expect(spyGet.mock.calls[1]).toEqual([
+      '/:slug(projects/*)',
+      expect.any(Function),
+      expect.any(Function),
+      expect.any(Function),
+    ]);
 
     spyExpress.mockRestore();
   });

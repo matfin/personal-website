@@ -1,4 +1,3 @@
-/* istanbul ignore file */
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { appState } from 'app/reducer';

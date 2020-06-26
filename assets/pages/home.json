@@ -435,16 +435,50 @@
           ]
         },
         {
-          "tagName": "p",
-          "content": "If you are looking for somebody with strong technical and communication skills to take on a project at any stage in its lifecycle, please feel free to reach out to [me@mattfinucane.com](mailto:me@mattfinucane.com)."
+          "tagName": "section",
+          "id": "contact-1",
+          "content": [
+            {
+              "tagName": "h3",
+              "id": "contact-2",
+              "content": "Contact me"
+            },
+            {
+              "tagName": "p",
+              "id": "contact-3",
+              "content": "If you are looking for somebody with strong technical and communication skills to take on a project at any stage in its lifecycle, please feel free to reach out to [me@mattfinucane.com](mailto:me@mattfinucane.com)."
+            },
+            {
+              "tagName": "p",
+              "id": "contact-4",
+              "content": "However, please don't contact me if:"
+            },
+            {
+              "tagName": "ul",
+              "id": "contact-5",
+              "content": [
+                {
+                  "tagName": "li",
+                  "id": "contact-6",
+                  "content": "You are offering me web development or SEO services. This is what I do for a living and I have these covered."
+                },
+                {
+                  "tagName": "li",
+                  "id": "contact-7",
+                  "content": "You work for a recruitment agency. I have this covered too and I prefer to approach job offers directly. I am more than happy to talk to in-house recruiters."
+                },
+                {
+                  "tagName": "li",
+                  "id": "contact-8",
+                  "content": "You have an urgent project that needs to go out as quickly as possible. Sorry, but I can't help you with this because I prefer not to rush my work."
+                }
+              ]
+            }
+          ]
         },
         {
           "tagName": "p",
-          "content": "Just a small note. If you are contacting me to offer me website optimisation / SEO / engineering services, I already have these covered. Thank you."
-        },
-        {
-          "tagName": "p",
-          "content": "Please feel free to checkout my [cv](/cv \"My CV/Resumé\"), which details my qualifications, skillsets and work experience. Here are some of the [projects](/projects \"My projects\") I have worked on."
+          "content": "Thanks for visiting!"
         }
       ]
     }

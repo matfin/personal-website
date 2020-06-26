@@ -1,0 +1,2 @@
+// window objects
+window.scrollTo = () => {};

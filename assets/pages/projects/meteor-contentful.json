@@ -1,0 +1,75 @@
+{
+  "title": "Matt Finucane - Meteor Contentful",
+  "description": "An Open-source package to leverage content management in MeteorJS applications.",
+  "slug": "projects/meteor-contentful",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "id": "mc-1",
+          "tagName": "h1",
+          "content": "Meteor Contentful"
+        },
+        {
+          "id": "mc-2",
+          "tagName": "h2",
+          "content": "An Open-source package to leverage content management in MeteorJS applications."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "mc-3",
+      "content": [
+        {
+          "id": "mc-4",
+          "tagName": "p",
+          "content": "I built this package so I could synchronise content from Contentful to a collection of brochureware sites I was working on. [Contentful](https://www.contentful.com) is a web based service that provides content management. They offer a REST api and webhooks to make content updates seamless."
+        },
+        {
+          "id": "mc-5",
+          "tagName": "p",
+          "content": "I wanted to create this module to allow non-technical users to manage the content on their sites, and I chose Contentful fo the following reasons:"
+        }
+      ]
+    },
+    {
+      "tagName": "ul",
+      "id": "mc-6",
+      "content": [
+        {
+          "id": "mc-7",
+          "tagName": "li",
+          "content": "The user experience was good, with a nice neat interface that was easy to use for a non technical person."
+        },
+        {
+          "id": "mc-8",
+          "tagName": "li",
+          "content": "They had impressive image asset management capabilities alongside a well documneted REST API service."
+        },
+        {
+          "id": "mc-9",
+          "tagName": "li",
+          "content": "Markdown was used for content editing, which is nice and clean. Content types could also be specified with strict type enforcement and checking, offering great flexibility."
+        },
+        {
+          "id": "mc-10",
+          "tagName": "li",
+          "content": "A webhook service was provided to push new changes, thus negating the need to build an automated sync tool. This package could (optionally) listen for changes and update content on the fly."
+        }
+      ]
+    },
+    {
+      "tagName": "p",
+      "id": "mc-11",
+      "content": "I used a handy tool called [ngrok.io](https://ngrok.com/) which acts as a secure tunnel to open your development machine to external services. Tests were run using a combination of Mocha, Chai and SinonJS."
+    },
+    {
+      "tagName": "p",
+      "id": "mc-12",
+      "content": "This package is no longer supported and has been archived, but the project can be seen on [GitGub](https://github.com/matfin/meteor-contentful)."
+    }
+  ]
+}

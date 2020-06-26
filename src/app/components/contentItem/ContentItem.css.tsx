@@ -12,6 +12,8 @@ import {
 } from 'app/styles';
 import { InlineLink } from 'app/components/inlinelink/InlineLink';
 import { Picture } from 'app/components/picture/Picture';
+import { Project } from 'app/components/project/Project';
+import { Topic } from 'app/components/topic/Topic';
 
 export const SectionSt = styled.section`
   display: block;
@@ -38,6 +40,10 @@ export const ImageContainerSt = styled.div`
   margin: 2rem 0;
 `;
 
+export const TopicSt = styled(Topic)`
+  box-shadow: ${boxShadow};
+`;
+
 export const PictureSt = styled(Picture)`
   img {
     width: 15rem;
@@ -57,6 +63,31 @@ export const PictureSt = styled(Picture)`
 
 export const ListSt = styled.ul`
   list-style: none;
+`;
+
+export const ProjectSt = styled(Project)`
+  height: 100%;
+`;
+
+export const TiledListSt = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+
+  ${media.lg(css`
+    grid-template-columns: repeat(2, 1fr);
+  `)}
+`;
+
+export const TileSt = styled.li`
+  background: ${(props) => props?.theme?.colours?.tertiary};
+  padding: 1rem;
+  box-shadow: ${boxShadow};
+  transition: transform 200ms ${animationCurve};
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 export const ListItemSt = styled.li`

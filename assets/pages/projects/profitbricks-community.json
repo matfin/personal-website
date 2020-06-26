@@ -1,0 +1,65 @@
+{
+  "title": "Matt Finucane - ProfitBricks Community",
+  "description": "ProfitBricks is a enterprise cloud infrastructure provider.",
+  "slug": "projects/profitbricks-community",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "id": "pbc-1",
+          "tagName": "h1",
+          "content": "ProfitBricks Community"
+        },
+        {
+          "id": "pbc-2",
+          "tagName": "h2",
+          "content": "ProfitBricks is a enterprise cloud infrastructure provider."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "pbc-3",
+      "content": [
+        {
+          "id": "pbc-4",
+          "tagName": "p",
+          "content": "During my time as a freelancer, I worked on several projects for ProfitBricks [(now Ionos)](https://www.ionos.com/enterprise-cloud) including infrastructure for managing servers and a community portal for their users."
+        },
+        {
+          "id": "pbc-5",
+          "tagName": "p",
+          "content": "Here are the projects I had worked on for them:"
+        }
+      ]
+    },
+    {
+      "tagName": "ul",
+      "id": "pps-6",
+      "content": [
+        {
+          "id": "pbc-7",
+          "tagName": "li",
+          "content": "The [Odin APS Package](https://dev.apsstandard.org/apps/2.0/ProfitBricks/ProfitBricks%20Cloud%20Infrastructure/ProfitBricks/) was a UI based module that allowed hosting service providers to resell hosting services to their customers. This module leveraged the ProfitBricks reseller API and users could provision and maintain servers."
+        },
+        {
+          "id": "pbc-8",
+          "tagName": "li",
+          "content": "My main tasks in working with the community involved rewriting an implementation of the ProfitBricks driver for the Apache Libcloud project. Apache Libcloud is a Python library that provides a common interface for managing servers remotely. This rewrite was to faciliate the latest features offered by the new version of the ProfirBricks REST API."
+        },
+        {
+          "id": "pbc-9",
+          "tagName": "li",
+          "content": "An ongoing task was to maintain and add improvements to the [ProfitBricks devops website](https://devops.profitbricks.com/). Improvements included a new drag and drop feature for uploading images with content, refactoring the style of the website and writing technical documentation for the two drivers mentioned above."
+        },
+        {
+          "id": "pbc-10",
+          "tagName": "li",
+          "content": "As part of the release of the new ProfitBricks REST api, a [Rancher](https://rancher.com/) UI component driver was created in Ember.js to interact with the Docker Machine driver and allow the user to provision and monitor their VPSes."
+        }
+      ]
+    }
+  ]
+}

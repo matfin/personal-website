@@ -1,6 +1,6 @@
 {
   "name": "mattfinucane.com",
-  "version": "1.0.18",
+  "version": "1.1.0",
   "description": "Personal website built using React and TypeScript",
   "main": "src/index.js",
   "scripts": {
@@ -86,23 +86,6 @@
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.1",
     "webpack-dev-server": "^3.10.3"
-  },
-  "jest": {
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    },
-    "moduleNameMapper": {
-      "^content/(.*)$": "<rootDir>/assets/content/$1",
-      "^app/(.*)$": "<rootDir>/src/app/$1",
-      "^common/(.*)$": "<rootDir>/src/common/$1",
-      "^server/(.*)$": "<rootDir>/src/server/$1",
-      "^svg/(.*)$": "<rootDir>/__mocks__/svgMock.js"
-    }
   },
   "pre-commit": [
     "checks"

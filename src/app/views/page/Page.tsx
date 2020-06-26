@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Meta } from 'app/components/meta/Meta';
 import { setBodyOverflow } from 'common/utils';
 import {
@@ -25,7 +26,6 @@ export interface IProps {
   error: any,
   pending: boolean,
   page: IPage,
-  slug: string,
   fetchPage(slug: string): void,
   resetPage(): void,
   switchTheme(theme: ThemeType): void,
@@ -44,11 +44,11 @@ const Page = ({
   error,
   pending,
   page,
-  slug,
   fetchPage,
   resetPage,
   switchTheme,
 }: IProps): JSX.Element => {
+  const { pathname } = useLocation();
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const toggleMenu = (): void => {
@@ -70,11 +70,14 @@ const Page = ({
   };
 
   useEffect((): any => {
+    const slug = pathname.substring(1);
+
     setShowMenu(false);
-    fetchPage(slug);
+    fetchPage(slug || 'home');
+    window.scrollTo(0, 0);
 
     return resetPage;
-  }, [slug]);
+  }, [pathname]);
 
   return (
     <>

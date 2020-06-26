@@ -11,8 +11,9 @@ describe('ContentController tests', (): void => {
 
     await new ContentController();
 
-    expect(spyGet).toHaveBeenCalledTimes(1);
+    expect(spyGet).toHaveBeenCalledTimes(2);
     expect(spyGet.mock.calls[0][0]).toEqual('/content/page/:slug');
+    expect(spyGet.mock.calls[1][0]).toEqual('/content/page/:slug(projects/*)');
   });
 
   it('should deliver content', async () => {

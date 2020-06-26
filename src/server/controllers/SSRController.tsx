@@ -34,6 +34,12 @@ class SSRController implements IBaseController {
       this.reduxFetchPage,
       this.sendSSR,
     );
+    this.router.get(
+      '/:slug(projects/*)',
+      this.browserVersionGuard,
+      this.reduxFetchPage,
+      this.sendSSR,
+    );
     this.router.use(this.redirectToNotFound);
   };
 

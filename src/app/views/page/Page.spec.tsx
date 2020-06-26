@@ -18,11 +18,12 @@ const defaultProps: IProps = {
     slug: 'test-page',
     title: 'Test page',
   },
-  slug: 'test-page',
   fetchPage: noop,
   resetPage: noop,
   switchTheme: noop,
 };
+
+window.scrollTo = jest.fn();
 
 describe('Page tests', () => {
   it('renders the component', () => {
@@ -33,19 +34,18 @@ describe('Page tests', () => {
     expect(container).toBeTruthy();
   });
 
-  it('fetches the page given a change in the slug', () => {
+  it('fetches the page with "home" as the default slug', () => {
     const spyFetchPage = jest.fn();
 
     renderWithRouter(
       <Page
         {...defaultProps}
         fetchPage={spyFetchPage}
-        slug="new-test-slug"
       />,
     );
 
     expect(spyFetchPage).toHaveBeenCalled();
-    expect(spyFetchPage).toHaveBeenCalledWith('new-test-slug');
+    expect(spyFetchPage).toHaveBeenCalledWith('home');
   });
 
   it('reveals and hides the side navigation menu', async () => {
