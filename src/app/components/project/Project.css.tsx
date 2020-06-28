@@ -1,17 +1,19 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import {
+  colours,
   subHeadingTypography,
   textTypography,
 } from 'app/styles';
 
-export const ProjectSt = styled.a`
+export const ProjectSt = styled(Link)`
   position: relative;
   display: block;
-  margin: 1rem 0 2rem;
+  color: ${colours.primary};
 `;
 
 export const TitleSt = styled.h3`
-  margin: 0.5rem 0;
+  margin: 0 0 0.5rem;
   ${subHeadingTypography}
 `;
 

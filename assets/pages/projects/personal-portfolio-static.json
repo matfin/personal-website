@@ -1,0 +1,80 @@
+{
+  "title": "Matt Finucane - Personal portfolio (static)",
+  "description": "My portfolio website / CV in its previous incarnation.",
+  "slug": "projects/personal-portfolio-static",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "id": "pps-1",
+          "tagName": "h1",
+          "content": "Personal Portfolio (static)"
+        },
+        {
+          "id": "pps-2",
+          "tagName": "h2",
+          "content": "My portfolio website / CV in its previous incarnation."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "pps-3",
+      "content": [
+        {
+          "id": "pps-4",
+          "tagName": "p",
+          "content": "This was the previous incarnation of my personal online portfolio, which contaied information on my technical skills and the projects I had worked on."
+        },
+        {
+          "id": "pps-5",
+          "tagName": "p",
+          "content": "I wanted to design and build a site that was fast, responsive and easy to maintain. Minimalism was the key concept here to present key information quickly and allow the reader to drill down for more detail as needed."
+        },
+        {
+          "id": "pps-6",
+          "tagName": "p",
+          "content": "The site was built to load very quickly on all devices given all network conditions. Serving static HTML is lightning fast."
+        },
+        {
+          "id": "pps-7",
+          "tagName": "p",
+          "content": "In wanting to exolore using static site generators, I settld on one called [Hugo](https://gohugo.io/). Here is how I built the site with it:"
+        }
+      ]
+    },
+    {
+      "tagName": "ul",
+      "id": "pps-8",
+      "content": [
+        {
+          "id": "pps-9",
+          "tagName": "li",
+          "content": "Docker Compose was used to create three containers. The first was used to manage assets and scripts with WebPack and the second contained a running instance of Hugo, which generated static HTML on the fly from changes to the code. The third container ran Nginx, which acted as a reverse proxy."
+        },
+        {
+          "id": "pps-10",
+          "tagName": "li",
+          "content": "The HTML generated came from a mix of Markdown content, with shortcodes. These acted as an extension to Markdown and allowed for the embedding of richer content as opposed to standard HTML tags for text."
+        },
+        {
+          "id": "pps-11",
+          "tagName": "li",
+          "content": "This project had full test coverage for Javascript (ES6) and tests were run using [Jest](https://jestjs.io/)"
+        },
+        {
+          "id": "pps-12",
+          "tagName": "li",
+          "content": "A CI/CD pipeline was set up using [CircleCI](https://circleci.com/) and a new deployment would kick off when a release was tagged in GitHub."
+        },
+        {
+          "id": "pps-13",
+          "tagName": "li",
+          "content": "This site is no longer online, but it is archived and publicaly viewable on [GitHub](https://github.com/matfin/mattfinucane.com)."
+        }
+      ]
+    }
+  ]
+}

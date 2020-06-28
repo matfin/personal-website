@@ -59,14 +59,23 @@ export const fetchPage = (slug: string): AppThunk => async (dispatch) => {
   const pageRequestTimeout: number = setTimeout(
     (): PageActionTypes => dispatch(fetchPageRequest()), 200,
   );
+  const url = `/content/page/${slug}`;
+  let page: IPage;
 
   try {
-    const response: Response = await apiCall(`/content/page/${slug}`);
-    const page: IPage = await response.json();
+    const response: Response = await apiCall(url);
 
-    dispatch(fetchPageSuccess(page));
+    if (response.status !== 200) {
+      clearTimeout(pageRequestTimeout);
+
+      throw new Error(`Content for ${url} not found`);
+    }
+
+    page = await response.json();
     clearTimeout(pageRequestTimeout);
+
+    return dispatch(fetchPageSuccess(page));
   } catch (error) {
-    dispatch(fetchPageFailure(error));
+    return dispatch(fetchPageFailure(error));
   }
 };

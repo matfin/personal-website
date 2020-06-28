@@ -211,11 +211,10 @@ describe('ContentItem tests', () => {
         },
       ] as any,
     };
-    const { container } = render(
+    const { container } = renderWithRouter(
       <ContentItem {...props} />,
     );
 
-    expect(container.querySelector('section')).toBeTruthy();
     expect(container.querySelectorAll('a')).toHaveLength(1);
     expect(screen.getByText('Test Project')).toBeTruthy();
     expect(screen.getByText('Test description')).toBeTruthy();

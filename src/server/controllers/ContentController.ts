@@ -20,6 +20,7 @@ class ContentController implements IBaseController {
 
   public initRoutes() {
     this.router.get('/content/page/:slug', this.getPage);
+    this.router.get('/content/page/:slug(projects/*)', this.getPage);
   }
 
   getPage = (req: Request, res: Response): void => {

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRouteMatch } from 'react-router-dom';
 import { IProject } from 'common/interfaces';
 import {
   ProjectSt,
@@ -13,15 +14,19 @@ export interface IProps extends IProject {
 export const Project = ({
   className,
   description,
+  slug,
   title,
-  url,
-}: IProps): JSX.Element => (
-  <ProjectSt href={url} className={className}>
-    <TitleSt>
-      {title}
-    </TitleSt>
-    <DescriptionSt>
-      {description}
-    </DescriptionSt>
-  </ProjectSt>
-);
+}: IProps): JSX.Element => {
+  const { url } = useRouteMatch();
+
+  return (
+    <ProjectSt to={`${url}/${slug}`} className={className}>
+      <TitleSt>
+        {title}
+      </TitleSt>
+      <DescriptionSt>
+        {description}
+      </DescriptionSt>
+    </ProjectSt>
+  );
+};

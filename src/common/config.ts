@@ -1,4 +1,3 @@
-/* istanbul ignore file */
 import { IAppConfig } from 'common/interfaces';
 
 export const getConfig = (key: string, fallback: string): string | undefined => {
@@ -15,7 +14,7 @@ export const getConfig = (key: string, fallback: string): string | undefined => 
 
 export const config = {
   apiUrl: getConfig('API_URL', 'http://localhost:3000'),
-  cacheName: 'mattfinucane-1.0.18',
+  cacheName: 'mattfinucane-1.1.0',
   canonicalUrl: getConfig('CANONICAL_URL', 'http://localhost:3000'),
   port: getConfig('PORT', '3000'),
   enableCache: Boolean(process?.env?.ENABLE_CACHE),

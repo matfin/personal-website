@@ -30,6 +30,7 @@ export interface ILink {
 }
 
 export interface IImage {
+  fileType: string,
   name: string,
   title: string,
 }
@@ -59,11 +60,10 @@ export interface IPosition {
 
 export interface IProject {
   description: string;
-  releaseDate: string; // TODO better type safety
+  releaseDate?: string; // TODO better type safety
   slug: string;
   title: string;
-  topics: string[];
-  url?: string;
+  topics?: string[];
 }
 
 export interface CacheDictionary {

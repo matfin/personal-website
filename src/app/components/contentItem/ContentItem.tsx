@@ -16,18 +16,20 @@ import {
   toLinkObject,
 } from 'common/utils';
 import { Position } from 'app/components/position/Position';
-import { Project } from 'app/components/project/Project';
-import { Topic } from 'app/components/topic/Topic';
 import {
   HeadingSt,
   ImageContainerSt,
   LinkSt,
-  ParagraphSt,
-  PictureSt,
-  SectionSt,
   ListSt,
   ListItemSt,
+  ParagraphSt,
+  PictureSt,
+  ProjectSt,
+  SectionSt,
   SubHeadingSt,
+  TiledListSt,
+  TileSt,
+  TopicSt,
   TopicsSt,
 } from './ContentItem.css';
 
@@ -88,9 +90,11 @@ export const renderTag = (tagName: string, content: any, key?: string): JSX.Elem
     case 'topics': {
       return <TopicsSt key={key}>{content}</TopicsSt>;
     }
-    case 'jobs':
-    case 'projects': {
+    case 'jobs': {
       return <SectionSt key={key}>{content}</SectionSt>;
+    }
+    case 'projects': {
+      return <TiledListSt key={key}>{content}</TiledListSt>;
     }
     default: {
       return <span>{content}</span>;
@@ -99,7 +103,7 @@ export const renderTag = (tagName: string, content: any, key?: string): JSX.Elem
 };
 
 export const renderTopic = (topic: ITopic): JSX.Element => (
-  <Topic {...topic} key={topic.title} />
+  <TopicSt {...topic} key={topic.title} />
 );
 
 export const renderPosition = (position: IPosition): JSX.Element => (
@@ -110,10 +114,9 @@ export const renderPosition = (position: IPosition): JSX.Element => (
 );
 
 export const renderProject = (project: IProject): JSX.Element => (
-  <Project
-    {...project}
-    key={project.title}
-  />
+  <TileSt key={project.title}>
+    <ProjectSt {...project} />
+  </TileSt>
 );
 
 export const renderContent = (item: ContentTypes, key?: string): JSX.Element => {

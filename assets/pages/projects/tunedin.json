@@ -1,0 +1,76 @@
+{
+  "title": "Matt Finucane - TunedIn",
+  "description": "A single-page web application delivering TV based content to users.",
+  "slug": "projects/profitbricks-community",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "id": "ti-1",
+          "tagName": "h1",
+          "content": "TunedIn"
+        },
+        {
+          "id": "pbc-2",
+          "tagName": "h2",
+          "content": "A single-page web application delivering TV based content to users"
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "ti-3",
+      "content": [
+        {
+          "id": "ti-4",
+          "tagName": "p",
+          "content": "The TunedIn web application primarily acted as an interactive TV guide that would allow the users to scrub through a timeline and see what was on TV at any point in time."
+        },
+        {
+          "id": "ti-5",
+          "tagName": "p",
+          "content": "Alongside this, another section was added which contained curated content. This allowed content providers to deliver interactive content in real time, depending on what was on TV at the time. This would allow the user to partipate while watching TV."
+        },
+        {
+          "id": "ti-6",
+          "tagName": "p",
+          "content": "This was the first single page web application I ever built, and here is how we did it:"
+        }
+      ]
+    },
+    {
+      "tagName": "ul",
+      "id": "ti-7",
+      "content": [
+        {
+          "id": "ti-8",
+          "tagName": "li",
+          "content": "[Meteor](https://meteor.com) was chosen as the client side framework becasue it was clean and lightweight. The Blaze rendering engine was quite fast and the Handlebars templating engine was elegant to work with."
+        },
+        {
+          "id": "ti-9",
+          "tagName": "li",
+          "content": "[Grunt](https://gruntjs.com) was the prevalent Javascript task runner at the time, and we used this to bundle dependencies together. Styling was handled using the [LESS](http://lesscss.org/) framework."
+        },
+        {
+          "id": "ti-10",
+          "tagName": "li",
+          "content": "The test runner used was [Mocha](https://mochajs.org/) and test stubs and spies were handled using [SinonJS](http://sinonjs.org/). For assertions, we used [Chai](http://chaijs.com/)."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "ti-11",
+      "content": [
+        {
+          "id": "ti-12",
+          "tagName": "p",
+          "content": "An interesting challenge we encountered was having to de-couple the server side code from the client side. At the time we were using it, Meteor was a full-stack framework which had it's own Mongo engine running isomorphically. Our app was fed by data coming from a REST API server written in PHP, which would have been much easier to scale to user demand."
+        }
+      ]
+    }
+  ]
+}

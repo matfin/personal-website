@@ -1,0 +1,204 @@
+{
+  "title": "Matt Finucane - Selected projects",
+  "description": "Some selected work, personal and Open-source projects I have worked on.",
+  "slug": "projects",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "tagName": "h1",
+          "content": "Selected projects"
+        },
+        {
+          "tagName": "h2",
+          "content": "Some selected work, personal and Open-source projects I have worked on."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "projects",
+      "content": [
+        {
+          "tagName": "projects",
+          "content": [
+            {
+              "archived": false,
+              "description": "My personal portfolio website (this website) in its fifth incarnation. I created this to explore modern web development, focusing on ReactJS and Typescript. I created this to explore the various \"How do I do X?\" scenarios in modern web development. This website has full test coverage and continuous integration and delivery with CircleCI and Docker Compose.",
+              "releaseDate": "2020-05-15",
+              "slug": "mattfinucane",
+              "title": "Personal portfolio",
+              "topics": [
+                "typescript",
+                "reactjs",
+                "redux",
+                "styled-components",
+                "nodejs",
+                "expressjs",
+                "yarn-npm",
+                "webpack",
+                "vscode",
+                "jest",
+                "react-testing-library",
+                "eslint",
+                "stylelint",
+                "babeljs",
+                "lighthouse"
+              ],
+              "url": "https://github.com/matfin/personal-website"
+            },
+            {
+              "archived": false,
+              "description": "Heycar is an online platform used to sell high quality used cars in Germany. It was built using React, Redux and ECMAScript.",
+              "releaseDate": "2017-10-05",
+              "slug": "heycar",
+              "title": "hey.car",
+              "topics": [
+                "javascript-es",
+                "reactjs",
+                "redux",
+                "styled-components",
+                "scss-sass-less",
+                "nodejs",
+                "expressjs",
+                "yarn-npm",
+                "webpack",
+                "vscode",
+                "jest",
+                "enzyme",
+                "eslint",
+                "stylelint",
+                "babeljs"
+              ],
+              "url": "https://hey.car"
+            },
+            {
+              "archived": true,
+              "description": "This is my personal photography website and was created to explore using CSS Grid to lay out photos. It was created using the Hugo static site generator and uses responsive images to ensure they are delivered appropriately for device size and bandwidth limitations.",
+              "releaseDate": "2017-07-01",
+              "slug": "cinematt",
+              "title": "Cinematt",
+              "topics": [
+                "javascript-es",
+                "scss-sass-less",
+                "css-grid",
+                "nodejs",
+                "docker",
+                "nginx",
+                "hugo",
+                "yarn-npm",
+                "webpack",
+                "webstorm",
+                "circleci"
+              ],
+              "url": "https://cinematt.photography"
+            },
+            {
+              "archived": true,
+              "description": "Personal portfolio wesite (static) in its previous incarnation to this one. This was created with Hugo, a static site generator written in GO.",
+              "releaseDate": "2017-04-01",
+              "slug": "personal-portfolio-static",
+              "title": "Personal portfolio (static)",
+              "topics": [
+                "javascript-es",
+                "scss-sass-less",
+                "nodejs",
+                "docker",
+                "nginx",
+                "hugo",
+                "yarn-npm",
+                "webpack",
+                "webstorm",
+                "circleci"
+              ],
+              "url": "https://github.com/matfin/mattfinucane.com"
+            },
+            {
+              "archived": false,
+              "description": "Back end infrastructure for an interactive Facebook Messenger chat bot curated by ARD-Tageschau in Germany. This was created using NodeJS.",
+              "releaseDate": "2017-03-01",
+              "slug": "novi-chatbot",
+              "title": "Novi Chatbot",
+              "topics": [
+                "javascript-es",
+                "gulp-grunt",
+                "nodejs",
+                "expressjs",
+                "docker",
+                "yarn-npm",
+                "webstorm",
+                "mocha",
+                "sinon"
+              ],
+              "url": "https://www.tagesschau.de/messenger/"
+            },
+            {
+              "archived": false,
+              "description": "ProfitBricks (now IONOS) was a cloud hosting service provider based in Germany. Apache Libcloud is a Python tool that allows users to provision and maintain servers with several major cloud service providers. I created this tool and authored its accompanying documentation.",
+              "releaseDate": "2017-03-01",
+              "slug": "profitbricks-libcloud",
+              "title": "ProfitBricks Libcloud",
+              "topics": [
+                "python"
+              ],
+              "url": "https://devops.ionos.com/libraries/libcloud/"
+            },
+            {
+              "archived": true,
+              "description": "This was an exploration of graphics programming with OpenGL and was written in C and C++. With this, I was able to revisit a lot of the maths I had learned in University, in dealing with rotation and transformation operations to animate shapes.",
+              "releaseDate": "2015-08-15",
+              "slug": "opengl",
+              "title": "OpenGL",
+              "topics": [
+                "c++",
+                "opengl"
+              ],
+              "url": "https://github.com/matfin/OpenGL"
+            },
+            {
+              "archived": true,
+              "description": "Contentful is a headless content management system provided as a service. I started using this with one of the portfolio websites I was working on for others, so I decided to create an Open-source MeteorJS package that I and others could use.",
+              "releaseDate": "2015-08-15",
+              "slug": "meteor-contentful",
+              "title": "Meteor Contentful",
+              "topics": [
+                "javascript-es",
+                "meteor",
+                "mocha",
+                "chai",
+                "sinon",
+                "expressjs"
+              ],
+              "url": "https://github.com/matfin/meteor-contentful"
+            },
+            {
+              "archived": true,
+              "description": "This is a content swipe / slide library built in Javascript (ES6) as a MeteorJS package and is designed to work with mouse and touch based devices. I built this because I needed a fast and modern slider for the content on my websites.",
+              "releaseDate": "2017-03-08",
+              "slug": "matfin-slider",
+              "title": "Slider",
+              "topics": [
+                "javascript-es",
+                "meteor"
+              ],
+              "url": "https://github.com/matfin/slider"
+            },
+            {
+              "archived": true,
+              "description": "A small project where I could play around with graphics programming in MSDOS. I was able to use DosBox to compile and run, and it provides an interesting glimpse of what it would have been like to create video games in the latter half of the 20th century.",
+              "releaseDate": "2015-06-01",
+              "slug": "doscgraphics",
+              "title": "Dos C Graphics",
+              "topics": [
+                "c"
+              ],
+              "url": "https://github.com/matfin/doscgraphics"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

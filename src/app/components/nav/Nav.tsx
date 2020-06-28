@@ -16,13 +16,13 @@ export const Nav = ({ children, className }: IProps) => (
     <LinkSt exact to="/">
       Home
     </LinkSt>
-    <LinkSt exact to="/cv">
-      CV
+    <LinkSt to="/cv">
+      CV / Resumé
     </LinkSt>
-    <LinkSt exact to="/projects">
+    <LinkSt to="/projects">
       Projects
     </LinkSt>
-    <LinkSt exact to="/now">
+    <LinkSt to="/now">
       Now
     </LinkSt>
     <ChildrenSt>

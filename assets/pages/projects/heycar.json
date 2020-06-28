@@ -1,0 +1,80 @@
+{
+  "title": "Matt Finucane - heycar",
+  "description": "An online platform for high quality used car sales.",
+  "slug": "projects/heycar",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "id": "h-1",
+          "tagName": "h1",
+          "content": "hey.car"
+        },
+        {
+          "id": "h-2",
+          "tagName": "h2",
+          "content": "An online platform for high quality used car sales."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "h-3",
+      "content": [
+        {
+          "id": "h-4",
+          "tagName": "p",
+          "content": "This was the first ReactJS project I took on back in 2017 when it was in its infancy. I worked on it for just over two years, learning a lot about the React ecosystem and all its moving parts."
+        },
+        {
+          "id": "h-5",
+          "tagName": "p",
+          "content": "While working on this project, we as engineers could set aside sufficient time to manage technical debt, so we could build more features and spend less time putting out fires."
+        },
+        {
+          "id": "h-6",
+          "tagName": "p",
+          "content": "With that, here are some of the improvements we were able to make:"
+        }
+      ]
+    },
+    {
+      "id": "h-7",
+      "tagName": "ul",
+      "content": [
+        {
+          "id": "h-8",
+          "tagName": "li",
+          "content": "Migrated from SASS to styled-components (CSS in JS) with styled-system, resulting in a style set up that was much easier to manage for designers and engineers. This could be done on a phased basis and once SASS was removed, build times were much better."
+        },
+        {
+          "id": "h-9",
+          "tagName": "li",
+          "content": "Switched from class based components to function components, which meant less code, less bugs and easier unit tests."
+        },
+        {
+          "id": "h-10",
+          "tagName": "li",
+          "content": "Redefined the architecture for the app so that key areas could be split out into self-contained projects, while sharing components across each with a multi-repo set up."
+        },
+        {
+          "id": "h-11",
+          "tagName": "li",
+          "content": "Split out larger view components (such as the vehicle detail page) into smaller components, and wrapped components that carried out actions (dealer contact etc) into self contained connected components with their own state management through Redux."
+        },
+        {
+          "id": "h-12",
+          "tagName": "li",
+          "content": "Doing all of the above facilitated full test coverage across the board, with ESLint checks ensuring code quality."
+        },
+        {
+          "id": "h-13",
+          "tagName": "li",
+          "content": "This site is online and can be seen at [hey.car](https://hey.car)."
+        }
+      ]
+    }
+  ]
+}

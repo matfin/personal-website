@@ -1,8 +1,6 @@
-/* istanbul ignore file */
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { useParams } from 'react-router-dom';
 import { ThemeType } from 'common/interfaces';
 import { switchTheme } from 'app/actions';
 import { fetchPage, PageActionTypes, resetPage } from './actions';
@@ -27,10 +25,6 @@ export const mapDispatchToProps = (dispatch: Dispatch<PageActionTypes>) => ({
   },
 });
 
-const Component = (props: IProps): JSX.Element => {
-  const { slug } = useParams();
-
-  return <Page {...props} slug={slug || 'home'} />;
-};
+const Component = (props: IProps): JSX.Element => <Page {...props} />;
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component);
