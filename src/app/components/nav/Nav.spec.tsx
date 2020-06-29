@@ -4,10 +4,6 @@ import { Nav } from './Nav';
 
 describe('Nav tests', () => {
   it('renders the component with children', () => {
-    expect(
-      renderWithRouter(
-        <Nav />,
-      ),
-    ).toBeTruthy();
+    expect(renderWithRouter(<Nav />)).toBeTruthy();
   });
 });

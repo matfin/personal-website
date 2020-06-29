@@ -27,7 +27,11 @@ class App {
   public listen() {
     this.app.listen(this.port, () => {
       // eslint-disable-next-line no-console
-      console.log(`App listening on ${this.port} with service worker caching ${config.enableCache ? 'enabled' : 'disabled'}`);
+      console.log(
+        `App listening on ${this.port} with service worker caching ${
+          config.enableCache ? 'enabled' : 'disabled'
+        }`
+      );
     });
   }
 }

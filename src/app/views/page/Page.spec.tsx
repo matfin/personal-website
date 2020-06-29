@@ -27,9 +27,7 @@ window.scrollTo = jest.fn();
 
 describe('Page tests', () => {
   it('renders the component', () => {
-    const { container } = renderWithRouter(
-      <Page {...defaultProps} />,
-    );
+    const { container } = renderWithRouter(<Page {...defaultProps} />);
 
     expect(container).toBeTruthy();
   });
@@ -37,47 +35,44 @@ describe('Page tests', () => {
   it('fetches the page with "home" as the default slug', () => {
     const spyFetchPage = jest.fn();
 
-    renderWithRouter(
-      <Page
-        {...defaultProps}
-        fetchPage={spyFetchPage}
-      />,
-    );
+    renderWithRouter(<Page {...defaultProps} fetchPage={spyFetchPage} />);
 
     expect(spyFetchPage).toHaveBeenCalled();
     expect(spyFetchPage).toHaveBeenCalledWith('home');
   });
 
   it('reveals and hides the side navigation menu', async () => {
-    const { container } = renderWithRouter(
-      <Page {...defaultProps} />,
-    );
+    const { container } = renderWithRouter(<Page {...defaultProps} />);
     const burger = container.getElementsByTagName('button')[0];
     const main = container.getElementsByTagName('main')[0];
 
-    expect(container.getElementsByTagName('aside')[0])
-      .toHaveStyleRule('transform', 'translate3d(100vw,0,0)');
+    expect(container.getElementsByTagName('aside')[0]).toHaveStyleRule(
+      'transform',
+      'translate3d(100vw,0,0)'
+    );
 
     act((): void => {
       fireEvent.click(burger);
     });
 
-    await expect(container.getElementsByTagName('aside')[0])
-      .toHaveStyleRule('transform', 'translate3d(0,0,0)');
+    await expect(container.getElementsByTagName('aside')[0]).toHaveStyleRule(
+      'transform',
+      'translate3d(0,0,0)'
+    );
 
     act((): void => {
       fireEvent.click(main);
     });
 
-    await expect(container.getElementsByTagName('aside')[0])
-      .toHaveStyleRule('transform', 'translate3d(100vw,0,0)');
+    await expect(container.getElementsByTagName('aside')[0]).toHaveStyleRule(
+      'transform',
+      'translate3d(100vw,0,0)'
+    );
   });
 
   it('prevents body scroll when nav menu is open', async () => {
     const spySetBodyOverflow = jest.spyOn(utils, 'setBodyOverflow');
-    const { container } = renderWithRouter(
-      <Page {...defaultProps} />,
-    );
+    const { container } = renderWithRouter(<Page {...defaultProps} />);
     const burger = container.getElementsByTagName('button')[0];
 
     // nav menu revealed
@@ -96,9 +91,7 @@ describe('Page tests', () => {
   });
 
   it('renders the loading indicator', () => {
-    const { container } = renderWithRouter(
-      <Page {...defaultProps} pending />,
-    );
+    const { container } = renderWithRouter(<Page {...defaultProps} pending />);
 
     expect(container).toBeTruthy();
     expect(container.getElementsByTagName('img')).toBeTruthy();
@@ -118,7 +111,7 @@ describe('Page tests', () => {
             },
           ],
         }}
-      />,
+      />
     );
 
     expect(container).toBeTruthy();
@@ -128,7 +121,7 @@ describe('Page tests', () => {
   it('switches to the night theme', async () => {
     const spySwitchTheme = jest.fn();
     const container = renderWithRouter(
-      <Page {...defaultProps} switchTheme={spySwitchTheme} />,
+      <Page {...defaultProps} switchTheme={spySwitchTheme} />
     );
     const toggle = container.getByTestId('toggle');
 
@@ -145,7 +138,7 @@ describe('Page tests', () => {
         {...defaultProps}
         currentTheme={ThemeType.NIGHT}
         switchTheme={spySwitchTheme}
-      />,
+      />
     );
     const toggle = container.getByTestId('toggle');
 
@@ -157,7 +150,7 @@ describe('Page tests', () => {
 
   it('renders an error message', () => {
     const { container } = renderWithRouter(
-      <Page {...defaultProps} error="Test error" />,
+      <Page {...defaultProps} error="Test error" />
     );
 
     expect(container).toBeTruthy();

@@ -1,15 +1,6 @@
 import styled, { css } from 'styled-components';
-import {
-  animationCurve,
-  layers,
-  media,
-  orientation,
-} from 'app/styles';
+import { animationCurve, layers, media, orientation } from 'app/styles';
 import { NavLink } from 'react-router-dom';
-
-interface ILinkStProps {
-  highlighted?: string
-}
 
 export const NavSt = styled.nav`
   display: grid;
@@ -53,7 +44,7 @@ export const LinkSt = styled(NavLink)`
     height: 100%;
     background: ${(props) => props?.theme?.colours?.primary};
     transition: width 200ms ${animationCurve};
-    content: "";
+    content: '';
   }
 
   &.active {

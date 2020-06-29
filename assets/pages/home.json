@@ -29,7 +29,7 @@
         },
         {
           "tagName": "p",
-          "content": "I have worked with agencies on their client's projects, as well as in-house - both on-site and remotely from home and from shared office spaces."
+          "content": "I have worked with agencies on their clients' projects, as well as in-house - both on-site and remotely from home and from shared office spaces."
         },
         {
           "tagName": "p",
@@ -451,34 +451,9 @@
             {
               "tagName": "p",
               "id": "contact-4",
-              "content": "However, please don't contact me if:"
-            },
-            {
-              "tagName": "ul",
-              "id": "contact-5",
-              "content": [
-                {
-                  "tagName": "li",
-                  "id": "contact-6",
-                  "content": "You are offering me web development or SEO services. This is what I do for a living and I have these covered."
-                },
-                {
-                  "tagName": "li",
-                  "id": "contact-7",
-                  "content": "You work for a recruitment agency. I have this covered too and I prefer to approach job offers directly. I am more than happy to talk to in-house recruiters."
-                },
-                {
-                  "tagName": "li",
-                  "id": "contact-8",
-                  "content": "You have an urgent project that needs to go out as quickly as possible. Sorry, but I can't help you with this because I prefer not to rush my work."
-                }
-              ]
+              "content": "If you are contacting me from a recruitment agency or are reaching out to offer me web development / SEO services, I have all these covered. Thanks."
             }
           ]
-        },
-        {
-          "tagName": "p",
-          "content": "Thanks for visiting!"
         }
       ]
     }

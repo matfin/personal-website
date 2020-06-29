@@ -3,12 +3,16 @@ import { isTouchDevice } from 'common/utils';
 import { LinePlacement, LineSt, MenuButtonSt } from './MenuButton.css';
 
 export interface IProps {
-  className?: string,
-  navRevealed: boolean,
-  onClick(e: React.MouseEvent | React.TouchEvent): void,
+  className?: string;
+  navRevealed: boolean;
+  onClick(e: React.MouseEvent | React.TouchEvent): void;
 }
 
-export const MenuButton = ({ className, onClick, navRevealed }: IProps): JSX.Element => {
+export const MenuButton = ({
+  className,
+  onClick,
+  navRevealed,
+}: IProps): JSX.Element => {
   const shouldUseTouch: boolean = isTouchDevice();
 
   return (

@@ -3,7 +3,7 @@ import loadingSpinner from 'svg/loadingSpinner';
 import { LoadingSpinnerSt, LoadingSt } from './Loading.css';
 
 interface IProps {
-  className?: string
+  className?: string;
 }
 
 export const Loading = ({ className }: IProps): JSX.Element => (

@@ -10,10 +10,18 @@ const defaultProps: IProps = {
 describe('Picture tests', (): void => {
   it('renders the component', (): void => {
     const wrapper = render(<Picture {...defaultProps} />);
-    const smWebp: HTMLSourceElement = wrapper.getByTestId('sm-webp') as HTMLSourceElement;
-    const smJpg: HTMLSourceElement = wrapper.getByTestId('sm-jpg') as HTMLSourceElement;
-    const lgWebp: HTMLSourceElement = wrapper.getByTestId('lg-webp') as HTMLSourceElement;
-    const lgJpg: HTMLSourceElement = wrapper.getByTestId('lg-jpg') as HTMLSourceElement;
+    const smWebp: HTMLSourceElement = wrapper.getByTestId(
+      'sm-webp'
+    ) as HTMLSourceElement;
+    const smJpg: HTMLSourceElement = wrapper.getByTestId(
+      'sm-jpg'
+    ) as HTMLSourceElement;
+    const lgWebp: HTMLSourceElement = wrapper.getByTestId(
+      'lg-webp'
+    ) as HTMLSourceElement;
+    const lgJpg: HTMLSourceElement = wrapper.getByTestId(
+      'lg-jpg'
+    ) as HTMLSourceElement;
 
     expect(wrapper).toBeTruthy();
     expect(smWebp.srcset).toContain('/images/test-sm@1x.webp,');

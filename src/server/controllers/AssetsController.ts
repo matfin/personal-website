@@ -1,13 +1,10 @@
-import {
-  Router,
-  static as expressStatic,
-} from 'express';
+import { Router, static as expressStatic } from 'express';
 import path from 'path';
 import { IBaseController } from 'server/interfaces';
 
 interface IRoutePair {
-  itemPath: string,
-  dir: string,
+  itemPath: string;
+  dir: string;
 }
 
 class AssetsController implements IBaseController {
@@ -23,18 +20,15 @@ class AssetsController implements IBaseController {
   }
 
   initMetadataRoutes = (): void => {
-    const items: string[] = [
-      '/manifest.json',
-      '/robots.txt',
-      '/sitemap.xml',
-    ];
+    const items: string[] = ['/manifest.json', '/robots.txt', '/sitemap.xml'];
 
-    items.forEach((item: string): Router => (
-      this.router.use(
-        item,
-        expressStatic(`${this.assetsFilePath}/metadata/${item}`),
-      )
-    ));
+    items.forEach(
+      (item: string): Router =>
+        this.router.use(
+          item,
+          expressStatic(`${this.assetsFilePath}/metadata/${item}`)
+        )
+    );
   };
 
   initAssetRoutes = (): void => {
@@ -61,9 +55,10 @@ class AssetsController implements IBaseController {
       },
     ];
 
-    routes.forEach(({ dir, itemPath }: IRoutePair): Router => (
-      this.router.use(itemPath, expressStatic(dir))
-    ));
+    routes.forEach(
+      ({ dir, itemPath }: IRoutePair): Router =>
+        this.router.use(itemPath, expressStatic(dir))
+    );
   };
 }
 

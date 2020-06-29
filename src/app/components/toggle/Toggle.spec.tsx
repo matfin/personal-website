@@ -12,9 +12,7 @@ const defaultProps: IProps = {
 
 describe('Toggle tests', () => {
   it('renders the component', () => {
-    expect(
-      render(<Toggle {...defaultProps} />),
-    ).toBeTruthy();
+    expect(render(<Toggle {...defaultProps} />)).toBeTruthy();
   });
 
   it('toggles to the ON value', () => {
@@ -29,7 +27,7 @@ describe('Toggle tests', () => {
   it('toggles to the OFF value', () => {
     const spyOnToggle = jest.fn();
     const wrapper = render(
-      <Toggle {...defaultProps} onToggle={spyOnToggle} value={ToggleValue.ON} />,
+      <Toggle {...defaultProps} onToggle={spyOnToggle} value={ToggleValue.ON} />
     );
     const toggle = wrapper.getByTestId('toggle');
 

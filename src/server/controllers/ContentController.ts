@@ -24,15 +24,17 @@ class ContentController implements IBaseController {
   }
 
   getPage = (req: Request, res: Response): void => {
-    const { params: { slug } } = req;
+    const {
+      params: { slug },
+    } = req;
 
     return res
       .status(200)
       .sendFile(
         `${this.baseFilePath}/assets/pages/${slug}.json`,
-        this.defaultHeaders,
+        this.defaultHeaders
       );
-  }
+  };
 }
 
 export default ContentController;

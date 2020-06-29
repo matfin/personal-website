@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { animationCurve, blackEmoji, layers } from 'app/styles';
 
 interface IToggleIndicatorStProps {
-  switchedon?: boolean,
+  switchedon?: boolean;
 }
 
 const iconStyle = css`
@@ -23,13 +23,13 @@ export const ToggleTrackSt = styled.div`
   &::before {
     ${iconStyle}
     left: 4px;
-    content: "☀️";
+    content: '☀️';
   }
 
   &::after {
     ${iconStyle}
     right: 2px;
-    content: "🌙";
+    content: '🌙';
   }
 `;
 

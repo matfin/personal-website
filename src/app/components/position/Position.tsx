@@ -11,7 +11,7 @@ import {
 } from './Position.css';
 
 export interface IProps extends IPosition {
-  className?: string,
+  className?: string;
 }
 
 export const Position = ({
@@ -24,28 +24,24 @@ export const Position = ({
   tasks,
 }: IProps): JSX.Element => {
   const dateFrom = formatDate(new Date(startDate));
-  const dateTo = endDate ? ` to ${formatDate(new Date(endDate))}` : ' to present';
+  const dateTo = endDate
+    ? ` to ${formatDate(new Date(endDate))}`
+    : ' to present';
 
   return (
     <PositionSt className={className}>
       <DateFromToSt>
-        <time dateTime={startDate}>
-          {dateFrom}
-        </time>
-        {endDate ? (
-          <time dateTime={endDate}>
-            {dateTo}
-          </time>
-        ) : ' to present'}
+        <time dateTime={startDate}>{dateFrom}</time>
+        {endDate ? <time dateTime={endDate}>{dateTo}</time> : ' to present'}
       </DateFromToSt>
-      <CompanyNameSt>
-        {company}
-      </CompanyNameSt>
+      <CompanyNameSt>{company}</CompanyNameSt>
       <LocationAndRoleSt>
         {role} / {location}
       </LocationAndRoleSt>
       <TaskListSt>
-        {tasks.map((task: string) => <TaskItemSt key={task}>{task}</TaskItemSt>)}
+        {tasks.map((task: string) => (
+          <TaskItemSt key={task}>{task}</TaskItemSt>
+        ))}
       </TaskListSt>
     </PositionSt>
   );

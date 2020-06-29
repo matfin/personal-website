@@ -11,21 +11,20 @@ export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
 
     return acc;
   },
-  {} as { [key in keyof typeof sizes]: any },
+  {} as { [key in keyof typeof sizes]: any }
 );
 
-export const orientation = (Object.keys(orientations) as (keyof typeof orientations)[]).reduce(
-  (acc, label) => {
-    acc[label] = (st: any): any => css`
-      @media (orientation: ${orientations[label]}) {
-        ${st}
-      }
-    `;
+export const orientation = (Object.keys(
+  orientations
+) as (keyof typeof orientations)[]).reduce((acc, label) => {
+  acc[label] = (st: any): any => css`
+    @media (orientation: ${orientations[label]}) {
+      ${st}
+    }
+  `;
 
-    return acc;
-  },
-  {} as { [key in keyof typeof orientations]: any },
-);
+  return acc;
+}, {} as { [key in keyof typeof orientations]: any });
 
 export const blackEmoji = css`
   color: transparent;
@@ -42,7 +41,7 @@ export const listItemStyle = css`
     ${blackEmoji}
     font-size: 0.75rem;
     left: 0;
-    content: "⚡";
+    content: '⚡';
   }
 `;
 

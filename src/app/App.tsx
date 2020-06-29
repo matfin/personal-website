@@ -12,12 +12,13 @@ const mapStateToProps = (state: any) => ({
 });
 
 export interface IProps {
-  currentTheme: ThemeType,
+  currentTheme: ThemeType;
 }
 
 const App = ({ currentTheme }: IProps): JSX.Element => {
   const themes = {
-    day, night,
+    day,
+    night,
   };
 
   return (
@@ -33,11 +34,7 @@ const App = ({ currentTheme }: IProps): JSX.Element => {
           exact
           path="/:slug(404|cv|now|projects)?"
         />
-        <Route
-          component={ConnectedPage}
-          exact
-          path="/projects/:slug"
-        />
+        <Route component={ConnectedPage} exact path="/projects/:slug" />
       </Switch>
       <GlobalStyle />
     </ThemeProvider>

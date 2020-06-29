@@ -8,15 +8,10 @@ const rootReducer = combineReducers({
   pageState,
 });
 
-export const createStoreWithPreloadedState = (preloadedState?: any) => createStore(
-  rootReducer,
-  preloadedState,
-  applyMiddleware(thunkMiddleware),
-);
+export const createStoreWithPreloadedState = (preloadedState?: any) =>
+  createStore(rootReducer, preloadedState, applyMiddleware(thunkMiddleware));
 
-export const clientSideStore = () => createStore(
-  rootReducer,
-  applyMiddleware(thunkMiddleware),
-);
+export const clientSideStore = () =>
+  createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 export default createStoreWithPreloadedState;

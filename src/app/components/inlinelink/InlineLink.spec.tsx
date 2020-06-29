@@ -20,14 +20,18 @@ describe('InlineLink tests', () => {
   });
 
   it('renders an external link', () => {
-    const wrapper = renderWithRouter(<InlineLink {...defaultProps} url="https://somewhere.out" />);
+    const wrapper = renderWithRouter(
+      <InlineLink {...defaultProps} url="https://somewhere.out" />
+    );
     const link = wrapper.getByText('Test Link') as HTMLLinkElement;
 
     expect(link.rel).toEqual('external');
   });
 
   it('renders with a title', () => {
-    const wrapper = renderWithRouter(<InlineLink {...defaultProps} title="Test title" />);
+    const wrapper = renderWithRouter(
+      <InlineLink {...defaultProps} title="Test title" />
+    );
     const link = wrapper.getByText('Test Link') as HTMLLinkElement;
 
     expect(wrapper).toBeTruthy();

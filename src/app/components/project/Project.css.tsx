@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import {
-  colours,
-  subHeadingTypography,
-  textTypography,
-} from 'app/styles';
+import { colours, subHeadingTypography, textTypography } from 'app/styles';
 
 export const ProjectSt = styled(Link)`
   position: relative;

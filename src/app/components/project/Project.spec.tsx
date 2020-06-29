@@ -8,21 +8,18 @@ const defaultProps: IProps = {
   releaseDate: '2020-05-04',
   slug: 'test-slug',
   title: 'Test project title',
-  topics: [
-    'test-topic-1',
-    'test-topic-2',
-  ],
+  topics: ['test-topic-1', 'test-topic-2'],
 };
 
 describe('Project tests', () => {
   it('renders the component with the correct content', () => {
-    const { container } = renderWithRouter(
-      <Project {...defaultProps} />,
-    );
+    const { container } = renderWithRouter(<Project {...defaultProps} />);
 
     expect(container).toBeTruthy();
     expect(screen.getByText('Test project title')).toBeTruthy();
     expect(screen.getByText('Test project description')).toBeTruthy();
-    expect(container.getElementsByTagName('a')[0].href).toEqual('http://test-slug/');
+    expect(container.getElementsByTagName('a')[0].href).toEqual(
+      'http://test-slug/'
+    );
   });
 });

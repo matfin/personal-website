@@ -1,9 +1,9 @@
 import React from 'react';
 
 export interface IProps {
-  className?: string,
-  primaryFill?: string,
-  secondaryFill?: string,
+  className?: string;
+  primaryFill?: string;
+  secondaryFill?: string;
 }
 
 export const ClosingTag = ({ className }: IProps): JSX.Element => (

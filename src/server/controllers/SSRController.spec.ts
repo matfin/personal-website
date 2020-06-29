@@ -7,7 +7,6 @@ import * as pageActions from 'app/views/page/actions';
 import IndexComponent from 'server/IndexComponent';
 import SSRController from './SSRController';
 
-
 jest.mock('common/store');
 jest.mock('common/config', (): any => ({
   enableCache: true,
@@ -39,7 +38,9 @@ describe('SSRController tests', (): void => {
     config.mockReset();
   });
 
-  it('should initialise the routes and set up the redux store', async (): Promise<void> => {
+  it('should initialise the routes and set up the redux store', async (): Promise<
+    void
+  > => {
     const spyGet = jest.fn() as jest.MockedFunction<typeof Router>;
     const spyUse = jest.fn() as jest.MockedFunction<typeof Router>;
 
@@ -68,7 +69,9 @@ describe('SSRController tests', (): void => {
     spyExpress.mockRestore();
   });
 
-  it('should redirect by default when there is no route match', async (): Promise<void> => {
+  it('should redirect by default when there is no route match', async (): Promise<
+    void
+  > => {
     const spyRedirect = jest.fn();
     const res = {
       redirect: spyRedirect,
@@ -78,7 +81,9 @@ describe('SSRController tests', (): void => {
     expect(spyRedirect).toHaveBeenCalledWith('/404');
   });
 
-  it('should dispatch to fetch a page and call next', async (): Promise<void> => {
+  it('should dispatch to fetch a page and call next', async (): Promise<
+    void
+  > => {
     const spyFetchStory = jest.spyOn(pageActions, 'fetchPage');
     const spyNext = jest.fn();
 
@@ -89,7 +94,7 @@ describe('SSRController tests', (): void => {
         },
       } as any,
       {} as Response,
-      spyNext,
+      spyNext
     );
     expect(spyDispatch).toHaveBeenCalledTimes(1);
     expect(spyFetchStory).toHaveBeenCalledTimes(1);
@@ -99,14 +104,16 @@ describe('SSRController tests', (): void => {
     spyFetchStory.mockReset();
   });
 
-  it('should dispatch to fetch home page by default and call next', async (): Promise<void> => {
+  it('should dispatch to fetch home page by default and call next', async (): Promise<
+    void
+  > => {
     const spyFetchStory = jest.spyOn(pageActions, 'fetchPage');
     const spyNext = jest.fn();
 
     await new SSRController().reduxFetchPage(
       { params: {} } as any,
       {} as Response,
-      spyNext,
+      spyNext
     );
     expect(spyDispatch).toHaveBeenCalledTimes(1);
     expect(spyFetchStory).toHaveBeenCalledTimes(1);
@@ -130,7 +137,8 @@ describe('SSRController tests', (): void => {
       status: spyStatus,
     };
     const ssrController = new SSRController();
-    const spyGenerateSSRContent = jest.spyOn(ssrController, 'generateSSRContent')
+    const spyGenerateSSRContent = jest
+      .spyOn(ssrController, 'generateSSRContent')
       .mockReturnValue(Promise.resolve('<p>test</p>'));
 
     // make the call with no cache - cache miss
@@ -146,7 +154,9 @@ describe('SSRController tests', (): void => {
     spyGenerateSSRContent.mockRestore();
   });
 
-  it('should send an error if content could not be generated', async (): Promise<void> => {
+  it('should send an error if content could not be generated', async (): Promise<
+    void
+  > => {
     const spySend = jest.fn();
     const spyStatus = jest.fn().mockReturnValue({
       send: spySend,
@@ -160,7 +170,8 @@ describe('SSRController tests', (): void => {
       status: spyStatus,
     };
     const ssrController = new SSRController();
-    const spyGenerateSSRContent = jest.spyOn(ssrController, 'generateSSRContent')
+    const spyGenerateSSRContent = jest
+      .spyOn(ssrController, 'generateSSRContent')
       .mockRejectedValue('dummy error');
 
     await ssrController.sendSSR(request, response);
@@ -177,7 +188,8 @@ describe('SSRController tests', (): void => {
         slug: 'test-slug',
       },
     };
-    const spyOn = jest.spyOn(reactDomServer, 'renderToNodeStream')
+    const spyOn = jest
+      .spyOn(reactDomServer, 'renderToNodeStream')
       .mockReturnValue({
         on: (type: string, cb: Function) => {
           if (type === 'data') {
@@ -190,7 +202,9 @@ describe('SSRController tests', (): void => {
     const ssrController = new SSRController();
 
     spyGetState.mockResolvedValue({ test: 'state' });
-    await expect(ssrController.generateSSRContent(request as any)).resolves.toBeTruthy();
+    await expect(
+      ssrController.generateSSRContent(request as any)
+    ).resolves.toBeTruthy();
 
     spyOn.mockRestore();
   });
@@ -201,7 +215,8 @@ describe('SSRController tests', (): void => {
         slug: 'test-slug',
       },
     };
-    const spyOn = jest.spyOn(reactDomServer, 'renderToNodeStream')
+    const spyOn = jest
+      .spyOn(reactDomServer, 'renderToNodeStream')
       .mockReturnValue({
         on: (type: string, cb: Function) => {
           if (type === 'error') {
@@ -212,12 +227,16 @@ describe('SSRController tests', (): void => {
     const ssrController = new SSRController();
 
     spyGetState.mockResolvedValue({ test: 'state' });
-    await expect(ssrController.generateSSRContent(request as any)).rejects.toEqual(new Error('error'));
+    await expect(
+      ssrController.generateSSRContent(request as any)
+    ).rejects.toEqual(new Error('error'));
 
     spyOn.mockRestore();
   });
 
-  it('should send content for unsupported browsers', async (): Promise<void> => {
+  it('should send content for unsupported browsers', async (): Promise<
+    void
+  > => {
     const spySend = jest.fn();
     const spyStatus = jest.fn().mockReturnValue({
       send: spySend,

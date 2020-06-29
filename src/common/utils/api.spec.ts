@@ -13,16 +13,15 @@ jest.mock('common/config', () => ({
 describe('api tests', (): void => {
   it('calls fetch and resolved with a response', async (): Promise<void> => {
     const expectedResponse: string = JSON.stringify({ test: 'Works!' });
-    const spyFetch = jest.spyOn(fetch, 'default').mockResolvedValue(new Response(expectedResponse));
+    const spyFetch = jest
+      .spyOn(fetch, 'default')
+      .mockResolvedValue(new Response(expectedResponse));
     const response = await apiCall('/test/resource');
     const responseData = await response.json();
 
-    expect(spyFetch).toHaveBeenCalledWith(
-      'https://test.de/test/resource',
-      {
-        method: 'GET',
-      },
-    );
+    expect(spyFetch).toHaveBeenCalledWith('https://test.de/test/resource', {
+      method: 'GET',
+    });
     expect(response.status).toEqual(200);
     expect(responseData).toEqual({ test: 'Works!' });
 
@@ -31,8 +30,12 @@ describe('api tests', (): void => {
 
   it('calls fetch with a url when server side', async (): Promise<void> => {
     const expectedResponse: string = JSON.stringify({ test: 'Works!' });
-    const spyFetch = jest.spyOn(fetch, 'default').mockResolvedValue(new Response(expectedResponse));
-    const spyIsServer = jest.spyOn(utils, 'isServer').mockImplementation(() => true);
+    const spyFetch = jest
+      .spyOn(fetch, 'default')
+      .mockResolvedValue(new Response(expectedResponse));
+    const spyIsServer = jest
+      .spyOn(utils, 'isServer')
+      .mockImplementation(() => true);
     const response = await apiCall('/test/resource');
     const responseData = await response.json();
 
@@ -40,7 +43,7 @@ describe('api tests', (): void => {
       'http://localhost:4000/test/resource',
       {
         method: 'GET',
-      },
+      }
     );
     expect(response.status).toEqual(200);
     expect(responseData).toEqual({ test: 'Works!' });

@@ -1,11 +1,6 @@
 import { css } from 'styled-components';
 import { media } from './mixins';
-import {
-  fontSize,
-  fontWeight,
-  letterSpacing,
-  lineHeight,
-} from './vars';
+import { fontSize, fontWeight, letterSpacing, lineHeight } from './vars';
 
 export const headingTypography = css`
   font-size: ${fontSize.heading}rem;

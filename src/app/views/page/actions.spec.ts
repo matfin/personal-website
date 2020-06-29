@@ -62,15 +62,13 @@ describe('page actions tests', () => {
   });
 
   it('dispatches correctly when fetching a page with success (less than 200ms)', async () => {
-    const expectedActions = [
-      { type: FETCH_PAGE_SUCCESS, payload: page },
-    ];
+    const expectedActions = [{ type: FETCH_PAGE_SUCCESS, payload: page }];
     const spyApiCall = jest.spyOn(api, 'apiCall').mockResolvedValue({
       json: jest.fn().mockResolvedValue(page),
       status: 200,
     });
 
-    await (store.dispatch(fetchPage('test')));
+    await store.dispatch(fetchPage('test'));
     await expect(store.getActions()).toEqual(expectedActions);
 
     spyApiCall.mockRestore();
@@ -82,15 +80,14 @@ describe('page actions tests', () => {
       { type: FETCH_PAGE_SUCCESS, payload: page },
     ];
     const spyApiCall = jest.spyOn(api, 'apiCall').mockResolvedValue({
-      json: () => (
+      json: () =>
         new Promise((resolve: any): void => {
           setTimeout(() => resolve(page), 300);
-        })
-      ),
+        }),
       status: 200,
     });
 
-    await (store.dispatch(fetchPage('test')));
+    await store.dispatch(fetchPage('test'));
 
     setTimeout(() => {
       expect(store.getActions()).toEqual(expectedActions);
@@ -102,15 +99,13 @@ describe('page actions tests', () => {
 
   it('dispatches correctly when fetching a page failed', async () => {
     const error = new Error('Content for /content/page/test not found');
-    const expectedActions = [
-      { type: FETCH_PAGE_FAILURE, error },
-    ];
+    const expectedActions = [{ type: FETCH_PAGE_FAILURE, error }];
     const spyApiCall = jest.spyOn(api, 'apiCall').mockResolvedValue({
       json: jest.fn().mockRejectedValue(error),
       status: 500,
     });
 
-    await (store.dispatch(fetchPage('test')));
+    await store.dispatch(fetchPage('test'));
     expect(store.getActions()).toEqual(expectedActions);
 
     spyApiCall.mockRestore();
