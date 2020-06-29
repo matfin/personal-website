@@ -4,6 +4,6 @@ import { SocialLinks } from './SocialLinks';
 
 describe('SocialLinks tests', () => {
   it('renders the component', () => {
-    expect(render((<SocialLinks />))).toBeTruthy();
+    expect(render(<SocialLinks />)).toBeTruthy();
   });
 });

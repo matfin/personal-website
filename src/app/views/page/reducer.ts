@@ -14,8 +14,8 @@ export const defaultState: IPageState = {
 
 export const pageState = (
   state: IPageState = defaultState,
-  action: IAction,
-) : IPageState => {
+  action: IAction
+): IPageState => {
   const { error, payload, type } = action;
 
   switch (type) {

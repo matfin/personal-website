@@ -1,20 +1,15 @@
 import styled, { css } from 'styled-components';
-import {
-  animationCurve,
-  boxShadow,
-  layers,
-  media,
-} from 'app/styles';
+import { animationCurve, boxShadow, layers, media } from 'app/styles';
 import { Footer } from 'app/components/footer/Footer';
 import { Loading } from 'app/components/loading/Loading';
 import { MenuButton } from 'app/components/menubutton/MenuButton';
 
 interface ISideStProps {
-  revealed: boolean,
+  revealed: boolean;
 }
 
 interface IPageStProps {
-  navRevealed: boolean
+  navRevealed: boolean;
 }
 
 export const PageSt = styled.div<IPageStProps>`
@@ -31,17 +26,19 @@ export const PageSt = styled.div<IPageStProps>`
     ". main ."
     ". footer .";
 
-  ${(props) => props.navRevealed && css`
-    overflow: hidden;
-  `}
+  ${(props) =>
+    props.navRevealed &&
+    css`
+      overflow: hidden;
+    `}
 
   ${media.md(css`
     grid-template-columns: auto 30rem auto 10rem auto;
     grid-template-rows: 2rem auto 12rem;
     grid-template-areas:
-      ". . . . ."
-      ". main . side ."
-      ". footer . side .";
+      '. . . . .'
+      '. main . side .'
+      '. footer . side .';
   `)}
 
   ${media.lg(css`
@@ -64,10 +61,12 @@ export const SideSt = styled.aside<ISideStProps>`
   box-shadow: none;
   transition: transform 0.5s ${animationCurve};
 
-  ${({ revealed }) => revealed && css`
-    box-shadow: ${boxShadow};
-    transform: translate3d(0, 0, 0);
-  `}
+  ${({ revealed }) =>
+    revealed &&
+    css`
+      box-shadow: ${boxShadow};
+      transform: translate3d(0, 0, 0);
+    `}
 
   ${media.md(css`
     box-shadow: none;

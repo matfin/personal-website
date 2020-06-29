@@ -1,14 +1,10 @@
 import React from 'react';
-import {
-  ChildrenSt,
-  LinkSt,
-  NavSt,
-} from './Nav.css';
+import { ChildrenSt, LinkSt, NavSt } from './Nav.css';
 
 export interface IProps {
-  children?: any,
-  className?: string,
-  [key: string]: any,
+  children?: any;
+  className?: string;
+  [key: string]: any;
 }
 
 export const Nav = ({ children, className }: IProps) => (
@@ -16,17 +12,9 @@ export const Nav = ({ children, className }: IProps) => (
     <LinkSt exact to="/">
       Home
     </LinkSt>
-    <LinkSt to="/cv">
-      CV / Resumé
-    </LinkSt>
-    <LinkSt to="/projects">
-      Projects
-    </LinkSt>
-    <LinkSt to="/now">
-      Now
-    </LinkSt>
-    <ChildrenSt>
-      {children}
-    </ChildrenSt>
+    <LinkSt to="/cv">CV / Resumé</LinkSt>
+    <LinkSt to="/projects">Projects</LinkSt>
+    <LinkSt to="/now">Now</LinkSt>
+    <ChildrenSt>{children}</ChildrenSt>
   </NavSt>
 );

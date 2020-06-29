@@ -11,9 +11,7 @@ const defaultProps: IProps = {
 
 describe('Topic tests', () => {
   it('renders the component', () => {
-    const { container } = render(
-      <Topic {...defaultProps} />,
-    );
+    const { container } = render(<Topic {...defaultProps} />);
 
     expect(container).toBeTruthy();
     expect(screen.getByText('Test title')).toBeTruthy();

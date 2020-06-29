@@ -7,10 +7,7 @@ import { ContentItem } from './ContentItem';
 describe('ContentItem tests', () => {
   it('renders the component', () => {
     const { container } = render(
-      <ContentItem
-        tagName="p"
-        content="This is a test"
-      />,
+      <ContentItem tagName="p" content="This is a test" />
     );
 
     expect(container).toBeTruthy();
@@ -22,7 +19,7 @@ describe('ContentItem tests', () => {
       <ContentItem
         tagName="p"
         content="This contains [a link](/test-link) to render"
-      />,
+      />
     );
     const link = container.getElementsByTagName('a')[0];
 
@@ -32,10 +29,7 @@ describe('ContentItem tests', () => {
 
   it('processes content that contains no links', () => {
     const { container } = render(
-      <ContentItem
-        tagName="p"
-        content="This contains no links to render"
-      />,
+      <ContentItem tagName="p" content="This contains no links to render" />
     );
     const link = container.getElementsByTagName('a')[0];
 
@@ -45,10 +39,7 @@ describe('ContentItem tests', () => {
   describe('rendering standard html tags', () => {
     it('renders a section', () => {
       const { container } = render(
-        <ContentItem
-          tagName="section"
-          content="This is a section"
-        />,
+        <ContentItem tagName="section" content="This is a section" />
       );
 
       expect(container.querySelector('section')).toBeTruthy();
@@ -57,10 +48,7 @@ describe('ContentItem tests', () => {
 
     it('renders a heading', () => {
       const { container } = render(
-        <ContentItem
-          tagName="h1"
-          content="This is a heading"
-        />,
+        <ContentItem tagName="h1" content="This is a heading" />
       );
 
       expect(container.querySelector('h1')).toBeTruthy();
@@ -76,7 +64,7 @@ describe('ContentItem tests', () => {
             fileType: 'jpg',
             title: 'Test',
           }}
-        />,
+        />
       );
 
       expect(container.querySelector('img')).toBeTruthy();
@@ -84,10 +72,7 @@ describe('ContentItem tests', () => {
 
     it('renders a subheading', () => {
       const { container } = render(
-        <ContentItem
-          tagName="h2"
-          content="This is a subheading"
-        />,
+        <ContentItem tagName="h2" content="This is a subheading" />
       );
 
       expect(container.querySelector('h2')).toBeTruthy();
@@ -96,10 +81,7 @@ describe('ContentItem tests', () => {
 
     it('renders a paragraph', () => {
       const { container } = render(
-        <ContentItem
-          tagName="p"
-          content="This is a paragraph"
-        />,
+        <ContentItem tagName="p" content="This is a paragraph" />
       );
 
       expect(container.querySelector('p')).toBeTruthy();
@@ -115,9 +97,7 @@ describe('ContentItem tests', () => {
           { tagName: 'li', content: 'Third' },
         ] as any,
       };
-      const { container } = render(
-        <ContentItem {...props} />,
-      );
+      const { container } = render(<ContentItem {...props} />);
 
       expect(container.querySelector('ul')).toBeTruthy();
       expect(container.querySelectorAll('li')).toHaveLength(3);
@@ -131,9 +111,7 @@ describe('ContentItem tests', () => {
         tagName: 'unknown',
         content: 'Test content',
       };
-      const { container } = render(
-        <ContentItem {...props} />,
-      );
+      const { container } = render(<ContentItem {...props} />);
 
       expect(container.querySelector('span')).toBeTruthy();
       expect(screen.getByText('Test content')).toBeTruthy();
@@ -158,9 +136,7 @@ describe('ContentItem tests', () => {
         },
       ] as any,
     };
-    const { container } = render(
-      <ContentItem {...props} />,
-    );
+    const { container } = render(<ContentItem {...props} />);
 
     expect(container.querySelector('ul')).toBeTruthy();
     expect(container.querySelectorAll('li')).toHaveLength(2);
@@ -177,17 +153,12 @@ describe('ContentItem tests', () => {
           location: 'Test, Location',
           role: 'Test role',
           startDate: '2020-01-06',
-          tasks: [
-            'Task one',
-            'Task two',
-          ],
+          tasks: ['Task one', 'Task two'],
           topics: [],
         },
       ] as any,
     };
-    const { container } = render(
-      <ContentItem {...props} />,
-    );
+    const { container } = render(<ContentItem {...props} />);
 
     expect(container.querySelector('section')).toBeTruthy();
     expect(container.querySelectorAll('div')).toHaveLength(1);
@@ -204,16 +175,11 @@ describe('ContentItem tests', () => {
           releaseDate: '2020-04-05',
           slug: 'test-project',
           title: 'Test Project',
-          topics: [
-            'test topic one',
-            'test topic two',
-          ],
+          topics: ['test topic one', 'test topic two'],
         },
       ] as any,
     };
-    const { container } = renderWithRouter(
-      <ContentItem {...props} />,
-    );
+    const { container } = renderWithRouter(<ContentItem {...props} />);
 
     expect(container.querySelectorAll('a')).toHaveLength(1);
     expect(screen.getByText('Test Project')).toBeTruthy();
@@ -222,9 +188,7 @@ describe('ContentItem tests', () => {
 
   it('renders a warning if the element is unknown', () => {
     const props: IContentItem = {} as any;
-    const { container } = render(
-      <ContentItem {...props} />,
-    );
+    const { container } = render(<ContentItem {...props} />);
 
     expect(container.querySelector('span')).toBeTruthy();
     expect(screen.getByText('Unknown element')).toBeTruthy();

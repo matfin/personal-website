@@ -7,7 +7,7 @@ export const defaultState: IAppState = {
 
 export const appState = (
   state: IAppState = defaultState,
-  action: IAction,
+  action: IAction
 ): IAppState => {
   const { payload, type } = action;
 

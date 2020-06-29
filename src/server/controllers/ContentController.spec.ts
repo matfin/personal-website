@@ -35,7 +35,9 @@ describe('ContentController tests', (): void => {
     expect(spyStatus).toHaveBeenCalledTimes(1);
     expect(spyStatus.mock.calls[0][0]).toEqual(200);
     expect(spySendFile).toHaveBeenCalledTimes(1);
-    expect(spySendFile.mock.calls[0][0]).toContain('assets/pages/test-page.json');
+    expect(spySendFile.mock.calls[0][0]).toContain(
+      'assets/pages/test-page.json'
+    );
     expect(spySendFile.mock.calls[0][1]).toEqual({
       headers: {
         'Content-type': 'application/json',

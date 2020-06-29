@@ -3,7 +3,7 @@ import { sizes } from 'app/styles';
 import { IImage } from 'common/interfaces';
 
 export interface IProps extends IImage {
-  className?: ''
+  className?: '';
 }
 
 enum ImageSize {
@@ -17,11 +17,7 @@ const imgSrcSet = (fileType: string, name: string, size: ImageSize): string => `
   /images/${name}-${size}@3x.${fileType} 3x
 `;
 
-export const Picture = ({
-  className,
-  name,
-  title,
-}: IProps) => (
+export const Picture = ({ className, name, title }: IProps) => (
   <picture className={className}>
     <source
       data-testid="sm-webp"

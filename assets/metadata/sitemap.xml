@@ -1,31 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
->
-  <url>
-    <loc>https://mattfinucane.com/</loc>
-    <lastmod>2020-06-28T16:41:02+00:00</lastmod>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://mattfinucane.com/cv</loc>
-    <lastmod>2020-06-28T16:41:02+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://mattfinucane.com/projects</loc>
-    <lastmod>2020-06-28T16:41:02+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://mattfinucane.com/now</loc>
-    <lastmod>2020-06-28T16:41:02+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://mattfinucane.com/docs/matt-finucane-cv.pdf</loc>
-    <lastmod>2020-06-28T12:47:32+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://mattfinucane.com/</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/cv</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/projects</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/now</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/docs/matt-finucane-cv.pdf</loc>
+  <lastmod>2020-06-28T20:53:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/projects/personal-portfolio</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/projects/heycar</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/projects/cinematt</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/projects/personal-portfolio-static</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/projects/profitbricks-community</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/projects/spc-community</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/projects/meteor-contentful</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/projects/slider</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mattfinucane.com/projects/tunedin</loc>
+  <lastmod>2020-06-29T17:31:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>

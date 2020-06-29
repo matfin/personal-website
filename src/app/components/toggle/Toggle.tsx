@@ -3,10 +3,10 @@ import { ToggleValue } from 'common/interfaces';
 import { ToggleIndicatorSt, ToggleTrackSt } from './Toggle.css';
 
 export interface IProps {
-  className?: string,
-  label: string,
-  value: ToggleValue,
-  onToggle(value: ToggleValue): void,
+  className?: string;
+  label: string;
+  value: ToggleValue;
+  onToggle(value: ToggleValue): void;
 }
 
 export const Toggle = ({
@@ -26,7 +26,10 @@ export const Toggle = ({
       data-testid="toggle"
       onClick={onToggleTrackClick}
     >
-      <ToggleIndicatorSt data-testid="indicator" switchedon={value === ToggleValue.ON} />
+      <ToggleIndicatorSt
+        data-testid="indicator"
+        switchedon={value === ToggleValue.ON}
+      />
     </ToggleTrackSt>
   );
 };

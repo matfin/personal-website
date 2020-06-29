@@ -24,9 +24,9 @@ describe('indexTemplate tests', (): void => {
     expect(result).toContain('<title>Test Title</title>');
     expect(result).toContain('<meta content="Test content" name="test" />');
     expect(result).toContain('<style type="text/css"></style>');
-    expect(result).toContain('window.API_URL = \'https://test.ie\';');
-    expect(result).toContain('window.CANONICAL_URL = \'https://test.ie\';');
-    expect(result).toContain('window.VERSION = \'1.0.0\';');
+    expect(result).toContain("window.API_URL = 'https://test.ie';");
+    expect(result).toContain("window.CANONICAL_URL = 'https://test.ie';");
+    expect(result).toContain("window.VERSION = '1.0.0';");
 
     expect(result).toContain('<div id="root"><p>Test content</p></div>');
     expect(result).toContain('const enableServiceWorker = false');

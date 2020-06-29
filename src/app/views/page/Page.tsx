@@ -2,12 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Meta } from 'app/components/meta/Meta';
 import { setBodyOverflow } from 'common/utils';
-import {
-  IContentItem,
-  IPage,
-  ToggleValue,
-  ThemeType,
-} from 'common/interfaces';
+import { IContentItem, IPage, ToggleValue, ThemeType } from 'common/interfaces';
 import { ContentItem } from 'app/components/contentItem/ContentItem';
 import { Nav } from 'app/components/nav/Nav';
 import { Toggle } from 'app/components/toggle/Toggle';
@@ -22,22 +17,23 @@ import {
 } from './Page.css';
 
 export interface IProps {
-  currentTheme: ThemeType,
-  error: any,
-  pending: boolean,
-  page: IPage,
-  fetchPage(slug: string): void,
-  resetPage(): void,
-  switchTheme(theme: ThemeType): void,
+  currentTheme: ThemeType;
+  error: any;
+  pending: boolean;
+  page: IPage;
+  fetchPage(slug: string): void;
+  resetPage(): void;
+  switchTheme(theme: ThemeType): void;
 }
 
-const pageContents = ({ contents }: IPage): JSX.Element[] => (
-  contents.map((item: IContentItem): JSX.Element => (
-    <ContentItem {...item} key={item.id} />
-  ))
-);
+const pageContents = ({ contents }: IPage): JSX.Element[] =>
+  contents.map(
+    (item: IContentItem): JSX.Element => <ContentItem {...item} key={item.id} />
+  );
 
-const errorMessage = (error: any): JSX.Element => <ErrorSt>{error.toString()}</ErrorSt>;
+const errorMessage = (error: any): JSX.Element => (
+  <ErrorSt>{error.toString()}</ErrorSt>
+);
 
 const Page = ({
   currentTheme,
@@ -88,39 +84,35 @@ const Page = ({
           revealed={showMenu}
           onClick={hideMenu}
         >
-          <Nav
-            aria-label="Navigation"
-            role="navigation"
-          >
+          <Nav aria-label="Navigation" role="navigation">
             <Toggle
               data-testid="toggle"
               label="Theme"
-              value={currentTheme === ThemeType.DAY ? ToggleValue.OFF : ToggleValue.ON}
+              value={
+                currentTheme === ThemeType.DAY
+                  ? ToggleValue.OFF
+                  : ToggleValue.ON
+              }
               onToggle={toggleTheme}
             />
           </Nav>
         </SideSt>
-        {
-          pending ? (
-            <LoadingSt />
-          ) : (
-            <>
-              <Meta
-                description={page?.description}
-                title={page?.title}
-                slug={page?.slug}
-              />
-              <MainSt
-                aria-label="Main content"
-                onClick={hideMenu}
-              >
-                {!pending && error && errorMessage(error)}
-                {!pending && page && pageContents(page)}
-              </MainSt>
-              <FooterSt />
-            </>
-          )
-        }
+        {pending ? (
+          <LoadingSt />
+        ) : (
+          <>
+            <Meta
+              description={page?.description}
+              title={page?.title}
+              slug={page?.slug}
+            />
+            <MainSt aria-label="Main content" onClick={hideMenu}>
+              {!pending && error && errorMessage(error)}
+              {!pending && page && pageContents(page)}
+            </MainSt>
+            <FooterSt />
+          </>
+        )}
       </PageSt>
     </>
   );

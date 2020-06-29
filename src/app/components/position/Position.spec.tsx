@@ -26,9 +26,7 @@ const defaultProps: IProps = {
 
 describe('Position tests', () => {
   it('renders the component with the correct content', () => {
-    const { container } = render(
-      <Position {...defaultProps} />,
-    );
+    const { container } = render(<Position {...defaultProps} />);
 
     expect(container).toBeTruthy();
     expect(screen.getByText('January 2020')).toBeTruthy();
@@ -41,7 +39,7 @@ describe('Position tests', () => {
 
   it('renders the end date', () => {
     const { container } = render(
-      <Position {...defaultProps} endDate="2020-04-26" />,
+      <Position {...defaultProps} endDate="2020-04-26" />
     );
 
     expect(container).toBeTruthy();

@@ -10,8 +10,8 @@ import { defaultState as pageDefaultState } from 'app/views/page/reducer';
 import { defaultState as appDefaultState } from 'app/reducer';
 
 interface ICombinedState {
-  pageState?: IPageState,
-  appState?: IAppState,
+  pageState?: IPageState;
+  appState?: IAppState;
 }
 
 export const defaultAppState: ICombinedState = {
@@ -19,14 +19,17 @@ export const defaultAppState: ICombinedState = {
   appState: appDefaultState,
 };
 
-export const createMockStore = (state: ICombinedState = defaultAppState): Store => {
+export const createMockStore = (
+  state: ICombinedState = defaultAppState
+): Store => {
   const middlewares = [thunk];
   const mockStore = configureMockStore(middlewares);
 
   return mockStore(state);
 };
 
-export const renderWithRouter = (children: any): any => render(<Router>{children}</Router>);
+export const renderWithRouter = (children: any): any =>
+  render(<Router>{children}</Router>);
 
 export const renderWithStore = (children: any): any => {
   const store = createMockStore({});

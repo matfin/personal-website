@@ -2,8 +2,8 @@ import { ThemeType } from 'common/interfaces';
 import { SWITCH_THEME } from './types';
 
 export interface ISwitchThemeType {
-  type: typeof SWITCH_THEME,
-  payload: ThemeType,
+  type: typeof SWITCH_THEME;
+  payload: ThemeType;
 }
 
 export type AppActionTypes = ISwitchThemeType;

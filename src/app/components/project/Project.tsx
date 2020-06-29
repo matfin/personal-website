@@ -1,14 +1,10 @@
 import * as React from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { IProject } from 'common/interfaces';
-import {
-  ProjectSt,
-  TitleSt,
-  DescriptionSt,
-} from './Project.css';
+import { ProjectSt, TitleSt, DescriptionSt } from './Project.css';
 
 export interface IProps extends IProject {
-  className?: string
+  className?: string;
 }
 
 export const Project = ({
@@ -21,12 +17,8 @@ export const Project = ({
 
   return (
     <ProjectSt to={`${url}/${slug}`} className={className}>
-      <TitleSt>
-        {title}
-      </TitleSt>
-      <DescriptionSt>
-        {description}
-      </DescriptionSt>
+      <TitleSt>{title}</TitleSt>
+      <DescriptionSt>{description}</DescriptionSt>
     </ProjectSt>
   );
 };

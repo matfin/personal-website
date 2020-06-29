@@ -11,28 +11,31 @@ import {
  * Interface declarations for actions
  */
 interface IFetchPageRequest {
-  type: typeof FETCH_PAGE_REQUEST,
+  type: typeof FETCH_PAGE_REQUEST;
 }
 
 interface IFetchPageSuccess {
-  type: typeof FETCH_PAGE_SUCCESS,
-  payload: IPage,
+  type: typeof FETCH_PAGE_SUCCESS;
+  payload: IPage;
 }
 
 interface IFetchPageFailure {
-  type: typeof FETCH_PAGE_FAILURE,
-  error: any,
+  type: typeof FETCH_PAGE_FAILURE;
+  error: any;
 }
 
 interface IResetPage {
-  type: typeof RESET_PAGE,
+  type: typeof RESET_PAGE;
 }
 
 /**
  * Exported as types
  */
 export type PageActionTypes =
-  IFetchPageRequest | IFetchPageSuccess | IFetchPageFailure | IResetPage;
+  | IFetchPageRequest
+  | IFetchPageSuccess
+  | IFetchPageFailure
+  | IResetPage;
 
 /**
  * Exported actions
@@ -57,7 +60,8 @@ export const resetPage = (): PageActionTypes => ({
 
 export const fetchPage = (slug: string): AppThunk => async (dispatch) => {
   const pageRequestTimeout: number = setTimeout(
-    (): PageActionTypes => dispatch(fetchPageRequest()), 200,
+    (): PageActionTypes => dispatch(fetchPageRequest()),
+    200
   );
   const url = `/content/page/${slug}`;
   let page: IPage;

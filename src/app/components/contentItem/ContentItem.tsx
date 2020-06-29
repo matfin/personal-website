@@ -34,8 +34,8 @@ import {
 } from './ContentItem.css';
 
 export interface IProps extends IContentItem {
-  className?: string,
-  key?: string,
+  className?: string;
+  key?: string;
 }
 
 export const processContent = (content: string): any => {
@@ -51,7 +51,11 @@ export const processContent = (content: string): any => {
   return processed;
 };
 
-export const renderTag = (tagName: string, content: any, key?: string): JSX.Element => {
+export const renderTag = (
+  tagName: string,
+  content: any,
+  key?: string
+): JSX.Element => {
   switch (tagName) {
     case 'section': {
       return <SectionSt key={key}>{content}</SectionSt>;
@@ -64,11 +68,7 @@ export const renderTag = (tagName: string, content: any, key?: string): JSX.Elem
       );
     }
     case 'p': {
-      return (
-        <ParagraphSt key={key}>
-          {processContent(content)}
-        </ParagraphSt>
-      );
+      return <ParagraphSt key={key}>{processContent(content)}</ParagraphSt>;
     }
     case 'h1': {
       return <HeadingSt key={key}>{content}</HeadingSt>;
@@ -81,11 +81,7 @@ export const renderTag = (tagName: string, content: any, key?: string): JSX.Elem
       return <ListSt key={key}>{content}</ListSt>;
     }
     case 'li': {
-      return (
-        <ListItemSt key={key}>
-          {processContent(content)}
-        </ListItemSt>
-      );
+      return <ListItemSt key={key}>{processContent(content)}</ListItemSt>;
     }
     case 'topics': {
       return <TopicsSt key={key}>{content}</TopicsSt>;
@@ -107,10 +103,7 @@ export const renderTopic = (topic: ITopic): JSX.Element => (
 );
 
 export const renderPosition = (position: IPosition): JSX.Element => (
-  <Position
-    {...position}
-    key={`${position.company}-${position.location}`}
-  />
+  <Position {...position} key={`${position.company}-${position.location}`} />
 );
 
 export const renderProject = (project: IProject): JSX.Element => (
@@ -119,15 +112,20 @@ export const renderProject = (project: IProject): JSX.Element => (
   </TileSt>
 );
 
-export const renderContent = (item: ContentTypes, key?: string): JSX.Element => {
+export const renderContent = (
+  item: ContentTypes,
+  key?: string
+): JSX.Element => {
   if (isContentItem(item)) {
     const { content, tagName } = item;
 
     if (Array.isArray(content)) {
       return renderTag(
         tagName,
-        content.map((contentItem: ContentTypes, idx: number) => renderContent(contentItem, `${tagName}-${idx}`)),
-        key,
+        content.map((contentItem: ContentTypes, idx: number) =>
+          renderContent(contentItem, `${tagName}-${idx}`)
+        ),
+        key
       );
     }
 
@@ -149,4 +147,5 @@ export const renderContent = (item: ContentTypes, key?: string): JSX.Element => 
   return <span>Unknown element</span>;
 };
 
-export const ContentItem = (contentItem: IProps): JSX.Element => renderContent(contentItem);
+export const ContentItem = (contentItem: IProps): JSX.Element =>
+  renderContent(contentItem);

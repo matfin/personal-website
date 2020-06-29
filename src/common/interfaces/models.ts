@@ -7,7 +7,13 @@ export interface IAppConfig {
   readonly port: string;
 }
 
-export type ContentTypes = IContentItem | IImage | ITopic | IPosition | IProject | string;
+export type ContentTypes =
+  | IContentItem
+  | IImage
+  | ITopic
+  | IPosition
+  | IProject
+  | string;
 
 export interface ICategory {
   title: string;
@@ -24,15 +30,15 @@ export interface ITopic {
 }
 
 export interface ILink {
-  text: string,
-  title?: string,
-  url: string,
+  text: string;
+  title?: string;
+  url: string;
 }
 
 export interface IImage {
-  fileType: string,
-  name: string,
-  title: string,
+  fileType: string;
+  name: string;
+  title: string;
 }
 
 export interface IContentItem {
@@ -67,5 +73,5 @@ export interface IProject {
 }
 
 export interface CacheDictionary {
-  [index: string]: string,
+  [index: string]: string;
 }

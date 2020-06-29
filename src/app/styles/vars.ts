@@ -71,4 +71,5 @@ export const orientations: Orientations = {
 
 export const boxShadow: string = 'rgba(0, 0, 0, 0.3) 0 1px 3px';
 export const animationCurve: string = 'cubic-bezier(0.91, 0.03, 0.12, 1)';
-export const defaultFont: string = '"Helvetica Neue", Helvetica, Arial, sans-serif';
+export const defaultFont: string =
+  '"Helvetica Neue", Helvetica, Arial, sans-serif';

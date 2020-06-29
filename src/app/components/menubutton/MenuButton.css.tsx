@@ -8,8 +8,8 @@ export enum LinePlacement {
 }
 
 interface ListStProps {
-  placement: LinePlacement,
-  revealed: boolean,
+  placement: LinePlacement;
+  revealed: boolean;
 }
 
 const transformTo = (placement: LinePlacement): FlattenSimpleInterpolation => {

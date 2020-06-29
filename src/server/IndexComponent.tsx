@@ -6,9 +6,9 @@ import { Provider } from 'react-redux';
 import App from 'app/App';
 
 export interface IProps {
-  context: any,
-  req: Request,
-  store: Store,
+  context: any;
+  req: Request;
+  store: Store;
 }
 
 export const IndexComponent = ({ context, req, store }: IProps) => (

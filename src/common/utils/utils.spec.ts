@@ -22,9 +22,13 @@ describe('utils tests', (): void => {
 
   it('checks to see if a string contains a markdown flavoured link', (): void => {
     expect(isLink('I am not a link!')).toBe(false);
-    expect(isLink('I do indeed [have a link](/link "A link!") contained in me!')).toBe(true);
+    expect(
+      isLink('I do indeed [have a link](/link "A link!") contained in me!')
+    ).toBe(true);
     expect(isLink('I am [a link](/a-link) with no title!')).toBe(true);
-    expect(isLink('I am [a malformed] (/a-link) because of the space!')).toBe(false);
+    expect(isLink('I am [a malformed] (/a-link) because of the space!')).toBe(
+      false
+    );
   });
 
   it('checks to see if a url is external', () => {
@@ -35,24 +39,18 @@ describe('utils tests', (): void => {
   });
 
   it('converts a markdown style link to a link object', (): void => {
-    expect(
-      toLinkObject('[test link with title](/test "Test")'),
-    ).toEqual({
+    expect(toLinkObject('[test link with title](/test "Test")')).toEqual({
       text: 'test link with title',
       title: 'Test',
       url: '/test',
     });
 
-    expect(
-      toLinkObject('[test link without title](/test)'),
-    ).toEqual({
+    expect(toLinkObject('[test link without title](/test)')).toEqual({
       text: 'test link without title',
       url: '/test',
     });
 
-    expect(
-      toLinkObject('A normal line of text with no links'),
-    ).toEqual({
+    expect(toLinkObject('A normal line of text with no links')).toEqual({
       text: 'malformed link',
       title: 'malformed link',
       url: '/',
@@ -60,14 +58,14 @@ describe('utils tests', (): void => {
   });
 
   it('splits out content if a markdown flavoured link is found', (): void => {
-    expect(
-      splitContent('I am a normal parahraph with no links'),
-    ).toEqual([
+    expect(splitContent('I am a normal parahraph with no links')).toEqual([
       'I am a normal parahraph with no links',
     ]);
 
     expect(
-      splitContent('I have [a couple](/some-links "Links") of links and [another one](/another) right here!'),
+      splitContent(
+        'I have [a couple](/some-links "Links") of links and [another one](/another) right here!'
+      )
     ).toEqual([
       'I have ',
       '[a couple](/some-links "Links")',
@@ -88,19 +86,21 @@ describe('utils tests', (): void => {
 
   it('checks the user agent string for IE', () => {
     expect(
-      isIE('Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko'),
+      isIE(
+        'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko'
+      )
     ).toBe(true);
 
     expect(
-      isIE('Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)'),
+      isIE('Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)')
     ).toBe(true);
 
     expect(
-      isIE('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36'),
+      isIE(
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36'
+      )
     ).toBe(false);
 
-    expect(
-      isIE(),
-    ).toBe(false);
+    expect(isIE()).toBe(false);
   });
 });

@@ -8,14 +8,14 @@ import {
 } from 'app/styles/vars';
 
 export interface IProps {
-  apiUrl: string,
-  canonicalUrl: string,
-  enableServiceWorker: boolean,
-  helmet: HelmetData,
-  packageVersion?: string,
-  preloadedState: string,
-  reactAppHtml: string,
-  styleTags: string,
+  apiUrl: string;
+  canonicalUrl: string;
+  enableServiceWorker: boolean;
+  helmet: HelmetData;
+  packageVersion?: string;
+  preloadedState: string;
+  reactAppHtml: string;
+  styleTags: string;
 }
 
 // https://manytools.org/hacker-tools/ascii-banner/ ANSI Shadow
