@@ -1,6 +1,6 @@
 {
   "title": "Matt Finucane - Selected projects",
-  "description": "Some selected projects I have worked on.",
+  "description": "Some of the projects I have worked on.",
   "slug": "projects",
   "contents": [
     {
@@ -68,6 +68,21 @@
               "description": "A single-page web application delivering TV based content to users.",
               "slug": "tunedin",
               "title": "TunedIn"
+            },
+            {
+              "description": "A cross-platform application offering guidelines for effective medical practices.",
+              "slug": "guh-guidelines",
+              "title": "GAPP"
+            },
+            {
+              "description": "A web application for a TV set top box interface.",
+              "slug": "ibox-tv",
+              "title": "iBox TV"
+            },
+            {
+              "description": "A 2D side-scrolling platform game for mobile phones.",
+              "slug": "ero",
+              "title": "Ero"
             }
           ]
         }

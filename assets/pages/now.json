@@ -26,48 +26,6 @@
     },
     {
       "tagName": "section",
-      "id": "finding-me",
-      "content": [
-        {
-          "id": "finding-me-1",
-          "tagName": "h3",
-          "content": "Where can I be found?"
-        },
-        {
-          "id": "finding-me-2",
-          "tagName": "ul",
-          "content": [
-            {
-              "id": "finding-me-3",
-              "tagName": "li",
-              "content": "[GitHub](https://github.com/matfin \"Matt Finucane on GitHub\") is where I have several repositories of the various projects I have worked on over the years."
-            },
-            {
-              "id": "finding-me-4",
-              "tagName": "li",
-              "content": "[Twitter](https://twitter.com/matfinucane \"Matt Finucane on Twitter\") is a great resource for news and I use this regularly."
-            },
-            {
-              "id": "finding-me-5",
-              "tagName": "li",
-              "content": "[LinkedIn](https://www.linkedin.com/in/mattfinucane/ \"Matt Finucane on LinkedIn\") is what I use on occasion."
-            },
-            {
-              "id": "finding-me-6",
-              "tagName": "li",
-              "content": "[StackOverflow](https://stackoverflow.com/users/1515180/matfin \"Matt Finucane on StackOverflow\") is a very useful resource."
-            },
-            {
-              "id": "finding-me-7",
-              "tagName": "li",
-              "content": "[me@mattfinucane.com](mailto:me@mattfinucane.com \"Email Matt Finucane\") is where I can be reached, but please don’t mail me offering web or SEO services. I have these covered already."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "tagName": "section",
       "id": "at-home",
       "content": [
         {

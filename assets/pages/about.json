@@ -1,0 +1,166 @@
+{
+  "title": "Matt Finucane - About me",
+  "description": "Some more information about me.",
+  "slug": "cv",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "id": "a-1",
+          "tagName": "h1",
+          "content": "About me"
+        },
+        {
+          "tagName": "img",
+          "content": {
+            "name": "profile",
+            "fileType": "jpg",
+            "title": "Picture of Matt Finucane"
+          }
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "finding-me",
+      "content": [
+        {
+          "id": "finding-me-1",
+          "tagName": "h3",
+          "content": "Where can I be found?"
+        },
+        {
+          "id": "finding-me-2",
+          "tagName": "ul",
+          "content": [
+            {
+              "id": "finding-me-3",
+              "tagName": "li",
+              "content": "[GitHub](https://github.com/matfin \"Matt Finucane on GitHub\") is where I have several repositories of the various projects I have worked on over the years."
+            },
+            {
+              "id": "finding-me-4",
+              "tagName": "li",
+              "content": "[Twitter](https://twitter.com/matfinucane \"Matt Finucane on Twitter\") is a great resource for news and I use this regularly."
+            },
+            {
+              "id": "finding-me-5",
+              "tagName": "li",
+              "content": "[LinkedIn](https://www.linkedin.com/in/mattfinucane/ \"Matt Finucane on LinkedIn\") is what I use on occasion."
+            },
+            {
+              "id": "finding-me-6",
+              "tagName": "li",
+              "content": "[StackOverflow](https://stackoverflow.com/users/1515180/matfin \"Matt Finucane on StackOverflow\") is a very useful resource."
+            },
+            {
+              "id": "finding-me-7",
+              "tagName": "li",
+              "content": "[me@mattfinucane.com](mailto:me@mattfinucane.com \"Email Matt Finucane\") is where I can be reached, but please don’t mail me offering web or SEO services. I have these covered already."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "a-3",
+      "content": [
+        {
+          "id": "a-2",
+          "tagName": "h2",
+          "content": "My background"
+        },
+        {
+          "tagName": "p",
+          "id": "a-4",
+          "content": "I am a full-stack engineer based in Dublin, Ireland, and I have been working on various projects for the last 20 years. Very shortly after I got my first computer in 1998, I started playing around with web design, image manipulation and 3D graphics."
+        },
+        {
+          "tagName": "p",
+          "id": "a-5",
+          "content": "Back then, there were so many paths I could have taken, and from dabbling in lots of things, my passion was in building websites. When I started in University in the [D.C.U School of Computing](https://www.computing.dcu.ie/) in 2001, I became fascinated with programming and the power it could unleash."
+        },
+        {
+          "tagName": "p",
+          "id": "a-6",
+          "content": "Having completed by final year project, which was a basic platform video game for mobile phones ([called Ero](/projects/ero)), I graduated with honours in 2005 and almost immediately started my first job in AOL."
+        },
+        {
+          "tagName": "p",
+          "id": "a-7",
+          "content": "Throughout this time, I have lived in three other countries (England, France and Germany) and worked across a range of industries, including news & media, travel, e-commerce and health. I have worked remotely for clients across Europe and North America and on-site for agencies and those building their own in-house products."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "tenets",
+      "content": [
+        {
+          "tagName": "h3",
+          "id": "tenets-1",
+          "content": "Tenets of engineering"
+        },
+        {
+          "tagName": "p",
+          "id": "tenet-intro",
+          "content": "These are the the ideals that I stick to throughout and they have helped make my job much easier."
+        },
+        {
+          "tagName": "ul",
+          "id": "tenets-list",
+          "content": [
+            {
+              "tagName": "li",
+              "id": "tenet-1",
+              "content": "Simpler is always much better. I prefer to write simpler, self-contained modules in code that have one very specific purpose, as opposed to larger complex solutions that need more maintenance and are less amenable to refactoring."
+            },
+            {
+              "tagName": "li",
+              "id": "tenet-2",
+              "content": "Premature optimisation is the root of all evil. If you devise a solution for too many hypotehtical situations, you will end up with something that could easily be going in the wrong direction, and it will be difficult to correct at a later date."
+            },
+            {
+              "tagName": "li",
+              "id": "tenet-3",
+              "content": "Rush work is bad. Constantly looming deadlines, long hours and constant emergencies where you are always putting out fires. This is always a sign of poor planning and implementation. Take your time and code for what you need now, and don't go too far into what you might need in the future. Simpler solutions with one purpose are easier to refactor when you know what you're going to need."
+            },
+            {
+              "tagName": "li",
+              "id": "tenet-3",
+              "content": "Always push for full test coverage. It's achievable if the code is written in such a way that it is loosely coupled. If your code is very hard to test, then that's a sign it needs refactoring."
+            },
+            {
+              "tagName": "li",
+              "id": "tenet-4",
+              "content": "Always be learning. It might seem overwhelming the sheer amount of new tech that emerges. You don't have to know everything, but it helps to keep up to date by reading key blogs and discussion fora about new approaches to tackle problems."
+            },
+            {
+              "tagName": "li",
+              "id": "tenet-5",
+              "content": "Set aside time to manage technical debt. Sure, you might not get to work on that new feature (just yet), but when you do, it will be more stable and you will have to put out less fires when it goes out for release."
+            },
+            {
+              "tagName": "li",
+              "id": "tenet-6",
+              "content": "Always help those around you and don't hesitate to ask for help yourself. It is quite often the case when you encounter a problem, that when you start explaining it to someone else, the solution comes into your head almost immediately afterward. Sharing facilitates good team chemistry. If someone comes looking for help and they can't find who they are looking for, offer your own help."
+            },
+            {
+              "tagName": "li",
+              "id": "tenet-7",
+              "content": "Always listen to what your peers have to say and give them an equal footing - junior engineers especially. They can provide insights you may have never thought of, and junior does not necessarily mean less capable. Exposing junior engineers to tasks those more senior can be a good thing to do, as long as they are comfortable with doing this. Again, their insights can be very useful."
+            },
+            {
+              "tagName": "li",
+              "id": "tenet-8",
+              "content": "Good hardware is essential. You should have the best hardware money can buy (within reason). Slow and inadequete hardware with cramped keyboards and tiny screens can have a serious impact on build times and overall productivity. Those extra minutes to add up."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

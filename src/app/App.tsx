@@ -32,7 +32,7 @@ const App = ({ currentTheme }: IProps): JSX.Element => {
         <Route
           component={ConnectedPage}
           exact
-          path="/:slug(404|cv|now|projects)?"
+          path="/:slug(404|about|cv|now|projects)?"
         />
         <Route component={ConnectedPage} exact path="/projects/:slug" />
       </Switch>

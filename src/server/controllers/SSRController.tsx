@@ -27,7 +27,7 @@ class SSRController implements IBaseController {
 
   initRoutes = () => {
     this.router.get(
-      '/:slug(404|projects|cv|now)?',
+      '/:slug(404|about|projects|cv|now)?',
       this.browserVersionGuard,
       this.reduxFetchPage,
       this.sendSSR

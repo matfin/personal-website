@@ -54,7 +54,7 @@ describe('SSRController tests', (): void => {
     expect(spyGet).toHaveBeenCalledTimes(2);
     expect(spyUse).toHaveBeenCalled();
     expect(spyGet.mock.calls[0]).toEqual([
-      '/:slug(404|projects|cv|now)?',
+      '/:slug(404|about|projects|cv|now)?',
       expect.any(Function),
       expect.any(Function),
       expect.any(Function),
