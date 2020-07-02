@@ -33,21 +33,31 @@ export const PageSt = styled.div<IPageStProps>`
     `}
 
   ${media.md(css`
-    grid-template-columns: auto 30rem auto 10rem auto;
+    grid-template-columns: 1rem auto 30rem 20rem auto;
     grid-template-rows: 2rem auto 12rem;
     grid-template-areas:
       '. . . . .'
-      '. main . side .'
-      '. footer . side .';
+      '. . main side .'
+      '. . footer side .';
   `)}
 
   ${media.lg(css`
-    grid-template-columns: auto 40rem auto 10rem auto;
+    grid-template-columns: auto 40rem 20rem auto;
+    grid-template-areas:
+      '. . . .'
+      '. main side .'
+      '. footer side .';
   `)}
 `;
 
 export const MainSt = styled.main`
   grid-area: main;
+  border: 0.125rem solid ${(props) => props?.theme?.colours?.primary};
+  padding: 0.75rem;
+
+  ${media.md(css`
+    padding: 1.75rem;
+  `)}
 `;
 
 export const SideSt = styled.aside<ISideStProps>`
@@ -86,10 +96,11 @@ export const FooterSt = styled(Footer)`
 export const BurgerSt = styled(MenuButton)`
   z-index: ${layers.top};
   position: fixed;
-  top: 0.5rem;
+  top: 1rem;
   right: 1rem;
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 0.125rem solid ${(props) => props?.theme?.colours?.primary};
 
   ${media.md(css`
     display: none;

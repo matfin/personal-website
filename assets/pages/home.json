@@ -12,14 +12,6 @@
           "content": "Hello!"
         },
         {
-          "tagName": "img",
-          "content": {
-            "name": "profile",
-            "fileType": "jpg",
-            "title": "Picture of Matt Finucane"
-          }
-        },
-        {
           "tagName": "h2",
           "content": "I'm Matt Finucane, a software engineer based in Dublin, Ireland."
         },

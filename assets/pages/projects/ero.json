@@ -1,0 +1,80 @@
+{
+  "title": "Matt Finucane - Ero",
+  "description": "A 2D side-scrolling platform game for mobile phones.",
+  "slug": "projects/ero",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "id": "ero-1",
+          "tagName": "h1",
+          "content": "Ero"
+        },
+        {
+          "id": "ero-2",
+          "tagName": "h2",
+          "content": "A 2D side-scrolling platform game for mobile phones."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "ero-3",
+      "content": [
+        {
+          "id": "ero-4",
+          "tagName": "p",
+          "content": "Ero was my final year project for University and was a side scrolling 2D platform game for mobile devices. The basic premise of this game was to navigate across a World of increasing difficulty while avoiding enemies and collecting keys."
+        },
+        {
+          "id": "ero-5",
+          "tagName": "p",
+          "content": "It was great fun to work on a project like this and, while at the start, it was a huge learning curve, I learned a lot from building it. There is a big challenge to face when it comes to having to write performant code on very limited hardware."
+        },
+        {
+          "id": "ero-6",
+          "tagName": "p",
+          "content": "Here are some of the key points and challenges encountered and how I was able to solve them:"
+        }
+      ]
+    },
+    {
+      "tagName": "ul",
+      "id": "ero-5",
+      "content": [
+        {
+          "tagName": "li",
+          "id": "ero-6",
+          "content": "We were working with a [Nokia 3220](https://en.wikipedia.org/wiki/Nokia_3220) which was an entry level phone with a basic colour screen. With this, there was access to only 1mb of RAM for Java (J2ME) applications. This was significantly less powerful than my development PC at the time."
+        },
+        {
+          "tagName": "li",
+          "id": "ero-7",
+          "content": "I needed to carry out several calculations behind the scenes, such as where to position AI enemies, where to scroll sprites to, and how to control the physics of the main character. All of this needed to be done in a few milliseconds so as to ensure a smooth framerate."
+        },
+        {
+          "tagName": "li",
+          "id": "ero-8",
+          "content": "The first approach to managing sprites that I took was a disaster. I would grab the coordinates of each of the sprites contained in an in-memory array and update individually. Doing this had no real performance hit on a modern and fast PC, but it really brought the phone to its knees."
+        },
+        {
+          "tagName": "li",
+          "id": "ero-9",
+          "content": "I deciced I had to make a second run at this. I succeeded in coming up with a much simpler and faster solition. Every time there was movement on the screen on a particular axis, I would update the diff for each access. The sprites would then get their position and offset against these diffs, so that they knew where they needed to be on the screen for each repaint. This solved the performance issues immediately and the game ran smoothly on the phone. This was most certainly a valuable lesson learned."
+        },
+        {
+          "tagName": "li",
+          "id": "ero-10",
+          "content": "For the sprites in the game, I used [Blender](https://www.blender.org/) to create an animate the main character, the key tokens and the enemies. I was able to split the animations out into individual PNGs to make up the frames."
+        },
+        {
+          "tagName": "li",
+          "id": "ero-11",
+          "content": "Java (J2ME & MiDP 1.0) had a nice mutlithread set up, so I was able to leverage this to manage separation of concerns and minimise performance impact."
+        }
+      ]
+    }
+  ]
+}
