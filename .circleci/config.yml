@@ -68,15 +68,15 @@ workflows:
       - test:
           filters:
             branches:
-              ignore: master
+              ignore: main
       - build:
           filters:
             branches:
-              only: master
+              only: main
       - deploy:
           requires:
             - build
           filters:
             branches:
-              only: master
+              only: main
 
