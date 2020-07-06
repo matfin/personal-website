@@ -4,6 +4,7 @@ import {
   isIE,
   isLink,
   isTouchDevice,
+  pathNesting,
   toLinkObject,
   splitContent,
 } from './utils';
@@ -31,7 +32,7 @@ describe('utils tests', (): void => {
     );
   });
 
-  it('checks to see if a url is external', () => {
+  it('checks to see if a url is external', (): void => {
     expect(isExternalUrl('https://www.test.de')).toBe(true);
     expect(isExternalUrl('http://www.test.de')).toBe(true);
     expect(isExternalUrl('/test-content')).toBe(false);
@@ -75,7 +76,7 @@ describe('utils tests', (): void => {
     ]);
   });
 
-  it('checks for touch devices', () => {
+  it('checks for touch devices', (): void => {
     expect(isTouchDevice()).toBe(false);
 
     global.ontouchstart = () => {};
@@ -84,7 +85,7 @@ describe('utils tests', (): void => {
     global.ontouchstart = undefined;
   });
 
-  it('checks the user agent string for IE', () => {
+  it('checks the user agent string for IE', (): void => {
     expect(
       isIE(
         'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko'
@@ -102,5 +103,27 @@ describe('utils tests', (): void => {
     ).toBe(false);
 
     expect(isIE()).toBe(false);
+  });
+
+  it('returns the correct path nesting', (): void => {
+    expect(pathNesting('/projects/test')).toEqual({
+      isNested: true,
+      parts: ['projects', 'test'],
+    });
+
+    expect(pathNesting('/projects')).toEqual({
+      isNested: false,
+      parts: ['projects'],
+    });
+
+    expect(pathNesting('')).toEqual({
+      isNested: false,
+      parts: [],
+    });
+
+    expect(pathNesting()).toEqual({
+      isNested: false,
+      parts: [],
+    });
   });
 });

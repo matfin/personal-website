@@ -56,7 +56,7 @@ describe('MenuButton tests', () => {
 
     expect(lines[0]).toHaveStyleRule(
       'transform',
-      'translate3d(0,10px,0) rotate(-45deg)'
+      'translate3d(0,12px,0) rotate(-45deg)'
     );
     expect(lines[1]).toHaveStyleRule('transform', 'rotate(135deg)');
     expect(lines[2]).toHaveStyleRule(

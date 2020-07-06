@@ -121,7 +121,7 @@
             {
               "tagName": "li",
               "id": "tenet-2",
-              "content": "Premature optimisation is the root of all evil. If you devise a solution for too many hypotehtical situations, you will end up with something that could easily be going in the wrong direction, and it will be difficult to correct at a later date."
+              "content": "Premature optimisation is the root of all evil. If you devise a solution for too many hypothetical situations, you will end up with something that could easily be going in the wrong direction, and it will be difficult to correct at a later date."
             },
             {
               "tagName": "li",
@@ -146,17 +146,17 @@
             {
               "tagName": "li",
               "id": "tenet-6",
-              "content": "Always help those around you and don't hesitate to ask for help yourself. It is quite often the case when you encounter a problem, that when you start explaining it to someone else, the solution comes into your head almost immediately afterward. Sharing facilitates good team chemistry. If someone comes looking for help and they can't find who they are looking for, offer your own help."
+              "content": "Always help those around you and don't hesitate to ask for help yourself. It is quite often the case when you encounter a problem, that when you start explaining it to someone else, the solution comes into your head almost immediately afterwards. Sharing facilitates good team chemistry. If someone comes looking for help and they can't find who they are looking for, offer your own help."
             },
             {
               "tagName": "li",
               "id": "tenet-7",
-              "content": "Always listen to what your peers have to say and give them an equal footing - junior engineers especially. They can provide insights you may have never thought of, and junior does not necessarily mean less capable. Exposing junior engineers to tasks those more senior can be a good thing to do, as long as they are comfortable with doing this. Again, their insights can be very useful."
+              "content": "Always listen to what your peers have to say and give them an equal footing - junior engineers especially. They can provide insights you may have never thought of, and junior does not necessarily mean less capable. Exposing junior engineers to tasks those more senior can be a good thing to do, as long as they are comfortable doing this. Again, their insights can be very useful."
             },
             {
               "tagName": "li",
               "id": "tenet-8",
-              "content": "Good hardware is essential. You should have the best hardware money can buy (within reason). Slow and inadequete hardware with cramped keyboards and tiny screens can have a serious impact on build times and overall productivity. Those extra minutes to add up."
+              "content": "Good hardware is essential. You should have the best hardware money can buy (within reason). Slow and inadequate hardware with cramped keyboards and tiny screens can have a serious impact on build times and overall productivity. Those extra minutes to add up."
             }
           ]
         }

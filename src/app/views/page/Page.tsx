@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Meta } from 'app/components/meta/Meta';
-import { setBodyOverflow } from 'common/utils';
+import { pathNesting, setBodyOverflow } from 'common/utils';
 import { IContentItem, IPage, ToggleValue, ThemeType } from 'common/interfaces';
 import { ContentItem } from 'app/components/contentItem/ContentItem';
 import { Nav } from 'app/components/nav/Nav';
 import { Toggle } from 'app/components/toggle/Toggle';
 import {
+  BackSt,
   BurgerSt,
   ErrorSt,
   FooterSt,
@@ -35,6 +36,10 @@ const errorMessage = (error: any): JSX.Element => (
   <ErrorSt>{error.toString()}</ErrorSt>
 );
 
+const backButton = (href: string): JSX.Element => (
+  <BackSt arial-label="back" data-testid="backbutton" to={href} />
+);
+
 const Page = ({
   currentTheme,
   error,
@@ -45,8 +50,8 @@ const Page = ({
   switchTheme,
 }: IProps): JSX.Element => {
   const { pathname } = useLocation();
+  const { isNested, parts } = pathNesting(pathname);
   const [showMenu, setShowMenu] = useState<boolean>(false);
-
   const toggleMenu = (): void => {
     setShowMenu(!showMenu);
     setBodyOverflow(!!showMenu);
@@ -106,7 +111,12 @@ const Page = ({
               title={page?.title}
               slug={page?.slug}
             />
-            <MainSt aria-label="Main content" onClick={hideMenu}>
+            <MainSt
+              nested={isNested}
+              aria-label="Main content"
+              onClick={hideMenu}
+            >
+              {isNested && backButton(`/${parts[0]}`)}
               {!pending && error && errorMessage(error)}
               {!pending && page && pageContents(page)}
             </MainSt>

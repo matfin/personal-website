@@ -1,11 +1,22 @@
 import styled, { css } from 'styled-components';
-import { animationCurve, boxShadow, layers, media } from 'app/styles';
+import { Link } from 'react-router-dom';
+import {
+  animationCurve,
+  boxShadow,
+  layers,
+  media,
+  textTypography,
+} from 'app/styles';
 import { Footer } from 'app/components/footer/Footer';
 import { Loading } from 'app/components/loading/Loading';
 import { MenuButton } from 'app/components/menubutton/MenuButton';
 
 interface ISideStProps {
   revealed: boolean;
+}
+
+interface IMainStProps {
+  nested: boolean;
 }
 
 interface IPageStProps {
@@ -50,7 +61,8 @@ export const PageSt = styled.div<IPageStProps>`
   `)}
 `;
 
-export const MainSt = styled.main`
+export const MainSt = styled.main<IMainStProps>`
+  position: relative;
   grid-area: main;
   border: 0.125rem solid ${(props) => props?.theme?.colours?.primary};
   padding: 0.75rem;
@@ -58,6 +70,16 @@ export const MainSt = styled.main`
   ${media.md(css`
     padding: 1.75rem;
   `)}
+
+  ${({ nested }) =>
+    nested &&
+    css`
+      padding-top: 3rem;
+
+      ${media.md(css`
+        padding-top: 4rem;
+      `)}
+    `}
 `;
 
 export const SideSt = styled.aside<ISideStProps>`
@@ -105,6 +127,27 @@ export const BurgerSt = styled(MenuButton)`
   ${media.md(css`
     display: none;
   `)}
+`;
+
+export const BackSt = styled(Link)`
+  position: absolute;
+  top: -1.25rem;
+  left: -0.125rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 0.125rem solid ${(props) => props?.theme?.colours?.primary};
+  background: ${(props) => props?.theme?.colours?.secondary};
+  ${textTypography}
+
+  &::before {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: '<';
+    font-size: 1.5rem;
+  }
 `;
 
 export const ErrorSt = styled.div`

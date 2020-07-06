@@ -75,3 +75,8 @@ export interface IProject {
 export interface CacheDictionary {
   [index: string]: string;
 }
+
+export interface IPathNesting {
+  isNested: boolean;
+  parts: string[];
+}

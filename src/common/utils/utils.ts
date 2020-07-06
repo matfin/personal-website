@@ -1,4 +1,4 @@
-import { ILink } from 'common/interfaces';
+import { ILink, IPathNesting } from 'common/interfaces';
 
 const months: string[] = [
   'January',
@@ -36,6 +36,17 @@ export const isExternalUrl = (url: string): boolean => {
   const regexp: RegExp = /(https?:\/\/|mailto:)/;
 
   return regexp.test(url);
+};
+
+export const pathNesting = (pathname: string = ''): IPathNesting => {
+  const parts = pathname.split('/');
+
+  parts.shift();
+
+  return {
+    parts,
+    isNested: parts.length > 1,
+  };
 };
 
 export const toLinkObject = (linkText: string): ILink => {

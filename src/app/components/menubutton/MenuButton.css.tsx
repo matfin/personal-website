@@ -16,7 +16,7 @@ const transformTo = (placement: LinePlacement): FlattenSimpleInterpolation => {
   switch (placement) {
     case LinePlacement.TOP: {
       return css`
-        transform: translate3d(0, 10px, 0) rotate(-45deg);
+        transform: translate3d(0, 12px, 0) rotate(-45deg);
       `;
     }
     case LinePlacement.BOTTOM: {
