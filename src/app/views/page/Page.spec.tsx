@@ -1,11 +1,17 @@
 import * as React from 'react';
 import { act } from 'react-dom/test-utils';
+import reactRouterDom from 'react-router-dom';
 import { fireEvent, screen } from '@testing-library/react';
 import 'jest-styled-components';
 import { renderWithRouter } from 'common/utils/testutils';
 import * as utils from 'common/utils/utils';
 import { ThemeType } from 'common/interfaces';
 import Page, { IProps } from './Page';
+
+jest.mock('react-router-dom', (): any => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: (): void => {},
+}));
 
 const noop = (): void => {};
 const defaultProps: IProps = {
@@ -22,10 +28,19 @@ const defaultProps: IProps = {
   resetPage: noop,
   switchTheme: noop,
 };
+const spyUseLocation = jest.spyOn(reactRouterDom, 'useLocation');
 
 window.scrollTo = jest.fn();
 
 describe('Page tests', () => {
+  beforeEach((): void => {
+    spyUseLocation.mockReturnValue({ pathname: '/test/nested' } as any);
+  });
+
+  afterEach((): void => {
+    spyUseLocation.mockReset();
+  });
+
   it('renders the component', () => {
     const { container } = renderWithRouter(<Page {...defaultProps} />);
 
@@ -35,6 +50,7 @@ describe('Page tests', () => {
   it('fetches the page with "home" as the default slug', () => {
     const spyFetchPage = jest.fn();
 
+    spyUseLocation.mockReturnValue({ pathname: '' } as any);
     renderWithRouter(<Page {...defaultProps} fetchPage={spyFetchPage} />);
 
     expect(spyFetchPage).toHaveBeenCalled();
@@ -70,7 +86,7 @@ describe('Page tests', () => {
     );
   });
 
-  it('prevents body scroll when nav menu is open', async () => {
+  it('prevents body scroll when nav menu is open', async (): Promise<any> => {
     const spySetBodyOverflow = jest.spyOn(utils, 'setBodyOverflow');
     const { container } = renderWithRouter(<Page {...defaultProps} />);
     const burger = container.getElementsByTagName('button')[0];
@@ -90,11 +106,19 @@ describe('Page tests', () => {
     spySetBodyOverflow.mockReset();
   });
 
-  it('renders the loading indicator', () => {
+  it('renders the loading indicator', (): void => {
     const { container } = renderWithRouter(<Page {...defaultProps} pending />);
 
     expect(container).toBeTruthy();
     expect(container.getElementsByTagName('img')).toBeTruthy();
+  });
+
+  it('renders the back button when in a nested page view', (): void => {
+    const container = renderWithRouter(<Page {...defaultProps} />);
+    const backButton = container.getByTestId('backbutton');
+
+    expect(backButton).toBeTruthy();
+    expect(backButton.href).toContain('/test');
   });
 
   it('renders page content', () => {
@@ -118,7 +142,7 @@ describe('Page tests', () => {
     expect(screen.getByText('Test heading')).toBeTruthy();
   });
 
-  it('switches to the night theme', async () => {
+  it('switches to the night theme', async (): Promise<void> => {
     const spySwitchTheme = jest.fn();
     const container = renderWithRouter(
       <Page {...defaultProps} switchTheme={spySwitchTheme} />
@@ -131,7 +155,7 @@ describe('Page tests', () => {
     await expect(spySwitchTheme).toHaveBeenCalledWith(ThemeType.NIGHT);
   });
 
-  it('switches to the day theme', async () => {
+  it('switches to the day theme', async (): Promise<void> => {
     const spySwitchTheme = jest.fn();
     const container = renderWithRouter(
       <Page
@@ -148,7 +172,7 @@ describe('Page tests', () => {
     await expect(spySwitchTheme).toHaveBeenCalledWith(ThemeType.DAY);
   });
 
-  it('renders an error message', () => {
+  it('renders an error message', (): void => {
     const { container } = renderWithRouter(
       <Page {...defaultProps} error="Test error" />
     );
