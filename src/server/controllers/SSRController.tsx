@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { Store } from 'redux';
 import { Helmet, HelmetData } from 'react-helmet';
 import { renderToNodeStream } from 'react-dom/server';
@@ -70,6 +71,13 @@ class SSRController implements IBaseController {
     next();
   };
 
+  withCSPNonce = (ssrContent: string): string => {
+    const regex: RegExp = /CSP_NONCE_KEY/gi;
+    const cspNonce: string = uuidv4();
+
+    return ssrContent.replace(regex, cspNonce);
+  };
+
   sendSSR = async (req: Request, res: Response): Promise<any> => {
     const { slug } = req.params;
     const { npm_package_version } = process.env;
@@ -83,7 +91,7 @@ class SSRController implements IBaseController {
       }
     }
 
-    return res.status(200).send(this.caches[cacheKey]);
+    return res.status(200).send(this.withCSPNonce(this.caches[cacheKey]));
   };
 
   generateSSRContent = (req: Request): Promise<string> =>

@@ -157,6 +157,11 @@
               "tagName": "li",
               "id": "tenet-8",
               "content": "Good hardware is essential. You should have the best hardware money can buy (within reason). Slow and inadequate hardware with cramped keyboards and tiny screens can have a serious impact on build times and overall productivity. Those extra minutes to add up."
+            },
+            {
+              "tagName": "li",
+              "id": "tenet-9",
+              "content": "Build for your needs with the right tools, instead of trying to take a 'turnkey' off-the-shelf solution. You will always limit yourself and end up putting more work into it. Think about any project that takes WordPress (a blogging platform) and tries to turn it into a social media and e-commerce platform."
             }
           ]
         }

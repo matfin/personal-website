@@ -27,6 +27,11 @@ const banner: string = `
 ██║ ╚═╝ ██║██║  ██║   ██║      ██║       ██║     ██║██║ ╚████║╚██████╔╝╚██████╗██║  ██║██║ ╚████║███████╗
 ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝      ╚═╝       ╚═╝     ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝
 `;
+/**
+ * This needs to be set on a per-request basis and should not be cached,
+ * so it will be put there then regex will handle replacing it with a uuid.
+ */
+const nonce = 'CSP_NONCE_KEY';
 
 export const indexTemplate = ({
   apiUrl,
@@ -42,10 +47,11 @@ export const indexTemplate = ({
   <html lang="en-IE">
     <head>
       <meta charset="utf-8" />
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'unsafe-inline'; script-src 'nonce-${nonce}'; child-src 'self';" />
       ${helmet.title.toString()}
       ${helmet.meta.toString()}
       ${styleTags}
-      <script>
+      <script nonce="${nonce}">
         window.API_URL = '${apiUrl}';
         window.CANONICAL_URL = '${canonicalUrl}';
         window.VERSION = '${packageVersion}';
@@ -53,12 +59,12 @@ export const indexTemplate = ({
     </head>
     <body>
       <div id="root">${reactAppHtml}</div>
-      <script>
+      <script nonce="${nonce}">
         console.log(\`${banner}\`);
         console.log(\`Version: ${packageVersion}\`);
         console.log('Curious to see how this was built? 👉🏼 https://github.com/matfin/personal-website');
       </script>
-      <script>
+      <script nonce="${nonce}">
         const enableServiceWorker = ${enableServiceWorker ? 'true' : 'false'};
 
         if ('serviceWorker' in navigator && enableServiceWorker) {
@@ -77,9 +83,9 @@ export const indexTemplate = ({
           });
         }
       </script>
-      <script>window._PRELOADED_STATE_ = ${preloadedState};</script>
-      <script src="/scripts/main.bundle.js"></script>
-      <script src="/scripts/vendors~main.bundle.js"></script>
+      <script nonce="${nonce}">window._PRELOADED_STATE_ = ${preloadedState};</script>
+      <script nonce="${nonce}" src="/scripts/main.bundle.js"></script>
+      <script nonce="${nonce}" src="/scripts/vendors~main.bundle.js"></script>
     </body>
   </html>
 `;
