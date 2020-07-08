@@ -7,7 +7,7 @@ export enum LinePlacement {
   BOTTOM = 'bottom',
 }
 
-interface ListStProps {
+interface LineStProps {
   placement: LinePlacement;
   revealed: boolean;
 }
@@ -40,7 +40,7 @@ export const MenuButtonSt = styled.button`
   background-color: ${(props) => props?.theme?.colours?.secondary};
 `;
 
-export const LineSt = styled.span<ListStProps>`
+export const LineSt = styled.span<LineStProps>`
   width: 2rem;
   height: 1px;
   background: ${(props) => props?.theme?.colours?.primary};

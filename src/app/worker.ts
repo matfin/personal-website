@@ -20,12 +20,42 @@ const profilePicPaths: string[] = [
   '/images/profile-sm@3x.jpg',
   '/images/profile-sm@3x.webp',
 ];
-const urlsToCache = [
+const assetUrls: string[] = [
   '/manifest.json',
   '/scripts/main.bundle.js',
   '/scripts/vendors~main.bundle.js',
   ...appIconPaths,
   ...profilePicPaths,
+];
+const pageUrls: string[] = ['/', '/cv', '/projects', '/now'];
+const projectUrls: string[] = [
+  '/projects/personal-portfolio',
+  '/projects/heycar',
+  '/projects/cinematt',
+  '/projects/personal-portfolio-static',
+  '/projects/profitbricks-community',
+  '/projects/spc-community',
+  '/projects/meteor-contentful',
+  '/projects/slider',
+  '/projects/tunedin',
+];
+const pageSlugs = [
+  'home',
+  'cv',
+  'projects',
+  'now',
+  'projects/personal-portfolio',
+  'projects/heycar',
+  'projects/cinematt',
+  'projects/personal-portfolio-static',
+  'projects/profitbricks-community',
+  'projects/spc-community',
+  'projects/meteor-contentful',
+  'projects/slider',
+  'projects/tunedin',
+  'projects/guh-guidelines',
+  'projects/ibox-tv',
+  'projects/ero',
 ];
 
 const onActivate = (event: ExtendableEvent): void => {
@@ -50,40 +80,11 @@ const onActivate = (event: ExtendableEvent): void => {
 const onInstall = (event: ExtendableEvent): void => {
   const preCache = async () => {
     const cache = await caches.open(cacheName);
-    const pageUrls = [
-      '/',
-      '/cv',
-      '/projects',
-      '/now',
-      '/projects/personal-portfolio',
-      '/projects/heycar',
-      '/projects/cinematt',
-      '/projects/personal-portfolio-static',
-      '/projects/profitbricks-community',
-      '/projects/spc-community',
-      '/projects/meteor-contentful',
-      '/projects/slider',
-      '/projects/tunedin',
-    ];
-    const pageSlugs = [
-      'home',
-      'cv',
-      'projects',
-      'now',
-      'projects/personal-portfolio',
-      'projects/heycar',
-      'projects/cinematt',
-      'projects/personal-portfolio-static',
-      'projects/profitbricks-community',
-      'projects/spc-community',
-      'projects/meteor-contentful',
-      'projects/slider',
-      'projects/tunedin',
-    ];
 
     return cache.addAll([
-      ...urlsToCache,
+      ...assetUrls,
       ...pageUrls,
+      ...projectUrls,
       ...pageSlugs.map((slug: string) => `/content/page/${slug}`),
     ]);
   };

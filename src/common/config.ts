@@ -17,7 +17,7 @@ export const getConfig = (
 
 export const config = {
   apiUrl: getConfig('API_URL', 'http://localhost:3000'),
-  cacheName: 'mattfinucane-1.1.3',
+  cacheName: 'mattfinucane-1.1.4',
   canonicalUrl: getConfig('CANONICAL_URL', 'http://localhost:3000'),
   port: getConfig('PORT', '3000'),
   enableCache: Boolean(process?.env?.ENABLE_CACHE),

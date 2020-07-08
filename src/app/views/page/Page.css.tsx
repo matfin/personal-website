@@ -115,14 +115,18 @@ export const FooterSt = styled(Footer)`
   grid-area: footer;
 `;
 
-export const BurgerSt = styled(MenuButton)`
-  z-index: ${layers.top};
+const commonButtonStyle = css`
   position: fixed;
   top: 1rem;
-  right: 1rem;
   width: 3.5rem;
   height: 3.5rem;
   border: 0.125rem solid ${(props) => props?.theme?.colours?.primary};
+`;
+
+export const BurgerSt = styled(MenuButton)`
+  ${commonButtonStyle}
+  z-index: ${layers.top};
+  right: 1rem;
 
   ${media.md(css`
     display: none;
@@ -130,14 +134,16 @@ export const BurgerSt = styled(MenuButton)`
 `;
 
 export const BackSt = styled(Link)`
-  position: absolute;
-  top: -1.25rem;
-  left: -0.125rem;
-  width: 3.5rem;
-  height: 3.5rem;
-  border: 0.125rem solid ${(props) => props?.theme?.colours?.primary};
+  ${commonButtonStyle}
+  left: 1rem;
   background: ${(props) => props?.theme?.colours?.secondary};
   ${textTypography}
+
+  ${media.md(css`
+    position: absolute;
+    top: -1.25rem;
+    left: -0.125rem;
+  `)}
 
   &::before {
     width: 100%;
