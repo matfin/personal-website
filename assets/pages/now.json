@@ -133,7 +133,7 @@
             {
               "id": "currently-learning-7",
               "tagName": "li",
-              "content": "Rebuilding my [personal photography website](https://github.com/matfin/cinematt) using [NextJS](https://nextjs.org/) which looks like a nice framework for building static sites. This project is now in its infancy."
+              "content": "I have just rebuilt my [personal photography website](https://github.com/matfin/cinematt) using [NextJS](https://nextjs.org/) which is a nice framework for building static sites. This project is still ongoing, and I have a good [tech roadmap](https://github.com/matfin/cinematt-nextjs/blob/main/ROADMAP.md) to work on for it."
             }
           ]
         }

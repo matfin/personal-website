@@ -25,6 +25,11 @@
           "tagName": "projects",
           "content": [
             {
+              "description": "Personal photography website built using NextJS.",
+              "slug": "cinematt-nextjs",
+              "title": "Cinematt (NextJS)"
+            },
+            {
               "description": "My personal portfolio / CV in its fifth incarnation.",
               "slug": "personal-portfolio",
               "title": "Personal portfolio"
