@@ -1,0 +1,74 @@
+{
+  "title": "Matt Finucane - Cinematt (NextJS)",
+  "description": "Personal photography website built using NextJS.",
+  "slug": "projects/cinematt-nextjs",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "id": "cm-1",
+          "tagName": "h1",
+          "content": "Cinematt (NextJS)"
+        },
+        {
+          "id": "cm-2",
+          "tagName": "h2",
+          "content": "Personal photography website built using NextJS."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "cm-3",
+      "content": [
+        {
+          "id": "cm-4",
+          "tagName": "p",
+          "content": "This project is a rebuild of my personal photography website, which uses the [NextJS](https://nextjs.org) framework. NextJS can be used as a static site generator - a perfect use case for a project like this."
+        },
+        {
+          "id": "cm-5",
+          "tagName": "p",
+          "content": "The older incarnation of this project used a combination of the [Hugo](https://gohugo.io/) static site generator, Ruby SASS for styles and Javascript (ES6) for behaviour."
+        },
+        {
+          "id": "cm-6",
+          "tagName": "p",
+          "content": "While each of these were very powerful on their own, they were quite cumbersome when needing to be brought together. I needed to set up three seperate Docker containers to run Hugo, Ruby SASS and Gulp to manage scripts."
+        },
+        {
+          "id": "cm-7",
+          "tagName": "p",
+          "content": "I wanted to keep this as a static website (given that updates are infrequent) so it would require very little in terms of server resources. With NextJS, I was still able to do that quite easily because it comes with SSR and static site generation baked in."
+        },
+        {
+          "id": "cm-8",
+          "tagName": "p",
+          "content": "Performance is key for this project, so I implemented responsive images with the html <picture> element. This ensures the most suitable image size is used for a given device. The correct balance of art direction, image detail and bandwidth consumption should be maintained."
+        },
+        {
+          "id": "cm-9",
+          "tagName": "p",
+          "content": "With CSS Grid layout, I was able to control the display of images and show them for all viewport sizes and ensure they flowed well, depending on whether they were of portrait or landscape orientation."
+        },
+        {
+          "id": "cm-10",
+          "tagName": "p",
+          "content": "To host and transform these images, I use a service called [Cloudinary](https://cloudinary.com/) whereupon I can upload a high detail TIFF image, and have it serves as either WebP or JPG depending on device support."
+        },
+        {
+          "id": "cm-10",
+          "tagName": "p",
+          "content": "For deployment, I use a combination of [Docker Compose](https://docs.docker.com/compose/) and [CircleCI](https://circleci.com/). These two build the images for the application and deploy them to a remote server, a minimal [DigitalOcean](https://www.digitalocean.com/) droplet which costs me US$5 a month."
+        },
+        {
+          "id": "cm-11",
+          "tagName": "p",
+          "content": "This project is now online and can be seen at [https://cinematt.photography](https://cinematt.photography). The source code is als on on [github.com/cinematt-nextjs](https://github.com/matfin/cinematt-nextjs)"
+        }
+      ]
+    }
+  ]
+}
