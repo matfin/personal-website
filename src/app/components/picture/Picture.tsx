@@ -17,7 +17,7 @@ const imgSrcSet = (fileType: string, name: string, size: ImageSize): string => `
   /images/${name}-${size}@3x.${fileType} 3x
 `;
 
-export const Picture = ({ className, name, title }: IProps) => (
+const Picture = ({ className, name, title }: IProps) => (
   <picture className={className}>
     <source
       data-testid="sm-webp"
@@ -47,3 +47,5 @@ export const Picture = ({ className, name, title }: IProps) => (
     <img src={`/images/${name}-sm@2x.jpg`} alt={title} />
   </picture>
 );
+
+export default Picture;

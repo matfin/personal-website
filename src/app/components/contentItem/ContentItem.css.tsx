@@ -10,10 +10,10 @@ import {
   subHeadingTypography,
   textTypography,
 } from 'app/styles';
-import { InlineLink } from 'app/components/inlinelink/InlineLink';
-import { Picture } from 'app/components/picture/Picture';
-import { Project } from 'app/components/project/Project';
-import { Topic } from 'app/components/topic/Topic';
+import InlineLink from 'app/components/inlinelink/InlineLink';
+import Picture from 'app/components/picture/Picture';
+import Project from 'app/components/project/Project';
+import Topic from 'app/components/topic/Topic';
 
 export const SectionSt = styled.section`
   display: block;

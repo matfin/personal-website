@@ -9,12 +9,7 @@ export interface IProps {
   onToggle(value: ToggleValue): void;
 }
 
-export const Toggle = ({
-  className,
-  label,
-  value,
-  onToggle,
-}: IProps): JSX.Element => {
+const Toggle = ({ className, label, value, onToggle }: IProps): JSX.Element => {
   const onToggleTrackClick = (): void => {
     onToggle(value === ToggleValue.ON ? ToggleValue.OFF : ToggleValue.ON);
   };
@@ -33,3 +28,5 @@ export const Toggle = ({
     </ToggleTrackSt>
   );
 };
+
+export default Toggle;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Position, IProps } from './Position';
+import Position, { IProps } from './Position';
 
 const defaultProps: IProps = {
   company: 'Test company',

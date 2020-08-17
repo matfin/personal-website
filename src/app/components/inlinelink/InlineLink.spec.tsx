@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderWithRouter } from 'common/utils/testutils';
-import { InlineLink, IProps } from './InlineLink';
+import InlineLink, { IProps } from './InlineLink';
 
 const defaultProps: IProps = {
   text: 'Test Link',

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Meta } from 'app/components/meta/Meta';
+import Meta from 'app/components/meta/Meta';
 import { pathNesting, setBodyOverflow } from 'common/utils';
 import { IContentItem, IPage, ToggleValue, ThemeType } from 'common/interfaces';
-import { ContentItem } from 'app/components/contentItem/ContentItem';
-import { Nav } from 'app/components/nav/Nav';
-import { Toggle } from 'app/components/toggle/Toggle';
+import ContentItem from 'app/components/contentItem/ContentItem';
+import Nav from 'app/components/nav/Nav';
+import Toggle from 'app/components/toggle/Toggle';
 import {
   BackSt,
   BurgerSt,

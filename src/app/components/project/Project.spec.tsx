@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { screen } from '@testing-library/react';
 import { renderWithRouter } from 'common/utils/testutils';
-import { Project, IProps } from './Project';
+import Project, { IProps } from './Project';
 
 const defaultProps: IProps = {
   description: 'Test project description',

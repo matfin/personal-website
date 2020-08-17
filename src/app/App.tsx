@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { ThemeType } from 'common/interfaces';
 import ConnectedPage from 'app/views/page/ConnectedPage';
-import { Meta } from 'app/components/meta/Meta';
+import Meta from 'app/components/meta/Meta';
 import { day, GlobalStyle, night } from 'app/styles';
 
 const mapStateToProps = (state: any) => ({

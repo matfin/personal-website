@@ -7,7 +7,7 @@ export interface IProps {
   [key: string]: any;
 }
 
-export const Nav = ({ children, className }: IProps) => (
+const Nav = ({ children, className }: IProps) => (
   <NavSt className={className}>
     <LinkSt exact to="/">
       Home
@@ -19,3 +19,5 @@ export const Nav = ({ children, className }: IProps) => (
     <ChildrenSt>{children}</ChildrenSt>
   </NavSt>
 );
+
+export default Nav;

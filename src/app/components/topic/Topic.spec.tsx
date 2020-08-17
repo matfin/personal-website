@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Topic, IProps } from './Topic';
+import Topic, { IProps } from './Topic';
 
 const defaultProps: IProps = {
   category: 'Test category',

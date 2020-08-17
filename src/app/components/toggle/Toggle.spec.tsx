@@ -2,7 +2,7 @@ import React from 'react';
 import 'jest-styled-components';
 import { fireEvent, render } from '@testing-library/react';
 import { ToggleValue } from 'common/interfaces';
-import { Toggle, IProps } from './Toggle';
+import Toggle, { IProps } from './Toggle';
 
 const defaultProps: IProps = {
   value: ToggleValue.OFF,

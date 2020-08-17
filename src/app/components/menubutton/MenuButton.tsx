@@ -8,7 +8,7 @@ export interface IProps {
   onClick(e: React.MouseEvent | React.TouchEvent): void;
 }
 
-export const MenuButton = ({
+const MenuButton = ({
   className,
   onClick,
   navRevealed,
@@ -29,3 +29,5 @@ export const MenuButton = ({
     </MenuButtonSt>
   );
 };
+
+export default MenuButton;
