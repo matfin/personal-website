@@ -14,7 +14,7 @@ export interface IProps extends IPosition {
   className?: string;
 }
 
-export const Position = ({
+const Position = ({
   className,
   company,
   endDate,
@@ -46,3 +46,5 @@ export const Position = ({
     </PositionSt>
   );
 };
+
+export default Position;

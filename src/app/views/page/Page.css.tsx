@@ -7,9 +7,9 @@ import {
   media,
   textTypography,
 } from 'app/styles';
-import { Footer } from 'app/components/footer/Footer';
-import { Loading } from 'app/components/loading/Loading';
-import { MenuButton } from 'app/components/menubutton/MenuButton';
+import Footer from 'app/components/footer/Footer';
+import Loading from 'app/components/loading/Loading';
+import MenuButton from 'app/components/menubutton/MenuButton';
 
 interface ISideStProps {
   revealed: boolean;

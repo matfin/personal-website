@@ -6,12 +6,10 @@ export interface IProps extends ITopic {
   className?: string;
 }
 
-export const Topic = ({
-  className,
-  description,
-  title,
-}: IProps): JSX.Element => (
+const Topic = ({ className, description, title }: IProps): JSX.Element => (
   <TopicSt title={description} className={className}>
     {title}
   </TopicSt>
 );
+
+export default Topic;

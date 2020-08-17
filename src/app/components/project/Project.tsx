@@ -7,7 +7,7 @@ export interface IProps extends IProject {
   className?: string;
 }
 
-export const Project = ({
+const Project = ({
   className,
   description,
   slug,
@@ -22,3 +22,5 @@ export const Project = ({
     </ProjectSt>
   );
 };
+
+export default Project;

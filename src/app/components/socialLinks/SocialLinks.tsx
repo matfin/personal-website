@@ -9,7 +9,7 @@ export interface IProps {
   className?: string;
 }
 
-export const SocialLinks = ({ className }: IProps) => (
+const SocialLinks = ({ className }: IProps) => (
   <SocialLinksSt className={className}>
     <li>
       <a
@@ -49,3 +49,5 @@ export const SocialLinks = ({ className }: IProps) => (
     </li>
   </SocialLinksSt>
 );
+
+export default SocialLinks;

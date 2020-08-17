@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Helmet, HelmetData } from 'react-helmet';
-import { Meta, IProps } from './Meta';
+import Meta, { IProps } from './Meta';
 
 const defaultProps: IProps = {
   description: 'Test description',

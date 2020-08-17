@@ -21,14 +21,11 @@ const InternalLink = ({ className, text, title, url }: IProps): JSX.Element => (
   </Link>
 );
 
-export const InlineLink = ({
-  className,
-  text,
-  title,
-  url,
-}: IProps): JSX.Element =>
+const InlineLink = ({ className, text, title, url }: IProps): JSX.Element =>
   isExternalUrl(url) ? (
     <ExternalLink className={className} text={text} title={title} url={url} />
   ) : (
     <InternalLink className={className} text={text} title={title} url={url} />
   );
+
+export default InlineLink;

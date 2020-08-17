@@ -5,8 +5,10 @@ export interface IProps {
   className?: string;
 }
 
-export const Footer = ({ className }: IProps) => (
+const Footer = ({ className }: IProps): JSX.Element => (
   <FooterSt className={className}>
     <ClosingTagSt />
   </FooterSt>
 );
+
+export default Footer;

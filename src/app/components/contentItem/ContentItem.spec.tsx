@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { renderWithRouter } from 'common/utils/testutils';
 import { IContentItem } from 'common/interfaces';
-import { ContentItem } from './ContentItem';
+import ContentItem from './ContentItem';
 
 describe('ContentItem tests', () => {
   it('renders the component', () => {

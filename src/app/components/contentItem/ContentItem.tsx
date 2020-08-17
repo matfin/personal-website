@@ -15,7 +15,7 @@ import {
   splitContent,
   toLinkObject,
 } from 'common/utils';
-import { Position } from 'app/components/position/Position';
+import Position from 'app/components/position/Position';
 import {
   HeadingSt,
   ImageContainerSt,
@@ -147,5 +147,7 @@ export const renderContent = (
   return <span>Unknown element</span>;
 };
 
-export const ContentItem = (contentItem: IProps): JSX.Element =>
+const ContentItem = (contentItem: IProps): JSX.Element =>
   renderContent(contentItem);
+
+export default ContentItem;
