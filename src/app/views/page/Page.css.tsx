@@ -33,9 +33,9 @@ export const PageSt = styled.div<IPageStProps>`
   grid-template-columns: 1rem auto 1rem;
   grid-template-rows: 2rem auto 6rem;
   grid-template-areas:
-    ". . ."
-    ". main ."
-    ". footer .";
+    '. . .'
+    '. main .'
+    '. footer .';
 
   ${(props) =>
     props.navRevealed &&
