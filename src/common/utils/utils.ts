@@ -1,4 +1,4 @@
-import { ILink, IPathNesting } from 'common/interfaces';
+import { LinkProps, PathNestingProps } from 'common/models';
 
 const months: string[] = [
   'January',
@@ -27,18 +27,18 @@ export const setBodyOverflow = (overflow: boolean): void => {
 };
 
 export const isLink = (text?: string): boolean => {
-  const regexp: RegExp = /(\[.*?\]\(.*?\))/;
+  const regexp = /(\[.*?\]\(.*?\))/;
 
   return regexp.test(text || '');
 };
 
 export const isExternalUrl = (url: string): boolean => {
-  const regexp: RegExp = /(https?:\/\/|mailto:)/;
+  const regexp = /(https?:\/\/|mailto:)/;
 
   return regexp.test(url);
 };
 
-export const pathNesting = (pathname: string = ''): IPathNesting => {
+export const pathNesting = (pathname = ''): PathNestingProps => {
   const parts = pathname.split('/');
 
   parts.shift();
@@ -49,9 +49,9 @@ export const pathNesting = (pathname: string = ''): IPathNesting => {
   };
 };
 
-export const toLinkObject = (linkText: string): ILink => {
-  const regexp: RegExp = /\[(.*?)\]\((.*?)("(.*?)")?\)/gm;
-  const result: any = regexp.exec(linkText);
+export const toLinkObject = (linkText: string): LinkProps => {
+  const regexp = /\[(.*?)\]\((.*?)("(.*?)")?\)/gm;
+  const result: RegExpExecArray | null = regexp.exec(linkText);
 
   if (!result) {
     return {
@@ -71,18 +71,16 @@ export const toLinkObject = (linkText: string): ILink => {
 };
 
 export const splitContent = (text: string): string[] => {
-  const regexp: RegExp = /(\[.*?\]\(.*?\))/gm;
+  const regexp = /(\[.*?\]\(.*?\))/gm;
 
   return text.split(regexp);
 };
-
-export const isServer = (): boolean => typeof window === 'undefined';
 
 export const isTouchDevice = (): boolean =>
   typeof window !== 'undefined' && 'ontouchstart' in window;
 
 export const isIE = (ua?: string): boolean => {
-  const regexp: RegExp = /(Trident|MSIE)/gm;
+  const regexp = /(Trident|MSIE)/gm;
 
   return regexp.test(ua || '');
 };

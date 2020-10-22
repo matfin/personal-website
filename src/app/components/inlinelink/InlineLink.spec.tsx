@@ -1,8 +1,8 @@
 import React from 'react';
 import { renderWithRouter } from 'common/utils/testutils';
-import InlineLink, { IProps } from './InlineLink';
+import InlineLink, { Props } from './InlineLink';
 
-const defaultProps: IProps = {
+const defaultProps: Props = {
   text: 'Test Link',
   url: '/test/link',
 };

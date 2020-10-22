@@ -2,10 +2,10 @@ import React from 'react';
 import 'jest-styled-components';
 import { fireEvent, render } from '@testing-library/react';
 import * as utils from 'common/utils/utils';
-import MenuButton, { IProps } from './MenuButton';
+import MenuButton, { Props } from './MenuButton';
 
-const defaultProps: IProps = {
-  onClick: (): void => {},
+const defaultProps: Props = {
+  onClick: jest.fn(),
   navRevealed: false,
 };
 

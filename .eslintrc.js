@@ -6,8 +6,9 @@ module.exports = {
     node: true,
   },
   extends: [
-    'airbnb',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier/@typescript-eslint',
     'plugin:prettier/recommended'
   ],
   globals: {
@@ -19,7 +20,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'module'
   },
   plugins: [
@@ -28,15 +29,20 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    'camelcase': 0,
-    'react/jsx-props-no-spreading': 0,
-    'react/jsx-filename-extension': [1, { 'extensions': ['.tsx'] }],
-    'import/extensions': [1, { 'extensions': ['.js', '.jsx',  '.ts', '.tsx', '.json']}],
-    'import/no-extraneous-dependencies': ['error', {'devDependencies': true}],
-    '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
-    'react/jsx-one-expression-per-line': 0
+    'camelcase': 0
   },
+  overrides: [
+    {
+      files: ['*.spec.{ts,tsx}'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 0
+      }
+    }
+  ],
   settings: {
+    react: {
+      version: 'detect'
+    },
     'import/resolver': {
       node: {
         moduleDirectory: ['node_modules', 'src', 'server'],

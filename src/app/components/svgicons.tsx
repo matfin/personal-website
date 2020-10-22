@@ -1,12 +1,12 @@
 import React from 'react';
 
-export interface IProps {
+export interface Props {
   className?: string;
   primaryFill?: string;
   secondaryFill?: string;
 }
 
-export const ClosingTag = ({ className }: IProps): JSX.Element => (
+export const ClosingTag = ({ className }: Props): JSX.Element => (
   <svg
     className={className}
     version="1.1"

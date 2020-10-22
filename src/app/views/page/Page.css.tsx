@@ -19,11 +19,11 @@ interface IMainStProps {
   nested: boolean;
 }
 
-interface IPageStProps {
+interface PagePropsStProps {
   navRevealed: boolean;
 }
 
-export const PageSt = styled.div<IPageStProps>`
+export const PageSt = styled.div<PagePropsStProps>`
   position: relative;
   display: grid;
   width: 100vw;

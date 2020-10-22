@@ -7,26 +7,26 @@ import { NextFunction, Request, Response, Router } from 'express';
 import { ServerStyleSheet } from 'styled-components';
 import createStoreWithPreloadedState from 'common/store';
 import { fetchPage } from 'app/views/page/actions';
-import config from 'common/config';
-import { IBaseController } from 'server/interfaces';
+import { getApiUrl, getCanonicalUrl, getEnableCache } from 'common/config';
+import { BaseController } from 'server/interfaces';
 import { indexTemplate, isIE, unsupported } from 'common/utils';
-import { CacheDictionary } from 'common/interfaces';
+import { CombinedAppState, CacheDictionaryProps } from 'common/models';
 import IndexComponent from '../IndexComponent';
 
-class SSRController implements IBaseController {
+class SSRController implements BaseController {
   private store: Store;
 
-  private caches: CacheDictionary;
+  private caches: CacheDictionaryProps;
 
   public router = Router();
 
   constructor() {
-    this.caches = {} as CacheDictionary;
+    this.caches = {} as CacheDictionaryProps;
     this.store = createStoreWithPreloadedState();
     this.initRoutes();
   }
 
-  initRoutes = () => {
+  initRoutes = (): void => {
     this.router.get(
       '/:slug(404|about|projects|cv|now)?',
       this.browserVersionGuard,
@@ -49,7 +49,7 @@ class SSRController implements IBaseController {
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<any> => {
+  ): Promise<Response | void> => {
     const { headers } = req;
     const ua: string | undefined = headers['user-agent'];
 
@@ -64,7 +64,7 @@ class SSRController implements IBaseController {
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<any> => {
+  ): Promise<void> => {
     const { slug } = req.params;
 
     await this.store.dispatch<any>(fetchPage(slug || 'home'));
@@ -72,13 +72,13 @@ class SSRController implements IBaseController {
   };
 
   withCSPNonce = (ssrContent: string): string => {
-    const regex: RegExp = /CSP_NONCE_KEY/gi;
+    const regex = /CSP_NONCE_KEY/gi;
     const cspNonce: string = uuidv4();
 
     return ssrContent.replace(regex, cspNonce);
   };
 
-  sendSSR = async (req: Request, res: Response): Promise<any> => {
+  sendSSR = async (req: Request, res: Response): Promise<Response> => {
     const { slug } = req.params;
     const { npm_package_version } = process.env;
     const cacheKey = `${slug}-${npm_package_version}`;
@@ -96,14 +96,16 @@ class SSRController implements IBaseController {
 
   generateSSRContent = (req: Request): Promise<string> =>
     new Promise((resolve, reject): void => {
+      const apiUrl: string = getApiUrl();
+      const canonicalUrl: string = getCanonicalUrl();
+      const enableCache: boolean = getEnableCache();
       const sheet = new ServerStyleSheet();
       const { npm_package_version } = process.env;
-      const preloadedState: any = this.store.getState();
+      const preloadedState: CombinedAppState = this.store.getState();
       const preloadedStateJson: string = JSON.stringify(preloadedState).replace(
         /</g,
         '\\u003c'
       );
-      const { apiUrl, canonicalUrl, enableCache } = config;
       const bodyStream: NodeJS.ReadableStream = renderToNodeStream(
         sheet.collectStyles(
           <IndexComponent context={{}} req={req} store={this.store} />
@@ -111,11 +113,11 @@ class SSRController implements IBaseController {
       );
       const body: string[] = [];
 
-      bodyStream.on('data', (chunk: any) => {
+      bodyStream.on('data', (chunk: string) => {
         body.push(chunk.toString());
       });
 
-      bodyStream.on('error', (error: any) => {
+      bodyStream.on('error', (error: Promise<Error>) => {
         reject(new Error(error.toString()));
       });
 

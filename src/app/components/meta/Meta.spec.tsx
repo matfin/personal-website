@@ -1,14 +1,23 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Helmet, HelmetData } from 'react-helmet';
-import Meta, { IProps } from './Meta';
+import * as config from 'common/config';
+import Meta, { Props } from './Meta';
 
-const defaultProps: IProps = {
+const defaultProps: Props = {
   description: 'Test description',
   title: 'Test title',
 };
 
 describe('Meta tests', () => {
+  const spyGetCanonicalUrl = jest
+    .spyOn(config, 'getCanonicalUrl')
+    .mockReturnValue('https://test.de');
+
+  afterAll((): void => {
+    spyGetCanonicalUrl.mockRestore();
+  });
+
   it('renders the component', () => {
     const wrapper = render(<Meta {...defaultProps} />);
     const helmet: HelmetData = Helmet.peek();
@@ -24,7 +33,7 @@ describe('Meta tests', () => {
       { name: 'theme-color', content: '#ecedef' },
       { name: 'description', content: 'Test description' },
       { name: 'author', content: 'Matt Finucane' },
-      { property: 'og:url', content: 'http://localhost:3000/' },
+      { property: 'og:url', content: 'https://test.de/' },
       { property: 'og:site_name', content: 'mattfinucane.com' },
       { property: 'og:type', content: 'website' },
       { property: 'og:locale', content: 'en-IE' },
@@ -33,7 +42,7 @@ describe('Meta tests', () => {
       { name: 'twitter:site', content: '@matfinucane' },
       { name: 'twitter:creator', content: '@matfinucane' },
       { name: 'twitter:title', content: 'Test title' },
-      { name: 'twitter:url', content: 'http://localhost:3000/' },
+      { name: 'twitter:url', content: 'https://test.de/' },
       { name: 'twitter:description', content: 'Test description' },
     ];
 
@@ -49,7 +58,7 @@ describe('Meta tests', () => {
     expect(wrapper).toBeTruthy();
     expect(helmet.metaTags[5]).toEqual({
       property: 'og:url',
-      content: 'http://localhost:3000/test-slug',
+      content: 'https://test.de/test-slug',
     });
   });
 
@@ -60,7 +69,7 @@ describe('Meta tests', () => {
     expect(wrapper).toBeTruthy();
     expect(helmet.metaTags[5]).toEqual({
       property: 'og:url',
-      content: 'http://localhost:3000',
+      content: 'https://test.de/',
     });
   });
 });

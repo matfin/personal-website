@@ -1,14 +1,14 @@
-import { IAction, IAppState, ThemeType } from 'common/interfaces';
+import { ReduxAction, AppReducerState, ThemeType } from 'common/models';
 import { SWITCH_THEME } from './types';
 
-export const defaultState: IAppState = {
+export const defaultState: AppReducerState = {
   currentTheme: ThemeType.DAY,
 };
 
 export const appState = (
-  state: IAppState = defaultState,
-  action: IAction
-): IAppState => {
+  state: AppReducerState = defaultState,
+  action: ReduxAction
+): AppReducerState => {
   const { payload, type } = action;
 
   switch (type) {

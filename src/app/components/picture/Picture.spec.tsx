@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Picture, { IProps } from './Picture';
+import Picture, { Props } from './Picture';
 
-const defaultProps: IProps = {
+const defaultProps: Props = {
   name: 'test',
   title: 'Test',
 };

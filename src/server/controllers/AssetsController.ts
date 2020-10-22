@@ -1,13 +1,13 @@
 import { Router, static as expressStatic } from 'express';
 import path from 'path';
-import { IBaseController } from 'server/interfaces';
+import { BaseController } from 'server/interfaces';
 
 interface IRoutePair {
   itemPath: string;
   dir: string;
 }
 
-class AssetsController implements IBaseController {
+class AssetsController implements BaseController {
   private distAppFilePath: string = path.resolve(__dirname, '../../../dist');
 
   private assetsFilePath: string = path.resolve(__dirname, '../../../assets');

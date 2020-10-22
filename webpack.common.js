@@ -1,5 +1,21 @@
 const path = require('path');
+const webpack = require('webpack');
+const { name, version } = require('./package.json');
 const nodeExternals = require('webpack-node-externals');
+const webpackNodeExternals = require('webpack-node-externals');
+
+const environment = {
+  apiUrl: JSON.stringify(process.env.API_URL || 'http://localhost'),
+  appName: JSON.stringify(name),
+  appVersion: JSON.stringify(version),
+  cacheName: JSON.stringify(`${name}-${version}`),
+  canonicalUrl: JSON.stringify(process.env.CANONICAL_URL || 'http://localhost:3000'),
+  enableCache: JSON.stringify(process.env.ENABLE_CACHE ? true : false),
+  isProduction: JSON.stringify(process.env.IS_PRODUCTION ? true : false),
+  port: JSON.stringify(process.env.PORT || '3000'),
+};
+
+console.log(environment);
 
 const common = {
   module: {
@@ -40,12 +56,13 @@ const client = {
     filename: '[name].bundle.js',
     publicPath: '/',
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-  },
   target: 'web',
+  plugins: [
+    new webpack.DefinePlugin({
+      ...environment,
+      isServer: JSON.stringify(false),
+    }),
+  ]
 };
 
 const server = {
@@ -60,6 +77,12 @@ const server = {
     filename: 'server.js',
   },
   target: 'node',
+  plugins: [
+    new webpack.DefinePlugin({
+      ...environment,
+      isServer: JSON.stringify(true),
+    }),
+  ],
 };
 
 module.exports = [client, server];

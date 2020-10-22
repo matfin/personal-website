@@ -7,7 +7,7 @@ import {
   lineHeight,
 } from 'app/styles/vars';
 
-export interface IProps {
+export interface Props {
   apiUrl: string;
   canonicalUrl: string;
   enableServiceWorker: boolean;
@@ -19,7 +19,7 @@ export interface IProps {
 }
 
 // https://manytools.org/hacker-tools/ascii-banner/ ANSI Shadow
-const banner: string = `
+const banner = `
 ███╗   ███╗ █████╗ ████████╗████████╗    ███████╗██╗███╗   ██╗██╗   ██╗ ██████╗ █████╗ ███╗   ██╗███████╗
 ████╗ ████║██╔══██╗╚══██╔══╝╚══██╔══╝    ██╔════╝██║████╗  ██║██║   ██║██╔════╝██╔══██╗████╗  ██║██╔════╝
 ██╔████╔██║███████║   ██║      ██║       █████╗  ██║██╔██╗ ██║██║   ██║██║     ███████║██╔██╗ ██║█████╗
@@ -42,7 +42,7 @@ export const indexTemplate = ({
   preloadedState,
   reactAppHtml,
   styleTags,
-}: IProps): string => `
+}: Props): string => `
   <!DOCTYPE html>
   <html lang="en-IE">
     <head>
@@ -85,7 +85,7 @@ export const indexTemplate = ({
       </script>
       <script nonce="${nonce}">window._PRELOADED_STATE_ = ${preloadedState};</script>
       <script nonce="${nonce}" src="/scripts/main.bundle.js"></script>
-      <script nonce="${nonce}" src="/scripts/vendors~main.bundle.js"></script>
+
     </body>
   </html>
 `;

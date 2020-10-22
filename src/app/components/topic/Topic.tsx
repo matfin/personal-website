@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { ITopic } from 'common/interfaces';
+import { TopicProps } from 'common/models';
 import TopicSt from './Topic.css';
 
-export interface IProps extends ITopic {
+export interface Props extends TopicProps {
   className?: string;
 }
 
-const Topic = ({ className, description, title }: IProps): JSX.Element => (
+const Topic = ({ className, description, title }: Props): JSX.Element => (
   <TopicSt title={description} className={className}>
     {title}
   </TopicSt>

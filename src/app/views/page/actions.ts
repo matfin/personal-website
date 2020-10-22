@@ -1,70 +1,67 @@
+import { Response } from 'node-fetch';
 import { apiCall } from 'common/utils';
-import { AppThunk, IPage } from 'common/interfaces';
-import {
-  FETCH_PAGE_REQUEST,
-  FETCH_PAGE_SUCCESS,
-  FETCH_PAGE_FAILURE,
-  RESET_PAGE,
-} from './types';
+import { AppDispatch, AppThunk, PageProps } from 'common/models';
+import ActionTypes from './types';
 
 /**
  * Interface declarations for actions
  */
-interface IFetchPageRequest {
-  type: typeof FETCH_PAGE_REQUEST;
+interface FetchPageRequest {
+  type: ActionTypes.FETCH_PAGE_REQUEST;
 }
 
-interface IFetchPageSuccess {
-  type: typeof FETCH_PAGE_SUCCESS;
-  payload: IPage;
+interface FetchPageSuccess {
+  type: ActionTypes.FETCH_PAGE_SUCCESS;
+  payload: PageProps;
 }
 
-interface IFetchPageFailure {
-  type: typeof FETCH_PAGE_FAILURE;
-  error: any;
+interface FetchPageFailure {
+  type: ActionTypes.FETCH_PAGE_FAILURE;
+  error: Error;
 }
 
-interface IResetPage {
-  type: typeof RESET_PAGE;
+interface ResetPage {
+  type: ActionTypes.RESET_PAGE;
 }
 
 /**
  * Exported as types
  */
 export type PageActionTypes =
-  | IFetchPageRequest
-  | IFetchPageSuccess
-  | IFetchPageFailure
-  | IResetPage;
+  | FetchPageRequest
+  | FetchPageSuccess
+  | FetchPageFailure
+  | ResetPage;
 
 /**
  * Exported actions
  */
 export const fetchPageRequest = (): PageActionTypes => ({
-  type: FETCH_PAGE_REQUEST,
+  type: ActionTypes.FETCH_PAGE_REQUEST,
 });
 
-export const fetchPageSuccess = (page: IPage): PageActionTypes => ({
-  type: FETCH_PAGE_SUCCESS,
+export const fetchPageSuccess = (page: PageProps): PageActionTypes => ({
+  type: ActionTypes.FETCH_PAGE_SUCCESS,
   payload: page,
 });
 
-export const fetchPageFailure = (error: any): PageActionTypes => ({
-  type: FETCH_PAGE_FAILURE,
+export const fetchPageFailure = (error: unknown): PageActionTypes => ({
+  type: ActionTypes.FETCH_PAGE_FAILURE,
   error,
 });
 
 export const resetPage = (): PageActionTypes => ({
-  type: RESET_PAGE,
+  type: ActionTypes.RESET_PAGE,
 });
 
-export const fetchPage = (slug: string): AppThunk => async (dispatch) => {
+export const fetchPage = (slug: string): AppThunk => async (
+  dispatch: AppDispatch
+) => {
   const pageRequestTimeout: number = setTimeout(
     (): PageActionTypes => dispatch(fetchPageRequest()),
     200
   );
   const url = `/content/page/${slug}`;
-  let page: IPage;
 
   try {
     const response: Response = await apiCall(url);
@@ -75,7 +72,7 @@ export const fetchPage = (slug: string): AppThunk => async (dispatch) => {
       throw new Error(`Content for ${url} not found`);
     }
 
-    page = await response.json();
+    const page = await response.json();
     clearTimeout(pageRequestTimeout);
 
     return dispatch(fetchPageSuccess(page));

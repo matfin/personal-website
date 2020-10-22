@@ -8,12 +8,12 @@ services:
     build:
       context: .
       dockerfile: .docker/node/Dockerfile
-    environment:
-      - API_URL=https://mattfinucane.build
-      - CANONICAL_URL=https://mattfinucane.build
-      - ENABLE_CACHE=true
-      - NODE_ENV-production
-      - PORT=3001
+      args:
+        - API_URL=https://mattfinucane.build
+        - CANONICAL_URL=https://mattfinucane.build
+        - ENABLE_CACHE='true'
+        - IS_PRODUCTION='true'
+        - PORT=3001
     command: yarn prodserver
 
   nginx:
