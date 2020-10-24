@@ -1,32 +1,27 @@
-import { IPageState, IAction } from 'common/interfaces';
-import {
-  FETCH_PAGE_REQUEST,
-  FETCH_PAGE_SUCCESS,
-  FETCH_PAGE_FAILURE,
-  RESET_PAGE,
-} from './types';
+import { PageReducerState, ReduxAction } from 'common/models';
+import ActionTypes from './types';
 
-export const defaultState: IPageState = {
+export const defaultState: PageReducerState = {
   error: null,
   pending: false,
-  page: undefined,
+  page: null,
 };
 
 export const pageState = (
-  state: IPageState = defaultState,
-  action: IAction
-): IPageState => {
+  state: PageReducerState = defaultState,
+  action: ReduxAction
+): PageReducerState => {
   const { error, payload, type } = action;
 
   switch (type) {
-    case FETCH_PAGE_REQUEST: {
+    case ActionTypes.FETCH_PAGE_REQUEST: {
       return {
         ...defaultState,
         error: null,
         pending: true,
       };
     }
-    case FETCH_PAGE_SUCCESS: {
+    case ActionTypes.FETCH_PAGE_SUCCESS: {
       return {
         ...defaultState,
         error: null,
@@ -34,14 +29,14 @@ export const pageState = (
         page: payload,
       };
     }
-    case FETCH_PAGE_FAILURE: {
+    case ActionTypes.FETCH_PAGE_FAILURE: {
       return {
         ...defaultState,
         error,
         pending: false,
       };
     }
-    case RESET_PAGE: {
+    case ActionTypes.RESET_PAGE: {
       return defaultState;
     }
     default: {

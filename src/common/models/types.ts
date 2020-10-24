@@ -1,6 +1,6 @@
 import { Action } from 'redux';
-import { ThunkAction } from 'redux-thunk';
-import { IPageState } from 'common/interfaces';
+import { ThunkAction, ThunkDispatch } from 'redux-thunk';
+import { CombinedAppState } from 'common/models';
 
 export type Breakpoints = {
   sm: number;
@@ -44,11 +44,17 @@ export type Orientations = {
   portrait: string;
 };
 
-export type AppState = IPageState;
+export type JSXChildren = string | JSX.Element | JSX.Element[];
 
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
-  AppState,
+  CombinedAppState,
+  unknown,
+  Action<string>
+>;
+
+export type AppDispatch = ThunkDispatch<
+  CombinedAppState,
   unknown,
   Action<string>
 >;

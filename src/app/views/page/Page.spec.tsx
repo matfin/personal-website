@@ -1,20 +1,20 @@
 import * as React from 'react';
-import { act } from 'react-dom/test-utils';
-import reactRouterDom from 'react-router-dom';
-import { fireEvent, screen } from '@testing-library/react';
 import 'jest-styled-components';
+import reactRouterDom from 'react-router-dom';
+import { act, fireEvent, screen } from '@testing-library/react';
 import { renderWithRouter } from 'common/utils/testutils';
 import * as utils from 'common/utils/utils';
-import { ThemeType } from 'common/interfaces';
-import Page, { IProps } from './Page';
+import { ThemeType } from 'common/models';
+import Page, { Props } from './Page';
 
 jest.mock('react-router-dom', (): any => ({
   ...jest.requireActual('react-router-dom'),
-  useLocation: (): void => {},
+  useLocation: jest.fn(),
 }));
+// eslint-disable-next-line react/display-name
+jest.mock('app/components/meta/Meta', () => (): JSX.Element => <div></div>);
 
-const noop = (): void => {};
-const defaultProps: IProps = {
+const defaultProps: Props = {
   currentTheme: ThemeType.DAY,
   error: null,
   pending: false,
@@ -24,9 +24,9 @@ const defaultProps: IProps = {
     slug: 'test-page',
     title: 'Test page',
   },
-  fetchPage: noop,
-  resetPage: noop,
-  switchTheme: noop,
+  fetchPage: jest.fn(),
+  resetPage: jest.fn(),
+  switchTheme: jest.fn(),
 };
 const spyUseLocation = jest.spyOn(reactRouterDom, 'useLocation');
 

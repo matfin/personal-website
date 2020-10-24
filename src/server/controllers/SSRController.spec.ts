@@ -2,15 +2,12 @@ import express, { Response, Router } from 'express';
 import * as reactDomServer from 'react-dom/server';
 import { Helmet } from 'react-helmet';
 import createStoreWithPreloadedState from 'common/store';
-import config from 'common/config';
+import * as config from 'common/config';
 import * as pageActions from 'app/views/page/actions';
 import IndexComponent from 'server/IndexComponent';
 import SSRController from './SSRController';
 
 jest.mock('common/store');
-jest.mock('common/config', (): any => ({
-  enableCache: true,
-}));
 jest.mock('server/IndexComponent');
 jest.mock('react-dom/server');
 
@@ -19,23 +16,27 @@ Helmet.canUseDOM = false;
 describe('SSRController tests', (): void => {
   const spyDispatch = jest.fn();
   const spyGetState = jest.fn();
+  const spyGetEnableCache = jest
+    .spyOn(config, 'getEnableCache')
+    .mockReturnValue(true);
 
-  IndexComponent.mockReturnValue('div');
+  (IndexComponent as jest.Mock).mockReturnValue('div');
 
-  createStoreWithPreloadedState.mockReturnValue({
+  (createStoreWithPreloadedState as jest.Mock).mockReturnValue({
     dispatch: spyDispatch,
     getState: spyGetState,
   });
 
   afterEach(() => {
+    spyGetEnableCache.mockClear();
     spyDispatch.mockClear();
     spyGetState.mockClear();
   });
 
   afterAll(() => {
-    IndexComponent.mockReset();
-    createStoreWithPreloadedState.mockReset();
-    config.mockReset();
+    spyGetEnableCache.mockReset();
+    (IndexComponent as jest.Mock).mockReset();
+    (createStoreWithPreloadedState as jest.Mock).mockReset();
   });
 
   it('should initialise the routes and set up the redux store', async (): Promise<
@@ -191,7 +192,7 @@ describe('SSRController tests', (): void => {
     const spyOn = jest
       .spyOn(reactDomServer, 'renderToNodeStream')
       .mockReturnValue({
-        on: (type: string, cb: Function) => {
+        on: (type: string, cb: () => void) => {
           if (type === 'data') {
             cb('test-chunk');
           } else if (type === 'end') {
@@ -218,7 +219,7 @@ describe('SSRController tests', (): void => {
     const spyOn = jest
       .spyOn(reactDomServer, 'renderToNodeStream')
       .mockReturnValue({
-        on: (type: string, cb: Function) => {
+        on: (type: string, cb: (error: string) => void) => {
           if (type === 'error') {
             cb('error');
           }

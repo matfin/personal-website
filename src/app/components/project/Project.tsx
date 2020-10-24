@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useRouteMatch } from 'react-router-dom';
-import { IProject } from 'common/interfaces';
+import { ProjectProps } from 'common/models';
 import { ProjectSt, TitleSt, DescriptionSt } from './Project.css';
 
-export interface IProps extends IProject {
+export interface Props extends ProjectProps {
   className?: string;
 }
 
@@ -12,7 +12,7 @@ const Project = ({
   description,
   slug,
   title,
-}: IProps): JSX.Element => {
+}: Props): JSX.Element => {
   const { url } = useRouteMatch();
 
   return (

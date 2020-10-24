@@ -1,13 +1,13 @@
 import React from 'react';
+import { JSXChildren } from 'common/models';
 import { ChildrenSt, LinkSt, NavSt } from './Nav.css';
 
-export interface IProps {
-  children?: any;
+export interface Props {
+  children?: JSXChildren;
   className?: string;
-  [key: string]: any;
 }
 
-const Nav = ({ children, className }: IProps) => (
+const Nav = ({ children, className }: Props): JSX.Element => (
   <NavSt className={className}>
     <LinkSt exact to="/">
       Home

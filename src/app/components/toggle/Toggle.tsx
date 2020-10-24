@@ -1,15 +1,15 @@
 import React from 'react';
-import { ToggleValue } from 'common/interfaces';
+import { ToggleValue } from 'common/models';
 import { ToggleIndicatorSt, ToggleTrackSt } from './Toggle.css';
 
-export interface IProps {
+export interface Props {
   className?: string;
   label: string;
   value: ToggleValue;
   onToggle(value: ToggleValue): void;
 }
 
-const Toggle = ({ className, label, value, onToggle }: IProps): JSX.Element => {
+const Toggle = ({ className, label, value, onToggle }: Props): JSX.Element => {
   const onToggleTrackClick = (): void => {
     onToggle(value === ToggleValue.ON ? ToggleValue.OFF : ToggleValue.ON);
   };

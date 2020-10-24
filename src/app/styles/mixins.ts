@@ -1,9 +1,9 @@
-import { css } from 'styled-components';
+import { css, FlattenSimpleInterpolation } from 'styled-components';
 import { orientations, sizes } from './vars';
 
 export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
   (acc, label) => {
-    acc[label] = (st: any): any => css`
+    acc[label] = (st: string): FlattenSimpleInterpolation => css`
       @media (min-width: ${sizes[label]}px) {
         ${st}
       }
@@ -17,7 +17,7 @@ export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
 export const orientation = (Object.keys(
   orientations
 ) as (keyof typeof orientations)[]).reduce((acc, label) => {
-  acc[label] = (st: any): any => css`
+  acc[label] = (st: string): FlattenSimpleInterpolation => css`
     @media (orientation: ${orientations[label]}) {
       ${st}
     }

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {
   ContentTypes,
-  IContentItem,
-  ITopic,
-  IPosition,
-  IProject,
-} from 'common/interfaces';
+  ContentItemProps,
+  PositionProps,
+  ProjectProps,
+  TopicProps,
+} from 'common/models';
 import {
   isContentItem,
   isLink,
@@ -33,12 +33,12 @@ import {
   TopicsSt,
 } from './ContentItem.css';
 
-export interface IProps extends IContentItem {
+export interface Props extends ContentItemProps {
   className?: string;
   key?: string;
 }
 
-export const processContent = (content: string): any => {
+export const processContent = (content: string): (string | JSX.Element)[] => {
   const split: string[] = splitContent(content);
   const processed = split.map((item: string) => {
     if (isLink(item)) {
@@ -98,15 +98,15 @@ export const renderTag = (
   }
 };
 
-export const renderTopic = (topic: ITopic): JSX.Element => (
+export const renderTopic = (topic: TopicProps): JSX.Element => (
   <TopicSt {...topic} key={topic.title} />
 );
 
-export const renderPosition = (position: IPosition): JSX.Element => (
+export const renderPosition = (position: PositionProps): JSX.Element => (
   <Position {...position} key={`${position.company}-${position.location}`} />
 );
 
-export const renderProject = (project: IProject): JSX.Element => (
+export const renderProject = (project: ProjectProps): JSX.Element => (
   <TileSt key={project.title}>
     <ProjectSt {...project} />
   </TileSt>
@@ -147,7 +147,7 @@ export const renderContent = (
   return <span>Unknown element</span>;
 };
 
-const ContentItem = (contentItem: IProps): JSX.Element =>
+const ContentItem = (contentItem: Props): JSX.Element =>
   renderContent(contentItem);
 
 export default ContentItem;

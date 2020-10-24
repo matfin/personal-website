@@ -2,9 +2,9 @@ import React from 'react';
 import { Request } from 'express';
 import { render } from '@testing-library/react';
 import { createMockStore } from 'common/utils/testutils';
-import IndexComponent, { IProps } from './IndexComponent';
+import IndexComponent, { Props } from './IndexComponent';
 
-const defaultProps: IProps = {
+const defaultProps: Props = {
   context: {},
   req: {} as Request,
   store: createMockStore(),

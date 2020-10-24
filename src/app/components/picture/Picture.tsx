@@ -1,8 +1,8 @@
 import React from 'react';
 import { sizes } from 'app/styles';
-import { IImage } from 'common/interfaces';
+import { ImageProps } from 'common/models';
 
-export interface IProps extends IImage {
+export interface Props extends ImageProps {
   className?: '';
 }
 
@@ -17,7 +17,7 @@ const imgSrcSet = (fileType: string, name: string, size: ImageSize): string => `
   /images/${name}-${size}@3x.${fileType} 3x
 `;
 
-const Picture = ({ className, name, title }: IProps) => (
+const Picture = ({ className, name, title }: Props): JSX.Element => (
   <picture className={className}>
     <source
       data-testid="sm-webp"

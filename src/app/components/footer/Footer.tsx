@@ -1,11 +1,11 @@
 import React from 'react';
 import FooterSt, { ClosingTagSt } from './Footer.css';
 
-export interface IProps {
+export interface Props {
   className?: string;
 }
 
-const Footer = ({ className }: IProps): JSX.Element => (
+const Footer = ({ className }: Props): JSX.Element => (
   <FooterSt className={className}>
     <ClosingTagSt />
   </FooterSt>

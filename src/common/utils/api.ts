@@ -1,16 +1,26 @@
 import fetch, { RequestInit, Response } from 'node-fetch';
-import config from 'common/config';
-import { isServer } from 'common/utils';
+import {
+  getApiUrl,
+  getIsProduction,
+  getIsServer,
+  getPort,
+} from 'common/config';
 
 export const apiCall = async (
   resource: string,
   options: RequestInit = { method: 'GET' }
-): Promise<any> => {
-  const { apiUrl, port } = config;
-  const base = isServer() ? `http://localhost:${port}` : apiUrl;
-  const url = `${base}${resource}`;
+): Promise<Response> => {
+  const isProduction: boolean = getIsProduction();
+  const isServer: boolean = getIsServer();
+  const apiUrl: string = getApiUrl();
+  const port: string = getPort();
+  const clientUrl = isProduction
+    ? `${apiUrl}${resource}`
+    : `${apiUrl}:${port}${resource}`;
+  const serverUrl = `http://localhost:${port}${resource}`;
+  const url = isServer ? serverUrl : clientUrl;
 
-  return (await fetch(url, options)) as Response;
+  return await fetch(url, options);
 };
 
 export default apiCall;

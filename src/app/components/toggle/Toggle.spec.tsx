@@ -1,13 +1,13 @@
 import React from 'react';
 import 'jest-styled-components';
 import { fireEvent, render } from '@testing-library/react';
-import { ToggleValue } from 'common/interfaces';
-import Toggle, { IProps } from './Toggle';
+import { ToggleValue } from 'common/models';
+import Toggle, { Props } from './Toggle';
 
-const defaultProps: IProps = {
+const defaultProps: Props = {
   value: ToggleValue.OFF,
   label: 'Test',
-  onToggle: (): void => {},
+  onToggle: jest.fn(),
 };
 
 describe('Toggle tests', () => {

@@ -7,7 +7,7 @@ describe('styled components mixins test', (): void => {
       padding: 32px;
     `;
 
-    expect(media.sm(style as any)).toEqual([
+    expect(media.sm(style)).toEqual([
       '@media (min-width:',
       '320',
       'px){',

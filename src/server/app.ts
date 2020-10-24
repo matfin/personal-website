@@ -1,10 +1,10 @@
 import express, { Application } from 'express';
-import config from 'common/config';
-import { IBaseController } from 'server/interfaces';
+import { getEnableCache } from 'common/config';
+import { BaseController } from 'server/interfaces';
 
 interface IApp {
   port: string;
-  controllers: IBaseController[];
+  controllers: BaseController[];
 }
 
 class App {
@@ -18,18 +18,20 @@ class App {
     this.setupRoutes(controllers);
   }
 
-  private setupRoutes(controllers: any = []): void {
-    controllers.forEach((controller: IBaseController) => {
+  private setupRoutes(controllers: BaseController[] = []): void {
+    controllers.forEach((controller: BaseController) => {
       this.app.use('/', controller.router);
     });
   }
 
-  public listen() {
+  public listen(): void {
+    const enableCache: boolean = getEnableCache();
+
     this.app.listen(this.port, () => {
       // eslint-disable-next-line no-console
-      console.log(
+      console.info(
         `App listening on ${this.port} with service worker caching ${
-          config.enableCache ? 'enabled' : 'disabled'
+          enableCache ? 'enabled' : 'disabled'
         }`
       );
     });

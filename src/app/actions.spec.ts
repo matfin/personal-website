@@ -1,4 +1,4 @@
-import { ThemeType } from 'common/interfaces';
+import { ThemeType } from 'common/models';
 import { SWITCH_THEME } from './types';
 import { switchTheme } from './actions';
 

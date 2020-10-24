@@ -1,18 +1,21 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import config from 'common/config';
+import { getCanonicalUrl } from 'common/config';
 import { colours } from 'app/styles/vars';
 
-export interface IProps {
-  description: string;
-  title: string;
+export interface Props {
+  description?: string;
+  title?: string;
   slug?: string;
 }
 
-export const canonicalSlug = (slug: string): string =>
-  slug === 'home' ? '' : `/${slug}`;
+export const canonicalSlug = (slug: string): string => {
+  const canonicalUrl: string = getCanonicalUrl();
 
-const Meta = ({ description, title, slug = '' }: IProps): JSX.Element => (
+  return `${canonicalUrl}/${slug === 'home' ? '' : slug}`;
+};
+
+const Meta = ({ description, title, slug = '' }: Props): JSX.Element => (
   <Helmet>
     <title>{title}</title>
     <meta
@@ -26,16 +29,10 @@ const Meta = ({ description, title, slug = '' }: IProps): JSX.Element => (
     <meta name="theme-color" content={colours.secondary} />
     <meta name="description" content={description} />
     <meta name="author" content="Matt Finucane" />
-    <link
-      rel="canonical"
-      href={`${config.canonicalUrl}${canonicalSlug(slug)}`}
-    />
+    <link rel="canonical" href={canonicalSlug(slug)} />
     <link rel="manifest" href="/manifest.json" />
 
-    <meta
-      property="og:url"
-      content={`${config.canonicalUrl}${canonicalSlug(slug)}`}
-    />
+    <meta property="og:url" content={canonicalSlug(slug)} />
     <meta property="og:site_name" content="mattfinucane.com" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en-IE" />
@@ -45,10 +42,7 @@ const Meta = ({ description, title, slug = '' }: IProps): JSX.Element => (
     <meta name="twitter:site" content="@matfinucane" />
     <meta name="twitter:creator" content="@matfinucane" />
     <meta name="twitter:title" content={title} />
-    <meta
-      name="twitter:url"
-      content={`${config.canonicalUrl}${canonicalSlug(slug)}`}
-    />
+    <meta name="twitter:url" content={canonicalSlug(slug)} />
     <meta name="twitter:description" content={description} />
 
     <link

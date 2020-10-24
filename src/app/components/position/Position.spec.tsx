@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import Position, { IProps } from './Position';
+import Position, { Props } from './Position';
 
-const defaultProps: IProps = {
+const defaultProps: Props = {
   company: 'Test company',
   location: 'Test location',
   role: 'Test role',

@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Meta from 'app/components/meta/Meta';
 import { pathNesting, setBodyOverflow } from 'common/utils';
-import { IContentItem, IPage, ToggleValue, ThemeType } from 'common/interfaces';
+import {
+  ContentItemProps,
+  PageProps,
+  ToggleValue,
+  ThemeType,
+} from 'common/models';
 import ContentItem from 'app/components/contentItem/ContentItem';
 import Nav from 'app/components/nav/Nav';
 import Toggle from 'app/components/toggle/Toggle';
@@ -17,22 +22,24 @@ import {
   SideSt,
 } from './Page.css';
 
-export interface IProps {
+export interface Props {
   currentTheme: ThemeType;
-  error: any;
+  error: Error | null;
   pending: boolean;
-  page: IPage;
+  page: PageProps | null;
   fetchPage(slug: string): void;
   resetPage(): void;
   switchTheme(theme: ThemeType): void;
 }
 
-const pageContents = ({ contents }: IPage): JSX.Element[] =>
+const pageContents = ({ contents }: PageProps): JSX.Element[] =>
   contents.map(
-    (item: IContentItem): JSX.Element => <ContentItem {...item} key={item.id} />
+    (item: ContentItemProps): JSX.Element => (
+      <ContentItem {...item} key={item.id} />
+    )
   );
 
-const errorMessage = (error: any): JSX.Element => (
+const errorMessage = (error: Error): JSX.Element => (
   <ErrorSt>{error.toString()}</ErrorSt>
 );
 
@@ -48,7 +55,7 @@ const Page = ({
   fetchPage,
   resetPage,
   switchTheme,
-}: IProps): JSX.Element => {
+}: Props): JSX.Element => {
   const { pathname } = useLocation();
   const { isNested, parts } = pathNesting(pathname);
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -70,7 +77,7 @@ const Page = ({
     }
   };
 
-  useEffect((): any => {
+  useEffect((): (() => void) => {
     const slug = pathname.substring(1);
 
     setShowMenu(false);

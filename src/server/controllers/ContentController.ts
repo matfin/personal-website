@@ -1,11 +1,17 @@
 import { Request, Response, Router } from 'express';
 import path from 'path';
-import { IBaseController } from 'server/interfaces';
+import { BaseController } from 'server/interfaces';
 
-class ContentController implements IBaseController {
+interface Headers {
+  headers: {
+    [index: string]: string;
+  };
+}
+
+class ContentController implements BaseController {
   private baseFilePath: string = path.resolve(__dirname, '../../../');
 
-  private defaultHeaders: any = {
+  private defaultHeaders: Headers = {
     headers: {
       'Content-type': 'application/json',
       'X-Powered-By': 'FluffyRabbitsTail',
@@ -18,7 +24,7 @@ class ContentController implements IBaseController {
     this.initRoutes();
   }
 
-  public initRoutes() {
+  public initRoutes(): void {
     this.router.get('/content/page/:slug', this.getPage);
     this.router.get('/content/page/:slug(projects/*)', this.getPage);
   }

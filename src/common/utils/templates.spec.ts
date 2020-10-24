@@ -1,8 +1,8 @@
-import { indexTemplate, IProps } from './templates';
+import { indexTemplate, Props } from './templates';
 
 describe('indexTemplate tests', (): void => {
   it('should render the correct html output', (): void => {
-    const defaultProps: IProps = {
+    const defaultProps: Props = {
       apiUrl: 'https://test.ie',
       canonicalUrl: 'https://test.ie',
       enableServiceWorker: false,

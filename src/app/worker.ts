@@ -1,8 +1,9 @@
-import config from 'common/config';
+import { getAppIconSizes, getCacheName } from 'common/config';
 
 declare const self: ServiceWorkerGlobalScope;
 
-const { appIconSizes, cacheName } = config;
+const appIconSizes: number[] = getAppIconSizes();
+const cacheName: string = getCacheName();
 const appIconPaths: string[] = appIconSizes.map(
   (size: number) => `/images/icons/logo-${size}.png`
 );
@@ -61,7 +62,7 @@ const pageSlugs = [
 const onActivate = (event: ExtendableEvent): void => {
   const cacheWhitelist = [cacheName];
   const clearCaches = (): Promise<void | boolean[]> =>
-    caches.keys().then((cacheNames: any[]) =>
+    caches.keys().then((cacheNames: string[]) =>
       Promise.all(
         cacheNames.map(
           (name: string): Promise<boolean> => {
@@ -96,7 +97,9 @@ const onFetch = (event: FetchEvent): void => {
   event.respondWith(
     caches
       .match(event.request)
-      .then((response: any) => response ?? fetch(event.request))
+      .then(
+        (response: Response | undefined) => response ?? fetch(event.request)
+      )
   );
 };
 

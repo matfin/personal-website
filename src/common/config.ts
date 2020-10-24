@@ -1,27 +1,22 @@
-import { IAppConfig } from 'common/interfaces';
+declare const apiUrl: string;
+declare const appName: string;
+declare const appVersion: string;
+declare const cacheName: string;
+declare const canonicalUrl: string;
+declare const enableCache: boolean;
+declare const isProduction: boolean;
+declare const port: string;
+declare const isServer: boolean;
 
-export const getConfig = (
-  key: string,
-  fallback: string
-): string | undefined => {
-  if (typeof process !== 'undefined' && process?.env[key]) {
-    return process?.env[key];
-  }
+const appIconSizes: number[] = [32, 48, 72, 96, 128, 144, 168, 192, 196, 512];
 
-  if (typeof window !== 'undefined' && window[key]) {
-    return window[key];
-  }
-
-  return fallback;
-};
-
-export const config = {
-  apiUrl: getConfig('API_URL', 'http://localhost:3000'),
-  cacheName: 'mattfinucane-1.1.7',
-  canonicalUrl: getConfig('CANONICAL_URL', 'http://localhost:3000'),
-  port: getConfig('PORT', '3000'),
-  enableCache: Boolean(process?.env?.ENABLE_CACHE),
-  appIconSizes: [32, 48, 72, 96, 128, 144, 168, 192, 196, 512],
-} as IAppConfig;
-
-export default config;
+export const getAppIconSizes = (): number[] => appIconSizes;
+export const getAppName = (): string => appName;
+export const getAppVersion = (): string => appVersion;
+export const getApiUrl = (): string => apiUrl;
+export const getCacheName = (): string => cacheName;
+export const getCanonicalUrl = (): string => canonicalUrl;
+export const getEnableCache = (): boolean => enableCache;
+export const getIsProduction = (): boolean => isProduction;
+export const getIsServer = (): boolean => isServer;
+export const getPort = (): string => port;

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { screen } from '@testing-library/react';
 import { renderWithRouter } from 'common/utils/testutils';
-import Project, { IProps } from './Project';
+import Project, { Props } from './Project';
 
-const defaultProps: IProps = {
+const defaultProps: Props = {
   description: 'Test project description',
   releaseDate: '2020-05-04',
   slug: 'test-slug',

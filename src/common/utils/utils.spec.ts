@@ -79,7 +79,7 @@ describe('utils tests', (): void => {
   it('checks for touch devices', (): void => {
     expect(isTouchDevice()).toBe(false);
 
-    global.ontouchstart = () => {};
+    global.ontouchstart = jest.fn();
     expect(isTouchDevice()).toBe(true);
 
     global.ontouchstart = undefined;

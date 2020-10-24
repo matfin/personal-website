@@ -5,11 +5,11 @@ import linkedin from 'svg/linkedin';
 import stackoverflow from 'svg/stackoverflow';
 import { SocialLinksSt } from './SocialLinks.css';
 
-export interface IProps {
+export interface Props {
   className?: string;
 }
 
-const SocialLinks = ({ className }: IProps) => (
+const SocialLinks = ({ className }: Props): JSX.Element => (
   <SocialLinksSt className={className}>
     <li>
       <a

@@ -1,26 +1,17 @@
-export interface IAppConfig {
-  readonly appIconSizes: number[];
-  readonly apiUrl: string;
-  readonly cacheName: string;
-  readonly canonicalUrl: string;
-  readonly enableCache: boolean;
-  readonly port: string;
-}
-
 export type ContentTypes =
-  | IContentItem
-  | IImage
-  | ITopic
-  | IPosition
-  | IProject
+  | ContentItemProps
+  | ImageProps
+  | TopicProps
+  | PositionProps
+  | ProjectProps
   | string;
 
-export interface ICategory {
+export interface CategoryProps {
   title: string;
   description?: string;
 }
 
-export interface ITopic {
+export interface TopicProps {
   logoPath?: string;
   category: string;
   deprecated?: boolean;
@@ -29,42 +20,42 @@ export interface ITopic {
   title: string;
 }
 
-export interface ILink {
+export interface LinkProps {
   text: string;
   title?: string;
   url: string;
 }
 
-export interface IImage {
+export interface ImageProps {
   fileType: string;
   name: string;
   title: string;
 }
 
-export interface IContentItem {
-  content: ContentTypes;
+export interface ContentItemProps {
+  content: ContentTypes | ContentTypes[];
   id?: string;
   tagName: string;
 }
 
-export interface IPage {
-  contents: IContentItem[];
+export interface PageProps {
+  contents: ContentItemProps[];
   description: string;
   slug: string;
   title: string;
 }
 
-export interface IPosition {
+export interface PositionProps {
   company: string;
   endDate?: string; // TODO better type safety
   location: string;
   role: string;
   startDate: string; // TODO better type safety
   tasks: string[];
-  topics: ITopic[];
+  topics: TopicProps[];
 }
 
-export interface IProject {
+export interface ProjectProps {
   description: string;
   releaseDate?: string; // TODO better type safety
   slug: string;
@@ -72,11 +63,11 @@ export interface IProject {
   topics?: string[];
 }
 
-export interface CacheDictionary {
+export interface CacheDictionaryProps {
   [index: string]: string;
 }
 
-export interface IPathNesting {
+export interface PathNestingProps {
   isNested: boolean;
   parts: string[];
 }

@@ -2,20 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { ThemeType } from 'common/interfaces';
+import { CombinedAppState, ThemeType } from 'common/models';
 import ConnectedPage from 'app/views/page/ConnectedPage';
 import Meta from 'app/components/meta/Meta';
 import { day, GlobalStyle, night } from 'app/styles';
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: CombinedAppState) => ({
   currentTheme: state.appState.currentTheme,
 });
 
-export interface IProps {
+export interface Props {
   currentTheme: ThemeType;
 }
 
-const App = ({ currentTheme }: IProps): JSX.Element => {
+const App = ({ currentTheme }: Props): JSX.Element => {
   const themes = {
     day,
     night,

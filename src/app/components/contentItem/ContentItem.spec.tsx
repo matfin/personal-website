@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { renderWithRouter } from 'common/utils/testutils';
-import { IContentItem } from 'common/interfaces';
+import { ContentItemProps } from 'common/models';
 import ContentItem from './ContentItem';
 
 describe('ContentItem tests', () => {
@@ -89,13 +89,13 @@ describe('ContentItem tests', () => {
     });
 
     it('renders a list with items', () => {
-      const props: IContentItem = {
+      const props: ContentItemProps = {
         tagName: 'ul',
         content: [
           { tagName: 'li', content: 'First' },
           { tagName: 'li', content: 'Second' },
           { tagName: 'li', content: 'Third' },
-        ] as any,
+        ],
       };
       const { container } = render(<ContentItem {...props} />);
 
@@ -107,7 +107,7 @@ describe('ContentItem tests', () => {
     });
 
     it('renders a span the tag is not recognised', () => {
-      const props: IContentItem = {
+      const props: ContentItemProps = {
         tagName: 'unknown',
         content: 'Test content',
       };
@@ -119,7 +119,7 @@ describe('ContentItem tests', () => {
   });
 
   it('renders a list of topics', () => {
-    const props: IContentItem = {
+    const props: ContentItemProps = {
       tagName: 'topics',
       content: [
         {
@@ -134,7 +134,7 @@ describe('ContentItem tests', () => {
           slug: 'another-test',
           title: 'Another test',
         },
-      ] as any,
+      ],
     };
     const { container } = render(<ContentItem {...props} />);
 
@@ -145,7 +145,7 @@ describe('ContentItem tests', () => {
   });
 
   it('renders a job position', () => {
-    const props: IContentItem = {
+    const props: ContentItemProps = {
       tagName: 'jobs',
       content: [
         {
@@ -156,7 +156,7 @@ describe('ContentItem tests', () => {
           tasks: ['Task one', 'Task two'],
           topics: [],
         },
-      ] as any,
+      ],
     };
     const { container } = render(<ContentItem {...props} />);
 
@@ -167,7 +167,7 @@ describe('ContentItem tests', () => {
   });
 
   it('renders a project', () => {
-    const props: IContentItem = {
+    const props: ContentItemProps = {
       tagName: 'projects',
       content: [
         {
@@ -177,7 +177,7 @@ describe('ContentItem tests', () => {
           title: 'Test Project',
           topics: ['test topic one', 'test topic two'],
         },
-      ] as any,
+      ],
     };
     const { container } = renderWithRouter(<ContentItem {...props} />);
 
@@ -187,7 +187,7 @@ describe('ContentItem tests', () => {
   });
 
   it('renders a warning if the element is unknown', () => {
-    const props: IContentItem = {} as any;
+    const props = {} as ContentItemProps;
     const { container } = render(<ContentItem {...props} />);
 
     expect(container.querySelector('span')).toBeTruthy();
