@@ -18,3 +18,4 @@ This is what we need to do to build a nice, simple, well maintained application.
 - use Redux Saga
 - use Storybook for component rendering/documentation
 - error boundary for better error handling
+- set up service worker to draw index of content automatically
