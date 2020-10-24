@@ -24,27 +24,12 @@ const profilePicPaths: string[] = [
 const assetUrls: string[] = [
   '/manifest.json',
   '/scripts/main.bundle.js',
-  '/scripts/vendors~main.bundle.js',
   ...appIconPaths,
   ...profilePicPaths,
 ];
-const pageUrls: string[] = ['/', '/cv', '/projects', '/now'];
-const projectUrls: string[] = [
-  '/projects/personal-portfolio',
-  '/projects/heycar',
-  '/projects/cinematt',
-  '/projects/personal-portfolio-static',
-  '/projects/profitbricks-community',
-  '/projects/spc-community',
-  '/projects/meteor-contentful',
-  '/projects/slider',
-  '/projects/tunedin',
-];
-const pageSlugs = [
-  'home',
-  'cv',
-  'projects',
-  'now',
+const pageUrls: string[] = ['/', '/about', '/cv', '/projects', '/now'];
+const projects: string[] = [
+  'projects/cinematt-nextjs',
   'projects/personal-portfolio',
   'projects/heycar',
   'projects/cinematt',
@@ -58,6 +43,7 @@ const pageSlugs = [
   'projects/ibox-tv',
   'projects/ero',
 ];
+const pageSlugs: string[] = ['home', 'about', 'cv', 'projects', 'now'];
 
 const onActivate = (event: ExtendableEvent): void => {
   const cacheWhitelist = [cacheName];
@@ -85,7 +71,8 @@ const onInstall = (event: ExtendableEvent): void => {
     return cache.addAll([
       ...assetUrls,
       ...pageUrls,
-      ...projectUrls,
+      ...projects,
+      ...projects.map((slug: string) => `/content/page/${slug}`),
       ...pageSlugs.map((slug: string) => `/content/page/${slug}`),
     ]);
   };
