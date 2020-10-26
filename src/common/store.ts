@@ -16,7 +16,7 @@ const rootReducer: Reducer<CombinedAppState, ReduxAction> = combineReducers({
 });
 
 export const createStoreWithPreloadedState = (
-  preloadedState: CombinedAppState
+  preloadedState?: CombinedAppState
 ): Store =>
   createStore(rootReducer, preloadedState, applyMiddleware(thunkMiddleware));
 

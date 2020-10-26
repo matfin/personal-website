@@ -45,7 +45,7 @@ export const fetchPageSuccess = (page: PageProps): PageActionTypes => ({
   payload: page,
 });
 
-export const fetchPageFailure = (error: unknown): PageActionTypes => ({
+export const fetchPageFailure = (error: Error): PageActionTypes => ({
   type: ActionTypes.FETCH_PAGE_FAILURE,
   error,
 });
@@ -54,7 +54,7 @@ export const resetPage = (): PageActionTypes => ({
   type: ActionTypes.RESET_PAGE,
 });
 
-export const fetchPage = (slug: string): AppThunk => async (
+export const fetchPage = (slug: string): AppThunk<Promise<void>> => async (
   dispatch: AppDispatch
 ) => {
   const pageRequestTimeout: number = setTimeout(
@@ -75,8 +75,8 @@ export const fetchPage = (slug: string): AppThunk => async (
     const page = await response.json();
     clearTimeout(pageRequestTimeout);
 
-    return dispatch(fetchPageSuccess(page));
+    dispatch(fetchPageSuccess(page));
   } catch (error) {
-    return dispatch(fetchPageFailure(error));
+    dispatch(fetchPageFailure(error));
   }
 };
