@@ -1,7 +1,4 @@
-import { Action } from 'redux';
-import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import {
-  CombinedAppState,
   ContentItemProps,
   ImageProps,
   PositionProps,
@@ -60,16 +57,3 @@ export type Orientations = {
 };
 
 export type JSXChildren = string | JSX.Element | JSX.Element[];
-
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  CombinedAppState,
-  void,
-  Action<string>
->;
-
-export type AppDispatch = ThunkDispatch<
-  CombinedAppState,
-  unknown,
-  Action<string>
->;
