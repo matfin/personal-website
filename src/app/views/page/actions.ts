@@ -1,6 +1,8 @@
+import { ThunkAction, ThunkDispatch } from 'redux-thunk';
+import { Action } from 'redux';
 import { Response } from 'node-fetch';
 import { apiCall } from 'common/utils';
-import { AppDispatch, AppThunk, PageProps } from 'common/models';
+import { PageReducerState, PageProps } from 'common/models';
 import ActionTypes from './types';
 
 /**
@@ -33,6 +35,18 @@ export type PageActionTypes =
   | FetchPageFailure
   | ResetPage;
 
+export type FetchPageThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  PageReducerState,
+  void,
+  Action<string>
+>;
+export type FetchPageDispatch = ThunkDispatch<
+  PageReducerState,
+  void,
+  Action<string>
+>;
+
 /**
  * Exported actions
  */
@@ -54,9 +68,9 @@ export const resetPage = (): PageActionTypes => ({
   type: ActionTypes.RESET_PAGE,
 });
 
-export const fetchPage = (slug: string): AppThunk<Promise<void>> => async (
-  dispatch: AppDispatch
-) => {
+export const fetchPage = (slug: string): FetchPageThunk => async (
+  dispatch: FetchPageDispatch
+): Promise<void> => {
   const pageRequestTimeout: number = setTimeout(
     (): PageActionTypes => dispatch(fetchPageRequest()),
     200

@@ -38,7 +38,7 @@ describe('page actions tests', () => {
   });
 
   it('returns the correct type on fetch page failure', () => {
-    const error = { dummy: 'error' };
+    const error = new Error('error');
 
     expect(fetchPageFailure(error)).toEqual({
       type: ActionTypes.FETCH_PAGE_FAILURE,
