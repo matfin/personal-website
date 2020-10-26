@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
   ContentTypes,
   ContentItemProps,
+  ImageProps,
   PositionProps,
   ProjectProps,
   TopicProps,
@@ -53,7 +54,7 @@ export const processContent = (content: string): (string | JSX.Element)[] => {
 
 export const renderTag = (
   tagName: string,
-  content: any,
+  content: ContentItemProps,
   key?: string
 ): JSX.Element => {
   switch (tagName) {
@@ -63,12 +64,16 @@ export const renderTag = (
     case 'img': {
       return (
         <ImageContainerSt key={key}>
-          <PictureSt {...content} />
+          <PictureSt {...((content as unknown) as ImageProps)} />
         </ImageContainerSt>
       );
     }
     case 'p': {
-      return <ParagraphSt key={key}>{processContent(content)}</ParagraphSt>;
+      return (
+        <ParagraphSt key={key}>
+          {processContent((content as unknown) as string)}
+        </ParagraphSt>
+      );
     }
     case 'h1': {
       return <HeadingSt key={key}>{content}</HeadingSt>;
@@ -81,7 +86,11 @@ export const renderTag = (
       return <ListSt key={key}>{content}</ListSt>;
     }
     case 'li': {
-      return <ListItemSt key={key}>{processContent(content)}</ListItemSt>;
+      return (
+        <ListItemSt key={key}>
+          {processContent((content as unknown) as string)}
+        </ListItemSt>
+      );
     }
     case 'topics': {
       return <TopicsSt key={key}>{content}</TopicsSt>;
@@ -116,32 +125,33 @@ export const renderContent = (
   item: ContentTypes,
   key?: string
 ): JSX.Element => {
-  if (isContentItem(item)) {
-    const { content, tagName } = item;
+  if (isContentItem(item as ContentItemProps)) {
+    const { content, tagName } = item as ContentItemProps;
 
     if (Array.isArray(content)) {
       return renderTag(
         tagName,
-        content.map((contentItem: ContentTypes, idx: number) =>
-          renderContent(contentItem, `${tagName}-${idx}`)
+        content.map(
+          (contentItem: ContentTypes, idx: number): JSX.Element =>
+            renderContent(contentItem, `${tagName}-${idx}`)
         ),
         key
       );
     }
 
-    return renderTag(tagName, content, key);
+    return renderTag(tagName, content as ContentItemProps, key);
   }
 
-  if (isTopic(item)) {
-    return renderTopic(item);
+  if (isTopic(item as TopicProps)) {
+    return renderTopic(item as TopicProps);
   }
 
-  if (isPosition(item)) {
-    return renderPosition(item);
+  if (isPosition(item as PositionProps)) {
+    return renderPosition(item as PositionProps);
   }
 
-  if (isProject(item)) {
-    return renderProject(item);
+  if (isProject(item as ProjectProps)) {
+    return renderProject(item as ProjectProps);
   }
 
   return <span>Unknown element</span>;

@@ -1,6 +1,21 @@
 import { Action } from 'redux';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import { CombinedAppState } from 'common/models';
+import {
+  CombinedAppState,
+  ContentItemProps,
+  ImageProps,
+  PositionProps,
+  ProjectProps,
+  TopicProps,
+} from 'common/models';
+
+export type ContentTypes =
+  | ContentItemProps
+  | ImageProps
+  | TopicProps
+  | PositionProps
+  | ProjectProps
+  | string;
 
 export type Breakpoints = {
   sm: number;
@@ -49,7 +64,7 @@ export type JSXChildren = string | JSX.Element | JSX.Element[];
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   CombinedAppState,
-  unknown,
+  void,
   Action<string>
 >;
 

@@ -11,7 +11,7 @@ export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
 
     return acc;
   },
-  {} as { [key in keyof typeof sizes]: any }
+  {} as { [key in keyof typeof sizes]: unknown }
 );
 
 export const orientation = (Object.keys(
@@ -24,7 +24,7 @@ export const orientation = (Object.keys(
   `;
 
   return acc;
-}, {} as { [key in keyof typeof orientations]: any });
+}, {} as { [key in keyof typeof orientations]: unknown });
 
 export const blackEmoji = css`
   color: transparent;

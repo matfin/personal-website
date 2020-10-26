@@ -1,10 +1,4 @@
-export type ContentTypes =
-  | ContentItemProps
-  | ImageProps
-  | TopicProps
-  | PositionProps
-  | ProjectProps
-  | string;
+import { ContentTypes } from './types';
 
 export interface CategoryProps {
   title: string;
@@ -33,7 +27,13 @@ export interface ImageProps {
 }
 
 export interface ContentItemProps {
-  content: ContentTypes | ContentTypes[];
+  content:
+    | ContentTypes
+    | ContentTypes[]
+    | JSX.Element
+    | JSX.Element[]
+    | string
+    | string[];
   id?: string;
   tagName: string;
 }

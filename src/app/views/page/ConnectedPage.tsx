@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { CombinedAppState, ThemeType } from 'common/models';
+import { AppDispatch, CombinedAppState, ThemeType } from 'common/models';
 import { switchTheme } from 'app/actions';
-import { fetchPage, PageActionTypes, resetPage } from './actions';
-import { AppActionTypes } from '../../actions';
+import { fetchPage, resetPage } from './actions';
 import Page, { Props } from './Page';
 
 const mapStateToProps = (state: CombinedAppState) => ({
@@ -14,17 +12,15 @@ const mapStateToProps = (state: CombinedAppState) => ({
   page: state.pageState.page,
 });
 
-export const mapDispatchToProps = (
-  dispatch: Dispatch<PageActionTypes | AppActionTypes>
-) => ({
+export const mapDispatchToProps = (dispatch: AppDispatch): unknown => ({
   fetchPage: (slug: string): void => {
-    dispatch<any>(fetchPage(slug));
+    dispatch(fetchPage(slug));
   },
   resetPage: (): void => {
-    dispatch<PageActionTypes>(resetPage());
+    dispatch(resetPage());
   },
   switchTheme: (theme: ThemeType): void => {
-    dispatch<AppActionTypes>(switchTheme(theme));
+    dispatch(switchTheme(theme));
   },
 });
 
