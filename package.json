@@ -1,6 +1,6 @@
 {
   "name": "mattfinucane.com",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Personal website built using React and TypeScript",
   "main": "src/index.js",
   "scripts": {
