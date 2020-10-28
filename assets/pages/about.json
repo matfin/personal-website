@@ -126,7 +126,7 @@
             {
               "tagName": "li",
               "id": "tenet-3",
-              "content": "Rush work is bad. Constantly looming deadlines, long hours and constant emergencies where you are always putting out fires. This is always a sign of poor planning and implementation. Take your time and code for what you need now, and don't go too far into what you might need in the future. Simpler solutions with one purpose are easier to refactor when you know what you're going to need."
+              "content": "Take your time and code for what you need now, and don't go too far into what you might need in the future. Simpler solutions with one purpose are easier to refactor when you know what you're going to need."
             },
             {
               "tagName": "li",

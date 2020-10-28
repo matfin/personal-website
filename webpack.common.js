@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const { name, version } = require('./package.json');
 const nodeExternals = require('webpack-node-externals');
-const webpackNodeExternals = require('webpack-node-externals');
 
 const environment = {
   apiUrl: JSON.stringify(process.env.API_URL || 'http://localhost'),
@@ -15,7 +14,7 @@ const environment = {
   port: JSON.stringify(process.env.PORT || '3000'),
 };
 
-console.log(environment);
+console.info(environment);
 
 const common = {
   module: {
