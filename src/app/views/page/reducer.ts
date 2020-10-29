@@ -1,4 +1,4 @@
-import { PageReducerState, ReduxAction } from 'common/models';
+import { PageReducerState, PageReduxAction } from 'common/models';
 import ActionTypes from './types';
 
 export const defaultState: PageReducerState = {
@@ -9,7 +9,7 @@ export const defaultState: PageReducerState = {
 
 export const pageState = (
   state: PageReducerState = defaultState,
-  action: ReduxAction
+  action: PageReduxAction
 ): PageReducerState => {
   const { error, payload, type } = action;
 
@@ -26,13 +26,13 @@ export const pageState = (
         ...defaultState,
         error: null,
         pending: false,
-        page: payload,
+        page: payload ?? null,
       };
     }
     case ActionTypes.FETCH_PAGE_FAILURE: {
       return {
         ...defaultState,
-        error,
+        error: error ?? new Error('The page could not be loaded'),
         pending: false,
       };
     }

@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 import Picture, { Props } from './Picture';
 
 const defaultProps: Props = {
+  fileType: 'jpg',
   name: 'test',
   title: 'Test',
 };

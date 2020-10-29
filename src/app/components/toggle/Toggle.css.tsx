@@ -37,11 +37,11 @@ export const ToggleIndicatorSt = styled.div<IToggleIndicatorStProps>`
   z-index: ${layers.upper};
   position: absolute;
   top: -2px;
-  left: ${(props) => (props.switchedon ? '1.5rem' : '-2px')};
+  left: ${({ switchedon }) => (switchedon ? '1.5rem' : '-2px')};
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
-  background: ${(props) => props?.theme?.colours?.primary};
+  background: ${({ theme }) => theme?.colours?.primary};
 
   transition: left 200ms ${animationCurve};
 `;

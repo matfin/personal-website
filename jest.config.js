@@ -18,7 +18,6 @@ module.exports = {
     '^app/(.*)$': '<rootDir>/src/app/$1',
     '^common/(.*)$': '<rootDir>/src/common/$1',
     '^server/(.*)$': '<rootDir>/src/server/$1',
-    '^svg/(.*)$': '<rootDir>/__mocks__/svgMock.js'
   },
   coveragePathIgnorePatterns: [
     'node_modules',

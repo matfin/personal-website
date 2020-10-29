@@ -51,9 +51,4 @@ export type Layers = {
   lower: number;
 };
 
-export type Orientations = {
-  landscape: string;
-  portrait: string;
-};
-
 export type JSXChildren = string | JSX.Element | JSX.Element[];

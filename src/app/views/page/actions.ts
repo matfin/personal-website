@@ -2,7 +2,7 @@ import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { Action } from 'redux';
 import { Response } from 'node-fetch';
 import { apiCall } from 'common/utils';
-import { PageReducerState, PageProps } from 'common/models';
+import { PageProps, PageReducerState } from 'common/models';
 import ActionTypes from './types';
 
 /**

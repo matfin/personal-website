@@ -37,6 +37,20 @@ describe('page reducer tests', () => {
     expect(state).toEqual(check);
   });
 
+  it('sets the state when the action type is fetch page success but the payload is undefined', () => {
+    const state = pageState(undefined, {
+      type: ActionTypes.FETCH_PAGE_SUCCESS,
+    });
+    const check = {
+      ...defaultState,
+      error: null,
+      pending: false,
+      page: null,
+    };
+
+    expect(state).toEqual(check);
+  });
+
   it('sets the state when the action type is fetch page failure', () => {
     const error = new Error('Error');
     const state = pageState(undefined, {
@@ -46,6 +60,19 @@ describe('page reducer tests', () => {
     const check = {
       ...defaultState,
       error,
+      pending: false,
+    };
+
+    expect(state).toEqual(check);
+  });
+
+  it('sets the state when the action type is fetch page failure and no error was defined', () => {
+    const state = pageState(undefined, {
+      type: ActionTypes.FETCH_PAGE_FAILURE,
+    });
+    const check = {
+      ...defaultState,
+      error: new Error('The page could not be loaded'),
       pending: false,
     };
 

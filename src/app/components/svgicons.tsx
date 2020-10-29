@@ -6,6 +6,22 @@ export interface Props {
   secondaryFill?: string;
 }
 
+export const LoadingSpinner = ({ className }: Props): JSX.Element => (
+  <svg
+    className={className}
+    version="1.1"
+    id="Layer_2"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 64 64"
+    xmlSpace="preserve"
+  >
+    <g>
+      <path d="M32 0c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zM32 16c8.837 0 16 7.163 16 16s-7.163 16-16 16-16-7.163-16-16 7.163-16 16-16zM51.092 51.092c-5.1 5.1-11.88 7.908-19.092 7.908s-13.992-2.809-19.092-7.908-7.908-11.88-7.908-19.092c0-7.212 2.809-13.992 7.908-19.092l4.243 4.243c0 0 0 0 0 0-8.188 8.188-8.188 21.511 0 29.698 3.966 3.966 9.24 6.151 14.849 6.151s10.883-2.184 14.849-6.151c8.188-8.188 8.188-21.511 0-29.698l4.243-4.243c5.1 5.1 7.908 11.88 7.908 19.092s-2.809 13.992-7.908 19.092z" />
+    </g>
+  </svg>
+);
+
 export const ClosingTag = ({ className }: Props): JSX.Element => (
   <svg
     className={className}

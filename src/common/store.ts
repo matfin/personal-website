@@ -6,9 +6,15 @@ import {
   Store,
 } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { CombinedAppState, ReduxAction } from 'common/models';
+import {
+  AppReduxAction,
+  CombinedAppState,
+  PageReduxAction,
+} from 'common/models';
 import { appState } from 'app/reducer';
 import { pageState } from 'app/views/page/reducer';
+
+type ReduxAction = AppReduxAction | PageReduxAction;
 
 const rootReducer: Reducer<CombinedAppState, ReduxAction> = combineReducers({
   appState,

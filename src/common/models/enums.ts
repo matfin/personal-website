@@ -7,3 +7,8 @@ export enum ToggleValue {
   ON = 'on',
   OFF = 'off',
 }
+
+export enum Orientation {
+  LANDSCAPE = 'landscape',
+  PORTRAIT = 'portrait',
+}
