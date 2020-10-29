@@ -1,5 +1,4 @@
 import React from 'react';
-import loadingSpinner from 'svg/loadingSpinner';
 import { LoadingSpinnerSt, LoadingSt } from './Loading.css';
 
 export interface Props {
@@ -8,7 +7,7 @@ export interface Props {
 
 const Loading = ({ className }: Props): JSX.Element => (
   <LoadingSt className={className}>
-    <LoadingSpinnerSt src={loadingSpinner} />
+    <LoadingSpinnerSt />
   </LoadingSt>
 );
 

@@ -6,7 +6,6 @@
       "app/*": ["src/app/*"],
       "common/*": ["src/common/*"],
       "server/*": ["src/server/*"],
-      "svg/*": ["assets/images/svg"],
     },
     "target": "esnext",
     "lib": ["WebWorker", "ESNext", "dom"],

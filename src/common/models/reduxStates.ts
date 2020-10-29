@@ -1,9 +1,16 @@
 import { PageProps, ThemeType } from 'common/models';
 
 export interface ReduxAction {
-  error: Error | null;
-  payload?: unknown;
+  error?: Error | null;
   type: string;
+}
+
+export interface PageReduxAction extends ReduxAction {
+  payload?: PageProps;
+}
+
+export interface AppReduxAction extends ReduxAction {
+  payload: ThemeType;
 }
 
 export interface PageReducerState {

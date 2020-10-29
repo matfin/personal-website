@@ -1,30 +1,31 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
-import { orientations, sizes } from './vars';
+import { Orientation } from 'common/models';
+import { sizes } from './vars';
 
-export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
-  (acc, label) => {
-    acc[label] = (st: string): FlattenSimpleInterpolation => css`
-      @media (min-width: ${sizes[label]}px) {
-        ${st}
-      }
-    `;
+export const sizeQuery = (
+  minWidth: number,
+  css: FlattenSimpleInterpolation
+): string => `@media (min-width: ${minWidth}px){${css}}`;
 
-    return acc;
-  },
-  {} as { [key in keyof typeof sizes]: unknown }
-);
+export const orientationQuery = (
+  orientation: Orientation,
+  css: FlattenSimpleInterpolation
+): string => `@media (orientation: ${orientation}){${css}}`;
 
-export const orientation = (Object.keys(
-  orientations
-) as (keyof typeof orientations)[]).reduce((acc, label) => {
-  acc[label] = (st: string): FlattenSimpleInterpolation => css`
-    @media (orientation: ${orientations[label]}) {
-      ${st}
-    }
-  `;
+export const media = {
+  sm: (css: FlattenSimpleInterpolation): string => sizeQuery(sizes.sm, css),
+  md: (css: FlattenSimpleInterpolation): string => sizeQuery(sizes.md, css),
+  lg: (css: FlattenSimpleInterpolation): string => sizeQuery(sizes.lg, css),
+  xl: (css: FlattenSimpleInterpolation): string => sizeQuery(sizes.xl, css),
+  xxl: (css: FlattenSimpleInterpolation): string => sizeQuery(sizes.xxl, css),
+};
 
-  return acc;
-}, {} as { [key in keyof typeof orientations]: unknown });
+export const orientation = {
+  landscape: (css: FlattenSimpleInterpolation): string =>
+    orientationQuery(Orientation.LANDSCAPE, css),
+  portrait: (css: FlattenSimpleInterpolation): string =>
+    orientationQuery(Orientation.PORTRAIT, css),
+};
 
 export const blackEmoji = css`
   color: transparent;

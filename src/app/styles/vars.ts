@@ -4,7 +4,6 @@ import {
   Fonts,
   FontWeights,
   Layers,
-  Orientations,
 } from 'common/models';
 
 // units: px
@@ -62,11 +61,6 @@ export const layers: Layers = {
   upper: 1,
   base: 0,
   lower: -1,
-};
-
-export const orientations: Orientations = {
-  landscape: 'landscape',
-  portrait: 'portrait',
 };
 
 export const boxShadow = 'rgba(0, 0, 0, 0.3) 0 1px 3px';

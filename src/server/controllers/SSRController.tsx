@@ -67,7 +67,7 @@ class SSRController implements BaseController {
   ): Promise<void> => {
     const { slug } = req.params;
 
-    await this.store.dispatch<any>(fetchPage(slug || 'home'));
+    await this.store.dispatch(fetchPage(slug || 'home'));
     next();
   };
 

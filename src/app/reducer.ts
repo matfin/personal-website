@@ -1,4 +1,4 @@
-import { ReduxAction, AppReducerState, ThemeType } from 'common/models';
+import { AppReduxAction, AppReducerState, ThemeType } from 'common/models';
 import { SWITCH_THEME } from './types';
 
 export const defaultState: AppReducerState = {
@@ -7,7 +7,7 @@ export const defaultState: AppReducerState = {
 
 export const appState = (
   state: AppReducerState = defaultState,
-  action: ReduxAction
+  action: AppReduxAction
 ): AppReducerState => {
   const { payload, type } = action;
 
