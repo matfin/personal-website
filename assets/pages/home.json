@@ -1,6 +1,6 @@
 {
-  "title": "Matt Finucane - Software engineer",
-  "description": "Matt Finucane is a Dublin based software engineer.",
+  "title": "Matt Finucane - Senior Software engineer",
+  "description": "I am a Dublin based Senior Software Engineer.",
   "slug": "home",
   "contents": [
     {
@@ -13,7 +13,15 @@
         },
         {
           "tagName": "h2",
-          "content": "I'm Matt Finucane, a software engineer based in Dublin, Ireland."
+          "content": "I'm Matt Finucane, a Senior Software Engineer from Dublin, Ireland."
+        },
+        {
+          "tagName": "img",
+          "content": {
+            "name": "profile",
+            "fileType": "jpg",
+            "title": "Picture of Matt Finucane"
+          }
         },
         {
           "tagName": "p",
@@ -30,6 +38,27 @@
         {
           "tagName": "p",
           "content": "Please feel free to take a look around this website, which showcases my skills, experience, projects and where I am now."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "contact-1",
+      "content": [
+        {
+          "tagName": "h3",
+          "id": "contact-2",
+          "content": "Contact me"
+        },
+        {
+          "tagName": "p",
+          "id": "contact-3",
+          "content": "If you are looking for somebody with strong technical and communication skills to take on a project at any stage in its lifecycle, please feel free to reach out to [me@mattfinucane.com](mailto:me@mattfinucane.com)."
+        },
+        {
+          "tagName": "p",
+          "id": "contact-4",
+          "content": "If you are contacting me from a recruitment agency or are reaching out to offer me web development / SEO services, I have all these covered. Thanks."
         }
       ]
     },
@@ -97,15 +126,21 @@
             },
             {
               "category": "frontend",
+              "description": "Web Components are a suite of different technologies that allow developers to create custom HTML elements.",
+              "slug": "web-components",
+              "title": "Web Components"
+            },
+            {
+              "category": "frontend",
               "description": "ReactJS is a front end library for creating components that make up a single page application.",
               "slug": "reactjs",
               "title": "ReactJS"
             },
             {
               "category": "frontend",
-              "description": "React Native is a framework for building native apps using React.",
-              "slug": "react-native",
-              "title": "React Native"
+              "description": "React Hooks allow developers to leverage state management for functional components.",
+              "slug": "react-hooks",
+              "title": "React Hooks"
             },
             {
               "category": "frontend",
@@ -423,27 +458,6 @@
               "description": "WebStorm is an IDE used for front end web development, primarily with Javascript",
               "slug": "webstorm",
               "title": "WebStorm"
-            }
-          ]
-        },
-        {
-          "tagName": "section",
-          "id": "contact-1",
-          "content": [
-            {
-              "tagName": "h3",
-              "id": "contact-2",
-              "content": "Contact me"
-            },
-            {
-              "tagName": "p",
-              "id": "contact-3",
-              "content": "If you are looking for somebody with strong technical and communication skills to take on a project at any stage in its lifecycle, please feel free to reach out to [me@mattfinucane.com](mailto:me@mattfinucane.com)."
-            },
-            {
-              "tagName": "p",
-              "id": "contact-4",
-              "content": "If you are contacting me from a recruitment agency or are reaching out to offer me web development / SEO services, I have all these covered. Thanks."
             }
           ]
         }
