@@ -11,14 +11,6 @@
           "id": "a-1",
           "tagName": "h1",
           "content": "About me"
-        },
-        {
-          "tagName": "img",
-          "content": {
-            "name": "profile",
-            "fileType": "jpg",
-            "title": "Picture of Matt Finucane"
-          }
         }
       ]
     },
@@ -58,7 +50,7 @@
             {
               "id": "finding-me-7",
               "tagName": "li",
-              "content": "[me@mattfinucane.com](mailto:me@mattfinucane.com \"Email Matt Finucane\") is where I can be reached, but please don’t mail me offering web or SEO services. I have these covered already."
+              "content": "[me@mattfinucane.com](mailto:me@mattfinucane.com \"Email Matt Finucane\") is where I can be reached. PS: I have web and SEO services covered already."
             }
           ]
         }

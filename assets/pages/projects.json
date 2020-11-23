@@ -25,6 +25,11 @@
           "tagName": "projects",
           "content": [
             {
+              "description": "Solving a simple usability challenge using Web Components.",
+              "slug": "web-components",
+              "title": "Web Components"
+            },
+            {
               "description": "Personal photography website built using NextJS.",
               "slug": "cinematt-nextjs",
               "title": "Cinematt (NextJS)"
