@@ -134,6 +134,16 @@
               "id": "currently-learning-7",
               "tagName": "li",
               "content": "I have just rebuilt my [personal photography website](https://github.com/matfin/cinematt) using [NextJS](https://nextjs.org/) which is a nice framework for building static sites. This project is still ongoing, and I have a good [tech roadmap](https://github.com/matfin/cinematt-nextjs/blob/main/ROADMAP.md) to work on for it."
+            },
+            {
+              "id": "currently-learning-8",
+              "tagName": "li",
+              "content": "I have created [a demo](https://github.com/matfin/editable-list-react/) in ReactJS to demonstrate performance gains from using memoisation."
+            },
+            {
+              "id": "currently-learning-9",
+              "tagName": "li",
+              "content": "I also created the same demo using Web Components. This project has no external runtime dependencies apart from the Web API and can be seen at [https://github.com/matfin/editable-list](https://github.com/matfin/editable-list)"
             }
           ]
         }

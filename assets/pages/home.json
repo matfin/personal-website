@@ -43,27 +43,6 @@
     },
     {
       "tagName": "section",
-      "id": "contact-1",
-      "content": [
-        {
-          "tagName": "h3",
-          "id": "contact-2",
-          "content": "Contact me"
-        },
-        {
-          "tagName": "p",
-          "id": "contact-3",
-          "content": "If you are looking for somebody with strong technical and communication skills to take on a project at any stage in its lifecycle, please feel free to reach out to [me@mattfinucane.com](mailto:me@mattfinucane.com)."
-        },
-        {
-          "tagName": "p",
-          "id": "contact-4",
-          "content": "If you are contacting me from a recruitment agency or are reaching out to offer me web development / SEO services, I have all these covered. Thanks."
-        }
-      ]
-    },
-    {
-      "tagName": "section",
       "id": "skills",
       "content": [
         {
@@ -394,7 +373,7 @@
               "deprecated": "true",
               "description": "Wordpress is a blogging tool written in PHP.",
               "slug": "wordpress",
-              "title": "WorPpress"
+              "title": "WordPress"
             },
             {
               "category": "backend",
@@ -460,6 +439,27 @@
               "title": "WebStorm"
             }
           ]
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "contact-1",
+      "content": [
+        {
+          "tagName": "h3",
+          "id": "contact-2",
+          "content": "Contact me"
+        },
+        {
+          "tagName": "p",
+          "id": "contact-3",
+          "content": "If you are looking for somebody with strong technical and communication skills to take on a project at any stage in its lifecycle, please feel free to reach out to [me@mattfinucane.com](mailto:me@mattfinucane.com)."
+        },
+        {
+          "tagName": "p",
+          "id": "contact-4",
+          "content": "If you are contacting me from a recruitment agency or are reaching out to offer me web development / SEO services, I have all these covered. Thanks."
         }
       ]
     }
