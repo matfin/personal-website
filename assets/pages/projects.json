@@ -25,6 +25,11 @@
           "tagName": "projects",
           "content": [
             {
+              "description": "A demo project showcasing performance gains in ReactJS.",
+              "slug": "react-performance-demo",
+              "title": "React performance demo"
+            },
+            {
               "description": "Solving a simple usability challenge using Web Components.",
               "slug": "web-components",
               "title": "Web Components"
