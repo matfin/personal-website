@@ -143,7 +143,7 @@
             {
               "id": "currently-learning-9",
               "tagName": "li",
-              "content": "I also created the same demo using Web Components. This project has no external runtime dependencies apart from the Web API and can be seen at [https://github.com/matfin/editable-list](https://github.com/matfin/editable-list)"
+              "content": "I also created the same demo using Web Components. This project has no external runtime dependencies apart from the Web API and can be seen at [https://github.com/matfin/editable-list](https://github.com/matfin/editable-list)."
             }
           ]
         }

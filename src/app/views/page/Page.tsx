@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Meta from 'app/components/meta/Meta';
 import { pathNesting, setBodyOverflow } from 'common/utils';
@@ -56,6 +56,10 @@ const Page = ({
   resetPage,
   switchTheme,
 }: Props): JSX.Element => {
+  const cbFetchPage = useCallback((slug: string): void => fetchPage(slug), [
+    fetchPage,
+  ]);
+  const cbResetPage = useCallback(resetPage, [resetPage]);
   const { pathname } = useLocation();
   const { isNested, parts } = pathNesting(pathname);
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -81,11 +85,11 @@ const Page = ({
     const slug = pathname.substring(1);
 
     setShowMenu(false);
-    fetchPage(slug || 'home');
+    cbFetchPage(slug || 'home');
     window.scrollTo(0, 0);
 
-    return resetPage;
-  }, [pathname]);
+    return cbResetPage;
+  }, [pathname, cbFetchPage, cbResetPage]);
 
   return (
     <>

@@ -5,6 +5,7 @@ import { ChildrenSt, LinkSt, NavSt } from './Nav.css';
 export interface Props {
   children?: JSXChildren;
   className?: string;
+  role: string;
 }
 
 const Nav = ({ children, className }: Props): JSX.Element => (

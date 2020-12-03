@@ -29,6 +29,9 @@ const assetUrls: string[] = [
 ];
 const pageUrls: string[] = ['/', '/about', '/cv', '/projects', '/now'];
 const projects: string[] = [
+  'projects/time-complexity-analysis',
+  'projects/react-performance-demo',
+  'projects/web-components',
   'projects/cinematt-nextjs',
   'projects/personal-portfolio',
   'projects/heycar',

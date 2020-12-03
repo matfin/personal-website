@@ -25,6 +25,11 @@
           "tagName": "projects",
           "content": [
             {
+              "description": "Exploring time complexity and performance in a grouping algorithm.",
+              "slug": "time-complexity-analysis",
+              "title": "Time Complexity Analysis"
+            },
+            {
               "description": "A demo project showcasing performance gains in ReactJS.",
               "slug": "react-performance-demo",
               "title": "React performance demo"

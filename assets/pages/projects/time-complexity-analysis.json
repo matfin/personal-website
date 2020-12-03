@@ -1,0 +1,64 @@
+{
+  "title": "Matt Finucane - Time Complexity Demo",
+  "description": "Exploring time complexity and performance in a grouping algorithm.",
+  "slug": "projects/time-complexity-analysis",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "id": "tc-1",
+          "tagName": "h1",
+          "content": "Time Complexity Analysis"
+        },
+        {
+          "id": "tc-2",
+          "tagName": "h2",
+          "content": "Exploring time complexity and performance in a grouping algorithm."
+        }
+      ]
+    },
+    {
+      "id": "tc-3",
+      "tagName": "section",
+      "content": [
+        {
+          "id": "tc-4",
+          "tagName": "p",
+          "content": "This project explores various ways of solving a common problem that is presented to engineers, either in an interview setting or during the course of their work."
+        },
+        {
+          "id": "tc-5",
+          "tagName": "p",
+          "content": "In this instance, we have an array of 3 letter strings that need to be grouped according to them being anagrams of each other."
+        },
+        {
+          "id": "tc-6",
+          "tagName": "p",
+          "content": "Given an input of ['act', 'ten', 'zyx', 'net', 'cat', 'xyz'], the expected output should be ['act', 'cat', 'net', 'ten', 'xyz', 'zyx']."
+        },
+        {
+          "id": "tc-7",
+          "tagName": "p",
+          "content": "To solve this, a series of functions were written with different approaches. Some contained more looping than others and were much slower to run."
+        },
+        {
+          "id": "tc-7",
+          "tagName": "p",
+          "content": "Each of these functions delivered the same solution but with decreasing time complixity. Each iteration contained less for-loops."
+        },
+        {
+          "id": "tc-8",
+          "tagName": "p",
+          "content": "The slower functions that contained more loops would take around 2,200ms to run over a dataset of 5000 randomised inputs. The most optimised function could process the same inputs in 18ms."
+        },
+        {
+          "id": "tc-9",
+          "tagName": "p",
+          "content": "The source code for this project is available on GitHub at [https://github.com/matfin/algorithms](https://github.com/matfin/algorithms)."
+        }
+      ]
+    }
+  ]
+}
