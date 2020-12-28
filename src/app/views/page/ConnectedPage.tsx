@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { CombinedAppState, ThemeType } from 'common/models';
+import { CombinedAppState, ThemeType } from 'models';
 import { switchTheme } from 'app/actions';
 import { fetchPage, FetchPageDispatch, resetPage } from './actions';
 import Page, { Props } from './Page';

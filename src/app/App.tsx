@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { CombinedAppState, ThemeType } from 'common/models';
+import { CombinedAppState, ThemeType } from 'models';
 import ConnectedPage from 'app/views/page/ConnectedPage';
 import Meta from 'app/components/meta/Meta';
 import { day, GlobalStyle, night } from 'app/styles';
@@ -29,12 +29,7 @@ const App = ({ currentTheme }: Props): JSX.Element => {
         slug="/"
       />
       <Switch>
-        <Route
-          component={ConnectedPage}
-          exact
-          path="/:slug(404|about|cv|now|projects)?"
-        />
-        <Route component={ConnectedPage} exact path="/projects/:slug" />
+        <Route component={ConnectedPage} />
       </Switch>
       <GlobalStyle />
     </ThemeProvider>

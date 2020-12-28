@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { screen } from '@testing-library/react';
-import { renderWithRouter } from 'common/utils/testutils';
+import { renderWithRouter } from 'utils/testutils';
 import Project, { Props } from './Project';
 
 const defaultProps: Props = {
@@ -11,15 +11,15 @@ const defaultProps: Props = {
   topics: ['test-topic-1', 'test-topic-2'],
 };
 
-describe('Project tests', () => {
-  it('renders the component with the correct content', () => {
+describe('Project tests', (): void => {
+  it('renders the component with the correct content', (): void => {
     const { container } = renderWithRouter(<Project {...defaultProps} />);
 
     expect(container).toBeTruthy();
     expect(screen.getByText('Test project title')).toBeTruthy();
     expect(screen.getByText('Test project description')).toBeTruthy();
-    expect(container.getElementsByTagName('a')[0].href).toEqual(
-      'http://test-slug/'
+    expect(container.getElementsByTagName('a')[0].href).toContain(
+      '/projects/test-slug/'
     );
   });
 });

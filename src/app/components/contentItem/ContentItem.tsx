@@ -6,7 +6,7 @@ import {
   PositionProps,
   ProjectProps,
   TopicProps,
-} from 'common/models';
+} from 'models';
 import {
   isContentItem,
   isLink,
@@ -15,7 +15,7 @@ import {
   isProject,
   splitContent,
   toLinkObject,
-} from 'common/utils';
+} from 'utils';
 import Position from 'app/components/position/Position';
 import {
   HeadingSt,

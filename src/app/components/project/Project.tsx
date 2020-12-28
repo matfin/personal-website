@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { useRouteMatch } from 'react-router-dom';
-import { ProjectProps } from 'common/models';
+import { ProjectProps } from 'models';
 import { ProjectSt, TitleSt, DescriptionSt } from './Project.css';
 
 export interface Props extends ProjectProps {
@@ -12,15 +11,11 @@ const Project = ({
   description,
   slug,
   title,
-}: Props): JSX.Element => {
-  const { url } = useRouteMatch();
-
-  return (
-    <ProjectSt to={`${url}/${slug}`} className={className}>
-      <TitleSt>{title}</TitleSt>
-      <DescriptionSt>{description}</DescriptionSt>
-    </ProjectSt>
-  );
-};
+}: Props): JSX.Element => (
+  <ProjectSt to={`/projects/${slug}/`} className={className}>
+    <TitleSt>{title}</TitleSt>
+    <DescriptionSt>{description}</DescriptionSt>
+  </ProjectSt>
+);
 
 export default Project;

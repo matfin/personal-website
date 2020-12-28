@@ -1,17 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
-const { name, version } = require('./package.json');
 const nodeExternals = require('webpack-node-externals');
+const CopyPlugin = require('copy-webpack-plugin');
+const { name, version } = require('./package.json');
 
 const environment = {
-  apiUrl: JSON.stringify(process.env.API_URL || 'http://localhost'),
   appName: JSON.stringify(name),
   appVersion: JSON.stringify(version),
   cacheName: JSON.stringify(`${name}-${version}`),
   canonicalUrl: JSON.stringify(process.env.CANONICAL_URL || 'http://localhost:3000'),
   enableCache: JSON.stringify(process.env.ENABLE_CACHE ? true : false),
-  isProduction: JSON.stringify(process.env.IS_PRODUCTION ? true : false),
-  port: JSON.stringify(process.env.PORT || '3000'),
 };
 
 console.info(environment);
@@ -28,9 +26,9 @@ const common = {
   },
   resolve: {
     alias: {
-      'app': path.resolve(__dirname, 'src/app/'),
-      'common': path.resolve(__dirname, 'src/common/'),
-      'server': path.resolve(__dirname, 'src/server/'),
+      'app': path.resolve(__dirname, '/src/app/'),
+      'models': path.resolve(__dirname, '/src/models/'),
+      'utils': path.resolve(__dirname, '/src/utils/'),
     },
     extensions: ['.ts', '.tsx', '.js', '.json', '.svg'],
   },
@@ -43,37 +41,35 @@ const client = {
     worker: path.resolve(__dirname, 'src/app/worker.ts'),
   },
   output: {
-    path: path.resolve(__dirname, 'dist/app'),
+    path: path.resolve(__dirname, 'out'),
     filename: '[name].bundle.js',
-    publicPath: '/',
   },
   target: 'web',
   plugins: [
-    new webpack.DefinePlugin({
-      ...environment,
-      isServer: JSON.stringify(false),
-    }),
-  ]
-};
-
-const server = {
-  ...common,
-  entry: path.resolve(__dirname, 'src/server'),
-  externals: [nodeExternals()],
-  node: {
-    __dirname: true,
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist/server'),
-    filename: 'server.js',
-  },
-  target: 'node',
-  plugins: [
-    new webpack.DefinePlugin({
-      ...environment,
-      isServer: JSON.stringify(true),
-    }),
+    new webpack.DefinePlugin(environment),
+    new CopyPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, 'pages'), to: path.resolve(__dirname, 'out/pages') },
+        { from: path.resolve(__dirname, 'public'), to: path.resolve(__dirname, 'out') },
+      ]
+    })
   ],
 };
 
-module.exports = [client, server];
+const ssg = {
+  ...common,
+  entry: {
+    generate: path.resolve(__dirname, 'src/ssg/index.ts'),
+  },
+  externals: [nodeExternals()],
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+  },
+  target: 'node',
+  plugins: [
+    new webpack.DefinePlugin(environment),
+  ],
+};
+
+module.exports = [client, ssg];

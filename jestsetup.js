@@ -8,3 +8,4 @@ window.canonicalUrl = '';
 window.enableCache = false;
 window.isProduction = false;
 window.port = '';
+window.fetch = () => {};

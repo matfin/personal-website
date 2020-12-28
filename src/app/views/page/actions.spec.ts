@@ -1,7 +1,6 @@
 import { Store } from 'redux';
-import { createMockStore } from 'common/utils/testutils';
-import * as api from 'common/utils/api';
-import { PageProps } from 'common/models';
+import { createMockStore } from 'utils/testutils';
+import { PageProps } from 'models';
 import ActionTypes from './types';
 import {
   fetchPageRequest,
@@ -11,7 +10,7 @@ import {
   fetchPage,
 } from './actions';
 
-describe('page actions tests', () => {
+describe('page actions tests', (): void => {
   const page: PageProps = {
     contents: [],
     description: 'Test description',
@@ -24,20 +23,20 @@ describe('page actions tests', () => {
     store = createMockStore();
   });
 
-  it('returns the correct type on fetch page request', () => {
+  it('returns the correct type on fetch page request', (): void => {
     expect(fetchPageRequest()).toEqual({
       type: ActionTypes.FETCH_PAGE_REQUEST,
     });
   });
 
-  it('returns the correct type on fetch page success', () => {
+  it('returns the correct type on fetch page success', (): void => {
     expect(fetchPageSuccess(page)).toEqual({
       type: ActionTypes.FETCH_PAGE_SUCCESS,
       payload: page,
     });
   });
 
-  it('returns the correct type on fetch page failure', () => {
+  it('returns the correct type on fetch page failure', (): void => {
     const error = new Error('error');
 
     expect(fetchPageFailure(error)).toEqual({
@@ -46,17 +45,20 @@ describe('page actions tests', () => {
     });
   });
 
-  it('returns the correct type on page reset', () => {
+  it('returns the correct type on page reset', (): void => {
     expect(resetPage()).toEqual({
       type: ActionTypes.RESET_PAGE,
     });
   });
 
-  it('dispatches correctly when fetching a page with success (less than 200ms)', async () => {
+  it('dispatches correctly when fetching a page with success (less than 200ms)', async (): Promise<
+    void
+  > => {
     const expectedActions = [
       { type: ActionTypes.FETCH_PAGE_SUCCESS, payload: page },
     ];
-    const spyApiCall = jest.spyOn(api, 'apiCall').mockResolvedValue({
+
+    const spyFetch = jest.spyOn(global, 'fetch').mockResolvedValue({
       json: jest.fn().mockResolvedValue(page),
       status: 200,
     } as any);
@@ -64,15 +66,17 @@ describe('page actions tests', () => {
     await store.dispatch(fetchPage('test'));
     await expect(store.getActions()).toEqual(expectedActions);
 
-    spyApiCall.mockRestore();
+    spyFetch.mockReset();
   });
 
-  it('dispatches correctly when fetching a page with success (more than 200ms)', async (done) => {
+  it('dispatches correctly when fetching a page with success (more than 200ms)', async (done): Promise<
+    void
+  > => {
     const expectedActions = [
       { type: ActionTypes.FETCH_PAGE_REQUEST },
       { type: ActionTypes.FETCH_PAGE_SUCCESS, payload: page },
     ];
-    const spyApiCall = jest.spyOn(api, 'apiCall').mockResolvedValue({
+    const spyFetch = jest.spyOn(global, 'fetch').mockResolvedValue({
       json: () =>
         new Promise((resolve: any): void => {
           setTimeout((): void => resolve(page), 300);
@@ -87,13 +91,15 @@ describe('page actions tests', () => {
       done();
     }, 400);
 
-    spyApiCall.mockRestore();
+    spyFetch.mockRestore();
   });
 
-  it('dispatches correctly when fetching a page failed', async () => {
-    const error = new Error('Content for /content/page/test not found');
+  it('dispatches correctly when fetching a page failed', async (): Promise<
+    void
+  > => {
+    const error = new Error('Content for /pages/test.json not found');
     const expectedActions = [{ type: ActionTypes.FETCH_PAGE_FAILURE, error }];
-    const spyApiCall = jest.spyOn(api, 'apiCall').mockResolvedValue({
+    const spyFetch = jest.spyOn(global, 'fetch').mockResolvedValue({
       json: jest.fn().mockRejectedValue(error),
       status: 500,
     } as any);
@@ -101,6 +107,6 @@ describe('page actions tests', () => {
     await store.dispatch(fetchPage('test'));
     expect(store.getActions()).toEqual(expectedActions);
 
-    spyApiCall.mockRestore();
+    spyFetch.mockRestore();
   });
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import 'jest-styled-components';
 import { fireEvent, render } from '@testing-library/react';
-import * as utils from 'common/utils/utils';
+import * as utils from 'utils/utils';
 import MenuButton, { Props } from './MenuButton';
 
 const defaultProps: Props = {

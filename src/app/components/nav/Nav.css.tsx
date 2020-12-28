@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 import { animationCurve, layers, media, orientation } from 'app/styles';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+interface LinkProps {
+  active: string | undefined;
+}
 
 export const NavSt = styled.nav`
   display: grid;
@@ -22,7 +26,7 @@ export const NavSt = styled.nav`
   `)}
 `;
 
-export const LinkSt = styled(NavLink)`
+export const LinkSt = styled(Link)<LinkProps>`
   grid-column: 2;
   position: relative;
   display: flex;
@@ -45,36 +49,42 @@ export const LinkSt = styled(NavLink)`
     right: 0;
     width: 0;
     height: 0.125rem;
+
+    ${({ active }: LinkProps) =>
+      active &&
+      css`
+        width: 200%;
+        left: -100%;
+      `}
   }
 
   &::after {
     right: 0;
     width: 0;
     height: 100%;
+
+    ${({ active }: LinkProps) =>
+      active &&
+      css`
+        width: 100%;
+      `}
   }
 
-  &.active {
-    color: ${(props) => props?.theme?.colours?.secondary};
-
-    &::before {
-      width: 200%;
-      left: -100%;
-    }
-
-    &::after {
-      width: 100%;
-    }
-  }
+  ${({ active }: LinkProps) =>
+    active &&
+    css`
+      color: ${(props) => props?.theme?.colours?.secondary};
+    `}
 
   &:hover {
     &::after {
       width: 1rem;
-    }
 
-    &.active {
-      &::after {
-        width: 100%;
-      }
+      ${({ active }: LinkProps) =>
+        active &&
+        css`
+          width: 100%;
+        `}
     }
   }
 `;

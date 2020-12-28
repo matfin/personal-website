@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TopicProps } from 'common/models';
+import { TopicProps } from 'models';
 import TopicSt from './Topic.css';
 
 export interface Props extends TopicProps {

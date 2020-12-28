@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { PositionProps } from 'common/models';
-import { formatDate } from 'common/utils';
+import { PositionProps } from 'models';
+import { formatDate } from 'utils';
 import {
   CompanyNameSt,
   DateFromToSt,

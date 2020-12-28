@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToggleValue } from 'common/models';
+import { ToggleValue } from 'models';
 import { ToggleIndicatorSt, ToggleTrackSt } from './Toggle.css';
 
 export interface Props {
