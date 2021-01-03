@@ -45,7 +45,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "69:f4:84:f0:e9:82:8a:88:4e:f2:94:a2:25:80:f1:cb"
+            - "d7:4b:62:ca:74:a9:48:65:18:85:a7:5f:71:34:e9:0d"
       - run:
           name: Add key to known_hosts
           command: mkdir -p ~/.ssh && ssh-keyscan $DEPLOY_HOST >> ~/.ssh/known_hosts
