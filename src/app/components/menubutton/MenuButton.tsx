@@ -1,5 +1,5 @@
 import React from 'react';
-import { isTouchDevice } from 'common/utils';
+import { isTouchDevice } from 'utils';
 import { LinePlacement, LineSt, MenuButtonSt } from './MenuButton.css';
 
 export interface Props {

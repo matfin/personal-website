@@ -1,4 +1,4 @@
-import { AppReduxAction, AppReducerState, ThemeType } from 'common/models';
+import { AppReduxAction, AppReducerState, ThemeType } from 'models';
 import { SWITCH_THEME } from './types';
 
 export const defaultState: AppReducerState = {

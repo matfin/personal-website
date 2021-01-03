@@ -1,4 +1,4 @@
-import { ThemeType } from 'common/models';
+import { ThemeType } from 'models';
 import { SWITCH_THEME } from './types';
 
 export interface ISwitchThemeType {

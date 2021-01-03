@@ -2,9 +2,9 @@ import * as React from 'react';
 import 'jest-styled-components';
 import reactRouterDom from 'react-router-dom';
 import { act, fireEvent, screen } from '@testing-library/react';
-import { renderWithRouter } from 'common/utils/testutils';
-import * as utils from 'common/utils/utils';
-import { ThemeType } from 'common/models';
+import { renderWithRouter } from 'utils/testutils';
+import * as utils from 'utils/utils';
+import { ThemeType } from 'models';
 import Page, { Props } from './Page';
 
 jest.mock('react-router-dom', (): any => ({
@@ -54,7 +54,7 @@ describe('Page tests', () => {
     renderWithRouter(<Page {...defaultProps} fetchPage={spyFetchPage} />);
 
     expect(spyFetchPage).toHaveBeenCalled();
-    expect(spyFetchPage).toHaveBeenCalledWith('home');
+    expect(spyFetchPage).toHaveBeenCalledWith('index');
   });
 
   it('reveals and hides the side navigation menu', async () => {

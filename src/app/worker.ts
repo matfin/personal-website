@@ -1,4 +1,4 @@
-import { getAppIconSizes, getCacheName } from 'common/config';
+import { getAppIconSizes, getCacheName } from '../config';
 
 declare const self: ServiceWorkerGlobalScope;
 
@@ -23,30 +23,28 @@ const profilePicPaths: string[] = [
 ];
 const assetUrls: string[] = [
   '/manifest.json',
-  '/scripts/main.bundle.js',
+  '/main.bundle.js',
   ...appIconPaths,
   ...profilePicPaths,
 ];
-const pageUrls: string[] = ['/', '/about', '/cv', '/projects', '/now'];
+const pageUrls: string[] = ['/', '/about/', '/cv/', '/projects/', '/now/'];
 const projects: string[] = [
   'projects/time-complexity-analysis',
-  'projects/react-performance-demo',
-  'projects/web-components',
   'projects/cinematt-nextjs',
   'projects/personal-portfolio',
   'projects/heycar',
   'projects/cinematt',
   'projects/personal-portfolio-static',
   'projects/profitbricks-community',
+  'projects/web-components',
   'projects/spc-community',
   'projects/meteor-contentful',
   'projects/slider',
-  'projects/tunedin',
   'projects/guh-guidelines',
   'projects/ibox-tv',
   'projects/ero',
 ];
-const pageSlugs: string[] = ['home', 'about', 'cv', 'projects', 'now'];
+const pageSlugs: string[] = ['index', 'about', 'cv', 'projects', 'now'];
 
 const onActivate = (event: ExtendableEvent): void => {
   const cacheWhitelist = [cacheName];
@@ -70,14 +68,15 @@ const onActivate = (event: ExtendableEvent): void => {
 const onInstall = (event: ExtendableEvent): void => {
   const preCache = async () => {
     const cache = await caches.open(cacheName);
-
-    return cache.addAll([
+    const items: string[] = [
       ...assetUrls,
       ...pageUrls,
-      ...projects,
-      ...projects.map((slug: string) => `/content/page/${slug}`),
-      ...pageSlugs.map((slug: string) => `/content/page/${slug}`),
-    ]);
+      ...projects.map((slug: string): string => `${slug}/`),
+      ...projects.map((slug: string): string => `/pages/${slug}.json`),
+      ...pageSlugs.map((slug: string): string => `/pages/${slug}.json`),
+    ];
+
+    return cache.addAll(items);
   };
 
   event.waitUntil(preCache());

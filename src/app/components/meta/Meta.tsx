@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { getCanonicalUrl } from 'common/config';
+import { getCanonicalUrl } from '../../../config';
 import { colours } from 'app/styles/vars';
 
 export interface Props {

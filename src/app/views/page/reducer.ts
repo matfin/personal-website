@@ -1,4 +1,4 @@
-import { PageReducerState, PageReduxAction } from 'common/models';
+import { PageReducerState, PageReduxAction } from 'models';
 import ActionTypes from './types';
 
 export const defaultState: PageReducerState = {

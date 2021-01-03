@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { isExternalUrl } from 'common/utils';
+import { isExternalUrl } from 'utils';
 
 export interface Props {
   className?: string;

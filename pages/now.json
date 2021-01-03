@@ -1,0 +1,341 @@
+{
+  "title": "Matt Finucane - What am I doing now?",
+  "description": "This is where I am and what I'm doing right now.",
+  "pathname": "/now/",
+  "slug": "now",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "id": "intro-1",
+          "tagName": "h1",
+          "content": "What am I doing now?"
+        },
+        {
+          "id": "intro-2",
+          "tagName": "h2",
+          "content": "This is what is currently occupying my days."
+        },
+        {
+          "id": "intro-3",
+          "tagName": "p",
+          "content": "I created this page in addition to others as part of [this page movement](https://sivers.org/nowff). If I were to meet up with someone I had not seen in quite a while and talk shop, this is what we would cover. I will keep this up to date as much as I can."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "at-home",
+      "content": [
+        {
+          "id": "at-home-1",
+          "tagName": "h3",
+          "content": "At home"
+        },
+        {
+          "id": "at-home-2",
+          "tagName": "p",
+          "content": "Aside from doing my day job at home (given the restrictions in place due to Covid19), I have been honing my skills in front end development by building this website."
+        },
+        {
+          "id": "at-home-3",
+          "tagName": "p",
+          "content": "I have always maintained a good home office set up in any place I have lived, because I want to be able to work and learn in a distraction-free environment."
+        },
+        {
+          "id": "at-home-4",
+          "tagName": "p",
+          "content": "When I am not coding, I like taking and editing photos. I have my own personal photography website at [https://cinematt.photography](https://cinematt.photography \"Personal photography website\") which showcases some of my work."
+        },
+        {
+          "id": "at-home-5",
+          "tagName": "p",
+          "content": "When I am not in front of my computer, I enjoy cycling, hiking and running. In 2017, I completed a 1,200km round-trip cycle tour which took me through Germany, Denmark, Sweden and Poland."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "my-setup",
+      "content": [
+        {
+          "id": "my-setup-1",
+          "tagName": "h3",
+          "content": "My setup"
+        },
+        {
+          "id": "my-setup-2",
+          "tagName": "ul",
+          "content": [
+            {
+              "id": "my-setup-3",
+              "tagName": "li",
+              "content": "MacBook Pro (16-inch, 2019)"
+            },
+            {
+              "id": "my-setup-4",
+              "tagName": "li",
+              "content": "2.4ghz Intel Core i9"
+            },
+            {
+              "id": "my-setup-5",
+              "tagName": "li",
+              "content": "32gb Ram"
+            },
+            {
+              "id": "my-setup-6",
+              "tagName": "li",
+              "content": "1TB SSD"
+            },
+            {
+              "id": "my-setup-7",
+              "tagName": "li",
+              "content": "27-inch LG HDR 4K display"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "currently-learning",
+      "content": [
+        {
+          "id": "currently-learning-1",
+          "tagName": "h3",
+          "content": "What I am learning now"
+        },
+        {
+          "id": "currently-learning-2",
+          "tagName": "p",
+          "content": "It's always advisable to keep learning and brushing up on your social and technical skills. With that, here is what I have been looking at as of late:"
+        },
+        {
+          "id": "currently-learning-3",
+          "tagName": "ul",
+          "content": [
+            {
+              "id": "currently-learning-4",
+              "tagName": "li",
+              "content": "Exploring TypeScript more and applying this to the whole React / Redux set up."
+            },
+            {
+              "id": "currently-learning-5",
+              "tagName": "li",
+              "content": "Learning about the inner workings of Javascript and how it really works under the hood. [Douglas Crockford](https://www.youtube.com/results?search_query=douglas+crockford) gives some excellent lectures which are available on YouTube."
+            },
+            {
+              "id": "currently-learning-6",
+              "tagName": "li",
+              "content": "Wrapping my mind around things such as lexical scope, tail call optimisation and function closures. These are things you never really had to know about in the past, but given the evolution of Javascript and how it is being applied, knowing these concepts is essential."
+            },
+            {
+              "id": "currently-learning-7",
+              "tagName": "li",
+              "content": "I have just rebuilt my [personal photography website](https://github.com/matfin/cinematt) using [NextJS](https://nextjs.org/) which is a nice framework for building static sites. This project is still ongoing, and I have a good [tech roadmap](https://github.com/matfin/cinematt-nextjs/blob/main/ROADMAP.md) to work on for it."
+            },
+            {
+              "id": "currently-learning-8",
+              "tagName": "li",
+              "content": "I have created [a demo](https://github.com/matfin/editable-list-react/) in ReactJS to demonstrate performance gains from using memoisation."
+            },
+            {
+              "id": "currently-learning-9",
+              "tagName": "li",
+              "content": "I also created the same demo using Web Components. This project has no external runtime dependencies apart from the Web API and can be seen at [https://github.com/matfin/editable-list](https://github.com/matfin/editable-list)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "future-learning",
+      "content": [
+        {
+          "id": "future-learning-1",
+          "tagName": "h3",
+          "content": "On the horizon"
+        },
+        {
+          "id": "future-learning-2",
+          "tagName": "p",
+          "content": "Because I don't want to pigeonhole myself with one set of tools and tech stacks, here is what I want to explore more of in the near future:"
+        },
+        {
+          "id": "future-learning-3",
+          "tagName": "ul",
+          "content": [
+            {
+              "id": "future-learning-4",
+              "tagName": "li",
+              "content": "Another single page application framework called [Vue.js](https://vuejs.org/) which has gained good traction and is widely used."
+            },
+            {
+              "id": "future-learning-5",
+              "tagName": "li",
+              "content": "Amazon Web Services including [AWS Lambda](https://aws.amazon.com/lambda/) which is said to be very powerful."
+            },
+            {
+              "id": "future-learning-6",
+              "tagName": "li",
+              "content": "[Kubernetes](https://kubernetes.io/) which is a container orchestration system, which means it ties together smaller services that work together to achieve a goal. This is taking a different and more manageable approach to monolithic applications which are harder to scale."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "in-work",
+      "content": [
+        {
+          "id": "in-work-1",
+          "tagName": "h3",
+          "content": "In work"
+        },
+        {
+          "id": "in-work-2",
+          "tagName": "p",
+          "content": "In my career, I would ascribe to being an individual contributor / principal engineer as opposed to someone in a managerial role (think CTO or engineering manager)."
+        },
+        {
+          "id": "in-work-3",
+          "tagName": "p",
+          "content": "I work as a senior front end engineer for a company called TravelPort Digital who are based in Dublin, Ireland. My day to day job involves migrating an old legacy code base to ReactJS and this includes the gradual adoption of styled-components, improving test coverage and rewriting components in ReactJS."
+        },
+        {
+          "id": "in-work-4",
+          "tagName": "p",
+          "content": "I have experience working as a freelance contractor as well as a full-time employee, and I have worked remotely (from shared offices or at home) as well as being on-site full time."
+        },
+        {
+          "id": "in-work-5",
+          "tagName": "p",
+          "content": "My preference is to work on site, as long as getting there is easy. In the situation where commutes are very long and drawn out, I would prefer the hybrid approach of working from home - coming into the office one or two days during the week to maintain a presence and human contact."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "blogs-and-books",
+      "content": [
+        {
+          "id": "blogs-and-books-1",
+          "tagName": "h3",
+          "content": "Some recommended reading"
+        },
+        {
+          "id": "blogs-and-books-2",
+          "tagName": "p",
+          "content": "Here are some blogs I like to read and would highly recommend for engineers at any level."
+        },
+        {
+          "id": "blogs-and-books-3",
+          "tagName": "ul",
+          "content": [
+            {
+              "id": "blogs-and-books-4",
+              "tagName": "li",
+              "content": "Everyone should look at the [Web Developer Roadmap 2020](https://github.com/kamranahmedse/developer-roadmap \"Web Developer Roadmap 2020\") which goes into great detail about what you should be learning."
+            },
+            {
+              "id": "blogs-and-books-5",
+              "tagName": "li",
+              "content": "[2ality.com](https://2ality.com) by Axel Rauschmayer is an excellent resource for Javascript and TypeScript developers."
+            },
+            {
+              "id": "blogs-and-books-6",
+              "tagName": "li",
+              "content": "[Overreacted](https://overreacted.io/ \"Dan Abramov’s personal blog\") is the personal blog of Dan Abrambov."
+            },
+            {
+              "id": "blogs-and-books-7",
+              "tagName": "li",
+              "content": "[Sara Soueidan](https://www.sarasoueidan.com/ \"Sara Soueidan\") is a prominent developer, designer and voice for UX and accessibility."
+            },
+            {
+              "id": "blogs-and-books-8",
+              "tagName": "li",
+              "content": "[CSS Tricks](https://css-tricks.com/ \"CSS Tricks by Chris Coyier\") which is a very useful resource for CSS related knowledge."
+            },
+            {
+              "id": "blogs-and-books-9",
+              "tagName": "li",
+              "content": "[Kent Dodds](https://kentcdodds.com/ \"Kent Dodds\") curated by the person who created the React Testing Library."
+            },
+            {
+              "id": "blogs-and-books-10",
+              "tagName": "li",
+              "content": "[Monica Dinculescu](https://meowni.ca/ \"Monica Dinculescu\") works for Google and helped create the PolymerJS web framework."
+            },
+            {
+              "id": "blogs-and-books-11",
+              "tagName": "li",
+              "content": "[Sarah Drasner](https://sarahdrasnerdesign.com/) is a prominent front end engineer and speaker."
+            }
+          ]
+        },
+        {
+          "id": "blogs-and-books-11",
+          "tagName": "p",
+          "content": "As well as this, here are some books I have read that made a big impact on me."
+        },
+        {
+          "id": "blogs-and-books-12",
+          "tagName": "ul",
+          "content": [
+            {
+              "id": "blogs-and-books-13",
+              "tagName": "li",
+              "content": "JavaScript: The Good Parts - Douglas Crockford"
+            },
+            {
+              "id": "blogs-and-books-14",
+              "tagName": "li",
+              "content": "Get Sh*t Done - Niall Harbison"
+            },
+            {
+              "id": "blogs-and-books-15",
+              "tagName": "li",
+              "content": "Ishmael - Daniel Quinn"
+            },
+            {
+              "id": "blogs-and-books-16",
+              "tagName": "li",
+              "content": "A Language Older Than Words - Derrick Jensen"
+            },
+            {
+              "id": "blogs-and-books-17",
+              "tagName": "li",
+              "content": "The Great War for Civilisation - Robert Fisk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "privacy",
+      "content": [
+        {
+          "id": "privacy-1",
+          "tagName": "h3",
+          "content": "Privacy and Credits"
+        },
+        {
+          "id": "privacy-2",
+          "tagName": "p",
+          "content": "I am a strong advocate for user privacy and as a visitor to this site, I respect your right to your own privacy and anonymity. This is why I will never install any tracking or analytical tools. Thanks for visiting."
+        },
+        {
+          "id": "privacy-3",
+          "tagName": "p",
+          "content": "Credit must be given to all those who create and contribute to the Open-source movement and provide their work free of charge. None of this would be possible without their efforts."
+        }
+      ]
+    }
+  ]
+}

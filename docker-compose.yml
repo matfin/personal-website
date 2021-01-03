@@ -9,12 +9,11 @@ services:
       context: .
       dockerfile: .docker/node/Dockerfile
       args:
-        - API_URL=https://mattfinucane.build
         - CANONICAL_URL=https://mattfinucane.build
         - ENABLE_CACHE='true'
-        - IS_PRODUCTION='true'
-        - PORT=3001
-    command: yarn prodserver
+    volumes:
+      - static-content:/opt/app/out
+    command: yarn deploy
 
   nginx:
     container_name: nginx
@@ -27,7 +26,6 @@ services:
       - NGINX_HOST=mattfinucane.build
       - SSL_CERTIFICATE=server.crt
       - SSL_CERTIFICATE_KEY=server.key
-      - PROXY_APP_PORT=3001
     links:
       - app
     ports:
@@ -35,4 +33,8 @@ services:
       - "443:443"
     volumes:
       - ~/ssl/letsencrypt:/etc/letsencrypt:ro
+      - static-content:/opt/public:ro
     command: nginx -g "daemon off;"
+
+volumes:
+  static-content:

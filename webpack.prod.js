@@ -1,12 +1,12 @@
 const { merge } = require('webpack-merge');
-const [client, server] = require('./webpack.common');
+const [client, ssg] = require('./webpack.common');
 
-const devclient = merge(client, {
+const prodclient = merge(client, {
   mode: 'production'
 });
 
-const devserver = merge(server, {
+const prodssg = merge(ssg, {
   mode: 'production',
 });
 
-module.exports = [devclient, devserver];
+module.exports = [prodclient, prodssg];

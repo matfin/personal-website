@@ -14,16 +14,16 @@ module.exports = {
     }
   },
   moduleNameMapper: {
-    '^content/(.*)$': '<rootDir>/assets/content/$1',
     '^app/(.*)$': '<rootDir>/src/app/$1',
-    '^common/(.*)$': '<rootDir>/src/common/$1',
-    '^server/(.*)$': '<rootDir>/src/server/$1',
+    '^models/(.*)$': '<rootDir>/src/models/$1',
+    '^utils/(.*)$': '<rootDir>/src/utils/$1',
   },
   coveragePathIgnorePatterns: [
     'node_modules',
-    'src/common/config.ts',
-    'src/common/store.ts',
-    'src/common/utils/testutils.tsx',
+    'src/ssg',
+    'src/config.ts',
+    'src/store.ts',
+    'src/utils/testutils.tsx',
     'src/app/views/page/ConnectedPage.tsx',
   ],
   moduleDirectories: ['node_modules', 'src']

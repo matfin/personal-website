@@ -1,13 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Meta from 'app/components/meta/Meta';
-import { pathNesting, setBodyOverflow } from 'common/utils';
-import {
-  ContentItemProps,
-  PageProps,
-  ToggleValue,
-  ThemeType,
-} from 'common/models';
+import { normalisePathname, pathNesting, setBodyOverflow } from 'utils';
+import { ContentItemProps, PageProps, ToggleValue, ThemeType } from 'models';
 import ContentItem from 'app/components/contentItem/ContentItem';
 import Nav from 'app/components/nav/Nav';
 import Toggle from 'app/components/toggle/Toggle';
@@ -61,13 +56,12 @@ const Page = ({
   ]);
   const cbResetPage = useCallback(resetPage, [resetPage]);
   const { pathname } = useLocation();
-  const { isNested, parts } = pathNesting(pathname);
+  const { isNested, parts } = pathNesting(normalisePathname(pathname));
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const toggleMenu = (): void => {
     setShowMenu(!showMenu);
     setBodyOverflow(!!showMenu);
   };
-
   const hideMenu = (): void => {
     setShowMenu(false);
     document.body.style.overflow = 'auto';
@@ -82,10 +76,10 @@ const Page = ({
   };
 
   useEffect((): (() => void) => {
-    const slug = pathname.substring(1);
+    const slug: string = normalisePathname(pathname);
 
     setShowMenu(false);
-    cbFetchPage(slug || 'home');
+    cbFetchPage(slug || 'index');
     window.scrollTo(0, 0);
 
     return cbResetPage;
@@ -127,7 +121,7 @@ const Page = ({
               aria-label="Main content"
               onClick={hideMenu}
             >
-              {isNested && backButton(`/${parts[0]}`)}
+              {isNested && backButton(`/${parts[0]}/`)}
               {!pending && error && errorMessage(error)}
               {!pending && page && pageContents(page)}
             </MainSt>

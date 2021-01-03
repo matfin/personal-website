@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Helmet, HelmetData } from 'react-helmet';
-import * as config from 'common/config';
+import * as config from '../../../config';
 import Meta, { Props } from './Meta';
 
 const defaultProps: Props = {

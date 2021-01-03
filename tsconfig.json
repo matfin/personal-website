@@ -2,10 +2,9 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "content/*": ["assets/content/*"],
       "app/*": ["src/app/*"],
-      "common/*": ["src/common/*"],
-      "server/*": ["src/server/*"],
+      "models": ["src/models"],
+      "utils": ["src/utils"],
     },
     "target": "esnext",
     "lib": ["WebWorker", "ESNext", "dom"],

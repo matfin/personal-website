@@ -1,6 +1,6 @@
 import React from 'react';
 import { sizes } from 'app/styles';
-import { ImageProps } from 'common/models';
+import { ImageProps } from 'models';
 
 export interface Props extends ImageProps {
   className?: '';
@@ -44,7 +44,12 @@ const Picture = ({ className, name, title }: Props): JSX.Element => (
       srcSet={imgSrcSet('jpg', name, ImageSize.LG)}
       type="image/jpeg"
     />
-    <img src={`/images/${name}-sm@2x.jpg`} alt={title} />
+    <img
+      src={`/images/${name}-sm@2x.jpg`}
+      alt={title}
+      width="320"
+      height="320"
+    />
   </picture>
 );
 

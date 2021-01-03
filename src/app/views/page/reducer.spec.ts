@@ -1,4 +1,4 @@
-import { PageProps } from 'common/models';
+import { PageProps } from 'models';
 import ActionTypes from './types';
 import { defaultState, pageState } from './reducer';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithRouter } from 'common/utils/testutils';
+import { renderWithRouter } from 'utils/testutils';
 import InlineLink, { Props } from './InlineLink';
 
 const defaultProps: Props = {

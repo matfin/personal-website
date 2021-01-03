@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import { renderWithRouter } from 'common/utils/testutils';
-import { ContentItemProps } from 'common/models';
+import { renderWithRouter } from 'utils/testutils';
+import { ContentItemProps } from 'models';
 import ContentItem from './ContentItem';
 
 describe('ContentItem tests', () => {

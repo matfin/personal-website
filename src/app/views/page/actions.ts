@@ -1,8 +1,6 @@
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { Action } from 'redux';
-import { Response } from 'node-fetch';
-import { apiCall } from 'common/utils';
-import { PageProps, PageReducerState } from 'common/models';
+import { PageProps, PageReducerState } from 'models';
 import ActionTypes from './types';
 
 /**
@@ -41,6 +39,7 @@ export type FetchPageThunk<ReturnType = void> = ThunkAction<
   void,
   Action<string>
 >;
+
 export type FetchPageDispatch = ThunkDispatch<
   PageReducerState,
   void,
@@ -75,20 +74,19 @@ export const fetchPage = (slug: string): FetchPageThunk => async (
     (): PageActionTypes => dispatch(fetchPageRequest()),
     200
   );
-  const url = `/content/page/${slug}`;
+  const url = `/pages/${slug === '/' ? 'index' : slug}.json`;
 
   try {
-    const response: Response = await apiCall(url);
+    const response: Response = await fetch(url);
 
     if (response.status !== 200) {
       clearTimeout(pageRequestTimeout);
-
       throw new Error(`Content for ${url} not found`);
     }
 
     const page = await response.json();
-    clearTimeout(pageRequestTimeout);
 
+    clearTimeout(pageRequestTimeout);
     dispatch(fetchPageSuccess(page));
   } catch (error) {
     dispatch(fetchPageFailure(error));
