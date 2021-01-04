@@ -1,4 +1,5 @@
 import { promises as fs } from 'fs';
+import { getCanonicalUrl, getContentBase, getOutputDir } from '../config';
 import { PageProps } from 'models';
 import SSGController from './SSGController';
 
@@ -29,9 +30,10 @@ const generateSlugs = async (base: string): Promise<string[]> => {
   return gathered;
 };
 
-const generateDirectories = async (): Promise<void> => {
-  const path = './out';
-  const slugs = await generateSlugs('./pages');
+const generateStaticContent = async (
+  path: string,
+  slugs: string[]
+): Promise<void> => {
   const generator: SSGController = new SSGController();
 
   // recreate
@@ -52,9 +54,53 @@ const generateDirectories = async (): Promise<void> => {
   );
 };
 
+const generateSitemap = async (
+  path: string,
+  slugs: string[]
+): Promise<void> => {
+  const canonicalUrl: string = getCanonicalUrl();
+  const parts: string[] = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">',
+  ];
+
+  parts.push(
+    ...slugs.map((slug: string): string =>
+      `
+    <url>
+      <loc>${canonicalUrl}/${slug === 'index' ? '' : slug}</loc>
+      <lastmod>${new Date().toISOString()}</lastmod>
+    </url>
+  `.trim()
+    )
+  );
+  parts.push('</urlset>');
+
+  return await fs.writeFile(`${path}/sitemap.xml`, parts.join(''), 'utf-8');
+};
+
+const generatePwaContent = async (
+  path: string,
+  slugs: string[]
+): Promise<void> =>
+  await fs.writeFile(`${path}/pwa.json`, JSON.stringify(slugs), 'utf-8');
+
 const run = async (): Promise<void> => {
-  console.info('Regenerating static content');
-  await generateDirectories();
+  const contentBase: string = getContentBase();
+  const outputDir: string = getOutputDir();
+  const slugs = await generateSlugs(contentBase);
+
+  try {
+    await generateStaticContent(outputDir, slugs);
+    await generatePwaContent(outputDir, slugs);
+    await generateSitemap(outputDir, slugs);
+
+    console.info(
+      `Regenerated static content from: ${contentBase} to: ${outputDir}`
+    );
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 run();

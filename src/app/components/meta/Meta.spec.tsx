@@ -63,7 +63,7 @@ describe('Meta tests', () => {
   });
 
   it('omits the slug for the home page', () => {
-    const wrapper = render(<Meta {...defaultProps} slug="home" />);
+    const wrapper = render(<Meta {...defaultProps} slug="index" />);
     const helmet = Helmet.peek();
 
     expect(wrapper).toBeTruthy();

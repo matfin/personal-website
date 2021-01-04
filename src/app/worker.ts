@@ -23,28 +23,19 @@ const profilePicPaths: string[] = [
 ];
 const assetUrls: string[] = [
   '/manifest.json',
+  '/pwa.json',
   '/main.bundle.js',
+  '/worker.bundle.js',
   ...appIconPaths,
   ...profilePicPaths,
 ];
-const pageUrls: string[] = ['/', '/about/', '/cv/', '/projects/', '/now/'];
-const projects: string[] = [
-  'projects/time-complexity-analysis',
-  'projects/cinematt-nextjs',
-  'projects/personal-portfolio',
-  'projects/heycar',
-  'projects/cinematt',
-  'projects/personal-portfolio-static',
-  'projects/profitbricks-community',
-  'projects/web-components',
-  'projects/spc-community',
-  'projects/meteor-contentful',
-  'projects/slider',
-  'projects/guh-guidelines',
-  'projects/ibox-tv',
-  'projects/ero',
-];
-const pageSlugs: string[] = ['index', 'about', 'cv', 'projects', 'now'];
+
+const generatePaths = async (): Promise<string[]> => {
+  const response: Response = await fetch('/pwa.json');
+  const paths: string[] = await response.json();
+
+  return paths;
+};
 
 const onActivate = (event: ExtendableEvent): void => {
   const cacheWhitelist = [cacheName];
@@ -66,14 +57,15 @@ const onActivate = (event: ExtendableEvent): void => {
 };
 
 const onInstall = (event: ExtendableEvent): void => {
-  const preCache = async () => {
-    const cache = await caches.open(cacheName);
+  const preCache = async (): Promise<void> => {
+    const cache: Cache = await caches.open(cacheName);
+    const paths: string[] = await generatePaths();
     const items: string[] = [
       ...assetUrls,
-      ...pageUrls,
-      ...projects.map((slug: string): string => `${slug}/`),
-      ...projects.map((slug: string): string => `/pages/${slug}.json`),
-      ...pageSlugs.map((slug: string): string => `/pages/${slug}.json`),
+      ...paths.map((path: string): string => `/pages/${path}.json`),
+      ...paths.map(
+        (path: string): string => `${path === 'index' ? '/' : `${path}/`}`
+      ),
     ];
 
     return cache.addAll(items);
