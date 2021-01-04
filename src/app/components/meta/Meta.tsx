@@ -12,7 +12,7 @@ export interface Props {
 export const canonicalSlug = (slug: string): string => {
   const canonicalUrl: string = getCanonicalUrl();
 
-  return `${canonicalUrl}/${slug === 'home' ? '' : slug}`;
+  return `${canonicalUrl}/${slug === 'index' ? '' : slug}`;
 };
 
 const Meta = ({ description, title, slug = '' }: Props): JSX.Element => (

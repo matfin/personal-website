@@ -9,7 +9,9 @@ const environment = {
   appVersion: JSON.stringify(version),
   cacheName: JSON.stringify(`${name}-${version}`),
   canonicalUrl: JSON.stringify(process.env.CANONICAL_URL || 'http://localhost:3000'),
+  contentBase: JSON.stringify('./pages'),
   enableCache: JSON.stringify(process.env.ENABLE_CACHE ? true : false),
+  outputDir: JSON.stringify('./out'),
 };
 
 console.info(environment);
