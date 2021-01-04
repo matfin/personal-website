@@ -51,9 +51,7 @@ describe('page actions tests', (): void => {
     });
   });
 
-  it('dispatches correctly when fetching a page with success (less than 200ms)', async (): Promise<
-    void
-  > => {
+  it('dispatches correctly when fetching a page with success (less than 200ms)', async (): Promise<void> => {
     const expectedActions = [
       { type: ActionTypes.FETCH_PAGE_SUCCESS, payload: page },
     ];
@@ -69,9 +67,7 @@ describe('page actions tests', (): void => {
     spyFetch.mockReset();
   });
 
-  it('dispatches correctly when fetching a page with success (more than 200ms)', async (done): Promise<
-    void
-  > => {
+  it('dispatches correctly when fetching a page with success (more than 200ms)', async (done): Promise<void> => {
     const expectedActions = [
       { type: ActionTypes.FETCH_PAGE_REQUEST },
       { type: ActionTypes.FETCH_PAGE_SUCCESS, payload: page },
@@ -94,9 +90,7 @@ describe('page actions tests', (): void => {
     spyFetch.mockRestore();
   });
 
-  it('dispatches correctly when fetching a page failed', async (): Promise<
-    void
-  > => {
+  it('dispatches correctly when fetching a page failed', async (): Promise<void> => {
     const error = new Error('Content for /pages/test.json not found');
     const expectedActions = [{ type: ActionTypes.FETCH_PAGE_FAILURE, error }];
     const spyFetch = jest.spyOn(global, 'fetch').mockResolvedValue({
