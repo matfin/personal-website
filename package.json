@@ -1,6 +1,6 @@
 {
   "name": "mattfinucane.com",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Personal website built using React and TypeScript",
   "scripts": {
     "checks": "yarn coverage && yarn lint && yarn csslint",
