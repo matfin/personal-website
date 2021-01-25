@@ -1,4 +1,4 @@
-import { ThunkAction, ThunkDispatch } from 'redux-thunk';
+import { ThunkDispatch } from 'redux-thunk';
 import { Action } from 'redux';
 import { PageProps, PageReducerState } from 'models';
 import ActionTypes from './types';
@@ -6,8 +6,9 @@ import ActionTypes from './types';
 /**
  * Interface declarations for actions
  */
-interface FetchPageRequest {
+export interface FetchPageRequest {
   type: ActionTypes.FETCH_PAGE_REQUEST;
+  payload: string;
 }
 
 interface FetchPageSuccess {
@@ -24,6 +25,10 @@ interface ResetPage {
   type: ActionTypes.RESET_PAGE;
 }
 
+interface FetchPageStart {
+  type: ActionTypes.FETCH_PAGE_STARTED;
+}
+
 /**
  * Exported as types
  */
@@ -31,14 +36,8 @@ export type PageActionTypes =
   | FetchPageRequest
   | FetchPageSuccess
   | FetchPageFailure
+  | FetchPageStart
   | ResetPage;
-
-export type FetchPageThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  PageReducerState,
-  void,
-  Action<string>
->;
 
 export type FetchPageDispatch = ThunkDispatch<
   PageReducerState,
@@ -49,8 +48,9 @@ export type FetchPageDispatch = ThunkDispatch<
 /**
  * Exported actions
  */
-export const fetchPageRequest = (): PageActionTypes => ({
+export const fetchPageRequest = (slug: string): PageActionTypes => ({
   type: ActionTypes.FETCH_PAGE_REQUEST,
+  payload: slug,
 });
 
 export const fetchPageSuccess = (page: PageProps): PageActionTypes => ({
@@ -63,32 +63,10 @@ export const fetchPageFailure = (error: Error): PageActionTypes => ({
   error,
 });
 
+export const fetchPageStart = (): PageActionTypes => ({
+  type: ActionTypes.FETCH_PAGE_STARTED,
+});
+
 export const resetPage = (): PageActionTypes => ({
   type: ActionTypes.RESET_PAGE,
 });
-
-export const fetchPage = (slug: string): FetchPageThunk => async (
-  dispatch: FetchPageDispatch
-): Promise<void> => {
-  const pageRequestTimeout: number = setTimeout(
-    (): PageActionTypes => dispatch(fetchPageRequest()),
-    200
-  );
-  const url = `/pages/${slug === '/' ? 'index' : slug}.json`;
-
-  try {
-    const response: Response = await fetch(url);
-
-    if (response.status !== 200) {
-      clearTimeout(pageRequestTimeout);
-      throw new Error(`Content for ${url} not found`);
-    }
-
-    const page = await response.json();
-
-    clearTimeout(pageRequestTimeout);
-    dispatch(fetchPageSuccess(page));
-  } catch (error) {
-    dispatch(fetchPageFailure(error));
-  }
-};

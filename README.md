@@ -1,20 +1,24 @@
 ## Personal portfolio and CV
-As the title says, this is my personal website which contains my portfolio and cv among other things.
+As the title says, this is my personal website which acts as my portfolio and CV / Resumé;
 
-My motivation in creating this was to gain a deeper understanding of modern web development practices, while at the same time refreshing my online presence, which was due an overhaul after almost three years.
+My motivation in creating this was to gain a deeper understanding of modern web development practices.
 
-### What did I learn from making this?
+### What does this project encompass?
 - dependency management with [webpack](https://webpack.js.org/), including code splitting and bundling.
-- [TypeScript](https://www.typescriptlang.org/), which is a superset of JavaScript and includes type-checking.
-- [Progressive Web Apps](https://web.dev/progressive-web-apps/) which allow for caching and offline capabilities, among other things
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) which is what I use to unit tests components. It has a nicer approach to testing components than [Enzyme](https://enzymejs.github.io/enzyme/) and works epsecially well with function components. I also have full test coverage across the board.
-- [Server Side Rendering (SSR)](https://www.digitalocean.com/community/tutorials/react-server-side-rendering) is where the server renders most of your content and delivers it to the client, thus improving performance and preventing the client from having to download a big JS bundle before anything at all is rendered. I implemented this and included rendering of styled components, so there is no flash of unstyled content (FOUC). To improve rendering performance on the server side, I use the [renderToNodStream from ReactDOMServer](https://reactjs.org/docs/react-dom-server.html) because this is non-blocking and less expensive than using `rendertoString`. I cache rendered content in memory, so delivery to the client is much faster.
-- [Docker / Compose](https://docs.docker.com/compose/) is used to test builds locally before I upload them. I have a self signed SSL cert so I can use HTTPS locally, which I created with the help of this [excellent guide](https://www.freecodecamp.org/news/how-to-get-https-working-on-your-local-development-environment-in-5-minutes-7af615770eec/). I *don't* use Docker for local development. I used to, but for a project like this, it can be more trouble than it's worth.
-- I implementd a content rendering engine that reads in a tree of items from JSON files, then chooses the correct component to render as the JSON is fetched. I wrote some basic regex parsers to extract links from text content and gained a better understanding of how these work.
 
-These were all topics I had worked with before, but I didn't implement them at the start and so didn't have a good understanding of how they really worked.
+- [TypeScript](https://www.typescriptlang.org/), which is a superset of JavaScript and includes strict type-checking.
 
-Now I do, because I was able to get closer to the metal than I had ever been given a chance to before.
+- [Progressive Web Apps](https://web.dev/progressive-web-apps/) which allows for caching and offline viewing.
+
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) which is what I use to unit tests components. 
+
+- Static site generation. I wrote a script to generate static HTML for all pages so they can be served statically alongside assets. A bundles JS file rehydrates everything on load. 
+
+- [Docker / Compose](https://docs.docker.com/compose/) is used to test builds locally before I upload them. I have a self signed SSL cert so I can use HTTPS locally, which I created with the help of this [excellent guide](https://www.freecodecamp.org/news/how-to-get-https-working-on-your-local-development-environment-in-5-minutes-7af615770eec/).
+
+- I implementd a content rendering engine that reads in a tree of items from JSON files, then chooses the correct component to render as the JSON is fetched.
+
+- For state management, I use Redux/Saga. This makes managing complex async functionality much easier and readable.
 
 ### How to install and run this
 To get this running, you should have an up to date stable version of [NodeJS](https://nodejs.org/en/). I am using `12.16`. You should also have the most up to date version of [Yarn](https://yarnpkg.com/) installed globally.
@@ -23,31 +27,15 @@ To get this running, you should have an up to date stable version of [NodeJS](ht
 - `$ cd personal-website/`
 - `$ yarn` will install dependencies
 - `$ yarn dev` will build the server and client and watch for changes
-- `$ yarn server` will start the server, which takes care of asset delivery and server side rendering
-
-This will get the site running at a very basic level. Things like Service Worker caching are disabled for development purposes, because it's not fun needing to clear your application cache all the time!
-
-If you want to turn something like this on for local development, you could use `ENABLE_CACHE=true yarn server` and the service worker will be enabled. Most of these things are configured through the `docker-compose.yml` file for local builds, and `docker-compose.prod.yml` for production builds.
+- `$ yarn deploy` will generate the site as a static bundle, which is output to the `/out` directory.
 
 ### Where does this run?
-This website was built to run on modern desktop and mobile browsers. It is fully responsive, can be added to the user's home screen as an application (for that native-like experience) and it can even be used offline.
-
-I decided to deprecate Internet Explorer, given that it is nearing the end of its life and has been superseded by Microsoft Edge (which can now even run on Windows 7!). Supporting this old beast (released late in 2013) just doesn't make sense anymore.
+On all modern web browsers both mobile and desktop even with offline capability (with service workers). Internet Explorer is not supported.
 
 ### How is this deployed?
 For CI (continuous integration), a very popular and well documented tool called [CircleCI](https://circleci.com/) is used.
 
-So what is continuous integration? It's a list of instructions that get carried out automatically when triggered.
-
-It's really important, because you want to make sure everything runs smoothly when you release changes to your product to the public.
-
-CI lets us run tests and build the product, a process that is otherwise cumbersome and error-prone when done by a human.
-
-In this case, we run tests on the code and check it for quality when we create a PR (and push to a branch other than master).
-
-When we merge a PR (merging to master), we don't run any tests, since this was already taken care of in the previous step.
-
-Instead, we build Docker images with the latest version of the product, push these to Docker Hub, then finally connect to the production server and pull down the latest images, restarting the running containers with the latest copies.
+I have a script that generates all content and assets, then a CircleCI config that deploys this to a remote server.
 
 ### What are the nice to haves?
 I have documented these in the [Tech Roadmap](ROADMAP.md) and will keep working on them.

@@ -2,11 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { CombinedAppState, ThemeType } from 'models';
 import { switchTheme } from 'app/actions';
-import { fetchPage, FetchPageDispatch, resetPage } from './actions';
+import { fetchPageRequest, FetchPageDispatch, resetPage } from './actions';
 import Page, { Props } from './Page';
 
 interface MapDispatchToProps {
-  fetchPage: (slug: string) => void;
+  fetchPageRequest: (slug: string) => void;
   resetPage: () => void;
   switchTheme: (theme: ThemeType) => void;
 }
@@ -21,8 +21,8 @@ const mapStateToProps = (state: CombinedAppState) => ({
 export const mapDispatchToProps = (
   dispatch: FetchPageDispatch
 ): MapDispatchToProps => ({
-  fetchPage: (slug: string): void => {
-    dispatch(fetchPage(slug));
+  fetchPageRequest: (slug: string): void => {
+    dispatch(fetchPageRequest(slug));
   },
   resetPage: (): void => {
     dispatch(resetPage());

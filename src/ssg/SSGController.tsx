@@ -5,7 +5,7 @@ import { Store } from 'redux';
 import { Helmet, HelmetData } from 'react-helmet';
 import { renderToString } from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
-import createStoreWithPreloadedState from '../store';
+import { createServerStore } from '../store';
 import { fetchPageSuccess } from 'app/views/page/actions';
 import { getAppVersion, getCanonicalUrl, getEnableCache } from '../config';
 import { indexTemplate } from 'utils';
@@ -16,7 +16,7 @@ class SSGController {
   private store: Store;
 
   constructor() {
-    this.store = createStoreWithPreloadedState();
+    this.store = createServerStore();
   }
 
   public generate = async (slug: string): Promise<string> => {

@@ -42,7 +42,7 @@
         {
           "id": "pp-5",
           "tagName": "li",
-          "content": "Exploring TypeScript more and applying this to the whole React / Redux set up."
+          "content": "Exploring TypeScript and applying this to the whole Redux/Saga set up."
         },
         {
           "id": "pp-6",

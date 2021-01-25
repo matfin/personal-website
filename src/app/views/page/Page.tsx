@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Meta from 'app/components/meta/Meta';
 import { normalisePathname, pathNesting, setBodyOverflow } from 'utils';
@@ -22,7 +22,7 @@ export interface Props {
   error: Error | null;
   pending: boolean;
   page: PageProps | null;
-  fetchPage(slug: string): void;
+  fetchPageRequest(slug: string): void;
   resetPage(): void;
   switchTheme(theme: ThemeType): void;
 }
@@ -47,14 +47,10 @@ const Page = ({
   error,
   pending,
   page,
-  fetchPage,
+  fetchPageRequest,
   resetPage,
   switchTheme,
 }: Props): JSX.Element => {
-  const cbFetchPage = useCallback((slug: string): void => fetchPage(slug), [
-    fetchPage,
-  ]);
-  const cbResetPage = useCallback(resetPage, [resetPage]);
   const { pathname } = useLocation();
   const { isNested, parts } = pathNesting(normalisePathname(pathname));
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -79,11 +75,11 @@ const Page = ({
     const slug: string = normalisePathname(pathname);
 
     setShowMenu(false);
-    cbFetchPage(slug || 'index');
+    fetchPageRequest(slug || 'index');
     window.scrollTo(0, 0);
 
-    return cbResetPage;
-  }, [pathname, cbFetchPage, cbResetPage]);
+    return resetPage;
+  }, [pathname, fetchPageRequest, resetPage]);
 
   return (
     <>
