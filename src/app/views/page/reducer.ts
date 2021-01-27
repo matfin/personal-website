@@ -14,16 +14,21 @@ export const pageState = (
   const { error, payload, type } = action;
 
   switch (type) {
+    case ActionTypes.FETCH_PAGE_STARTED: {
+      return {
+        ...state,
+        pending: true,
+      };
+    }
     case ActionTypes.FETCH_PAGE_REQUEST: {
       return {
-        ...defaultState,
+        ...state,
         error: null,
-        pending: true,
       };
     }
     case ActionTypes.FETCH_PAGE_SUCCESS: {
       return {
-        ...defaultState,
+        ...state,
         error: null,
         pending: false,
         page: payload ?? null,
@@ -31,7 +36,7 @@ export const pageState = (
     }
     case ActionTypes.FETCH_PAGE_FAILURE: {
       return {
-        ...defaultState,
+        ...state,
         error: error ?? new Error('The page could not be loaded'),
         pending: false,
       };

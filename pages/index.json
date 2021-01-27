@@ -124,6 +124,12 @@
             },
             {
               "category": "frontend",
+              "description": "Redux Saga facilitates async state management with generator functions.",
+              "slug": "redux-saga",
+              "title": "Redux Saga"
+            },
+            {
+              "category": "frontend",
               "description": "Redux is a state management system used in web application development.",
               "slug": "redux",
               "title": "Redux"

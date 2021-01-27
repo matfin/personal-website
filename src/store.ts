@@ -5,9 +5,10 @@ import {
   Reducer,
   Store,
 } from 'redux';
-import thunkMiddleware from 'redux-thunk';
+import createSagaMiddleware, { SagaMiddleware } from 'redux-saga';
 import { AppReduxAction, CombinedAppState, PageReduxAction } from 'models';
 import { appState } from 'app/reducer';
+import rootSaga from 'app/sagas';
 import { pageState } from 'app/views/page/reducer';
 
 type ReduxAction = AppReduxAction | PageReduxAction;
@@ -17,12 +18,18 @@ const rootReducer: Reducer<CombinedAppState, ReduxAction> = combineReducers({
   pageState,
 });
 
-export const createStoreWithPreloadedState = (
-  preloadedState?: CombinedAppState
-): Store =>
-  createStore(rootReducer, preloadedState, applyMiddleware(thunkMiddleware));
+export const createServerStore = (preloadedState?: CombinedAppState): Store =>
+  createStore(rootReducer, preloadedState);
 
-export const clientSideStore = (): Store =>
-  createStore(rootReducer, applyMiddleware(thunkMiddleware));
+export const createClientStore = (preloadedState?: CombinedAppState): Store => {
+  const sagaMiddleware: SagaMiddleware = createSagaMiddleware();
+  const store: Store = createStore(
+    rootReducer,
+    preloadedState,
+    applyMiddleware(sagaMiddleware)
+  );
 
-export default createStoreWithPreloadedState;
+  sagaMiddleware.run(rootSaga);
+
+  return store;
+};

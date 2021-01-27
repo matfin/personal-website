@@ -4,11 +4,6 @@ export interface StaticReqProps {
   url: string;
 }
 
-export interface CategoryProps {
-  title: string;
-  description?: string;
-}
-
 export interface TopicProps {
   logoPath?: string;
   category: string;
@@ -65,10 +60,6 @@ export interface ProjectProps {
   slug: string;
   title: string;
   topics?: string[];
-}
-
-export interface CacheDictionaryProps {
-  [index: string]: string;
 }
 
 export interface PathNestingProps {

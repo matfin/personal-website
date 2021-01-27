@@ -24,7 +24,7 @@ const defaultProps: Props = {
     slug: 'test-page',
     title: 'Test page',
   },
-  fetchPage: jest.fn(),
+  fetchPageRequest: jest.fn(),
   resetPage: jest.fn(),
   switchTheme: jest.fn(),
 };
@@ -47,14 +47,16 @@ describe('Page tests', () => {
     expect(container).toBeTruthy();
   });
 
-  it('fetches the page with "home" as the default slug', () => {
-    const spyFetchPage = jest.fn();
+  it('fetches the page with "index" as the default slug', () => {
+    const spyFetchPageRequest = jest.fn();
 
     spyUseLocation.mockReturnValue({ pathname: '' } as any);
-    renderWithRouter(<Page {...defaultProps} fetchPage={spyFetchPage} />);
+    renderWithRouter(
+      <Page {...defaultProps} fetchPageRequest={spyFetchPageRequest} />
+    );
 
-    expect(spyFetchPage).toHaveBeenCalled();
-    expect(spyFetchPage).toHaveBeenCalledWith('index');
+    expect(spyFetchPageRequest).toHaveBeenCalled();
+    expect(spyFetchPageRequest).toHaveBeenCalledWith('index');
   });
 
   it('reveals and hides the side navigation menu', async () => {
@@ -126,7 +128,9 @@ describe('Page tests', () => {
       <Page
         {...defaultProps}
         page={{
-          ...defaultProps.page,
+          description: 'Test',
+          slug: 'test',
+          title: 'test',
           contents: [
             {
               tagName: 'h1',
@@ -174,10 +178,10 @@ describe('Page tests', () => {
 
   it('renders an error message', (): void => {
     const { container } = renderWithRouter(
-      <Page {...defaultProps} error="Test error" />
+      <Page {...defaultProps} error={new Error('Test error')} />
     );
 
     expect(container).toBeTruthy();
-    expect(screen.getByText('Test error')).toBeTruthy();
+    expect(screen.getByText('Error: Test error')).toBeTruthy();
   });
 });
