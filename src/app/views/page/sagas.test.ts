@@ -35,10 +35,10 @@ describe('Page sagas', (): void => {
   });
 
   it('should fetch a page with success', async (): Promise<void> => {
-    const spyFetch = jest.spyOn(global, 'fetch').mockResolvedValue({
+    const spyFetch = jest.spyOn(global, 'fetch').mockResolvedValue(({
       json: jest.fn().mockResolvedValue(page),
       status: 200,
-    } as any);
+    } as unknown) as Response | Promise<Response>);
     const dispatched: unknown[] = [];
 
     await runSaga(
@@ -59,10 +59,10 @@ describe('Page sagas', (): void => {
   });
 
   it('should fetch a page with the index url', async (): Promise<void> => {
-    const spyFetch = jest.spyOn(global, 'fetch').mockResolvedValue({
+    const spyFetch = jest.spyOn(global, 'fetch').mockResolvedValue(({
       json: jest.fn().mockResolvedValue(page),
       status: 200,
-    } as any);
+    } as unknown) as Response | Promise<Response>);
     const dispatched: unknown[] = [];
 
     await runSaga(

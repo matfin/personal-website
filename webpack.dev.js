@@ -4,7 +4,6 @@ const { merge } = require('webpack-merge');
 const [client, ssg] = require('./webpack.common');
 
 const devclient = merge(client, {
-  watch: true,
   mode: 'development',
   devtool: 'inline-source-map',
   plugins: [
@@ -29,7 +28,6 @@ const devclient = merge(client, {
 });
 
 const devssg = merge(ssg, {
-  watch: true,
   mode: 'development',
   devServer: {
     contentBase: path.join(__dirname, 'out'),
