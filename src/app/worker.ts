@@ -42,14 +42,12 @@ const onActivate = (event: ExtendableEvent): void => {
   const clearCaches = (): Promise<void | boolean[]> =>
     caches.keys().then((cacheNames: string[]) =>
       Promise.all(
-        cacheNames.map(
-          (name: string): Promise<boolean> => {
-            if (!cacheWhitelist.includes(name)) {
-              return caches.delete(name);
-            }
-            return Promise.resolve(false);
+        cacheNames.map((name: string): Promise<boolean> => {
+          if (!cacheWhitelist.includes(name)) {
+            return caches.delete(name);
           }
-        )
+          return Promise.resolve(false);
+        })
       )
     );
 

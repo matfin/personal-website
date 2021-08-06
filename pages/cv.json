@@ -39,6 +39,7 @@
               "role": "Senior front-end engineer",
               "startDate": "2020-01-06",
               "tasks": [
+                "Worked on features for a mobile travel app and implemented upgrade path (React Native)",
                 "Migrated client project from AngularJS to ReactJS with TypeScript.",
                 "Replaced LESS/SASS with styled components (CSS in JS).",
                 "Planned and implemented strategy to recover test coverage.",

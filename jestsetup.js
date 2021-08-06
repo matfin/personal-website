@@ -1,5 +1,5 @@
 // window objects
-window.scrollTo = () => {};
+window.scrollTo = jest.fn();
 window.apiUrl = '';
 window.appName = '';
 window.appVersion = '';
@@ -8,4 +8,4 @@ window.canonicalUrl = '';
 window.enableCache = false;
 window.isProduction = false;
 window.port = '';
-window.fetch = () => {};
+window.fetch = jest.fn();

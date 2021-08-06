@@ -1,7 +1,5 @@
 module.exports = {
-  globals: {
-    window: true
-  },
+  testEnvironment: 'jsdom',
   rootDir: '.',
   coverageDirectory: './coverage',
   setupFiles: ['./jestsetup.js'],

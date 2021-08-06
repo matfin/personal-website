@@ -64,14 +64,14 @@ export const renderTag = (
     case 'img': {
       return (
         <ImageContainerSt key={key}>
-          <PictureSt {...((content as unknown) as ImageProps)} />
+          <PictureSt {...(content as unknown as ImageProps)} />
         </ImageContainerSt>
       );
     }
     case 'p': {
       return (
         <ParagraphSt key={key}>
-          {processContent((content as unknown) as string)}
+          {processContent(content as unknown as string)}
         </ParagraphSt>
       );
     }
@@ -88,7 +88,7 @@ export const renderTag = (
     case 'li': {
       return (
         <ListItemSt key={key}>
-          {processContent((content as unknown) as string)}
+          {processContent(content as unknown as string)}
         </ListItemSt>
       );
     }
