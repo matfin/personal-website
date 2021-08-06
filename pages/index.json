@@ -26,7 +26,7 @@
         },
         {
           "tagName": "p",
-          "content": "I have fifteen years of experience working with a wide variety of projects across multiple domains and in different workplace settings."
+          "content": "I have sixteen years of postgraduate experience working with a wide variety of projects across multiple domains and in different workplace settings."
         },
         {
           "tagName": "p",
@@ -34,7 +34,7 @@
         },
         {
           "tagName": "p",
-          "content": "My primary focus is on building single page applications in TypeScript that are performant, scalable and easy to maintain."
+          "content": "My primary focus is on building single page web and mobile applications in TypeScript that are performant, scalable and easy to maintain."
         },
         {
           "tagName": "p",
@@ -118,6 +118,12 @@
             },
             {
               "category": "frontend",
+              "description": "React Native is a cross-platform mobile application framework.",
+              "slug": "react-native",
+              "title": "React Native"
+            },
+            {
+              "category": "frontend",
               "description": "React Hooks allow developers to leverage state management for functional components.",
               "slug": "react-hooks",
               "title": "React Hooks"
@@ -130,12 +136,6 @@
             },
             {
               "category": "frontend",
-              "description": "Redux is a state management system used in web application development.",
-              "slug": "redux",
-              "title": "Redux"
-            },
-            {
-              "category": "frontend",
               "description": "CSS in JS allows you to use Javascript to define CSS styles for components. Two common frameworks I have used for this include styled-components, styled-system and design tokens.",
               "slug": "css-in-js",
               "title": "CSS in JS"
@@ -144,7 +144,7 @@
               "category": "frontend",
               "description": "These act as CSS pre-processors and make it easier to manage styles for large, cross-browser applications.",
               "slug": "scss-sass-less",
-              "title": "SCSS/SASS"
+              "title": "SCSS / SASS / LESS"
             },
             {
               "category": "frontend",

@@ -171,15 +171,20 @@
             {
               "id": "future-learning-4",
               "tagName": "li",
-              "content": "Another single page application framework called [Vue.js](https://vuejs.org/) which has gained good traction and is widely used."
+              "content": "React Native from scratch, so I can gain a full understanding of how Javascript based components and tools tie into the native application development framework for iOS and Android."
             },
             {
               "id": "future-learning-5",
               "tagName": "li",
-              "content": "Amazon Web Services including [AWS Lambda](https://aws.amazon.com/lambda/) which is said to be very powerful."
+              "content": "Another single page application framework called [Vue.js](https://vuejs.org/) which has gained good traction and is widely used."
             },
             {
               "id": "future-learning-6",
+              "tagName": "li",
+              "content": "Amazon Web Services including [AWS Lambda](https://aws.amazon.com/lambda/) which is said to be very powerful."
+            },
+            {
+              "id": "future-learning-7",
               "tagName": "li",
               "content": "[Kubernetes](https://kubernetes.io/) which is a container orchestration system, which means it ties together smaller services that work together to achieve a goal. This is taking a different and more manageable approach to monolithic applications which are harder to scale."
             }
@@ -204,17 +209,17 @@
         {
           "id": "in-work-3",
           "tagName": "p",
-          "content": "I work as a senior front end engineer for a company called TravelPort Digital who are based in Dublin, Ireland. My day to day job involves migrating an old legacy code base to ReactJS and this includes the gradual adoption of styled-components, improving test coverage and rewriting components in ReactJS."
+          "content": "For the last six months I have been working as a senior React Native developer for a company called TravelPort Digital who are based in Dublin, Ireland. Aside from implementing new features for a mobile travel application, I am in the process of upgrading to the latest version of React Native and all the other tools that come with it, including refactoring tests and components."
+        },
+        {
+          "id": "in-work-3",
+          "tagName": "p",
+          "content": "Before this, I was working on a web application as a senior front end engineer, where my day to day job involved migrating an old legacy code base to ReactJS. This included the gradual adoption of styled-components, improving test coverage and rewriting components in ReactJS."
         },
         {
           "id": "in-work-4",
           "tagName": "p",
           "content": "I have experience working as a freelance contractor as well as a full-time employee, and I have worked remotely (from shared offices or at home) as well as being on-site full time."
-        },
-        {
-          "id": "in-work-5",
-          "tagName": "p",
-          "content": "My preference is to work on site, as long as getting there is easy. In the situation where commutes are very long and drawn out, I would prefer the hybrid approach of working from home - coming into the office one or two days during the week to maintain a presence and human contact."
         }
       ]
     },
