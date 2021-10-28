@@ -55,7 +55,7 @@ describe('Page tests', () => {
       <Page {...defaultProps} fetchPageRequest={spyFetchPageRequest} />
     );
 
-    expect(spyFetchPageRequest).toHaveBeenCalled();
+    expect(spyFetchPageRequest).toHaveBeenCalledTimes(1);
     expect(spyFetchPageRequest).toHaveBeenCalledWith('index');
   });
 

@@ -6,7 +6,7 @@ import { Helmet, HelmetData } from 'react-helmet';
 import { renderToString } from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
 import { createServerStore } from '../store';
-import { fetchPageSuccess } from 'app/views/page/actions';
+import { fetchPageSuccess } from 'app/services/page/actions';
 import { getAppVersion, getCanonicalUrl, getEnableCache } from '../config';
 import { indexTemplate } from 'utils';
 import { CombinedAppState, PageProps, StaticReqProps } from 'models';
