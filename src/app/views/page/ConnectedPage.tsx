@@ -2,7 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { CombinedAppState, ThemeType } from 'models';
 import { switchTheme } from 'app/actions';
-import { fetchPageRequest, FetchPageDispatch, resetPage } from './actions';
+import {
+  fetchPageRequest,
+  FetchPageDispatch,
+  resetPage,
+} from 'app/services/page/actions';
 import Page, { Props } from './Page';
 
 interface MapDispatchToProps {
