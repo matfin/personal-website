@@ -6,7 +6,7 @@ import configureMockStore from 'redux-mock-store';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { CombinedAppState } from 'models';
 import { defaultState as pageDefaultState } from 'app/services/page/reducer';
-import { defaultState as appDefaultState } from 'app/reducer';
+import { defaultState as appDefaultState } from 'app/services/app/reducer';
 
 export const defaultAppState: CombinedAppState = {
   pageState: pageDefaultState,

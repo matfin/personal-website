@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { CombinedAppState, ThemeType } from 'models';
 import ConnectedPage from 'app/views/page/ConnectedPage';
@@ -28,9 +28,9 @@ const App = ({ currentTheme }: Props): JSX.Element => {
         title="Matt Finucane - Software engineer"
         slug="/"
       />
-      <Switch>
-        <Route component={ConnectedPage} />
-      </Switch>
+      <Routes>
+        <Route path="*" element={<ConnectedPage />} />
+      </Routes>
       <GlobalStyle />
     </ThemeProvider>
   );

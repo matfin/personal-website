@@ -3,7 +3,7 @@ import { animationCurve, layers, media, orientation } from 'app/styles';
 import { Link } from 'react-router-dom';
 
 interface LinkProps {
-  active: string | undefined;
+  active?: number;
 }
 
 export const NavSt = styled.nav`

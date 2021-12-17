@@ -90,7 +90,7 @@ const Page = ({
           revealed={showMenu}
           onClick={hideMenu}
         >
-          <Nav aria-label="Navigation" role="navigation">
+          <Nav>
             <Toggle
               data-testid="toggle"
               label="Theme"

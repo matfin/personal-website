@@ -39,7 +39,7 @@ const generateStaticContent = async (
 
   // generate HTML from slugs
   slugs.forEach(async (slug: string): Promise<void> => {
-    const staticHtml: string = await generator.generate(slug);
+    const staticHtml: string = await generator.generate(`/${slug}`);
 
     if (slug === 'index') {
       await fs.writeFile(`${path}/index.html`, staticHtml, 'utf-8');
@@ -95,7 +95,7 @@ const run = async (): Promise<void> => {
       `Regenerated static content from: ${contentBase} to: ${outputDir}`
     );
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 };
 

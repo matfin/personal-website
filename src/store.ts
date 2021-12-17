@@ -6,9 +6,10 @@ import {
   Store,
 } from 'redux';
 import createSagaMiddleware, { SagaMiddleware } from 'redux-saga';
+
 import { AppReduxAction, CombinedAppState, PageReduxAction } from 'models';
-import { appState } from 'app/reducer';
 import rootSaga from 'app/sagas';
+import { appState } from 'app/services/app/reducer';
 import { pageState } from 'app/services/page/reducer';
 
 type ReduxAction = AppReduxAction | PageReduxAction;
