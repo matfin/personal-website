@@ -20,7 +20,7 @@ class SSGController {
   }
 
   public generate = async (slug: string): Promise<string> => {
-    await this.loadPage(slug || 'index');
+    await this.loadPage(slug ?? '/index');
 
     const content: string = await this.generateStaticContentString({
       url: slug,
@@ -60,9 +60,7 @@ class SSGController {
         '\\u003c'
       );
       const body: string = renderToString(
-        sheet.collectStyles(
-          <IndexComponent context={{}} req={req} store={this.store} />
-        )
+        sheet.collectStyles(<IndexComponent req={req} store={this.store} />)
       );
 
       const styleTags: string = sheet.getStyleTags();

@@ -21,6 +21,7 @@ module.exports = {
     'src/ssg',
     'src/config.ts',
     'src/store.ts',
+    'src/app/styles/global.ts',
     'src/utils/testutils.tsx',
     'src/app/views/page/ConnectedPage.tsx',
   ],

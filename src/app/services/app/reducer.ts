@@ -14,7 +14,7 @@ export const appState = (
   switch (type) {
     case SWITCH_THEME: {
       return {
-        ...defaultState,
+        ...state,
         currentTheme: payload,
       };
     }
