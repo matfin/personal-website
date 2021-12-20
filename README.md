@@ -16,7 +16,7 @@ My motivation in creating this was to gain a deeper understanding of modern web 
 
 - [Docker / Compose](https://docs.docker.com/compose/) is used to test builds locally before I upload them. I have a self signed SSL cert so I can use HTTPS locally, which I created with the help of this [excellent guide](https://www.freecodecamp.org/news/how-to-get-https-working-on-your-local-development-environment-in-5-minutes-7af615770eec/).
 
-- I implementd a content rendering engine that reads in a tree of items from JSON files, then chooses the correct component to render as the JSON is fetched.
+- I implemented a content rendering engine that reads in a tree of items from JSON files, then chooses the correct component to render as the JSON is fetched.
 
 - For state management, I use Redux/Saga. This makes managing complex async functionality much easier and readable.
 
