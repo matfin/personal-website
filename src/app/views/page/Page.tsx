@@ -93,7 +93,7 @@ const Page = ({
           <Nav>
             <Toggle
               data-testid="toggle"
-              label="Theme"
+              aria-label="Toggle theme"
               value={
                 currentTheme === ThemeType.DAY
                   ? ToggleValue.OFF

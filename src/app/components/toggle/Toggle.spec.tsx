@@ -6,7 +6,6 @@ import Toggle, { Props } from './Toggle';
 
 const defaultProps: Props = {
   value: ToggleValue.OFF,
-  label: 'Test',
   onToggle: jest.fn(),
 };
 

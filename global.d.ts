@@ -11,7 +11,9 @@ declare global {
     match(string): Promise<any>,
     keys(): Promise<any>,
   }
+}
 
+declare global {
   interface Window {
     _PRELOADED_STATE_: any
     [index: string]: any,
