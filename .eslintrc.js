@@ -45,7 +45,7 @@ module.exports = {
     },
     'import/resolver': {
       node: {
-        moduleDirectory: ['node_modules', 'src', 'server'],
+        moduleDirectory: ['node_modules', 'src'],
       },
       webpack: {
         config: 'webpack.common.js'
