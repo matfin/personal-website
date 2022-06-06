@@ -26,6 +26,11 @@
           "tagName": "projects",
           "content": [
             {
+              "description": "Exploring the use of WebSockets while maintaining performance and managing connection cleanup.",
+              "slug": "react-websocket-demo",
+              "title": "React WebSocket Demo"
+            },
+            {
               "description": "Exploring time complexity and performance in a grouping algorithm.",
               "slug": "time-complexity-analysis",
               "title": "Time Complexity Analysis"

@@ -1,0 +1,59 @@
+{
+  "title": "Matt Finucane - React WebSocket Demo",
+  "description": "Exploring the use of WebSockets while maintaining performance and managing connection cleanup.",
+  "slug": "projects/react-websocket-demo",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "id": "rws-1",
+          "tagName": "h1",
+          "content": "React WebSocket Demo"
+        },
+        {
+          "id": "rws-2",
+          "tagName": "h2",
+          "content": "Exploring the use of WebSockets while maintaining performance and managing connection cleanup."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "rws-3",
+      "content": [
+        {
+          "id": "rws-4",
+          "tagName": "p",
+          "content": "This is a small projet to demonstrate the use of [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) in React. The WebSocket API allows for two way communication between a client and a server."
+        },
+        {
+          "id": "rws-5",
+          "tagName": "p",
+          "content": "WebSockets are an ideal use-case for a stock ticker, which has been built here. Stock data is updated in real time from a server every few seconds."
+        },
+        {
+          "id": "rws-6",
+          "tagName": "p",
+          "content": "If the WebSocket connection is lost, an error banner is shown to indicate this to the user. A attempt is made to re-connection every few seconds."
+        },
+        {
+          "id": "rws-7",
+          "tagName": "p",
+          "content": "For a project like this, consideration must be given to performance as well as clean up. This project manages both, by ensuring unused socket connections are terminated and components are not unnecessarily re-rendered."
+        },
+        {
+          "id": "rws-8",
+          "tagName": "p",
+          "content": "To facilitate this, [Redux-Saga](https://redux-saga.js.org/) is used to clean up any unused connections, and [Reselect](https://github.com/reduxjs/reselect) creates memoized selectors which caches output based on input."
+        },
+        {
+          "id": "rws-9",
+          "tagName": "p",
+          "content": "A sample websocket server has been included with this project (NodeJS) and the source code is on [github.com/matfin/react-websocket-demo](https://github.com/matfin/react-websocket-demo)."
+        }
+      ]
+    }
+  ]
+}

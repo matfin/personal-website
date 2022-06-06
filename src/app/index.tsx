@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { Store } from 'redux';
 import { hydrateRoot } from 'react-dom/client';
@@ -11,12 +10,12 @@ import App from './App';
 
 const preloadedState: CombinedAppState = window._PRELOADED_STATE_;
 const store: Store = createClientStore(preloadedState);
-const container: HTMLElement | null = document.getElementById('root');
+const container: Document | Element = document.getElementById('root')!;
 
 delete window._PRELOADED_STATE_;
 
 hydrateRoot(
-  container!,
+  container,
   <Provider store={store}>
     <BrowserRouter>
       <App />
