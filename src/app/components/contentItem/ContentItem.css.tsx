@@ -52,7 +52,7 @@ export const PictureSt = styled(Picture)`
     border-radius: 50%;
     border: 2px solid ${colours.tertiary};
     box-shadow: ${boxShadow};
-    filter: brightness(${(props) => props?.theme?.brightness});
+    filter: brightness(${({ theme }) => theme?.brightness});
 
     ${media.md(css`
       width: 20rem;
@@ -80,7 +80,7 @@ export const TiledListSt = styled.ul`
 `;
 
 export const TileSt = styled.li`
-  background: ${(props) => props?.theme?.colours?.tertiary};
+  background: ${({ theme }) => theme?.colours?.tertiary};
   padding: 1rem;
   box-shadow: ${boxShadow};
   transition: transform 200ms ${animationCurve};
@@ -118,13 +118,13 @@ export const LinkSt = styled(InlineLink)`
     left: 0;
     width: 100%;
     height: 0.125rem;
-    background-color: ${(props) => props?.theme?.colours?.primary};
+    background-color: ${({ theme }) => theme?.colours?.primary};
     content: '';
     transition: height 200ms ${animationCurve};
   }
 
   &:hover {
-    color: ${(props) => props?.theme?.colours?.secondary};
+    color: ${({ theme }) => theme?.colours?.secondary};
 
     &::after {
       height: 100%;
