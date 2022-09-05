@@ -12,6 +12,7 @@
     "build": "webpack --config webpack.prod.js",
     "test": "jest",
     "coverage": "jest --collect-coverage",
+    "ci:coverage": "jest --collect-coverage --runInBand --no-cache --watchAll=false",
     "csslint": "stylelint --config ./stylelint.config.js './src/**/*.css.tsx'",
     "lint": "eslint \"./src/**/*.{ts,tsx}\""
   },
