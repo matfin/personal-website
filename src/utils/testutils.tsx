@@ -33,4 +33,17 @@ export const renderWithStore = (
   return render(<Provider store={store}>{children}</Provider>);
 };
 
+export const setupMatchMedia = (matches: boolean) =>
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+      media: query,
+      matches,
+      addEventListener: jest
+        .fn()
+        .mockImplementation((event, cb) => cb({ matches })),
+      removeEventListener: jest.fn(),
+    })),
+  });
+
 export default renderWithRouter;

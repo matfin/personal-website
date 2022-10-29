@@ -39,7 +39,7 @@ export type PageActionTypes =
   | FetchPageStart
   | ResetPage;
 
-export type FetchPageDispatch = ThunkDispatch<
+export type PageDispatch = ThunkDispatch<
   PageReducerState,
   void,
   Action<string>

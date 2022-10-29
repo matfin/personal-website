@@ -4,7 +4,7 @@ import { CombinedAppState, ThemeType } from 'models';
 import { switchTheme } from 'app/services/app/actions';
 import {
   fetchPageRequest,
-  FetchPageDispatch,
+  PageDispatch,
   resetPage,
 } from 'app/services/page/actions';
 import Page, { Props } from './Page';
@@ -23,7 +23,7 @@ const mapStateToProps = (state: CombinedAppState) => ({
 });
 
 export const mapDispatchToProps = (
-  dispatch: FetchPageDispatch
+  dispatch: PageDispatch
 ): MapDispatchToProps => ({
   fetchPageRequest: (slug: string): void => {
     dispatch(fetchPageRequest(slug));
