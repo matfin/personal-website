@@ -13,7 +13,7 @@ const iconStyle = css`
   top: -2px;
 `;
 
-export const ToggleTrackSt = styled.div`
+export const ToggleTrackSt = styled.button`
   position: relative;
   border: 2px solid ${(props) => props?.theme?.colours?.primary};
   width: 3rem;
@@ -28,7 +28,7 @@ export const ToggleTrackSt = styled.div`
 
   &::after {
     ${iconStyle}
-    right: 2px;
+    right: 4px;
     content: '🌙';
   }
 `;

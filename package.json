@@ -1,6 +1,6 @@
 {
   "name": "mattfinucane.com",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "Personal website built using React and TypeScript",
   "scripts": {
     "clean-deps": "rm -rf node_modules yarn.lock",

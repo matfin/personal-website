@@ -6,23 +6,33 @@ export interface Props {
   className?: string;
   value: ToggleValue;
   onToggle(value: ToggleValue): void;
+  rest?: unknown;
 }
 
-const Toggle = ({ className, value, onToggle }: Props): JSX.Element => {
+const Toggle = ({
+  className,
+  value,
+  onToggle,
+  ...rest
+}: Props): JSX.Element => {
+  const ariaPressed: boolean = value === ToggleValue.ON;
+
   const onToggleTrackClick = (): void => {
     onToggle(value === ToggleValue.ON ? ToggleValue.OFF : ToggleValue.ON);
   };
 
   return (
     <ToggleTrackSt
+      aria-pressed={ariaPressed}
       className={className}
       data-testid="toggle"
       onClick={onToggleTrackClick}
+      {...rest}
     >
       <ToggleIndicatorSt
         data-testid="indicator"
         switchedon={value === ToggleValue.ON}
-        aria-checked={value === ToggleValue.ON ? 'true' : 'false'}
+        aria-hidden={true}
       />
     </ToggleTrackSt>
   );
