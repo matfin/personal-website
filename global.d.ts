@@ -1,21 +1,21 @@
 export {};
 declare namespace NodeJS {
   export interface Process {
-    browser: boolean
+    browser: boolean;
   }
 }
 
 declare global {
   interface caches {
-    open(string): Promise<any>,
-    match(string): Promise<any>,
-    keys(): Promise<any>,
+    open(string): Promise<T>;
+    match(string): Promise<T>;
+    keys(): Promise<T>;
   }
 }
 
 declare global {
   interface Window {
-    _PRELOADED_STATE_: any
-    [index: string]: any,
+    _PRELOADED_STATE_: unknown;
+    [index: string]: unknown;
   }
 }
