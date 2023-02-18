@@ -9,7 +9,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'plugin:react-hooks/recommended'
+    'plugin:react-hooks/recommended',
   ],
   globals: {
     Atomics: 'readonly',
@@ -21,41 +21,37 @@ module.exports = {
       jsx: true,
     },
     ecmaVersion: 2020,
-    sourceType: 'module'
+    sourceType: 'module',
   },
-  plugins: [
-    'react',
-    'react-hooks',
-    '@typescript-eslint',
-  ],
+  plugins: ['react', 'react-hooks', '@typescript-eslint'],
   rules: {
-    'camelcase': 0
+    camelcase: 0,
   },
   overrides: [
     {
       files: ['*.spec.{ts,tsx}'],
       rules: {
-        '@typescript-eslint/no-explicit-any': 0
-      }
+        '@typescript-eslint/no-explicit-any': 0,
+      },
     },
     {
       files: ['src/app/index.tsx'],
       rules: {
-        "@typescript-eslint/no-non-null-assertion": 0
-      }
-    }
+        '@typescript-eslint/no-non-null-assertion': 0,
+      },
+    },
   ],
   settings: {
     react: {
-      version: 'detect'
+      version: 'detect',
     },
     'import/resolver': {
       node: {
         moduleDirectory: ['node_modules', 'src'],
       },
       webpack: {
-        config: 'webpack.common.js'
-      }
-    }
-  }
+        config: 'webpack.common.js',
+      },
+    },
+  },
 };
