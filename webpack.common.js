@@ -8,7 +8,9 @@ const environment = {
   appName: JSON.stringify(name),
   appVersion: JSON.stringify(version),
   cacheName: JSON.stringify(`${name}-${version}`),
-  canonicalUrl: JSON.stringify(process.env.CANONICAL_URL || 'http://localhost:3000'),
+  canonicalUrl: JSON.stringify(
+    process.env.CANONICAL_URL || 'http://localhost:3000'
+  ),
   contentBase: JSON.stringify('./pages'),
   enableCache: JSON.stringify(process.env.ENABLE_CACHE ? true : false),
   outputDir: JSON.stringify('./out'),
@@ -28,9 +30,9 @@ const common = {
   },
   resolve: {
     alias: {
-      'app': path.resolve(__dirname, '/src/app/'),
-      'models': path.resolve(__dirname, '/src/models/'),
-      'utils': path.resolve(__dirname, '/src/utils/'),
+      app: path.resolve(__dirname, '/src/app/'),
+      models: path.resolve(__dirname, '/src/models/'),
+      utils: path.resolve(__dirname, '/src/utils/'),
     },
     extensions: ['.ts', '.tsx', '.js', '.json', '.svg'],
   },
@@ -51,10 +53,16 @@ const client = {
     new webpack.DefinePlugin(environment),
     new CopyPlugin({
       patterns: [
-        { from: path.resolve(__dirname, 'pages'), to: path.resolve(__dirname, 'out/pages') },
-        { from: path.resolve(__dirname, 'public'), to: path.resolve(__dirname, 'out') },
-      ]
-    })
+        {
+          from: path.resolve(__dirname, 'pages'),
+          to: path.resolve(__dirname, 'out/pages'),
+        },
+        {
+          from: path.resolve(__dirname, 'public'),
+          to: path.resolve(__dirname, 'out'),
+        },
+      ],
+    }),
   ],
 };
 
@@ -69,9 +77,7 @@ const ssg = {
     filename: '[name].js',
   },
   target: 'node',
-  plugins: [
-    new webpack.DefinePlugin(environment),
-  ],
+  plugins: [new webpack.DefinePlugin(environment)],
 };
 
 module.exports = [client, ssg];
