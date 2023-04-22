@@ -8,7 +8,7 @@ const devclient = merge(client, {
   devtool: 'inline-source-map',
   plugins: [
     {
-      apply: compiler => {
+      apply: (compiler) => {
         compiler.hooks.done.tap('AfterEmitPlugin', () => {
           exec('yarn ssg', (err, stdout, stderr) => {
             if (err) {
@@ -22,25 +22,22 @@ const devclient = merge(client, {
             }
           });
         });
-      }
-    }
-  ]
+      },
+    },
+  ],
 });
 
 const devssg = merge(ssg, {
   mode: 'development',
   devServer: {
     static: {
-      directory: path.join(__dirname, 'out')
+      directory: path.join(__dirname, 'out'),
     },
     port: 3000,
     devMiddleware: {
       writeToDisk: true,
-    }
+    },
   },
 });
 
-module.exports = [
-  devclient,
-  devssg,
-];
+module.exports = [devclient, devssg];

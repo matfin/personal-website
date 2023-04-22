@@ -2,7 +2,7 @@ const { merge } = require('webpack-merge');
 const [client, ssg] = require('./webpack.common');
 
 const prodclient = merge(client, {
-  mode: 'production'
+  mode: 'production',
 });
 
 const prodssg = merge(ssg, {
