@@ -4,14 +4,14 @@ import { LinePlacement, LineSt, MenuButtonSt } from './MenuButton.css';
 
 export interface Props {
   className?: string;
-  navRevealed: boolean;
+  $navRevealed: boolean;
   onClick(e: React.MouseEvent | React.TouchEvent): void;
 }
 
 const MenuButton = ({
   className,
   onClick,
-  navRevealed,
+  $navRevealed,
 }: Props): JSX.Element => {
   const shouldUseTouch: boolean = isTouchDevice();
 
@@ -23,9 +23,9 @@ const MenuButton = ({
       onClick={!shouldUseTouch ? onClick : undefined}
       onTouchStart={shouldUseTouch ? onClick : undefined}
     >
-      <LineSt placement={LinePlacement.TOP} revealed={navRevealed} />
-      <LineSt placement={LinePlacement.MIDDLE} revealed={navRevealed} />
-      <LineSt placement={LinePlacement.BOTTOM} revealed={navRevealed} />
+      <LineSt placement={LinePlacement.TOP} $revealed={$navRevealed} />
+      <LineSt placement={LinePlacement.MIDDLE} $revealed={$navRevealed} />
+      <LineSt placement={LinePlacement.BOTTOM} $revealed={$navRevealed} />
     </MenuButtonSt>
   );
 };

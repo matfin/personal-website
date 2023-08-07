@@ -12,15 +12,15 @@ import Loading from 'app/components/loading/Loading';
 import MenuButton from 'app/components/menubutton/MenuButton';
 
 interface ISideStProps {
-  revealed: boolean;
+  $revealed: boolean;
 }
 
 interface IMainStProps {
-  nested: boolean;
+  $nested: boolean;
 }
 
 interface PagePropsStProps {
-  navRevealed: boolean;
+  $navRevealed: boolean;
 }
 
 export const PageSt = styled.div<PagePropsStProps>`
@@ -38,7 +38,7 @@ export const PageSt = styled.div<PagePropsStProps>`
     '. footer .';
 
   ${(props) =>
-    props.navRevealed &&
+    props.$navRevealed &&
     css`
       overflow: hidden;
     `}
@@ -71,8 +71,8 @@ export const MainSt = styled.main<IMainStProps>`
     padding: 1.75rem;
   `)}
 
-  ${({ nested }) =>
-    nested &&
+  ${({ $nested }) =>
+    $nested &&
     css`
       padding-top: 3rem;
 
@@ -93,8 +93,8 @@ export const SideSt = styled.aside<ISideStProps>`
   box-shadow: none;
   transition: transform 0.5s ${animationCurve};
 
-  ${({ revealed }) =>
-    revealed &&
+  ${({ $revealed }) =>
+    $revealed &&
     css`
       box-shadow: ${boxShadow};
       transform: translate3d(0, 0, 0);

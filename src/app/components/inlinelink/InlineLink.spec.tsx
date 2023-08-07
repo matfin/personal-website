@@ -21,7 +21,7 @@ describe('InlineLink tests', () => {
 
   it('renders an external link', () => {
     const wrapper = renderWithRouter(
-      <InlineLink {...defaultProps} url="https://somewhere.out" />
+      <InlineLink {...defaultProps} url="https://somewhere.out" />,
     );
     const link = wrapper.getByText('Test Link') as HTMLLinkElement;
 
@@ -30,7 +30,7 @@ describe('InlineLink tests', () => {
 
   it('renders with a title', () => {
     const wrapper = renderWithRouter(
-      <InlineLink {...defaultProps} title="Test title" />
+      <InlineLink {...defaultProps} title="Test title" />,
     );
     const link = wrapper.getByText('Test Link') as HTMLLinkElement;
 

@@ -6,7 +6,7 @@ import MenuButton, { Props } from './MenuButton';
 
 const defaultProps: Props = {
   onClick: jest.fn(),
-  navRevealed: false,
+  $navRevealed: false,
 };
 
 describe('MenuButton tests', () => {
@@ -20,7 +20,7 @@ describe('MenuButton tests', () => {
       .mockReturnValue(false);
     const spyOnClick = jest.fn();
     const wrapper = render(
-      <MenuButton {...defaultProps} onClick={spyOnClick} />
+      <MenuButton {...defaultProps} onClick={spyOnClick} />,
     );
     const button = wrapper.getByTestId('menubutton');
 
@@ -38,7 +38,7 @@ describe('MenuButton tests', () => {
       .mockReturnValue(true);
     const spyOnClick = jest.fn();
     const wrapper = render(
-      <MenuButton {...defaultProps} onClick={spyOnClick} />
+      <MenuButton {...defaultProps} onClick={spyOnClick} />,
     );
     const button = wrapper.getByTestId('menubutton');
 
@@ -51,17 +51,17 @@ describe('MenuButton tests', () => {
   });
 
   it('has the correct style when revealed', async () => {
-    const { container } = render(<MenuButton {...defaultProps} navRevealed />);
+    const { container } = render(<MenuButton {...defaultProps} $navRevealed />);
     const lines = container.getElementsByTagName('span');
 
     expect(lines[0]).toHaveStyleRule(
       'transform',
-      'translate3d(0,12px,0) rotate(-45deg)'
+      'translate3d(0,12px,0) rotate(-45deg)',
     );
     expect(lines[1]).toHaveStyleRule('transform', 'rotate(135deg)');
     expect(lines[2]).toHaveStyleRule(
       'transform',
-      'translate3d(0,-11px,0) rotate(45deg)'
+      'translate3d(0,-11px,0) rotate(45deg)',
     );
   });
 });

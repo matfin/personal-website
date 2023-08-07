@@ -16,6 +16,7 @@ const Toggle = ({
   ...rest
 }: Props): JSX.Element => {
   const ariaPressed: boolean = value === ToggleValue.ON;
+  const isSwitchedOn = value === ToggleValue.ON;
 
   const onToggleTrackClick = (): void => {
     onToggle(value === ToggleValue.ON ? ToggleValue.OFF : ToggleValue.ON);
@@ -31,7 +32,7 @@ const Toggle = ({
     >
       <ToggleIndicatorSt
         data-testid="indicator"
-        switchedon={value === ToggleValue.ON}
+        $switchedon={isSwitchedOn}
         aria-hidden={true}
       />
     </ToggleTrackSt>

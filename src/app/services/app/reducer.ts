@@ -7,7 +7,7 @@ export const defaultState: AppReducerState = {
 
 export const appState = (
   state: AppReducerState = defaultState,
-  action: AppReduxAction
+  action: AppReduxAction,
 ): AppReducerState => {
   const { payload, type } = action;
 

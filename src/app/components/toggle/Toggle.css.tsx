@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { animationCurve, blackEmoji, layers } from 'app/styles';
 
 interface IToggleIndicatorStProps {
-  switchedon?: boolean;
+  $switchedon?: boolean | string;
 }
 
 const iconStyle = css`
@@ -37,7 +37,7 @@ export const ToggleIndicatorSt = styled.div<IToggleIndicatorStProps>`
   z-index: ${layers.upper};
   position: absolute;
   top: -2px;
-  left: ${({ switchedon }) => (switchedon ? '1.5rem' : '-2px')};
+  left: ${({ $switchedon }) => ($switchedon ? '1.5rem' : '-2px')};
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;

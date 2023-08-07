@@ -7,7 +7,7 @@ import ContentItem from './ContentItem';
 describe('ContentItem tests', () => {
   it('renders the component', () => {
     const { container } = render(
-      <ContentItem tagName="p" content="This is a test" />
+      <ContentItem tagName="p" content="This is a test" />,
     );
 
     expect(container).toBeTruthy();
@@ -19,7 +19,7 @@ describe('ContentItem tests', () => {
       <ContentItem
         tagName="p"
         content="This contains [a link](/test-link) to render"
-      />
+      />,
     );
     const link = container.getElementsByTagName('a')[0];
 
@@ -29,7 +29,7 @@ describe('ContentItem tests', () => {
 
   it('processes content that contains no links', () => {
     const { container } = render(
-      <ContentItem tagName="p" content="This contains no links to render" />
+      <ContentItem tagName="p" content="This contains no links to render" />,
     );
     const link = container.getElementsByTagName('a')[0];
 
@@ -39,7 +39,7 @@ describe('ContentItem tests', () => {
   describe('rendering standard html tags', () => {
     it('renders a section', () => {
       const { container } = render(
-        <ContentItem tagName="section" content="This is a section" />
+        <ContentItem tagName="section" content="This is a section" />,
       );
 
       expect(container.querySelector('section')).toBeTruthy();
@@ -48,7 +48,7 @@ describe('ContentItem tests', () => {
 
     it('renders a heading', () => {
       const { container } = render(
-        <ContentItem tagName="h1" content="This is a heading" />
+        <ContentItem tagName="h1" content="This is a heading" />,
       );
 
       expect(container.querySelector('h1')).toBeTruthy();
@@ -64,7 +64,7 @@ describe('ContentItem tests', () => {
             fileType: 'jpg',
             title: 'Test',
           }}
-        />
+        />,
       );
 
       expect(container.querySelector('img')).toBeTruthy();
@@ -72,7 +72,7 @@ describe('ContentItem tests', () => {
 
     it('renders a subheading', () => {
       const { container } = render(
-        <ContentItem tagName="h2" content="This is a subheading" />
+        <ContentItem tagName="h2" content="This is a subheading" />,
       );
 
       expect(container.querySelector('h2')).toBeTruthy();
@@ -81,7 +81,7 @@ describe('ContentItem tests', () => {
 
     it('renders a paragraph', () => {
       const { container } = render(
-        <ContentItem tagName="p" content="This is a paragraph" />
+        <ContentItem tagName="p" content="This is a paragraph" />,
       );
 
       expect(container.querySelector('p')).toBeTruthy();

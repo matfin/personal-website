@@ -59,7 +59,7 @@ describe('Page sagas', (): void => {
         dispatch: (action): unknown => dispatched.push(action),
         getState: () => ({}),
       },
-      loading
+      loading,
     ).toPromise();
 
     expect(dispatched).toEqual([{ type: ActionTypes.FETCH_PAGE_STARTED }]);
@@ -76,7 +76,7 @@ describe('Page sagas', (): void => {
         getState: () => ({}),
       },
       fetchPage,
-      { payload: 'test', type: ActionTypes.FETCH_PAGE_REQUEST }
+      { payload: 'test', type: ActionTypes.FETCH_PAGE_REQUEST },
     ).toPromise();
 
     expect(query).toHaveBeenCalledTimes(1);
@@ -100,7 +100,7 @@ describe('Page sagas', (): void => {
         getState: () => ({}),
       },
       fetchPage,
-      { payload: '/', type: ActionTypes.FETCH_PAGE_REQUEST }
+      { payload: '/', type: ActionTypes.FETCH_PAGE_REQUEST },
     ).toPromise();
 
     expect(query).toHaveBeenCalledTimes(1);
@@ -123,7 +123,7 @@ describe('Page sagas', (): void => {
 
     expect(gen.next().value).toEqual(loadingTask); // fork loading
     expect(gen.next().value).toEqual(
-      call(query, { url: '/pages/home.json', signal: expect.any(AbortSignal) })
+      call(query, { url: '/pages/home.json', signal: expect.any(AbortSignal) }),
     ); // call query
 
     gen.return(true); // return before query ends
@@ -149,7 +149,7 @@ describe('Page sagas', (): void => {
         getState: () => ({}),
       },
       fetchPage,
-      { payload: 'test', type: ActionTypes.FETCH_PAGE_REQUEST }
+      { payload: 'test', type: ActionTypes.FETCH_PAGE_REQUEST },
     ).toPromise();
 
     expect(query).toHaveBeenCalledTimes(1);

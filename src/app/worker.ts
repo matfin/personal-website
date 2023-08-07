@@ -5,7 +5,7 @@ declare const self: ServiceWorkerGlobalScope;
 const appIconSizes: number[] = getAppIconSizes();
 const cacheName: string = getCacheName();
 const appIconPaths: string[] = appIconSizes.map(
-  (size: number) => `/images/icons/logo-${size}.png`
+  (size: number) => `/images/icons/logo-${size}.png`,
 );
 const profilePicPaths: string[] = [
   '/images/profile-lg@1x.jpg',
@@ -47,8 +47,8 @@ const onActivate = (event: ExtendableEvent): void => {
             return caches.delete(name);
           }
           return Promise.resolve(false);
-        })
-      )
+        }),
+      ),
     );
 
   event.waitUntil([clearCaches()]);
@@ -62,7 +62,7 @@ const onInstall = (event: ExtendableEvent): void => {
       ...assetUrls,
       ...paths.map((path: string): string => `/pages/${path}.json`),
       ...paths.map(
-        (path: string): string => `${path === 'index' ? '/' : `${path}/`}`
+        (path: string): string => `${path === 'index' ? '/' : `${path}/`}`,
       ),
     ];
 
@@ -77,8 +77,8 @@ const onFetch = (event: FetchEvent): void => {
     caches
       .match(event.request)
       .then(
-        (response: Response | undefined) => response ?? fetch(event.request)
-      )
+        (response: Response | undefined) => response ?? fetch(event.request),
+      ),
   );
 };
 

@@ -27,7 +27,7 @@ export const createClientStore = (preloadedState?: CombinedAppState): Store => {
   const store: Store = createStore(
     rootReducer,
     preloadedState,
-    applyMiddleware(sagaMiddleware)
+    applyMiddleware(sagaMiddleware),
   );
 
   sagaMiddleware.run(rootSaga);

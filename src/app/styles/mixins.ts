@@ -4,12 +4,12 @@ import { sizes } from './vars';
 
 export const sizeQuery = (
   minWidth: number,
-  css: FlattenSimpleInterpolation
+  css: FlattenSimpleInterpolation,
 ): string => `@media (min-width: ${minWidth}px){${css}}`;
 
 export const orientationQuery = (
   orientation: Orientation,
-  css: FlattenSimpleInterpolation
+  css: FlattenSimpleInterpolation,
 ): string => `@media (orientation: ${orientation}){${css}}`;
 
 export const media = {

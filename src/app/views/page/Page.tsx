@@ -31,7 +31,7 @@ const pageContents = ({ contents }: PageProps): JSX.Element[] =>
   contents.map(
     (item: ContentItemProps): JSX.Element => (
       <ContentItem {...item} key={item.id} />
-    )
+    ),
   );
 
 const errorMessage = (error: Error): JSX.Element => (
@@ -83,11 +83,11 @@ const Page = ({
 
   return (
     <>
-      <BurgerSt navRevealed={showMenu} onClick={toggleMenu} />
-      <PageSt navRevealed={showMenu}>
+      <BurgerSt $navRevealed={showMenu} onClick={toggleMenu} />
+      <PageSt $navRevealed={showMenu}>
         <SideSt
           aria-label="Sidebar with navigation"
-          revealed={showMenu}
+          $revealed={showMenu}
           onClick={hideMenu}
         >
           <Nav>
@@ -113,7 +113,7 @@ const Page = ({
               slug={page?.slug}
             />
             <MainSt
-              nested={isNested}
+              $nested={isNested}
               aria-label="Main content"
               onClick={hideMenu}
             >

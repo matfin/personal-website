@@ -12,16 +12,16 @@ describe('Picture tests', (): void => {
   it('renders the component', (): void => {
     const wrapper = render(<Picture {...defaultProps} />);
     const smWebp: HTMLSourceElement = wrapper.getByTestId(
-      'sm-webp'
+      'sm-webp',
     ) as HTMLSourceElement;
     const smJpg: HTMLSourceElement = wrapper.getByTestId(
-      'sm-jpg'
+      'sm-jpg',
     ) as HTMLSourceElement;
     const lgWebp: HTMLSourceElement = wrapper.getByTestId(
-      'lg-webp'
+      'lg-webp',
     ) as HTMLSourceElement;
     const lgJpg: HTMLSourceElement = wrapper.getByTestId(
-      'lg-jpg'
+      'lg-jpg',
     ) as HTMLSourceElement;
 
     expect(wrapper).toBeTruthy();

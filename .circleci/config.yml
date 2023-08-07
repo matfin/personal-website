@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: node:16.13.1-alpine3.14
+      - image: node:18.17.0-alpine3.17
     steps:
       - run:
           name: Install Git
@@ -34,7 +34,7 @@ jobs:
 
   deploy:
     docker:
-      - image: node:16.13.1-alpine3.14
+      - image: node:18.17.0-alpine3.17
     steps:
       - run:
           name: Install Git
@@ -45,7 +45,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "d7:4b:62:ca:74:a9:48:65:18:85:a7:5f:71:34:e9:0d"
+            - 'd7:4b:62:ca:74:a9:48:65:18:85:a7:5f:71:34:e9:0d'
       - run:
           name: Add key to known_hosts
           command: mkdir -p ~/.ssh && ssh-keyscan $DEPLOY_HOST >> ~/.ssh/known_hosts
@@ -92,4 +92,3 @@ workflows:
           filters:
             branches:
               only: main
-

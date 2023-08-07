@@ -39,7 +39,7 @@ const Nav = ({ children, className }: Props): JSX.Element => {
           <LinkSt active={root === base ? 1 : 0} key={to} to={to}>
             {title}
           </LinkSt>
-        )
+        ),
       )}
       <ChildrenSt>{children}</ChildrenSt>
     </NavSt>

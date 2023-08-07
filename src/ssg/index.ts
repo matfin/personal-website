@@ -22,7 +22,7 @@ const generateSlugs = async (base: string): Promise<string[]> => {
 
         gathered.push(slug);
       }
-    })
+    }),
   );
 
   return gathered;
@@ -30,7 +30,7 @@ const generateSlugs = async (base: string): Promise<string[]> => {
 
 const generateStaticContent = async (
   path: string,
-  slugs: string[]
+  slugs: string[],
 ): Promise<void> => {
   const generator: SSGController = new SSGController();
 
@@ -52,7 +52,7 @@ const generateStaticContent = async (
 
 const generateSitemap = async (
   path: string,
-  slugs: string[]
+  slugs: string[],
 ): Promise<void> => {
   const canonicalUrl: string = getCanonicalUrl();
   const parts: string[] = [
@@ -67,8 +67,8 @@ const generateSitemap = async (
       <loc>${canonicalUrl}/${slug === 'index' ? '' : slug}</loc>
       <lastmod>${new Date().toISOString()}</lastmod>
     </url>
-  `.trim()
-    )
+  `.trim(),
+    ),
   );
   parts.push('</urlset>');
 
@@ -77,7 +77,7 @@ const generateSitemap = async (
 
 const generatePwaContent = async (
   path: string,
-  slugs: string[]
+  slugs: string[],
 ): Promise<void> =>
   await fs.writeFile(`${path}/pwa.json`, JSON.stringify(slugs), 'utf-8');
 
@@ -92,7 +92,7 @@ const run = async (): Promise<void> => {
     await generateSitemap(outputDir, slugs);
 
     console.info(
-      `Regenerated static content from: ${contentBase} to: ${outputDir}`
+      `Regenerated static content from: ${contentBase} to: ${outputDir}`,
     );
   } catch (error) {
     console.log(error);

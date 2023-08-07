@@ -19,7 +19,7 @@ describe('App', () => {
     const wrapper = renderWithRouter(
       <Provider store={store}>
         <App />
-      </Provider>
+      </Provider>,
     );
 
     expect(wrapper).toBeTruthy();

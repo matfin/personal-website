@@ -23,7 +23,7 @@ const mapStateToProps = (state: CombinedAppState) => ({
 });
 
 export const mapDispatchToProps = (
-  dispatch: PageDispatch
+  dispatch: PageDispatch,
 ): MapDispatchToProps => ({
   fetchPageRequest: (slug: string): void => {
     dispatch(fetchPageRequest(slug));

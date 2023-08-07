@@ -1,5 +1,5 @@
 import React from 'react';
-import FooterSt, { ClosingTagSt } from './Footer.css';
+import FooterSt, { ClosingTagSt, FooterTextSt } from './Footer.css';
 
 export interface Props {
   className?: string;
@@ -7,6 +7,7 @@ export interface Props {
 
 const Footer = ({ className }: Props): JSX.Element => (
   <FooterSt className={className}>
+    <FooterTextSt>Made by a human</FooterTextSt>
     <ClosingTagSt />
   </FooterSt>
 );
