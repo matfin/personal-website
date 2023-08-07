@@ -19,7 +19,7 @@ describe('Project tests', (): void => {
     expect(screen.getByText('Test project title')).toBeTruthy();
     expect(screen.getByText('Test project description')).toBeTruthy();
     expect(container.getElementsByTagName('a')[0].href).toContain(
-      '/projects/test-slug/'
+      '/projects/test-slug/',
     );
   });
 });

@@ -9,7 +9,7 @@ export enum LinePlacement {
 
 interface LineStProps {
   placement: LinePlacement;
-  revealed: boolean;
+  $revealed: boolean;
 }
 
 const transformTo = (placement: LinePlacement): FlattenSimpleInterpolation => {
@@ -45,7 +45,9 @@ export const LineSt = styled.span<LineStProps>`
   height: 1px;
   background: ${(props) => props?.theme?.colours?.primary};
   transform-origin: center center;
-  transition: transform 0.5s ${animationCurve}, rotate 0.5s ${animationCurve};
+  transition:
+    transform 0.5s ${animationCurve},
+    rotate 0.5s ${animationCurve};
 
-  ${({ revealed, placement }) => revealed && transformTo(placement)}
+  ${({ $revealed, placement }) => $revealed && transformTo(placement)}
 `;

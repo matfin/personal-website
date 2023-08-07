@@ -26,7 +26,11 @@ describe('Toggle tests', () => {
   it('toggles to the OFF value', () => {
     const spyOnToggle = jest.fn();
     const wrapper = render(
-      <Toggle {...defaultProps} onToggle={spyOnToggle} value={ToggleValue.ON} />
+      <Toggle
+        {...defaultProps}
+        onToggle={spyOnToggle}
+        value={ToggleValue.ON}
+      />,
     );
     const toggle = wrapper.getByTestId('toggle');
 

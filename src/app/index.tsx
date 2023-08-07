@@ -20,5 +20,5 @@ hydrateRoot(
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </Provider>
+  </Provider>,
 );

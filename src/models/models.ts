@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { ContentTypes } from './types';
 
 export interface StaticReqProps {
@@ -32,7 +34,8 @@ export interface ContentItemProps {
     | JSX.Element
     | JSX.Element[]
     | string
-    | string[];
+    | string[]
+    | React.ReactNode;
   id?: string;
   tagName: string;
 }

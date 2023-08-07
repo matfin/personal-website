@@ -9,7 +9,7 @@ export const defaultState: PageReducerState = {
 
 export const pageState = (
   state: PageReducerState = defaultState,
-  action: PageReduxAction
+  action: PageReduxAction,
 ): PageReducerState => {
   const { error, payload, type } = action;
 

@@ -39,7 +39,9 @@ export interface Props extends ContentItemProps {
   key?: string;
 }
 
-export const processContent = (content: string): (string | JSX.Element)[] => {
+export const processContent = (
+  content: string,
+): (string | React.ReactNode)[] => {
   const split: string[] = splitContent(content);
   const processed = split.map((item: string) => {
     if (isLink(item)) {
@@ -54,8 +56,8 @@ export const processContent = (content: string): (string | JSX.Element)[] => {
 
 export const renderTag = (
   tagName: string,
-  content: ContentItemProps,
-  key?: string
+  content: React.ReactNode,
+  key?: string,
 ): JSX.Element => {
   switch (tagName) {
     case 'section': {
@@ -123,8 +125,8 @@ export const renderProject = (project: ProjectProps): JSX.Element => (
 
 export const renderContent = (
   item: ContentTypes,
-  key?: string
-): JSX.Element => {
+  key?: string,
+): React.ReactNode => {
   if (isContentItem(item as ContentItemProps)) {
     const { content, tagName } = item as ContentItemProps;
 
@@ -132,14 +134,14 @@ export const renderContent = (
       return renderTag(
         tagName,
         content.map(
-          (contentItem: ContentTypes, idx: number): JSX.Element =>
-            renderContent(contentItem, `${tagName}-${idx}`)
+          (contentItem: ContentTypes, idx: number): React.ReactNode =>
+            renderContent(contentItem, `${tagName}-${idx}`),
         ),
-        key
+        key,
       );
     }
 
-    return renderTag(tagName, content as ContentItemProps, key);
+    return renderTag(tagName, content, key);
   }
 
   if (isTopic(item as TopicProps)) {
@@ -157,7 +159,7 @@ export const renderContent = (
   return <span>Unknown element</span>;
 };
 
-const ContentItem = (contentItem: Props): JSX.Element =>
+const ContentItem = (contentItem: Props): React.ReactNode =>
   renderContent(contentItem);
 
 export default ContentItem;

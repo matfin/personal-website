@@ -14,7 +14,7 @@ export const defaultAppState: CombinedAppState = {
 };
 
 export const createMockStore = (
-  state: CombinedAppState = defaultAppState
+  state: CombinedAppState = defaultAppState,
 ): Store => {
   const mockStore = configureMockStore();
 
@@ -22,11 +22,11 @@ export const createMockStore = (
 };
 
 export const renderWithRouter = (
-  children: JSX.Element | JSX.Element[]
+  children: JSX.Element | JSX.Element[],
 ): RenderResult => render(<Router>{children}</Router>);
 
 export const renderWithStore = (
-  children: JSX.Element | JSX.Element[]
+  children: JSX.Element | JSX.Element[],
 ): RenderResult => {
   const store = createMockStore({} as CombinedAppState);
 

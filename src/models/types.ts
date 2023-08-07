@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {
   ContentItemProps,
   ImageProps,
@@ -12,7 +14,8 @@ export type ContentTypes =
   | TopicProps
   | PositionProps
   | ProjectProps
-  | string;
+  | string
+  | React.ReactNode;
 
 export type Breakpoints = {
   sm: number;

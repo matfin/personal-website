@@ -39,7 +39,7 @@ describe('Position tests', () => {
 
   it('renders the end date', () => {
     const { container } = render(
-      <Position {...defaultProps} endDate="2020-04-26" />
+      <Position {...defaultProps} endDate="2020-04-26" />,
     );
 
     expect(container).toBeTruthy();

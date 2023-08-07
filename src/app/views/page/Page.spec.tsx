@@ -52,7 +52,7 @@ describe('Page tests', () => {
 
     spyUseLocation.mockReturnValue({ pathname: '' } as any);
     renderWithRouter(
-      <Page {...defaultProps} fetchPageRequest={spyFetchPageRequest} />
+      <Page {...defaultProps} fetchPageRequest={spyFetchPageRequest} />,
     );
 
     expect(spyFetchPageRequest).toHaveBeenCalledTimes(1);
@@ -66,7 +66,7 @@ describe('Page tests', () => {
 
     expect(container.getElementsByTagName('aside')[0]).toHaveStyleRule(
       'transform',
-      'translate3d(100vw,0,0)'
+      'translate3d(100vw,0,0)',
     );
 
     act((): void => {
@@ -75,7 +75,7 @@ describe('Page tests', () => {
 
     await expect(container.getElementsByTagName('aside')[0]).toHaveStyleRule(
       'transform',
-      'translate3d(0,0,0)'
+      'translate3d(0,0,0)',
     );
 
     act((): void => {
@@ -84,7 +84,7 @@ describe('Page tests', () => {
 
     await expect(container.getElementsByTagName('aside')[0]).toHaveStyleRule(
       'transform',
-      'translate3d(100vw,0,0)'
+      'translate3d(100vw,0,0)',
     );
   });
 
@@ -139,7 +139,7 @@ describe('Page tests', () => {
             },
           ],
         }}
-      />
+      />,
     );
 
     expect(container).toBeTruthy();
@@ -149,7 +149,7 @@ describe('Page tests', () => {
   it('switches to the night theme', async (): Promise<void> => {
     const spySwitchTheme = jest.fn();
     const container = renderWithRouter(
-      <Page {...defaultProps} switchTheme={spySwitchTheme} />
+      <Page {...defaultProps} switchTheme={spySwitchTheme} />,
     );
     const toggle = container.getByTestId('toggle');
 
@@ -166,7 +166,7 @@ describe('Page tests', () => {
         {...defaultProps}
         currentTheme={ThemeType.NIGHT}
         switchTheme={spySwitchTheme}
-      />
+      />,
     );
     const toggle = container.getByTestId('toggle');
 
@@ -178,7 +178,7 @@ describe('Page tests', () => {
 
   it('renders an error message', (): void => {
     const { container } = renderWithRouter(
-      <Page {...defaultProps} error={new Error('Test error')} />
+      <Page {...defaultProps} error={new Error('Test error')} />,
     );
 
     expect(container).toBeTruthy();

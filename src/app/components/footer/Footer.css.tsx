@@ -3,8 +3,13 @@ import { ClosingTag } from 'app/components/svgicons';
 
 export const FooterSt = styled.footer`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const FooterTextSt = styled.p`
+  margin: 1rem 0;
 `;
 
 export const ClosingTagSt = styled(ClosingTag)`

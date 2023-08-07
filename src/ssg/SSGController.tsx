@@ -47,7 +47,7 @@ class SSGController {
   };
 
   private generateStaticContentString = (
-    req: StaticReqProps
+    req: StaticReqProps,
   ): Promise<string> =>
     new Promise((resolve): void => {
       const appVersion: string = getAppVersion();
@@ -57,10 +57,10 @@ class SSGController {
       const preloadedState: CombinedAppState = this.store.getState();
       const preloadedStateJson: string = JSON.stringify(preloadedState).replace(
         /</g,
-        '\\u003c'
+        '\\u003c',
       );
       const body: string = renderToString(
-        sheet.collectStyles(<IndexComponent req={req} store={this.store} />)
+        sheet.collectStyles(<IndexComponent req={req} store={this.store} />),
       );
 
       const styleTags: string = sheet.getStyleTags();
