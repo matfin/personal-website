@@ -54,4 +54,4 @@ export type Layers = {
   lower: number;
 };
 
-export type JSXChildren = string | JSX.Element | JSX.Element[];
+export type JSXChildren = string | React.ReactElement | React.ReactElement[];

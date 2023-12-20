@@ -11,7 +11,7 @@ const Project = ({
   description,
   slug,
   title,
-}: Props): JSX.Element => (
+}: Props): React.ReactElement => (
   <ProjectSt to={`/projects/${slug}/`} className={className}>
     <TitleSt>{title}</TitleSt>
     <DescriptionSt>{description}</DescriptionSt>

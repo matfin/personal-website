@@ -6,7 +6,7 @@ export interface Props {
   secondaryFill?: string;
 }
 
-export const LoadingSpinner = ({ className }: Props): JSX.Element => (
+export const LoadingSpinner = ({ className }: Props): React.ReactElement => (
   <svg
     className={className}
     version="1.1"
@@ -22,7 +22,7 @@ export const LoadingSpinner = ({ className }: Props): JSX.Element => (
   </svg>
 );
 
-export const ClosingTag = ({ className }: Props): JSX.Element => (
+export const ClosingTag = ({ className }: Props): React.ReactElement => (
   <svg
     className={className}
     version="1.1"

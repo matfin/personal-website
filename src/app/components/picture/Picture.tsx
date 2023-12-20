@@ -17,7 +17,7 @@ const imgSrcSet = (fileType: string, name: string, size: ImageSize): string => `
   /images/${name}-${size}@3x.${fileType} 3x
 `;
 
-const Picture = ({ className, name, title }: Props): JSX.Element => (
+const Picture = ({ className, name, title }: Props): React.ReactElement => (
   <picture className={className}>
     <source
       data-testid="sm-webp"

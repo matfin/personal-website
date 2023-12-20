@@ -6,7 +6,7 @@ import MenuButton, { Props } from './MenuButton';
 
 const defaultProps: Props = {
   onClick: jest.fn(),
-  $navRevealed: false,
+  navrevealed: undefined,
 };
 
 describe('MenuButton tests', () => {
@@ -51,7 +51,9 @@ describe('MenuButton tests', () => {
   });
 
   it('has the correct style when revealed', async () => {
-    const { container } = render(<MenuButton {...defaultProps} $navRevealed />);
+    const { container } = render(
+      <MenuButton {...defaultProps} navrevealed="true" />,
+    );
     const lines = container.getElementsByTagName('span');
 
     expect(lines[0]).toHaveStyleRule(

@@ -9,7 +9,7 @@ export enum LinePlacement {
 
 interface LineStProps {
   placement: LinePlacement;
-  $revealed: boolean;
+  $revealed?: string;
 }
 
 const transformTo = (placement: LinePlacement): FlattenSimpleInterpolation => {

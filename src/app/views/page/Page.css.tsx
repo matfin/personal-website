@@ -20,7 +20,7 @@ interface IMainStProps {
 }
 
 interface PagePropsStProps {
-  $navRevealed: boolean;
+  navrevealed?: string;
 }
 
 export const PageSt = styled.div<PagePropsStProps>`
@@ -29,23 +29,20 @@ export const PageSt = styled.div<PagePropsStProps>`
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
-
-  grid-template-columns: 1rem auto 1rem;
-  grid-template-rows: 2rem auto 6rem;
+  grid-template: 2rem auto 6rem / 1rem auto 1rem;
   grid-template-areas:
     '. . .'
     '. main .'
     '. footer .';
 
   ${(props) =>
-    props.$navRevealed &&
+    props.navrevealed &&
     css`
       overflow: hidden;
     `}
 
   ${media.md(css`
-    grid-template-columns: 1rem auto 30rem 20rem auto;
-    grid-template-rows: 2rem auto 12rem;
+    grid-template: 2rem auto 12rem / 1rem auto 30rem 20rem auto;
     grid-template-areas:
       '. . . . .'
       '. . main side .'
@@ -125,6 +122,7 @@ const commonButtonStyle = css`
 
 export const BurgerSt = styled(MenuButton)`
   ${commonButtonStyle}
+
   z-index: ${layers.top};
   right: 1rem;
 
@@ -135,6 +133,7 @@ export const BurgerSt = styled(MenuButton)`
 
 export const BackSt = styled(Link)`
   ${commonButtonStyle}
+
   left: 1rem;
   background: ${(props) => props?.theme?.colours?.secondary};
   ${textTypography}

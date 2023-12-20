@@ -28,14 +28,14 @@ export const pathRoot = (pathname: string): string => {
   return splitPathname[0] ?? 'index';
 };
 
-const Nav = ({ children, className }: Props): JSX.Element => {
+const Nav = ({ children, className }: Props): React.ReactElement => {
   const { pathname } = useLocation();
   const root: string = pathRoot(pathname);
 
   return (
     <NavSt aria-label="Navigation" role="navigation" className={className}>
       {navLinks.map(
-        ({ base, title, to }: NavLinkProps): JSX.Element => (
+        ({ base, title, to }: NavLinkProps): React.ReactElement => (
           <LinkSt active={root === base ? 1 : 0} key={to} to={to}>
             {title}
           </LinkSt>

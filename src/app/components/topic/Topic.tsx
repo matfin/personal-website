@@ -6,7 +6,11 @@ export interface Props extends TopicProps {
   className?: string;
 }
 
-const Topic = ({ className, description, title }: Props): JSX.Element => (
+const Topic = ({
+  className,
+  description,
+  title,
+}: Props): React.ReactElement => (
   <TopicSt title={description} className={className}>
     {title}
   </TopicSt>

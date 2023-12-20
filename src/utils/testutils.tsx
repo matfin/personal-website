@@ -22,11 +22,11 @@ export const createMockStore = (
 };
 
 export const renderWithRouter = (
-  children: JSX.Element | JSX.Element[],
+  children: React.ReactElement | React.ReactElement[],
 ): RenderResult => render(<Router>{children}</Router>);
 
 export const renderWithStore = (
-  children: JSX.Element | JSX.Element[],
+  children: React.ReactElement | React.ReactElement[],
 ): RenderResult => {
   const store = createMockStore({} as CombinedAppState);
 

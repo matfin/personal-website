@@ -5,7 +5,7 @@ export interface Props {
   className?: string;
 }
 
-const Footer = ({ className }: Props): JSX.Element => (
+const Footer = ({ className }: Props): React.ReactElement => (
   <FooterSt className={className}>
     <FooterTextSt>Made by a human</FooterTextSt>
     <ClosingTagSt />

@@ -17,11 +17,13 @@ export const CompanyNameSt = styled.h3`
 
 export const LocationAndRoleSt = styled.h4`
   ${thirdHeadingTypography}
+
   margin-bottom: 1rem;
 `;
 
 export const DateFromToSt = styled.h4`
   ${thirdHeadingTypography}
+
   font-weight: ${fontWeight.bold};
 `;
 
