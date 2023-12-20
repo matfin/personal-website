@@ -14,7 +14,7 @@ const Toggle = ({
   value,
   onToggle,
   ...rest
-}: Props): JSX.Element => {
+}: Props): React.ReactElement => {
   const ariaPressed: boolean = value === ToggleValue.ON;
   const isSwitchedOn = value === ToggleValue.ON;
 

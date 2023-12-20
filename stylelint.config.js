@@ -1,8 +1,6 @@
 module.exports = {
-  extends: [
-    'stylelint-config-recommended',
-    'stylelint-config-styled-components',
-  ],
+  // extends: ['stylelint-config-standard', 'stylelint-config-styled-components'],
+  extends: ['stylelint-config-standard'],
   overrides: [
     {
       files: ['**/*.css.tsx'],

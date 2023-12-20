@@ -15,7 +15,7 @@ export const canonicalSlug = (slug: string): string => {
   return `${canonicalUrl}/${slug === 'index' ? '' : slug}`;
 };
 
-const Meta = ({ description, title, slug = '' }: Props): JSX.Element => (
+const Meta = ({ description, title, slug = '' }: Props): React.ReactElement => (
   <Helmet>
     <title>{title}</title>
     <meta

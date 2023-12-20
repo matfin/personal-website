@@ -27,18 +27,18 @@ export interface Props {
   switchTheme(theme: ThemeType): void;
 }
 
-const pageContents = ({ contents }: PageProps): JSX.Element[] =>
+const pageContents = ({ contents }: PageProps): React.ReactElement[] =>
   contents.map(
-    (item: ContentItemProps): JSX.Element => (
+    (item: ContentItemProps): React.ReactElement => (
       <ContentItem {...item} key={item.id} />
     ),
   );
 
-const errorMessage = (error: Error): JSX.Element => (
+const errorMessage = (error: Error): React.ReactElement => (
   <ErrorSt>{error.toString()}</ErrorSt>
 );
 
-const backButton = (href: string): JSX.Element => (
+const backButton = (href: string): React.ReactElement => (
   <BackSt arial-label="back" data-testid="backbutton" to={href} />
 );
 
@@ -50,7 +50,7 @@ const Page = ({
   fetchPageRequest,
   resetPage,
   switchTheme,
-}: Props): JSX.Element => {
+}: Props): React.ReactElement => {
   const { pathname } = useLocation();
   const { isNested, parts } = pathNesting(normalisePathname(pathname));
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -83,8 +83,11 @@ const Page = ({
 
   return (
     <>
-      <BurgerSt $navRevealed={showMenu} onClick={toggleMenu} />
-      <PageSt $navRevealed={showMenu}>
+      <BurgerSt
+        navrevealed={showMenu ? 'true' : undefined}
+        onClick={toggleMenu}
+      />
+      <PageSt navrevealed={showMenu ? 'true' : undefined}>
         <SideSt
           aria-label="Sidebar with navigation"
           $revealed={showMenu}

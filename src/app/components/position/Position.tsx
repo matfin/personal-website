@@ -22,7 +22,7 @@ const Position = ({
   role,
   startDate,
   tasks,
-}: Props): JSX.Element => {
+}: Props): React.ReactElement => {
   const dateFrom = formatDate(new Date(startDate));
   const dateTo = endDate
     ? ` to ${formatDate(new Date(endDate))}`

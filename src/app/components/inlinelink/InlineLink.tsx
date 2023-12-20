@@ -9,19 +9,34 @@ export interface Props {
   url: string;
 }
 
-const ExternalLink = ({ className, text, title, url }: Props): JSX.Element => (
+const ExternalLink = ({
+  className,
+  text,
+  title,
+  url,
+}: Props): React.ReactElement => (
   <a className={className} href={url} title={title} rel="external">
     {text}
   </a>
 );
 
-const InternalLink = ({ className, text, title, url }: Props): JSX.Element => (
+const InternalLink = ({
+  className,
+  text,
+  title,
+  url,
+}: Props): React.ReactElement => (
   <Link className={className} title={title} to={url}>
     {text}
   </Link>
 );
 
-const InlineLink = ({ className, text, title, url }: Props): JSX.Element =>
+const InlineLink = ({
+  className,
+  text,
+  title,
+  url,
+}: Props): React.ReactElement =>
   isExternalUrl(url) ? (
     <ExternalLink className={className} text={text} title={title} url={url} />
   ) : (

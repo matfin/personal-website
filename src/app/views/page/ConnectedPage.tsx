@@ -36,6 +36,6 @@ export const mapDispatchToProps = (
   },
 });
 
-const Component = (props: Props): JSX.Element => <Page {...props} />;
+const Component = (props: Props): React.ReactElement => <Page {...props} />;
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component);

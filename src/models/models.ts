@@ -31,8 +31,8 @@ export interface ContentItemProps {
   content:
     | ContentTypes
     | ContentTypes[]
-    | JSX.Element
-    | JSX.Element[]
+    | React.ReactElement
+    | React.ReactElement[]
     | string
     | string[]
     | React.ReactNode;

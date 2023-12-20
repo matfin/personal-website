@@ -10,6 +10,7 @@ const iconStyle = css`
   font-size: 0.75rem;
   line-height: 1.5rem;
   ${blackEmoji}
+
   top: -2px;
 `;
 
@@ -22,12 +23,14 @@ export const ToggleTrackSt = styled.button`
 
   &::before {
     ${iconStyle}
+
     left: 4px;
     content: '☀️';
   }
 
   &::after {
     ${iconStyle}
+
     right: 4px;
     content: '🌙';
   }
@@ -42,6 +45,5 @@ export const ToggleIndicatorSt = styled.div<IToggleIndicatorStProps>`
   height: 1.5rem;
   border-radius: 50%;
   background: ${({ theme }) => theme?.colours?.primary};
-
   transition: left 200ms ${animationCurve};
 `;

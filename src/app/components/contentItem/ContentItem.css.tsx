@@ -21,16 +21,19 @@ export const SectionSt = styled.section`
 
 export const HeadingSt = styled.h1`
   ${headingTypography}
+
   padding-right: 3rem;
 `;
 
 export const SubHeadingSt = styled.h2`
   ${subHeadingTypography}
+
   padding: 1rem 0;
 `;
 
 export const ParagraphSt = styled.p`
   ${textTypography}
+
   margin: 1rem 0;
 `;
 
@@ -98,7 +101,6 @@ export const ListItemSt = styled.li`
 export const TopicsSt = styled.ul`
   list-style: none;
   display: grid;
-
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0.5rem;
 

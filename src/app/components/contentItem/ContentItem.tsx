@@ -58,7 +58,7 @@ export const renderTag = (
   tagName: string,
   content: React.ReactNode,
   key?: string,
-): JSX.Element => {
+): React.ReactElement => {
   switch (tagName) {
     case 'section': {
       return <SectionSt key={key}>{content}</SectionSt>;
@@ -109,15 +109,15 @@ export const renderTag = (
   }
 };
 
-export const renderTopic = (topic: TopicProps): JSX.Element => (
+export const renderTopic = (topic: TopicProps): React.ReactElement => (
   <TopicSt {...topic} key={topic.title} />
 );
 
-export const renderPosition = (position: PositionProps): JSX.Element => (
+export const renderPosition = (position: PositionProps): React.ReactElement => (
   <Position {...position} key={`${position.company}-${position.location}`} />
 );
 
-export const renderProject = (project: ProjectProps): JSX.Element => (
+export const renderProject = (project: ProjectProps): React.ReactElement => (
   <TileSt key={project.title}>
     <ProjectSt {...project} />
   </TileSt>
