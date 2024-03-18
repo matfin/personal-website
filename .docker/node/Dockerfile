@@ -1,4 +1,4 @@
-FROM        node:16.13.1-alpine
+FROM        node:18.17.0-alpine
 
 ARG CANONICAL_URL
 ARG ENABLE_CACHE
