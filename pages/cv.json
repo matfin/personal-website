@@ -39,11 +39,8 @@
               "role": "Senior front-end engineer",
               "startDate": "2020-01-06",
               "tasks": [
-                "Worked on features for a mobile travel app and implemented upgrade path (React Native).",
-                "Migrated client project from AngularJS to ReactJS with TypeScript.",
-                "Replaced LESS/SASS with styled components (CSS in JS).",
-                "Planned and implemented strategy to recover test coverage.",
-                "Provided consultation to implement third party features seamlessly in client application."
+                "Worked on features for a corporate travel application and implemented upgrade path (React Native).",
+                "Migrated client web application from AngularJS to ReactJS with TypeScript."
               ],
               "topics": []
             },
@@ -55,8 +52,6 @@
               "startDate": "2017-08-08",
               "tasks": [
                 "Created and maintained a marketplace and CRM for a used car platform.",
-                "Managed technical debt for projects and maintained 100% test coverage.",
-                "Platforms created using ReactJS with Redux for state management and Jest for testing.",
                 "Mentored junior engineers, reviewed CVs and interviewed candidates."
               ],
               "topics": []
@@ -68,10 +63,8 @@
               "role": "Senior full-stack engineer",
               "startDate": "2014-12-01",
               "tasks": [
-                "Created and maintained community websites for cloud based service providers.",
-                "Set up continuous integration (testing and deployment) for projects.",
                 "Made regular contributions to popular Open-source projects and started two of my own.",
-                "Created several portfolio websites using MeteorJS and then GoHugo."
+                "Created a variety of web and mobile applications for numerous clients."
               ],
               "topics": []
             },
@@ -82,10 +75,8 @@
               "role": "Senior full-stack engineer",
               "startDate": "2014-06-01",
               "tasks": [
-                "Implemented a new website for the Monoqi B2B platform to facilitate communication and sales between designers and resellers.",
-                "Improved purchase flows and address verification for the Monoqi B2C platform.",
-                "Created new tools to improve front end development workflow for the team.",
-                "Authored email templates for both platforms to increase conversion rates."
+                "Built a website for the Monoqi B2B platform for communication between designers and resellers.",
+                "Created new tools to improve front end development workflow for the team."
               ],
               "topics": []
             },
@@ -96,10 +87,8 @@
               "role": "Senior front-end engineer",
               "startDate": "2013-10-10",
               "tasks": [
-                "Created a web application using the Meteor Javascript framework for an Axel Springer Ideas funded startup TunedIn to deliver native-like performance.",
-                "Main features include a TV Guide and participation stream, both of which update in real time.",
-                "Wrote unit and acceptance tests to ensure the product was stable and robust throughout each sprint.",
-                "Supported the product owner and marketing team in creating the company website and marketing emails."
+                "Created and maintained a TV guide web and mobile application for TunedIn, an Axel Springer startup.",
+                "Wrote unit and acceptance tests to ensure the product was stable and robust throughout each sprint."
               ],
               "topics": []
             },
@@ -110,10 +99,8 @@
               "role": "Senior full-stack engineer (contract)",
               "startDate": "2013-03-12",
               "tasks": [
-                "Created a knowledge based information portal (secure document sharing, retrieval and storage) for a large telecoms organisation in PHP.",
-                "Optimised customer login/registration flow and integrated this with other CRM tools (Salesforce, Eloqua).",
-                "Integrated the Compass SCSS framework and optimised HTML templates to improve SEO performance.",
-                "Developed HTML templates for the internal corporate IT intranet and assisted in integrating them to Microsoft Sharepoint."
+                "Created a knowledge based information portal for a large telecoms organisation.",
+                "Optimised registration flow and integrated this with other CRM tools such as Salesforce."
               ],
               "topics": []
             },
@@ -124,11 +111,8 @@
               "role": "Technical lead",
               "startDate": "2012-01-12",
               "tasks": [
-                "Drove the development of multiple mobile applications.",
-                "Developed an electronic programming guide (EPG) in HTML5 for set top boxes, smart TVs and the web.",
-                "Overhauled the Irish Times News app (iOS, Android), integrating to their existing web infrastructure.",
-                "Responsible for client satisfaction by delivering quality products on time and within budget.",
-                "Responsible for reviewing CVs, creating recruitment exercises and interviewing candidates for development roles."
+                "Drove the development of multiple mobile applications as technical lead.",
+                "Overhauled the Irish Times News app (iOS, Android), integrating to their existing web infrastructure."
               ],
               "topics": []
             },
@@ -139,10 +123,8 @@
               "role": "Senior full-stack engineer",
               "startDate": "2010-03-08",
               "tasks": [
-                "Maintained high performance websites under heavy server load.",
-                "Upgraded the in-house CMS for Paddy Power Games and Casino to enable targeted content delivery for different user groups.",
-                "Built a staff rostering and payroll processing system used by shop managers for all Paddy Power retail outlets.",
-                "Our scrum approach to development ensured timely delivery of product phases and stakeholders were kept up to date with development on large projects."
+                "Upgraded the in-house CMS to enable targeted content delivery for different user groups.",
+                "Built a staff rostering and payroll system used by shop managers for all Paddy Power outlets."
               ],
               "topics": []
             },
@@ -153,25 +135,20 @@
               "role": "Senior full-stack engineer",
               "startDate": "2008-07-01",
               "tasks": [
-                "Created several bespoke content managed websites for clients using hand-coded html and php.",
-                "Leveraged Twitter and Facebook APIs, to optimise the clients’ online offering.",
-                "Provided web content strategy guidance to clients.",
-                "Practised excellent standards in web development to ensure organic SEO performance and accessibility.",
-                "Initiated, managed and maintained long-lasting professional client relationships."
+                "Created several bespoke content managed websites for clients using hand-coded HTML and PHP.",
+                "Practised excellent standards in web development to ensure organic SEO performance and accessibility."
               ],
               "topics": []
             },
             {
-              "company": "Net a Porter",
+              "company": "Net-A-Porter",
               "endDate": "2008-07-01",
               "location": "London, UK",
               "role": "Full-stack engineer",
               "startDate": "2007-06-01",
               "tasks": [
                 "Redeveloped the HTML and CSS during a complete overhaul of the company website.",
-                "Created an internal WYSIWYG tool to author promotional emails and newsletter templates.",
-                "Designed and built the in house intranet portal, tying it into existing LDAP servers. This enabled seamless integration with existing user logins.",
-                "Provided ongoing maintenance to website product pages to optimise the e-commerce purchase flows."
+                "Created an internal WYSIWYG tool to author promotional emails and newsletter templates."
               ],
               "topics": []
             },
@@ -183,9 +160,7 @@
               "startDate": "2006-09-15",
               "tasks": [
                 "Upgraded site standards compliancy in XHTML and CSS.",
-                "Coordinated internal knowledge sharing through regular web standards training.",
-                "Re-modeled html email templates for all marketing campaigns.",
-                "Provided ongoing maintenance and enhancements for the company website."
+                "Coordinated internal knowledge sharing through regular web standards training."
               ],
               "topics": []
             },
@@ -196,9 +171,8 @@
               "role": "Associate software engineer",
               "startDate": "2005-07-01",
               "tasks": [
-                "Created a web app to monitor RSS feeds from news providers.",
-                "Built an XSLT processor to populate XML feeds to databases.",
-                "Upgraded servers and software from HPUX to Linux and authored the associated technical documentation."
+                "Created a web application in Tomcat to monitor RSS feeds from news providers.",
+                "Built an XSLT processor to populate XML feeds to databases."
               ],
               "topics": []
             },
