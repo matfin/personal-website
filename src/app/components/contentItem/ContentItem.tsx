@@ -58,7 +58,7 @@ export const renderTag = (
   tagName: string,
   content: React.ReactNode,
   key?: string,
-): React.ReactElement => {
+): React.ReactNode => {
   switch (tagName) {
     case 'section': {
       return <SectionSt key={key}>{content}</SectionSt>;
@@ -162,4 +162,4 @@ export const renderContent = (
 const ContentItem = (contentItem: Props): React.ReactNode =>
   renderContent(contentItem);
 
-export default ContentItem;
+export default React.memo(ContentItem);

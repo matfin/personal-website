@@ -1,0 +1,49 @@
+{
+  "title": "Matt Finucane - Redux Toolkit Demo",
+  "description": "Experimenting with Redux Toolkit and TypeScript generic components",
+  "slug": "projects/redux-toolkit-demo",
+  "contents": [
+    {
+      "tagName": "section",
+      "id": "intro",
+      "content": [
+        {
+          "id": "rtk-1",
+          "tagName": "h1",
+          "content": "Redux Tooklit Demo"
+        },
+        {
+          "id": "rtk-2",
+          "tagName": "h2",
+          "content": "Experimenting with Redux Toolkit and TypeScript generic components."
+        }
+      ]
+    },
+    {
+      "tagName": "section",
+      "id": "rtk-3",
+      "content": [
+        {
+          "id": "rtk-4",
+          "tagName": "p",
+          "content": "This is a small project to demonstrate the use of [Redux Toolkit](https://redux-toolkit.js.org/), which removes a lot of the boilerplate associated with setting up Redux in a React project."
+        },
+        {
+          "id": "rtk-5",
+          "tagName": "p",
+          "content": "Redux Toolkit encourages good practice in setting up state management, such as handling updates to an immutable state with built in libraries such as [Immer](https://immerjs.github.io/immer/) and use with TypeScript is much easier too."
+        },
+        {
+          "id": "rtk-6",
+          "tagName": "p",
+          "content": "This project also showcases the use of TypeScript generic components to facilitate scalability by preventing repetitive code. Components such as list components take a collection of items with a particular shape, as well as a callback function to render each item, much like the built in [React Native FlatList](https://reactnative.dev/docs/flatlist) component."
+        },
+        {
+          "id": "rtk-7",
+          "tagName": "p",
+          "content": "This demo was created as part of an exercise to filter an archive of video games by their publishers and the platforms they exist on. Filters are applied via text search, select drowndowns and via url parameters. The source code is at [GitHub](https://github.com/matfin/videogame-archive)."
+        }
+      ]
+    }
+  ]
+}
