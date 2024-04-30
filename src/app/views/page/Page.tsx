@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Meta from 'app/components/meta/Meta';
 import { normalisePathname, pathNesting, setBodyOverflow } from 'utils';
@@ -54,22 +54,26 @@ const Page = ({
   const { pathname } = useLocation();
   const { isNested, parts } = pathNesting(normalisePathname(pathname));
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const toggleMenu = (): void => {
-    setShowMenu(!showMenu);
-    setBodyOverflow(!!showMenu);
-  };
-  const hideMenu = (): void => {
-    setShowMenu(false);
-    document.body.style.overflow = 'auto';
-  };
 
-  const toggleTheme = (toggleValue: ToggleValue): void => {
-    if (toggleValue === ToggleValue.ON) {
-      switchTheme(ThemeType.NIGHT);
-    } else {
-      switchTheme(ThemeType.DAY);
-    }
-  };
+  const toggleMenu = useCallback((): void => {
+    setShowMenu((showMenu: boolean) => !showMenu);
+    setBodyOverflow(!!showMenu);
+  }, [setShowMenu, showMenu]);
+
+  const hideMenu = useCallback((): void => {
+    setShowMenu(false);
+    setBodyOverflow(true);
+  }, []);
+
+  const toggleTheme = useCallback(
+    (toggleValue: ToggleValue): void => {
+      const theme: ThemeType =
+        toggleValue === ToggleValue.ON ? ThemeType.NIGHT : ThemeType.DAY;
+
+      switchTheme(theme);
+    },
+    [switchTheme],
+  );
 
   useEffect((): (() => void) => {
     const slug: string = normalisePathname(pathname);

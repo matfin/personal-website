@@ -26,6 +26,11 @@
           "tagName": "projects",
           "content": [
             {
+              "description": "Experimenting with Redux Toolkit and TypeScript generic components.",
+              "slug": "redux-toolkit-demo",
+              "title": "Redux Toolkit Demo"
+            },
+            {
               "description": "Exploring the use of WebSockets while maintaining performance and managing connection cleanup.",
               "slug": "react-websocket-demo",
               "title": "React WebSocket Demo"

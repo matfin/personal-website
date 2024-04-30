@@ -10,7 +10,6 @@ export const appState = (
   action: AppReduxAction,
 ): AppReducerState => {
   const { payload, type } = action;
-
   switch (type) {
     case SWITCH_THEME: {
       return {
