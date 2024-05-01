@@ -1,10 +1,14 @@
-import { PageProps } from 'models';
+import { Page } from 'models';
 import ActionTypes from './types';
 import { defaultState, pageState } from './reducer';
 
-describe('page reducer tests', () => {
-  const page: PageProps = {
-    contents: [],
+describe('page reducer tests', (): void => {
+  const page: Page = {
+    root: {
+      tagName: 'section',
+      id: 'abcd-1234',
+      content: [],
+    },
     description: 'Test description',
     slug: 'test-slug',
     title: 'Test',

@@ -11,7 +11,7 @@ export interface Props {
   store: Store;
 }
 
-const IndexComponent = ({ store, req }: Props): React.ReactElement => (
+const IndexComponent = ({ store, req }: Props): React.ReactNode => (
   <Provider store={store}>
     <StaticRouter location={req.url}>
       <App />

@@ -1,8 +1,8 @@
 import React from 'react';
 import { sizes } from 'app/styles';
-import { ImageProps } from 'models';
+import { Image } from 'models';
 
-export interface Props extends ImageProps {
+export interface Props extends Image {
   className?: '';
 }
 
@@ -17,7 +17,7 @@ const imgSrcSet = (fileType: string, name: string, size: ImageSize): string => `
   /images/${name}-${size}@3x.${fileType} 3x
 `;
 
-const Picture = ({ className, name, title }: Props): React.ReactElement => (
+const Picture = ({ className, name, title }: Props): React.ReactNode => (
   <picture className={className}>
     <source
       data-testid="sm-webp"

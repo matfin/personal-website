@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { PositionProps } from 'models';
+import React from 'react';
+import { Position as PositionModel } from 'models';
 import { formatDate } from 'utils';
 import {
   CompanyNameSt,
@@ -10,7 +10,7 @@ import {
   TaskItemSt,
 } from './Position.css';
 
-export interface Props extends PositionProps {
+export interface Props extends PositionModel {
   className?: string;
 }
 
@@ -22,7 +22,7 @@ const Position = ({
   role,
   startDate,
   tasks,
-}: Props): React.ReactElement => {
+}: Props): React.ReactNode => {
   const dateFrom = formatDate(new Date(startDate));
   const dateTo = endDate
     ? ` to ${formatDate(new Date(endDate))}`

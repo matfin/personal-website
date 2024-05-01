@@ -2,84 +2,71 @@
   "title": "Matt Finucane - Personal portfolio",
   "description": "This is my personal portfolio site ",
   "slug": "projects/personal-portfolio",
-  "contents": [
-    {
-      "tagName": "section",
-      "id": "intro",
-      "content": [
-        {
-          "id": "pp-1",
-          "tagName": "h1",
-          "content": "Personal Portfolio"
-        },
-        {
-          "id": "pp-2",
-          "tagName": "h2",
-          "content": "My personal portfolio / CV in its fifth incarnation."
-        }
-      ]
-    },
-    {
-      "id": "pp-1",
-      "tagName": "section",
-      "content": [
-        {
-          "id": "pp-2",
-          "tagName": "p",
-          "content": "I have been working on this website as part of a learning exercise to sharpen my skills in the important areas of web application development. I built this from scratch so I could gain a deeper understanding of all the moving parts and how they interact with one another."
-        },
-        {
-          "id": "pp-3",
-          "tagName": "p",
-          "content": "I wanted to know more about topics such as:"
-        }
-      ]
-    },
-    {
-      "id": "pp-4",
-      "tagName": "ul",
-      "content": [
-        {
-          "id": "pp-5",
-          "tagName": "li",
-          "content": "Exploring TypeScript and applying this to the whole Redux/Saga set up."
-        },
-        {
-          "id": "pp-6",
-          "tagName": "li",
-          "content": "Building a performant website and PWA (progressive web application) with content caching and offline capability."
-        },
-        {
-          "id": "pp-7",
-          "tagName": "li",
-          "content": "Better dependency management and code splitting with webpack."
-        },
-        {
-          "id": "pp-8",
-          "tagName": "li",
-          "content": "Improving content delivery timing and performance with static site generation."
-        },
-        {
-          "id": "pp-9",
-          "tagName": "li",
-          "content": "Building the website with Docker Compose and using an Nginx reverse proxy to serve secure and compressed content."
-        },
-        {
-          "id": "pp-10",
-          "tagName": "li",
-          "content": "Typing everything together with a CirlceCI testing and deployment pipeline."
-        }
-      ]
-    },
-    {
-      "id": "pp-11",
-      "tagName": "p",
-      "content": "With this project, I have been able to wrap my mind around the crucial concepts of modern web development so that I can answer the basic \"How do I do this?\" questions that preceed many engineering challenges."
-    },
-    {
-      "id": "pp-12",
-      "tagName": "p",
-      "content": "I have also Open-sourced this project and put it on [GitHub](https://github.com/matfin/personal-website) in the hope that others can learn from it too."
-    }
-  ]
+  "root": {
+    "content": [
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "h1",
+            "content": "Personal Portfolio"
+          },
+          {
+            "tagName": "h2",
+            "content": "My personal portfolio / CV in its fifth incarnation."
+          }
+        ]
+      },
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "p",
+            "content": "I have been working on this website as part of a learning exercise to sharpen my skills in the important areas of web application development. I built this from scratch so I could gain a deeper understanding of all the moving parts and how they interact with one another."
+          },
+          {
+            "tagName": "p",
+            "content": "I wanted to know more about topics such as:"
+          }
+        ]
+      },
+      {
+        "tagName": "ul",
+        "content": [
+          {
+            "tagName": "li",
+            "content": "Exploring TypeScript and applying this to the whole Redux/Saga set up."
+          },
+          {
+            "tagName": "li",
+            "content": "Building a performant website and PWA (progressive web application) with content caching and offline capability."
+          },
+          {
+            "tagName": "li",
+            "content": "Better dependency management and code splitting with webpack."
+          },
+          {
+            "tagName": "li",
+            "content": "Improving content delivery timing and performance with static site generation."
+          },
+          {
+            "tagName": "li",
+            "content": "Building the website with Docker Compose and using an Nginx reverse proxy to serve secure and compressed content."
+          },
+          {
+            "tagName": "li",
+            "content": "Typing everything together with a CirlceCI testing and deployment pipeline."
+          }
+        ]
+      },
+      {
+        "tagName": "p",
+        "content": "With this project, I have been able to wrap my mind around the crucial concepts of modern web development so that I can answer the basic \"How do I do this?\" questions that preceed many engineering challenges."
+      },
+      {
+        "tagName": "p",
+        "content": "I have also Open-sourced this project and put it on [GitHub](https://github.com/matfin/personal-website) in the hope that others can learn from it too."
+      }
+    ]
+  }
 }

@@ -5,7 +5,7 @@ export interface Props {
   className?: string;
 }
 
-const Loading = ({ className }: Props): React.ReactElement => (
+const Loading = ({ className }: Props): React.ReactNode => (
   <LoadingSt className={className}>
     <LoadingSpinnerSt />
   </LoadingSt>

@@ -1,56 +1,48 @@
-
 {
   "title": "Matt Finucane - Not found",
   "description": "Content not found",
   "pathname": "/404/",
   "slug": "404",
-  "contents": [
-    {
-      "tagName": "section",
-      "id": "notfound",
-      "content": [
-        {
-          "id": "404-1",
-          "tagName": "h1",
-          "content": "Not found!"
-        },
-        {
-          "id": "404-2",
-          "tagName": "h2",
-          "content": "Sorry. It looks like we don't have what you're looking for."
-        },
-        {
-          "id": "404-3",
-          "tagName": "p",
-          "content": "Don't worry! There is plenty of other engaging content on this site."
-        },
-        {
-          "id": "404-4",
-          "tagName": "ul",
-          "content": [
-            {
-              "id": "404-5",
-              "tagName": "li",
-              "content": "[Home](/home)"
-            },
-            {
-              "id": "404-6",
-              "tagName": "li",
-              "content": "[My CV / Résumé](/cv)"
-            },
-            {
-              "id": "404-7",
-              "tagName": "li",
-              "content": "[Projects I have worked on](/projects)"
-            },
-            {
-              "id": "404-8",
-              "tagName": "li",
-              "content": "[What I am doing now](/now)"
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  "root": {
+    "content": [
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "h1",
+            "content": "Not found!"
+          },
+          {
+            "tagName": "h2",
+            "content": "Sorry. It looks like we don't have what you're looking for."
+          },
+          {
+            "tagName": "p",
+            "content": "Don't worry! There is plenty of other engaging content on this site."
+          },
+          {
+            "tagName": "ul",
+            "content": [
+              {
+                "tagName": "li",
+                "content": "[Home](/home)"
+              },
+              {
+                "tagName": "li",
+                "content": "[My CV / Résumé](/cv)"
+              },
+              {
+                "tagName": "li",
+                "content": "[Projects I have worked on](/projects)"
+              },
+              {
+                "tagName": "li",
+                "content": "[What I am doing now](/now)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

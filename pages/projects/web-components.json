@@ -2,89 +2,75 @@
   "title": "Matt Finucane - Web Components",
   "description": "Solving a simple usability challenge using Web Components.",
   "slug": "projects/web-components",
-  "contents": [
-    {
-      "tagName": "section",
-      "id": "intro",
-      "content": [
-        {
-          "id": "el-1",
-          "tagName": "h1",
-          "content": "Web Components"
-        },
-        {
-          "id": "el-2",
-          "tagName": "h2",
-          "content": "Solving a simple usability challenge using Web Components."
-        }
-      ]
-    },
-    {
-      "tagName": "section",
-      "id": "el-3",
-      "content": [
-        {
-          "id": "el-4",
-          "tagName": "p",
-          "content": "This project is a rewrite of a technical challenge I had undertaken some time ago and built using ReactJS. The challenge was to build a re-usable component that renders a list of items. The user should be able to add to the list of items by typing into an input and they should be able to subsequently delete items from the list."
-        },
-        {
-          "id": "el-5",
-          "tagName": "p",
-          "content": "I figured this would be an interesting challenge to undertake without the use of any libraries, frameworks or utilities - just the WebAPI. It is built using [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) which is a suite of standardised web technologies that come together to allow developers to create custom HTML elements."
-        },
-        {
-          "id": "el-6",
-          "tagName": "p",
-          "content": "With that, I set about creating a suite of custom elements that would work together to achieve this goal as follows:"
-        },
-        {
-          "id": "el-7",
-          "tagName": "ul",
-          "content": [
-            {
-              "id": "el-8",
-              "tagName": "li",
-              "content": "The <list-item> component contains the styling, structure and behaviour for individual list items. This component styles itself if the content is not valid and it has a delete button callback that is executed in its parent container."
-            },
-            {
-              "id": "el-9",
-              "tagName": "li",
-              "content": "The <items-list> component handles the logic for rendering, adding and removing items from the list. It contains a slot element so we can add an input inline alongside the list items. Using slots allows developers to add an element inline with others, even if it is in a completely different component."
-            },
-            {
-              "id": "el-10",
-              "tagName": "li",
-              "content": "The <item-input> component is a text field that focuses on adding event listeners. It handles callbacks passed in for when the text field is changed, focused, blurred or when a key press event occurs. This helps with adding an item to the list when the user presses enter, types in a comma or blurs on the input field."
-            },
-            {
-              "id": "el-11",
-              "tagName": "li",
-              "content": "Finally, the <editable-list> component ties the previous two together and is the main component that is imported into a document the end-user is authoring. This is where we can 'slot' the <item-input> component into the <items-list> component."
-            }
-          ]
-        },
-        {
-          "id": "el-12",
-          "tagName": "p",
-          "content": "With the above structure, I wanted to be able to deliver a robust, scalable solution with good separation of concerns. Web Components are quite powerful and are well supported in modern browsers. This project relies on the user of scoped styling, Shadow DOM and HTML Templates."
-        },
-        {
-          "id": "el-13",
-          "tagName": "p",
-          "content": "I wrote each component as a class using TypeScript, and this gets transpiled to ECMAScript using [webpack](https://webpack.js.org/) and [Babel](https://babeljs.io/). Code quality checking is carried out with the [ESLint](https://eslint.org/) tool."
-        },
-        {
-          "id": "el-14",
-          "tagName": "p",
-          "content": "This project is fully tested as well, and uses [Jest](https://jestjs.io) as its test runnner, alongside [Dom Testing Library](https://testing-library.com/docs/dom-testing-library/intro/) which has some support for testing components that use Shadow Dom. Full test coverage has been achieved."
-        },
-        {
-          "id": "el-15",
-          "tagName": "p",
-          "content": "The source code for this project is on [github.com/matfin/editable-list](https://github.com/matfin/editable-list)."
-        }
-      ]
-    }
-  ]
+  "root": {
+    "content": [
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "h1",
+            "content": "Web Components"
+          },
+          {
+            "tagName": "h2",
+            "content": "Solving a simple usability challenge using Web Components."
+          }
+        ]
+      },
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "p",
+            "content": "This project is a rewrite of a technical challenge I had undertaken some time ago and built using ReactJS. The challenge was to build a re-usable component that renders a list of items. The user should be able to add to the list of items by typing into an input and they should be able to subsequently delete items from the list."
+          },
+          {
+            "tagName": "p",
+            "content": "I figured this would be an interesting challenge to undertake without the use of any libraries, frameworks or utilities - just the WebAPI. It is built using [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) which is a suite of standardised web technologies that come together to allow developers to create custom HTML elements."
+          },
+          {
+            "tagName": "p",
+            "content": "With that, I set about creating a suite of custom elements that would work together to achieve this goal as follows:"
+          },
+          {
+            "tagName": "ul",
+            "content": [
+              {
+                "tagName": "li",
+                "content": "The <list-item> component contains the styling, structure and behaviour for individual list items. This component styles itself if the content is not valid and it has a delete button callback that is executed in its parent container."
+              },
+              {
+                "tagName": "li",
+                "content": "The <items-list> component handles the logic for rendering, adding and removing items from the list. It contains a slot element so we can add an input inline alongside the list items. Using slots allows developers to add an element inline with others, even if it is in a completely different component."
+              },
+              {
+                "tagName": "li",
+                "content": "The <item-input> component is a text field that focuses on adding event listeners. It handles callbacks passed in for when the text field is changed, focused, blurred or when a key press event occurs. This helps with adding an item to the list when the user presses enter, types in a comma or blurs on the input field."
+              },
+              {
+                "tagName": "li",
+                "content": "Finally, the <editable-list> component ties the previous two together and is the main component that is imported into a document the end-user is authoring. This is where we can 'slot' the <item-input> component into the <items-list> component."
+              }
+            ]
+          },
+          {
+            "tagName": "p",
+            "content": "With the above structure, I wanted to be able to deliver a robust, scalable solution with good separation of concerns. Web Components are quite powerful and are well supported in modern browsers. This project relies on the user of scoped styling, Shadow DOM and HTML Templates."
+          },
+          {
+            "tagName": "p",
+            "content": "I wrote each component as a class using TypeScript, and this gets transpiled to ECMAScript using [webpack](https://webpack.js.org/) and [Babel](https://babeljs.io/). Code quality checking is carried out with the [ESLint](https://eslint.org/) tool."
+          },
+          {
+            "tagName": "p",
+            "content": "This project is fully tested as well, and uses [Jest](https://jestjs.io) as its test runnner, alongside [Dom Testing Library](https://testing-library.com/docs/dom-testing-library/intro/) which has some support for testing components that use Shadow Dom. Full test coverage has been achieved."
+          },
+          {
+            "tagName": "p",
+            "content": "The source code for this project is on [github.com/matfin/editable-list](https://github.com/matfin/editable-list)."
+          }
+        ]
+      }
+    ]
+  }
 }

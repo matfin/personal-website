@@ -1,4 +1,6 @@
-import { PageReducerState, PageReduxAction } from 'models';
+import { normaliseContent } from 'utils';
+import { ContentItem, Page, PageReducerState, PageReduxAction } from 'models';
+
 import ActionTypes from './types';
 
 export const defaultState: PageReducerState = {
@@ -27,11 +29,21 @@ export const pageState = (
       };
     }
     case ActionTypes.FETCH_PAGE_SUCCESS: {
+      const root: ContentItem | null = payload?.root
+        ? normaliseContent(payload.root)
+        : null;
+      const page: Page | null = payload
+        ? {
+            ...(payload as Page),
+            root,
+          }
+        : null;
+
       return {
         ...state,
         error: null,
         pending: false,
-        page: payload ?? null,
+        page,
       };
     }
     case ActionTypes.FETCH_PAGE_FAILURE: {

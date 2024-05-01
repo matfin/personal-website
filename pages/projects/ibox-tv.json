@@ -2,79 +2,67 @@
   "title": "Matt Finucane - iBox TV Guide",
   "description": "A web application for a TV set top box interface.",
   "slug": "projects/ibox-tv",
-  "contents": [
-    {
-      "tagName": "section",
-      "id": "intro",
-      "content": [
-        {
-          "id": "ibox-1",
-          "tagName": "h1",
-          "content": "iBox TV Guide"
-        },
-        {
-          "id": "ibox-2",
-          "tagName": "h2",
-          "content": "A web application for a TV set top box interface."
-        }
-      ]
-    },
-    {
-      "tagName": "section",
-      "id": "ibox-3",
-      "content": [
-        {
-          "tagName": "p",
-          "id": "ibox-4",
-          "content": "This is a web application created for iBox.ie, a live streaming TV service provider in Ireland. They provide HSL streaming for various devices including TV set top boxes."
-        },
-        {
-          "tagName": "p",
-          "id": "ibox-5",
-          "content": "The hardware itself was a set top box with an ARM CPU, limited ram and an installation of an older version of the Opera web browser. It had an MPEG4 decoder built in that could handle Full HD video at 1080p and 720P."
-        },
-        {
-          "tagName": "p",
-          "id": "ibox-6",
-          "content": "The TV guide needed to fetch and store content two weeks in advance. The hardware itself had a HDMI and SCART port, so it needed to support multiple TV resolutions, and a solid firmware update flow needed to be added. Here is how this project was built:"
-        }
-      ]
-    },
-    {
-      "tagName": "ul",
-      "id": "ibox-7",
-      "content": [
-        {
-          "tagName": "li",
-          "id": "ibox-8",
-          "content": "The back-end infrastructure was created with C# .Net MVC3 and was my first foray into working with a Microsoft tech stack in a long time (since University). This would feed JSON data to the front end - 2 weeks of TV programming data."
-        },
-        {
-          "tagName": "li",
-          "id": "ibox-9",
-          "content": "The back end passed some rudimentaty HTML to the front end, and the TV guide itself was read in from stringified JSON that contained two weeks of TV programming data. This was parsed, and the TV guide itself was rendered, with a column of times and rows of TV channels with their programmes. Data would need to be fetched in the background with an API call that was set at a daily interval."
-        },
-        {
-          "tagName": "li",
-          "id": "ibox-11",
-          "content": "This all needed to be done on a machine with very modest hardware. To ensure smooth performance, programming and channel data was fetched on a paginated basis. Only a certain number of channels with a certain number of programmes between a time frame were showing at any one time. If the user advanced down through the guide, the list of programmes would be fetched and refreshed on the fly."
-        },
-        {
-          "tagName": "li",
-          "id": "ibox-11",
-          "content": "Given the modest hardware and dated nature of the browser, the best option was to use jQuery and CSS2, both of which were backward compatible with our target platforms. They were reasonably lightweight too, and the HTML structure was kept as flat as possible."
-        },
-        {
-          "tagName": "li",
-          "id": "ibox-13",
-          "content": "Some clever UI tricks had to be employed so as to present the data in a structured format for programmes that had a very short five minute duration. These would otherwise have been buried in shows with longer durations."
-        },
-        {
-          "tagName": "li",
-          "id": "ibox-14",
-          "content": "This project was initially deployed to the TV set top box as a tar archive, but with a little tweaking, it was able to work on HSL compliant web browsers (Safari on MacOS), Google TV and tablet devices. It is still online and can be seen at [https://ibox.ie/guide/web/epg](https://ibox.ie/guide/web/epg)."
-        }
-      ]
-    }
-  ]
+  "root": {
+    "content": [
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "h1",
+            "content": "iBox TV Guide"
+          },
+          {
+            "tagName": "h2",
+            "content": "A web application for a TV set top box interface."
+          }
+        ]
+      },
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "p",
+            "content": "This is a web application created for iBox.ie, a live streaming TV service provider in Ireland. They provide HSL streaming for various devices including TV set top boxes."
+          },
+          {
+            "tagName": "p",
+            "content": "The hardware itself was a set top box with an ARM CPU, limited ram and an installation of an older version of the Opera web browser. It had an MPEG4 decoder built in that could handle Full HD video at 1080p and 720P."
+          },
+          {
+            "tagName": "p",
+            "content": "The TV guide needed to fetch and store content two weeks in advance. The hardware itself had a HDMI and SCART port, so it needed to support multiple TV resolutions, and a solid firmware update flow needed to be added. Here is how this project was built:"
+          }
+        ]
+      },
+      {
+        "tagName": "ul",
+        "content": [
+          {
+            "tagName": "li",
+            "content": "The back-end infrastructure was created with C# .Net MVC3 and was my first foray into working with a Microsoft tech stack in a long time (since University). This would feed JSON data to the front end - 2 weeks of TV programming data."
+          },
+          {
+            "tagName": "li",
+            "content": "The back end passed some rudimentaty HTML to the front end, and the TV guide itself was read in from stringified JSON that contained two weeks of TV programming data. This was parsed, and the TV guide itself was rendered, with a column of times and rows of TV channels with their programmes. Data would need to be fetched in the background with an API call that was set at a daily interval."
+          },
+          {
+            "tagName": "li",
+            "content": "This all needed to be done on a machine with very modest hardware. To ensure smooth performance, programming and channel data was fetched on a paginated basis. Only a certain number of channels with a certain number of programmes between a time frame were showing at any one time. If the user advanced down through the guide, the list of programmes would be fetched and refreshed on the fly."
+          },
+          {
+            "tagName": "li",
+            "content": "Given the modest hardware and dated nature of the browser, the best option was to use jQuery and CSS2, both of which were backward compatible with our target platforms. They were reasonably lightweight too, and the HTML structure was kept as flat as possible."
+          },
+          {
+            "tagName": "li",
+            "content": "Some clever UI tricks had to be employed so as to present the data in a structured format for programmes that had a very short five minute duration. These would otherwise have been buried in shows with longer durations."
+          },
+          {
+            "tagName": "li",
+            "content": "This project was initially deployed to the TV set top box as a tar archive, but with a little tweaking, it was able to work on HSL compliant web browsers (Safari on MacOS), Google TV and tablet devices. It is still online and can be seen at [https://ibox.ie/guide/web/epg](https://ibox.ie/guide/web/epg)."
+          }
+        ]
+      }
+    ]
+  }
 }

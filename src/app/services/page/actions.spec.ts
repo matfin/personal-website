@@ -1,4 +1,4 @@
-import { PageProps } from 'models';
+import { Page } from 'models';
 import ActionTypes from './types';
 import {
   fetchPageRequest,
@@ -9,7 +9,7 @@ import {
 } from './actions';
 
 describe('page actions tests', (): void => {
-  const page: PageProps = {
+  const page: Page = {
     contents: [],
     description: 'Test description',
     slug: 'test-slug',

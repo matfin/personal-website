@@ -9,8 +9,8 @@ const defaultProps: Props = {
   navrevealed: undefined,
 };
 
-describe('MenuButton tests', () => {
-  it('renders the component', () => {
+describe('MenuButton tests', (): void => {
+  it('renders the component', (): void => {
     expect(render(<MenuButton {...defaultProps} />)).toBeTruthy();
   });
 
@@ -32,7 +32,7 @@ describe('MenuButton tests', () => {
     spyIsTouchDevice.mockRestore();
   });
 
-  it('executes the callback on touch', () => {
+  it('executes the callback on touch', (): void => {
     const spyIsTouchDevice = jest
       .spyOn(utils, 'isTouchDevice')
       .mockReturnValue(true);
@@ -50,7 +50,7 @@ describe('MenuButton tests', () => {
     spyIsTouchDevice.mockRestore();
   });
 
-  it('has the correct style when revealed', async () => {
+  it('has the correct style when revealed', (): void => {
     const { container } = render(
       <MenuButton {...defaultProps} navrevealed="true" />,
     );

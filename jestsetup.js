@@ -9,3 +9,4 @@ window.enableCache = false;
 window.isProduction = false;
 window.port = '';
 window.fetch = jest.fn();
+window.crypto.randomUUID = () => 'abcd-1234';

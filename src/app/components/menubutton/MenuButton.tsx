@@ -12,7 +12,7 @@ const MenuButton = ({
   className,
   onClick,
   navrevealed,
-}: Props): React.ReactElement => {
+}: Props): React.ReactNode => {
   const shouldUseTouch: boolean = isTouchDevice();
 
   return (

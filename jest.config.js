@@ -8,8 +8,8 @@ module.exports = {
       branches: 100,
       functions: 100,
       lines: 100,
-      statements: 100
-    }
+      statements: 100,
+    },
   },
   moduleNameMapper: {
     '^app/(.*)$': '<rootDir>/src/app/$1',
@@ -25,5 +25,5 @@ module.exports = {
     'src/utils/testutils.tsx',
     'src/app/views/page/ConnectedPage.tsx',
   ],
-  moduleDirectories: ['node_modules', 'src']
+  moduleDirectories: ['node_modules', 'src'],
 };

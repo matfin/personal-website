@@ -24,7 +24,7 @@ const defaultProps: Props = {
   ],
 };
 
-describe('Position tests', () => {
+describe('Position tests', (): void => {
   it('renders the component with the correct content', () => {
     const { container } = render(<Position {...defaultProps} />);
 
@@ -37,7 +37,7 @@ describe('Position tests', () => {
     expect(screen.getByText('Task two')).toBeTruthy();
   });
 
-  it('renders the end date', () => {
+  it('renders the end date', (): void => {
     const { container } = render(
       <Position {...defaultProps} endDate="2020-04-26" />,
     );

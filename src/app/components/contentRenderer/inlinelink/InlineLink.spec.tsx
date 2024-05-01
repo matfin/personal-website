@@ -7,8 +7,8 @@ const defaultProps: Props = {
   url: '/test/link',
 };
 
-describe('InlineLink tests', () => {
-  it('renders an internal link', () => {
+describe('InlineLink tests', (): void => {
+  it('renders an internal link', (): void => {
     const wrapper = renderWithRouter(<InlineLink {...defaultProps} />);
     const link = wrapper.getByText('Test Link') as HTMLLinkElement;
 
@@ -19,7 +19,7 @@ describe('InlineLink tests', () => {
     expect(link.rel).toBeFalsy();
   });
 
-  it('renders an external link', () => {
+  it('renders an external link', (): void => {
     const wrapper = renderWithRouter(
       <InlineLink {...defaultProps} url="https://somewhere.out" />,
     );
@@ -28,7 +28,7 @@ describe('InlineLink tests', () => {
     expect(link.rel).toEqual('external');
   });
 
-  it('renders with a title', () => {
+  it('renders with a title', (): void => {
     const wrapper = renderWithRouter(
       <InlineLink {...defaultProps} title="Test title" />,
     );

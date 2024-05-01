@@ -9,8 +9,8 @@ const defaultProps: Props = {
   title: 'Test title',
 };
 
-describe('Topic tests', () => {
-  it('renders the component', () => {
+describe('Topic tests', (): void => {
+  it('renders the component', (): void => {
     const { container } = render(<Topic {...defaultProps} />);
 
     expect(container).toBeTruthy();

@@ -9,7 +9,7 @@ import { createServerStore } from '../store';
 import { fetchPageSuccess } from 'app/services/page/actions';
 import { getAppVersion, getCanonicalUrl, getEnableCache } from '../config';
 import { indexTemplate } from 'utils';
-import { CombinedAppState, PageProps, StaticReqProps } from 'models';
+import { CombinedAppState, Page, StaticReqProps } from 'models';
 import IndexComponent from './IndexComponent';
 
 class SSGController {
@@ -31,12 +31,17 @@ class SSGController {
 
   private loadPage = async (slug: string): Promise<void> => {
     const path = `./pages`;
-    const contents: string = (
-      await fs.readFile(`${path}/${slug}.json`)
-    ).toString();
-    const page: PageProps = JSON.parse(contents);
 
-    this.store.dispatch(fetchPageSuccess(page));
+    try {
+      const contents: string = (
+        await fs.readFile(`${path}/${slug}.json`)
+      ).toString();
+      const page: Page = JSON.parse(contents);
+
+      this.store.dispatch(fetchPageSuccess(page));
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   private withCSPNonce = (ssrContent: string): string => {

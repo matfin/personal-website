@@ -8,14 +8,14 @@ import {
 } from 'utils/testutils';
 import App from './App';
 
-describe('App', () => {
+describe('App', (): void => {
   const store: Store = createMockStore();
 
   beforeAll((): void => {
     setupMatchMedia(false);
   });
 
-  it('should render', () => {
+  it('should render', (): void => {
     const wrapper = renderWithRouter(
       <Provider store={store}>
         <App />

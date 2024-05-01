@@ -2,74 +2,63 @@
   "title": "Matt Finucane - GAPP",
   "description": "A cross-platform application offering guidelines for effective medical practices.",
   "slug": "projects/guh-guidelines",
-  "contents": [
-    {
-      "tagName": "section",
-      "id": "intro",
-      "content": [
-        {
-          "id": "guh-1",
-          "tagName": "h1",
-          "content": "GAPP"
-        },
-        {
-          "id": "guh-2",
-          "tagName": "h2",
-          "content": "A cross-platform application offering guidelines for effective medical practices."
-        }
-      ]
-    },
-    {
-      "tagName": "section",
-      "id": "guh-2",
-      "content": [
-        {
-          "tagName": "p",
-          "id": "guh-4",
-          "content": "The Galway University Hospitals Antimicrobial Prescribing Guidelines App (or GAPP for short) was a cross-platform mobile application developed using [Sencha Touch 2](https://www.sencha.com/products/touch/) and provided comprehensive guidelines and dosage calculators."
-        },
-        {
-          "tagName": "p",
-          "id": "guh-5",
-          "content": "Before this app existed, users would have to consult a document of over a hundred pages, either in Microsoft Word '97 or on paper in order to get the information they needed. We built this to condense that information down into an app that was simple to use, with drill-down list and detail views."
-        },
-        {
-          "tagName": "p",
-          "id": "guh-6",
-          "content": "On paper, the solution to this was quite simple - provide a list and detail view for content that follows the same hierarchy in the document. This was not as simple as initially imagined. Here are some of the challenges that were encountered:"
-        }
-      ]
-    },
-    {
-      "tagName": "ul",
-      "id": "guh-7",
-      "content": [
-        {
-          "tagName": "li",
-          "id": "guh-8",
-          "content": "Displaying text content in its hierarchy was ok, but what would we do with larger complex diagrams that looked on on A4 paper or a desktop screen, but very cramped on four inch mobile phone screens? Trying to implement pinch and zoom was not going to work, despite best efforts. In the end, a native wrapper for displaying images was created for iOS and Android, which allowed for a much smoother user experience in viewing images."
-        },
-        {
-          "tagName": "li",
-          "id": "guh-8",
-          "content": "Another challenge was found in dealing with the content of the document, which had little in the way of a logical structure given it had been edited by a large number of people over a period of 15 years. One engineer was able to figure out how to parse the text and image assets out, structure them and deliver everything as a JSON payload."
-        },
-        {
-          "tagName": "li",
-          "id": "guh-9",
-          "content": "The next challenge came with storing this content. The Sencha storage mechanism (which leveraged the use of LocalStorage) could have been used, but if a user chose to clear their browser cache on their device, it would wipe out the content for the app, which would then need to be uninstalled and reinstalled. To counter this, it was decided that the content would be bundled with the application itself and loaded locally. Content would need to be accessible while the device was potentially offline."
-        },
-        {
-          "tagName": "li",
-          "id": "guh-9",
-          "content": "The app also included three calculators. Two were the Gentamycin and Vancomycin dosage calculators and the third was a BMI calculator. It was essential that these worked correctly, so unit testing was employed alongside a slew of test cases to ensure calculations were correct."
-        }
-      ]
-    },
-    {
-      "tagName": "p",
-      "id": "guh-10",
-      "content": "In the end, this was a very challenging and exciting project to work on, and it really highlighted the shortcomings of these cross-platform HTML5 mobile application frameworks. If you are stuggling to do even the simplest of tasks, it's time to ditch them. This is what we did with Sencha Touch 2."
-    }
-  ]
+  "root": {
+    "content": [
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "h1",
+            "content": "GAPP"
+          },
+          {
+            "tagName": "h2",
+            "content": "A cross-platform application offering guidelines for effective medical practices."
+          }
+        ]
+      },
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "p",
+            "content": "The Galway University Hospitals Antimicrobial Prescribing Guidelines App (or GAPP for short) was a cross-platform mobile application developed using [Sencha Touch 2](https://www.sencha.com/products/touch/) and provided comprehensive guidelines and dosage calculators."
+          },
+          {
+            "tagName": "p",
+            "content": "Before this app existed, users would have to consult a document of over a hundred pages, either in Microsoft Word '97 or on paper in order to get the information they needed. We built this to condense that information down into an app that was simple to use, with drill-down list and detail views."
+          },
+          {
+            "tagName": "p",
+            "content": "On paper, the solution to this was quite simple - provide a list and detail view for content that follows the same hierarchy in the document. This was not as simple as initially imagined. Here are some of the challenges that were encountered:"
+          }
+        ]
+      },
+      {
+        "tagName": "ul",
+        "content": [
+          {
+            "tagName": "li",
+            "content": "Displaying text content in its hierarchy was ok, but what would we do with larger complex diagrams that looked on on A4 paper or a desktop screen, but very cramped on four inch mobile phone screens? Trying to implement pinch and zoom was not going to work, despite best efforts. In the end, a native wrapper for displaying images was created for iOS and Android, which allowed for a much smoother user experience in viewing images."
+          },
+          {
+            "tagName": "li",
+            "content": "Another challenge was found in dealing with the content of the document, which had little in the way of a logical structure given it had been edited by a large number of people over a period of 15 years. One engineer was able to figure out how to parse the text and image assets out, structure them and deliver everything as a JSON payload."
+          },
+          {
+            "tagName": "li",
+            "content": "The next challenge came with storing this content. The Sencha storage mechanism (which leveraged the use of LocalStorage) could have been used, but if a user chose to clear their browser cache on their device, it would wipe out the content for the app, which would then need to be uninstalled and reinstalled. To counter this, it was decided that the content would be bundled with the application itself and loaded locally. Content would need to be accessible while the device was potentially offline."
+          },
+          {
+            "tagName": "li",
+            "content": "The app also included three calculators. Two were the Gentamycin and Vancomycin dosage calculators and the third was a BMI calculator. It was essential that these worked correctly, so unit testing was employed alongside a slew of test cases to ensure calculations were correct."
+          }
+        ]
+      },
+      {
+        "tagName": "p",
+        "content": "In the end, this was a very challenging and exciting project to work on, and it really highlighted the shortcomings of these cross-platform HTML5 mobile application frameworks. If you are stuggling to do even the simplest of tasks, it's time to ditch them. This is what we did with Sencha Touch 2."
+      }
+    ]
+  }
 }

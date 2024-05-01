@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch: AppDispatch): MapDispatchToProps => ({
   switchTheme: (theme: ThemeType): void => dispatch(switchTheme(theme)),
 });
 
-const App = ({ currentTheme, switchTheme }: Props): React.ReactElement => {
+const App = ({ currentTheme, switchTheme }: Props): React.ReactNode => {
   const themes = {
     day,
     night,
