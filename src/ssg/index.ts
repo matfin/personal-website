@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs';
 import { getCanonicalUrl, getContentBase, getOutputDir } from '../config';
-import { PageProps } from 'models';
+import { Page } from 'models';
 import SSGController from './SSGController';
 
 const generateSlugs = async (base: string): Promise<string[]> => {
@@ -18,7 +18,7 @@ const generateSlugs = async (base: string): Promise<string[]> => {
       } else {
         const path = `${base}/${file}`;
         const contents: string = (await fs.readFile(path)).toString();
-        const { slug }: PageProps = JSON.parse(contents);
+        const { slug }: Page = JSON.parse(contents);
 
         gathered.push(slug);
       }

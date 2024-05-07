@@ -8,7 +8,7 @@ import useAppearanceChange from './useAppearanceChange';
 describe('useAppearanceChange tests', (): void => {
   const spyCb = jest.fn();
 
-  const TestComponent = (): React.ReactElement => {
+  const TestComponent = (): React.ReactNode => {
     useAppearanceChange(spyCb);
     return <></>;
   };

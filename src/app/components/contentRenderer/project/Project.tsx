@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { ProjectProps } from 'models';
+import { Project as ProjectModel } from 'models';
 import { ProjectSt, TitleSt, DescriptionSt } from './Project.css';
 
-export interface Props extends ProjectProps {
+export interface Props extends ProjectModel {
   className?: string;
 }
 
@@ -11,7 +11,7 @@ const Project = ({
   description,
   slug,
   title,
-}: Props): React.ReactElement => (
+}: Props): React.ReactNode => (
   <ProjectSt to={`/projects/${slug}/`} className={className}>
     <TitleSt>{title}</TitleSt>
     <DescriptionSt>{description}</DescriptionSt>

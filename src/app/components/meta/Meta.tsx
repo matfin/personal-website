@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+
 import { getCanonicalUrl } from '../../../config';
 import { colours } from 'app/styles/vars';
 
@@ -15,7 +16,7 @@ export const canonicalSlug = (slug: string): string => {
   return `${canonicalUrl}/${slug === 'index' ? '' : slug}`;
 };
 
-const Meta = ({ description, title, slug = '' }: Props): React.ReactElement => (
+const Meta = ({ description, title, slug = '' }: Props): React.ReactNode => (
   <Helmet>
     <title>{title}</title>
     <meta

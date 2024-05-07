@@ -14,7 +14,7 @@ const ExternalLink = ({
   text,
   title,
   url,
-}: Props): React.ReactElement => (
+}: Props): React.ReactNode => (
   <a className={className} href={url} title={title} rel="external">
     {text}
   </a>
@@ -25,18 +25,13 @@ const InternalLink = ({
   text,
   title,
   url,
-}: Props): React.ReactElement => (
+}: Props): React.ReactNode => (
   <Link className={className} title={title} to={url}>
     {text}
   </Link>
 );
 
-const InlineLink = ({
-  className,
-  text,
-  title,
-  url,
-}: Props): React.ReactElement =>
+const InlineLink = ({ className, text, title, url }: Props): React.ReactNode =>
   isExternalUrl(url) ? (
     <ExternalLink className={className} text={text} title={title} url={url} />
   ) : (

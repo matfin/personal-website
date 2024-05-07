@@ -1,15 +1,14 @@
 import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
 import {
+  commonButtonStyle,
   animationCurve,
   boxShadow,
   layers,
   media,
-  textTypography,
 } from 'app/styles';
-import Footer from 'app/components/footer/Footer';
-import Loading from 'app/components/loading/Loading';
-import MenuButton from 'app/components/menubutton/MenuButton';
+import Footer from 'app/components/footer';
+import Loading from 'app/components/loading';
+import MenuButton from 'app/components/menubutton';
 
 interface ISideStProps {
   $revealed: boolean;
@@ -112,14 +111,6 @@ export const FooterSt = styled(Footer)`
   grid-area: footer;
 `;
 
-const commonButtonStyle = css`
-  position: fixed;
-  top: 1rem;
-  width: 3.5rem;
-  height: 3.5rem;
-  border: 0.125rem solid ${(props) => props?.theme?.colours?.primary};
-`;
-
 export const BurgerSt = styled(MenuButton)`
   ${commonButtonStyle}
 
@@ -129,34 +120,6 @@ export const BurgerSt = styled(MenuButton)`
   ${media.md(css`
     display: none;
   `)}
-`;
-
-export const BackSt = styled(Link)`
-  ${commonButtonStyle}
-
-  left: 1rem;
-  background: ${(props) => props?.theme?.colours?.secondary};
-  ${textTypography}
-
-  ${media.md(css`
-    position: absolute;
-    top: -1.25rem;
-    left: -0.125rem;
-  `)}
-
-  &::before {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    content: '<';
-    font-size: 1.5rem;
-  }
-`;
-
-export const ErrorSt = styled.div`
-  grid-area: main;
 `;
 
 export const LoadingSt = styled(Loading)`

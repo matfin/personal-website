@@ -1,22 +1,3 @@
-import React from 'react';
-
-import {
-  ContentItemProps,
-  ImageProps,
-  PositionProps,
-  ProjectProps,
-  TopicProps,
-} from 'models';
-
-export type ContentTypes =
-  | ContentItemProps
-  | ImageProps
-  | TopicProps
-  | PositionProps
-  | ProjectProps
-  | string
-  | React.ReactNode;
-
 export type Breakpoints = {
   sm: number;
   md: number;
@@ -53,5 +34,3 @@ export type Layers = {
   base: number;
   lower: number;
 };
-
-export type JSXChildren = string | React.ReactElement | React.ReactElement[];

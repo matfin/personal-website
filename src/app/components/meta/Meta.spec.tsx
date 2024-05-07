@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Helmet, HelmetData } from 'react-helmet';
+import { Helmet, HelmetPropsToState } from 'react-helmet';
 import * as config from '../../../config';
 import Meta, { Props } from './Meta';
 
@@ -9,7 +9,7 @@ const defaultProps: Props = {
   title: 'Test title',
 };
 
-describe('Meta tests', () => {
+describe('Meta tests', (): void => {
   const spyGetCanonicalUrl = jest
     .spyOn(config, 'getCanonicalUrl')
     .mockReturnValue('https://test.de');
@@ -18,9 +18,9 @@ describe('Meta tests', () => {
     spyGetCanonicalUrl.mockRestore();
   });
 
-  it('renders the component', () => {
+  it('renders the component', (): void => {
     const wrapper = render(<Meta {...defaultProps} />);
-    const helmet: HelmetData = Helmet.peek();
+    const helmet: HelmetPropsToState = Helmet.peek();
     const expectedMetaTags = [
       {
         name: 'apple-mobile-web-app-status-bar-style',
@@ -51,7 +51,7 @@ describe('Meta tests', () => {
     expect(helmet.metaTags).toEqual(expectedMetaTags);
   });
 
-  it('renders with a set url', () => {
+  it('renders with a set url', (): void => {
     const wrapper = render(<Meta {...defaultProps} slug="test-slug" />);
     const helmet = Helmet.peek();
 
@@ -62,7 +62,7 @@ describe('Meta tests', () => {
     });
   });
 
-  it('omits the slug for the home page', () => {
+  it('omits the slug for the home page', (): void => {
     const wrapper = render(<Meta {...defaultProps} slug="index" />);
     const helmet = Helmet.peek();
 

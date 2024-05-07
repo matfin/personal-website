@@ -1,6 +1,6 @@
 import { ThunkDispatch } from 'redux-thunk';
 import { Action } from 'redux';
-import { PageProps, PageReducerState } from 'models';
+import { Page, PageReducerState } from 'models';
 import ActionTypes from './types';
 
 /**
@@ -13,7 +13,7 @@ export interface FetchPageRequest {
 
 interface FetchPageSuccess {
   type: ActionTypes.FETCH_PAGE_SUCCESS;
-  payload: PageProps;
+  payload: Page;
 }
 
 interface FetchPageFailure {
@@ -53,7 +53,7 @@ export const fetchPageRequest = (slug: string): PageActionTypes => ({
   payload: slug,
 });
 
-export const fetchPageSuccess = (page: PageProps): PageActionTypes => ({
+export const fetchPageSuccess = (page: Page): PageActionTypes => ({
   type: ActionTypes.FETCH_PAGE_SUCCESS,
   payload: page,
 });

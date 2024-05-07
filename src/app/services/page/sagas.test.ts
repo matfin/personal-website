@@ -1,7 +1,7 @@
 import { runSaga } from 'redux-saga';
 import { call, fork, take } from 'redux-saga/effects';
 import { expectSaga } from 'redux-saga-test-plan';
-import { PageProps } from 'models';
+import { Page } from 'models';
 import ActionTypes from './types';
 import { fetchPageRequest, resetPage } from './actions';
 import { query } from 'app/services/api';
@@ -17,7 +17,7 @@ const mockState = {
 };
 
 describe('Page sagas', (): void => {
-  const page: PageProps = {
+  const page: Page = {
     contents: [],
     description: 'Test description',
     slug: 'test-slug',

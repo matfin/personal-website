@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Meta from 'app/components/meta/Meta';
+
+import Meta from 'app/components/meta';
 import { normalisePathname, pathNesting, setBodyOverflow } from 'utils';
-import { ContentItemProps, PageProps, ToggleValue, ThemeType } from 'models';
-import ContentItem from 'app/components/contentItem/ContentItem';
-import Nav from 'app/components/nav/Nav';
-import Toggle from 'app/components/toggle/Toggle';
+import { Page as PageProps, ToggleValue, ThemeType } from 'models';
+import { BackButton, ErrorMessage } from './components';
+import Nav from 'app/components/nav';
+import ContentRenderer from 'app/components/contentRenderer';
+import Toggle from 'app/components/toggle';
 import {
-  BackSt,
   BurgerSt,
-  ErrorSt,
   FooterSt,
   LoadingSt,
   MainSt,
@@ -27,21 +27,6 @@ export interface Props {
   switchTheme(theme: ThemeType): void;
 }
 
-const pageContents = ({ contents }: PageProps): React.ReactElement[] =>
-  contents.map(
-    (item: ContentItemProps): React.ReactElement => (
-      <ContentItem {...item} key={item.id} />
-    ),
-  );
-
-const errorMessage = (error: Error): React.ReactElement => (
-  <ErrorSt>{error.toString()}</ErrorSt>
-);
-
-const backButton = (href: string): React.ReactElement => (
-  <BackSt arial-label="back" data-testid="backbutton" to={href} />
-);
-
 const Page = ({
   currentTheme,
   error,
@@ -50,7 +35,7 @@ const Page = ({
   fetchPageRequest,
   resetPage,
   switchTheme,
-}: Props): React.ReactElement => {
+}: Props): React.ReactNode => {
   const { pathname } = useLocation();
   const { isNested, parts } = pathNesting(normalisePathname(pathname));
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -124,9 +109,9 @@ const Page = ({
               aria-label="Main content"
               onClick={hideMenu}
             >
-              {isNested && backButton(`/${parts[0]}/`)}
-              {!pending && error && errorMessage(error)}
-              {!pending && page && pageContents(page)}
+              {isNested && <BackButton href={`/${[parts[0]]}/`} />}
+              {!pending && error && <ErrorMessage error={error} />}
+              {!pending && page?.root && <ContentRenderer root={page.root} />}
             </MainSt>
             <FooterSt />
           </>

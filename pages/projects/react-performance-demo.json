@@ -2,89 +2,75 @@
   "title": "Matt Finucane - React Performance",
   "description": "A demo project showcasing performance gains in ReactJS.",
   "slug": "projects/react-performance-demo",
-  "contents": [
-    {
-      "tagName": "section",
-      "id": "intro",
-      "content": [
-        {
-          "id": "rp-1",
-          "tagName": "h1",
-          "content": "React Performance Demo"
-        },
-        {
-          "id": "rp-2",
-          "tagName": "h2",
-          "content": "Leveraging React Hooks to improve rendering performance for large lists."
-        }
-      ]
-    },
-    {
-      "tagName": "section",
-      "id": "rp-3",
-      "content": [
-        {
-          "id": "rp-4",
-          "tagName": "p",
-          "content": "This project is a refresh of an older technical assessment I had taken in the past. With this, I had to create an editable list component where the user would enter values into a text field and these would be rendered in a list (as pills) with the ability to delete items."
-        },
-        {
-          "id": "rp-5",
-          "tagName": "p",
-          "content": "While this worked according to spec, there was one underlying performance issue that only became noticeable after a large number of items were present in the list. When dealing with hundreds of list items, typing into the input became increasingly sluggish - not a good user experience."
-        },
-        {
-          "id": "rp-6",
-          "tagName": "h2",
-          "content": "Deeper dive into the problem"
-        },
-        {
-          "id": "rp-7",
-          "tagName": "p",
-          "content": "The major bottleneck was being caused by unnecessary renders of each of the pills in the component, which encapsulated an input field and a map function to render each pill. The React [useReducer hook](https://reactjs.org/docs/hooks-reference.html#usereducer) was used to maintain the state for the component. An action that updated the current input value was passed into the component, alongside a list of the current items to be rendered."
-        },
-        {
-          "id": "rp-8",
-          "tagName": "p",
-          "content": "Whenever the props for the component were updated, all items in the list would be re-rendered. This happened even as the input text field was being typed in to - character by character. Any time a prop being passed into a component changes, the component re-renders itself (including all child components)."
-        },
-        {
-          "id": "rp-8",
-          "tagName": "p",
-          "content": "In the past, this could be solved by using the [shouldComponentUpdate](https://reactjs.org/docs/state-and-lifecycle.html) lifecycle callback in React class-based components. In here, an equality check could be made between key properties to check and see if a re-render is necessary. When using function comppnents, these lifecycle hooks cannot be used."
-        }
-      ]
-    },
-    {
-      "tagName": "section",
-      "id": "rp-9",
-      "content": [
-        {
-          "id": "rp-10",
-          "tagName": "h2",
-          "content": "Solving the problem with memoisation"
-        },
-        {
-          "id": "rp-11",
-          "tagName": "p",
-          "content": "What is memoisation? [Memoisation](https://en.wikipedia.org/wiki/Memoization) is an optimisation in computing where the results of a function call are cached and those cached results are returned without the need to recompute them again. This only changes when the inputs to the function call are different and the result may differ too."
-        },
-        {
-          "id": "rp-12",
-          "tagName": "p",
-          "content": "In this particular use case, when delivering a large number of items to be rendered in a list, we are using function calls because we are using function components. Once an item in the list is rendered, it does not change, so it should not need to re-render. ReactJS has a built-in function called [memo](https://reactjs.org/docs/react-api.html#reactmemo) which is a higher order component that wraps around another component to ensure it only re-renders when inputs change."
-        },
-        {
-          "id": "rp-13",
-          "tagName": "p",
-          "content": "When wrapping the component for a list item in the React.memo higher order component, I could still see that each list item was being re-rendered. Through the process of elimination, I removed all properties from the comppnent and introduced them back one by one, until I was able to identify which one was not being flagged as equal. It turns out that one of the properties which was a callback function was not being picked up. To solve this, I wrapped the delete callback function in a [useCallback](https://reactjs.org/docs/hooks-reference.html#usecallback) hook, which also uses memoisation."
-        },
-        {
-          "id": "rp-14",
-          "tagName": "p",
-          "content": "This project source code and a live demo can be seen at [https://matfin.github.io/editable-list-react/](https://matfin.github.io/editable-list-react/)."
-        }
-      ]
-    }
-  ]
+  "root": {
+    "content": [
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "h1",
+            "content": "React Performance Demo"
+          },
+          {
+            "tagName": "h2",
+            "content": "Leveraging React Hooks to improve rendering performance for large lists."
+          }
+        ]
+      },
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "p",
+            "content": "This project is a refresh of an older technical assessment I had taken in the past. With this, I had to create an editable list component where the user would enter values into a text field and these would be rendered in a list (as pills) with the ability to delete items."
+          },
+          {
+            "tagName": "p",
+            "content": "While this worked according to spec, there was one underlying performance issue that only became noticeable after a large number of items were present in the list. When dealing with hundreds of list items, typing into the input became increasingly sluggish - not a good user experience."
+          },
+          {
+            "tagName": "h2",
+            "content": "Deeper dive into the problem"
+          },
+          {
+            "tagName": "p",
+            "content": "The major bottleneck was being caused by unnecessary renders of each of the pills in the component, which encapsulated an input field and a map function to render each pill. The React [useReducer hook](https://reactjs.org/docs/hooks-reference.html#usereducer) was used to maintain the state for the component. An action that updated the current input value was passed into the component, alongside a list of the current items to be rendered."
+          },
+          {
+            "tagName": "p",
+            "content": "Whenever the props for the component were updated, all items in the list would be re-rendered. This happened even as the input text field was being typed in to - character by character. Any time a prop being passed into a component changes, the component re-renders itself (including all child components)."
+          },
+          {
+            "tagName": "p",
+            "content": "In the past, this could be solved by using the [shouldComponentUpdate](https://reactjs.org/docs/state-and-lifecycle.html) lifecycle callback in React class-based components. In here, an equality check could be made between key properties to check and see if a re-render is necessary. When using function comppnents, these lifecycle hooks cannot be used."
+          }
+        ]
+      },
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "h2",
+            "content": "Solving the problem with memoisation"
+          },
+          {
+            "tagName": "p",
+            "content": "What is memoisation? [Memoisation](https://en.wikipedia.org/wiki/Memoization) is an optimisation in computing where the results of a function call are cached and those cached results are returned without the need to recompute them again. This only changes when the inputs to the function call are different and the result may differ too."
+          },
+          {
+            "tagName": "p",
+            "content": "In this particular use case, when delivering a large number of items to be rendered in a list, we are using function calls because we are using function components. Once an item in the list is rendered, it does not change, so it should not need to re-render. ReactJS has a built-in function called [memo](https://reactjs.org/docs/react-api.html#reactmemo) which is a higher order component that wraps around another component to ensure it only re-renders when inputs change."
+          },
+          {
+            "tagName": "p",
+            "content": "When wrapping the component for a list item in the React.memo higher order component, I could still see that each list item was being re-rendered. Through the process of elimination, I removed all properties from the comppnent and introduced them back one by one, until I was able to identify which one was not being flagged as equal. It turns out that one of the properties which was a callback function was not being picked up. To solve this, I wrapped the delete callback function in a [useCallback](https://reactjs.org/docs/hooks-reference.html#usecallback) hook, which also uses memoisation."
+          },
+          {
+            "tagName": "p",
+            "content": "This project source code and a live demo can be seen at [https://matfin.github.io/editable-list-react/](https://matfin.github.io/editable-list-react/)."
+          }
+        ]
+      }
+    ]
+  }
 }

@@ -1,4 +1,4 @@
-import { LinkProps, PathNestingProps } from 'models';
+import { Link, PathNesting } from 'models';
 
 const months: string[] = [
   'January',
@@ -46,7 +46,7 @@ export const normalisePathname = (pathname = ''): string => {
   return pathname;
 };
 
-export const pathNesting = (pathname = ''): PathNestingProps => {
+export const pathNesting = (pathname = ''): PathNesting => {
   const parts = pathname
     .split('/')
     .filter((part: string): boolean => part.length > 0);
@@ -57,7 +57,7 @@ export const pathNesting = (pathname = ''): PathNestingProps => {
   };
 };
 
-export const toLinkObject = (linkText: string): LinkProps => {
+export const toLinkObject = (linkText: string): Link => {
   const regexp = /\[(.*?)\]\((.*?)("(.*?)")?\)/gm;
   const result: RegExpExecArray | null = regexp.exec(linkText);
 

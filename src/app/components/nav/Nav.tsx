@@ -1,10 +1,11 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { JSXChildren, NavLinkProps } from 'models';
+
+import { NavLink } from 'models';
 import { ChildrenSt, LinkSt, NavSt } from './Nav.css';
 
 export interface Props {
-  children?: JSXChildren;
+  children?: React.ReactNode;
   className?: string;
 }
 
@@ -12,7 +13,7 @@ export interface NavLinks {
   [index: string]: { title: string; to: string };
 }
 
-const navLinks: NavLinkProps[] = [
+const navLinks: NavLink[] = [
   { title: 'Home', to: '/', base: 'index' },
   { title: 'About me', to: '/about', base: 'about' },
   { title: 'CV / Resumé', to: '/cv', base: 'cv' },
@@ -28,14 +29,14 @@ export const pathRoot = (pathname: string): string => {
   return splitPathname[0] ?? 'index';
 };
 
-const Nav = ({ children, className }: Props): React.ReactElement => {
+const Nav = ({ children, className }: Props): React.ReactNode => {
   const { pathname } = useLocation();
   const root: string = pathRoot(pathname);
 
   return (
     <NavSt aria-label="Navigation" role="navigation" className={className}>
       {navLinks.map(
-        ({ base, title, to }: NavLinkProps): React.ReactElement => (
+        ({ base, title, to }: NavLink): React.ReactNode => (
           <LinkSt active={root === base ? 1 : 0} key={to} to={to}>
             {title}
           </LinkSt>

@@ -2,89 +2,75 @@
   "title": "Matt Finucane - StackPointCloud",
   "description": "StackPointCloud was a product and services company focused on Kubernetes and DevOps tooling.",
   "slug": "projects/spc-community",
-  "contents": [
-    {
-      "tagName": "section",
-      "id": "intro",
-      "content": [
-        {
-          "id": "spc-1",
-          "tagName": "h1",
-          "content": "SPC Community"
-        },
-        {
-          "id": "spc-2",
-          "tagName": "h2",
-          "content": "StackPointCloud provides tooling for DevOps and Kubernetes."
-        }
-      ]
-    },
-    {
-      "tagName": "section",
-      "id": "spc-3",
-      "content": [
-        {
-          "id": "spc-4",
-          "tagName": "p",
-          "content": "This was a community website created to accompany the DevOps and Kubernetes tools that were built by StackPointCloud [(now NetApp)](https://www.netapp.com/)."
-        },
-        {
-          "id": "spc-5",
-          "tagName": "p",
-          "content": "Users could come and contribute to the site, by asking and answering questions or publishing tutorial content depending on their role."
-        },
-        {
-          "id": "spc-6",
-          "tagName": "p",
-          "content": "Here is how this project was built:"
-        }
-      ]
-    },
-    {
-      "tagName": "ul",
-      "id": "spc-7",
-      "content": [
-        {
-          "id": "pbc-8",
-          "tagName": "li",
-          "content": "For this site, we opted to use the [PolymerJS framework](https://www.polymer-project.org/) which was quite new at the time but offered an interesting look at component based design (with [WebComponents](https://www.webcomponents.org/)) and even had an extensive library of pre-built widgets that adhered to [Google's Material Design](https://material.io/guidelines/material-design/introduction.html)"
-        },
-        {
-          "id": "pbc-9",
-          "tagName": "li",
-          "content": "To complement the client, the server-side infrastructure consisted of a REST server running Node, with MongoDB acting as the database. These two were tied together with Mongoose."
-        },
-        {
-          "id": "pbc-10",
-          "tagName": "li",
-          "content": "The client and the server were both tied together using Docker Compose and Nginx was added to act as a reverse proxy for the two."
-        },
-        {
-          "id": "pbc-11",
-          "tagName": "li",
-          "content": "For the client and server, unit and integration tests were carried out using a combination of Chai, Mocha and Supertest."
-        },
-        {
-          "id": "pbc-12",
-          "tagName": "li",
-          "content": "The client side was built using Gulp as the task runner, and styling was done with SASS. Deployments were carried out using CircleCI and Docker Compose."
-        }
-      ]
-    },
-    {
-      "tagName": "p",
-      "id": "spc-13",
-      "content": "Part of the challenge of working with a new framework is when you run into new and undocumented problems that you need to figure out. This project was created at a time when single page applications were just starting to become mainstream, and the only ones in wide use at this time were AngularJS and React."
-    },
-    {
-      "tagName": "p",
-      "id": "spc-14",
-      "content": "The biggest challenge was ensuring fast loading performance. By default, a single bundle of Javascript was being delivered and this was huge, even when it was compressed. Older browsers like IE would take several seconds to parse and then execute this."
-    },
-    {
-      "tagName": "p",
-      "id": "spc-15",
-      "content": "To get around this, I had to rework Gulp to implement my own tree-shaking set up, so as to only load what needed to render the page as opposed to the entire application. Something like webpack would take care of this nowadays."
-    }
-  ]
+  "root": {
+    "content": [
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "h1",
+            "content": "SPC Community"
+          },
+          {
+            "tagName": "h2",
+            "content": "StackPointCloud provides tooling for DevOps and Kubernetes."
+          }
+        ]
+      },
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "p",
+            "content": "This was a community website created to accompany the DevOps and Kubernetes tools that were built by StackPointCloud [(now NetApp)](https://www.netapp.com/)."
+          },
+          {
+            "tagName": "p",
+            "content": "Users could come and contribute to the site, by asking and answering questions or publishing tutorial content depending on their role."
+          },
+          {
+            "tagName": "p",
+            "content": "Here is how this project was built:"
+          }
+        ]
+      },
+      {
+        "tagName": "ul",
+        "content": [
+          {
+            "tagName": "li",
+            "content": "For this site, we opted to use the [PolymerJS framework](https://www.polymer-project.org/) which was quite new at the time but offered an interesting look at component based design (with [WebComponents](https://www.webcomponents.org/)) and even had an extensive library of pre-built widgets that adhered to [Google's Material Design](https://material.io/guidelines/material-design/introduction.html)"
+          },
+          {
+            "tagName": "li",
+            "content": "To complement the client, the server-side infrastructure consisted of a REST server running Node, with MongoDB acting as the database. These two were tied together with Mongoose."
+          },
+          {
+            "tagName": "li",
+            "content": "The client and the server were both tied together using Docker Compose and Nginx was added to act as a reverse proxy for the two."
+          },
+          {
+            "tagName": "li",
+            "content": "For the client and server, unit and integration tests were carried out using a combination of Chai, Mocha and Supertest."
+          },
+          {
+            "tagName": "li",
+            "content": "The client side was built using Gulp as the task runner, and styling was done with SASS. Deployments were carried out using CircleCI and Docker Compose."
+          }
+        ]
+      },
+      {
+        "tagName": "p",
+        "content": "Part of the challenge of working with a new framework is when you run into new and undocumented problems that you need to figure out. This project was created at a time when single page applications were just starting to become mainstream, and the only ones in wide use at this time were AngularJS and React."
+      },
+      {
+        "tagName": "p",
+        "content": "The biggest challenge was ensuring fast loading performance. By default, a single bundle of Javascript was being delivered and this was huge, even when it was compressed. Older browsers like IE would take several seconds to parse and then execute this."
+      },
+      {
+        "tagName": "p",
+        "content": "To get around this, I had to rework Gulp to implement my own tree-shaking set up, so as to only load what needed to render the page as opposed to the entire application. Something like webpack would take care of this nowadays."
+      }
+    ]
+  }
 }

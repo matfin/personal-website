@@ -1,4 +1,4 @@
-import { PageProps, ThemeType } from 'models';
+import { Page, ThemeType } from 'models';
 
 export interface ReduxAction {
   error?: Error | null;
@@ -6,7 +6,7 @@ export interface ReduxAction {
 }
 
 export interface PageReduxAction extends ReduxAction {
-  payload?: PageProps;
+  payload?: Page;
 }
 
 export interface AppReduxAction extends ReduxAction {
@@ -14,9 +14,9 @@ export interface AppReduxAction extends ReduxAction {
 }
 
 export interface PageReducerState {
-  error: Error | null;
+  error?: Error | null;
   pending: boolean;
-  page: PageProps | null;
+  page: Page | null;
 }
 
 export interface AppReducerState {

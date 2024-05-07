@@ -10,7 +10,7 @@ import {
 } from 'redux-saga/effects';
 import { query } from 'app/services/api';
 
-import { PageProps } from 'models';
+import { Page } from 'models';
 import ActionTypes from './types';
 import {
   fetchPageStart,
@@ -29,7 +29,7 @@ export function* fetchPage({
   try {
     const page = yield call(query, { url, signal: abortController.signal });
 
-    yield put(fetchPageSuccess(page as PageProps));
+    yield put(fetchPageSuccess(page as Page));
   } catch (error) {
     yield put(fetchPageFailure(error as Error));
   } finally {

@@ -3,195 +3,218 @@
   "description": "My work experience and qualifications from 2001 to present.",
   "pathname": "/cv/",
   "slug": "cv",
-  "contents": [
-    {
-      "tagName": "section",
-      "id": "intro",
-      "content": [
-        {
-          "id": "cv-1",
-          "tagName": "h1",
-          "content": "CV / Resumé"
-        },
-        {
-          "id": "cv-2",
-          "tagName": "h2",
-          "content": "My work experience and qualifications from 2001 to present."
-        }
-      ]
-    },
-    {
-      "id": "cv-3",
-      "tagName": "p",
-      "content": "My CV is also available in [PDF format](https://mattfinucane.com/docs/matt-finucane-cv.pdf \"Matt Finucane CV\")."
-    },
-    {
-      "tagName": "section",
-      "id": "work-experience",
-      "content": [
-        {
-          "id": "cv-4",
-          "tagName": "jobs",
-          "content": [
-            {
-              "company": "Travelport Digital",
-              "location": "Dublin, Ireland",
-              "role": "Senior front-end engineer",
-              "startDate": "2020-01-06",
-              "tasks": [
-                "Worked on features for a corporate travel application and implemented upgrade path (React Native).",
-                "Migrated client web application from AngularJS to ReactJS with TypeScript."
-              ],
-              "topics": []
-            },
-            {
-              "company": "heycar",
-              "endDate": "2019-12-31",
-              "location": "Berlin, Germany",
-              "role": "Senior front-end engineer",
-              "startDate": "2017-08-08",
-              "tasks": [
-                "Created and maintained a marketplace and CRM for a used car platform.",
-                "Mentored junior engineers, reviewed CVs and interviewed candidates."
-              ],
-              "topics": []
-            },
-            {
-              "company": "Freelance Software Engineer",
-              "endDate": "2018-01-01",
-              "location": "Berlin, Germany",
-              "role": "Senior full-stack engineer",
-              "startDate": "2014-12-01",
-              "tasks": [
-                "Made regular contributions to popular Open-source projects and started two of my own.",
-                "Created a variety of web and mobile applications for numerous clients."
-              ],
-              "topics": []
-            },
-            {
-              "company": "Things I Like GMBH",
-              "endDate": "2014-11-30",
-              "location": "Berlin, Germany",
-              "role": "Senior full-stack engineer",
-              "startDate": "2014-06-01",
-              "tasks": [
-                "Built a website for the Monoqi B2B platform for communication between designers and resellers.",
-                "Created new tools to improve front end development workflow for the team."
-              ],
-              "topics": []
-            },
-            {
-              "company": "Axel Springer Ideas",
-              "endDate": "2014-04-30",
-              "location": "Berlin, Germany",
-              "role": "Senior front-end engineer",
-              "startDate": "2013-10-10",
-              "tasks": [
-                "Created and maintained a TV guide web and mobile application for TunedIn, an Axel Springer startup.",
-                "Wrote unit and acceptance tests to ensure the product was stable and robust throughout each sprint."
-              ],
-              "topics": []
-            },
-            {
-              "company": "iQContent Ltd",
-              "endDate": "2013-09-15",
-              "location": "Dublin, Ireland",
-              "role": "Senior full-stack engineer (contract)",
-              "startDate": "2013-03-12",
-              "tasks": [
-                "Created a knowledge based information portal for a large telecoms organisation.",
-                "Optimised registration flow and integrated this with other CRM tools such as Salesforce."
-              ],
-              "topics": []
-            },
-            {
-              "company": "Maithu IT Solutions",
-              "endDate": "2013-03-09",
-              "location": "Dublin, Ireland",
-              "role": "Technical lead",
-              "startDate": "2012-01-12",
-              "tasks": [
-                "Drove the development of multiple mobile applications as technical lead.",
-                "Overhauled the Irish Times News app (iOS, Android), integrating to their existing web infrastructure."
-              ],
-              "topics": []
-            },
-            {
-              "company": "Paddy Power PLC",
-              "endDate": "2012-01-06",
-              "location": "Dublin, Ireland",
-              "role": "Senior full-stack engineer",
-              "startDate": "2010-03-08",
-              "tasks": [
-                "Upgraded the in-house CMS to enable targeted content delivery for different user groups.",
-                "Built a staff rostering and payroll system used by shop managers for all Paddy Power outlets."
-              ],
-              "topics": []
-            },
-            {
-              "company": "Freelance Software Engineer",
-              "endDate": "2010-03-01",
-              "location": "Dublin, Ireland",
-              "role": "Senior full-stack engineer",
-              "startDate": "2008-07-01",
-              "tasks": [
-                "Created several bespoke content managed websites for clients using hand-coded HTML and PHP.",
-                "Practised excellent standards in web development to ensure organic SEO performance and accessibility."
-              ],
-              "topics": []
-            },
-            {
-              "company": "Net-A-Porter",
-              "endDate": "2008-07-01",
-              "location": "London, UK",
-              "role": "Full-stack engineer",
-              "startDate": "2007-06-01",
-              "tasks": [
-                "Redeveloped the HTML and CSS during a complete overhaul of the company website.",
-                "Created an internal WYSIWYG tool to author promotional emails and newsletter templates."
-              ],
-              "topics": []
-            },
-            {
-              "company": "FindMyPast.com",
-              "endDate": "2007-06-01",
-              "location": "London, UK",
-              "role": "Full-stack engineer",
-              "startDate": "2006-09-15",
-              "tasks": [
-                "Upgraded site standards compliancy in XHTML and CSS.",
-                "Coordinated internal knowledge sharing through regular web standards training."
-              ],
-              "topics": []
-            },
-            {
-              "company": "AOL Technologies Ltd",
-              "endDate": "2006-06-30",
-              "location": "Dublin, Ireland",
-              "role": "Associate software engineer",
-              "startDate": "2005-07-01",
-              "tasks": [
-                "Created a web application in Tomcat to monitor RSS feeds from news providers.",
-                "Built an XSLT processor to populate XML feeds to databases."
-              ],
-              "topics": []
-            },
-            {
-              "company": "Dublin City University",
-              "endDate": "2005-06-01",
-              "location": "Dublin, Ireland",
-              "role": "BSc. in Computer Applications (Honours)",
-              "startDate": "2001-09-26",
-              "tasks": [
-                "Modules include Java software development, Business process management, Computer Graphics, Database administration and the Software development life-cycle (waterfall).",
-                "Alcatel CIT, France: developed an error logging system for GSM cell towers (INTRA work placement).",
-                "Coded a mobile 2D game using J2ME (Final year project)."
-              ],
-              "topics": []
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  "root": {
+    "content": [
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "h1",
+            "content": "CV / Resumé"
+          },
+          {
+            "tagName": "h2",
+            "content": "My work experience and qualifications from 2001 to present."
+          }
+        ]
+      },
+      {
+        "tagName": "p",
+        "content": "My CV is also available in [PDF format](https://mattfinucane.com/docs/matt-finucane-cv.pdf \"Matt Finucane CV\")."
+      },
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "jobs",
+            "content": [
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "Travelport Digital",
+                  "location": "Dublin, Ireland",
+                  "role": "Senior front-end engineer",
+                  "startDate": "2020-01-06",
+                  "tasks": [
+                    "Worked on features for a corporate travel application and implemented upgrade path (React Native).",
+                    "Migrated client web application from AngularJS to ReactJS with TypeScript."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "heycar",
+                  "endDate": "2019-12-31",
+                  "location": "Berlin, Germany",
+                  "role": "Senior front-end engineer",
+                  "startDate": "2017-08-08",
+                  "tasks": [
+                    "Created and maintained a marketplace and CRM for a used car platform.",
+                    "Mentored junior engineers, reviewed CVs and interviewed candidates."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "Freelance Software Engineer",
+                  "endDate": "2018-01-01",
+                  "location": "Berlin, Germany",
+                  "role": "Senior full-stack engineer",
+                  "startDate": "2014-12-01",
+                  "tasks": [
+                    "Made regular contributions to popular Open-source projects and started two of my own.",
+                    "Created a variety of web and mobile applications for numerous clients."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "Things I Like GMBH",
+                  "endDate": "2014-11-30",
+                  "location": "Berlin, Germany",
+                  "role": "Senior full-stack engineer",
+                  "startDate": "2014-06-01",
+                  "tasks": [
+                    "Built a website for the Monoqi B2B platform for communication between designers and resellers.",
+                    "Created new tools to improve front end development workflow for the team."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "Axel Springer Ideas",
+                  "endDate": "2014-04-30",
+                  "location": "Berlin, Germany",
+                  "role": "Senior front-end engineer",
+                  "startDate": "2013-10-10",
+                  "tasks": [
+                    "Created and maintained a TV guide web and mobile application for TunedIn, an Axel Springer startup.",
+                    "Wrote unit and acceptance tests to ensure the product was stable and robust throughout each sprint."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "iQContent Ltd",
+                  "endDate": "2013-09-15",
+                  "location": "Dublin, Ireland",
+                  "role": "Senior full-stack engineer (contract)",
+                  "startDate": "2013-03-12",
+                  "tasks": [
+                    "Created a knowledge based information portal for a large telecoms organisation.",
+                    "Optimised registration flow and integrated this with other CRM tools such as Salesforce."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "Maithu IT Solutions",
+                  "endDate": "2013-03-09",
+                  "location": "Dublin, Ireland",
+                  "role": "Technical lead",
+                  "startDate": "2012-01-12",
+                  "tasks": [
+                    "Drove the development of multiple mobile applications as technical lead.",
+                    "Overhauled the Irish Times News app (iOS, Android), integrating to their existing web infrastructure."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "Paddy Power PLC",
+                  "endDate": "2012-01-06",
+                  "location": "Dublin, Ireland",
+                  "role": "Senior full-stack engineer",
+                  "startDate": "2010-03-08",
+                  "tasks": [
+                    "Upgraded the in-house CMS to enable targeted content delivery for different user groups.",
+                    "Built a staff rostering and payroll system used by shop managers for all Paddy Power outlets."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "Freelance Software Engineer",
+                  "endDate": "2010-03-01",
+                  "location": "Dublin, Ireland",
+                  "role": "Senior full-stack engineer",
+                  "startDate": "2008-07-01",
+                  "tasks": [
+                    "Created several bespoke content managed websites for clients using hand-coded HTML and PHP.",
+                    "Practised excellent standards in web development to ensure organic SEO performance and accessibility."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "Net-A-Porter",
+                  "endDate": "2008-07-01",
+                  "location": "London, UK",
+                  "role": "Full-stack engineer",
+                  "startDate": "2007-06-01",
+                  "tasks": [
+                    "Redeveloped the HTML and CSS during a complete overhaul of the company website.",
+                    "Created an internal WYSIWYG tool to author promotional emails and newsletter templates."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "FindMyPast.com",
+                  "endDate": "2007-06-01",
+                  "location": "London, UK",
+                  "role": "Full-stack engineer",
+                  "startDate": "2006-09-15",
+                  "tasks": [
+                    "Upgraded site standards compliancy in XHTML and CSS.",
+                    "Coordinated internal knowledge sharing through regular web standards training."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "AOL Technologies Ltd",
+                  "endDate": "2006-06-30",
+                  "location": "Dublin, Ireland",
+                  "role": "Associate software engineer",
+                  "startDate": "2005-07-01",
+                  "tasks": [
+                    "Created a web application in Tomcat to monitor RSS feeds from news providers.",
+                    "Built an XSLT processor to populate XML feeds to databases."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
+                  "company": "Dublin City University",
+                  "endDate": "2005-06-01",
+                  "location": "Dublin, Ireland",
+                  "role": "BSc. in Computer Applications (Honours)",
+                  "startDate": "2001-09-26",
+                  "tasks": [
+                    "Modules include Java software development, Business process management, Computer Graphics, Database administration and the Software development life-cycle (waterfall).",
+                    "Alcatel CIT, France: developed an error logging system for GSM cell towers (INTRA work placement).",
+                    "Coded a mobile 2D game using J2ME (Final year project)."
+                  ],
+                  "topics": []
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

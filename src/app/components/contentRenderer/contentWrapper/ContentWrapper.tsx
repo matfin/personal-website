@@ -1,0 +1,97 @@
+import React, { memo } from 'react';
+
+import {
+  ContentItem,
+  Image,
+  Position,
+  Project as ProjectModel,
+  Topic,
+} from 'models';
+import { isLink, splitContent, toLinkObject } from 'utils';
+import Text from 'app/components/contentRenderer/text';
+import Job from 'app/components/contentRenderer/position';
+import Project from 'app/components/contentRenderer/project';
+import {
+  List,
+  ListItem,
+  Link,
+  Photo,
+  PhotoContainer,
+  Projects,
+  ProjectTile,
+  TopicItem,
+  Topics,
+} from './ContentWrapper.css';
+
+export interface Props {
+  tagName: string;
+  content?: ContentItem;
+  children?: React.ReactNode;
+}
+
+const processContent = (content: string): React.ReactNode => {
+  const split: string[] = splitContent(content);
+  const processed = split.map((item: string) => {
+    if (isLink(item)) {
+      return <Link {...toLinkObject(item)} key={item} />;
+    }
+
+    return item;
+  });
+
+  return processed;
+};
+
+const ContentWrapper = ({
+  tagName,
+  content,
+  children,
+}: Props): React.ReactNode => {
+  switch (tagName) {
+    case 'section':
+    case 'jobs': {
+      return <section>{children}</section>;
+    }
+    case 'ul': {
+      return <List>{children}</List>;
+    }
+    case 'topics': {
+      return <Topics>{children}</Topics>;
+    }
+    case 'projects': {
+      return <Projects>{children}</Projects>;
+    }
+    case 'li': {
+      return (
+        <ListItem>{processContent(content as unknown as string)}</ListItem>
+      );
+    }
+    case 'job': {
+      return <Job {...(content as unknown as Position)} />;
+    }
+    case 'topic': {
+      return <TopicItem {...(content as unknown as Topic)} />;
+    }
+    case 'img': {
+      return (
+        <PhotoContainer>
+          <Photo {...(content as unknown as Image)} />
+        </PhotoContainer>
+      );
+    }
+    case 'project': {
+      return (
+        <ProjectTile>
+          <Project {...(content as unknown as ProjectModel)} />
+        </ProjectTile>
+      );
+    }
+    default: {
+      return (
+        <Text as={tagName}>{processContent(content as unknown as string)}</Text>
+      );
+    }
+  }
+};
+
+export default memo(ContentWrapper);

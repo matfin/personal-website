@@ -9,12 +9,12 @@ const defaultProps: Props = {
   onToggle: jest.fn(),
 };
 
-describe('Toggle tests', () => {
-  it('renders the component', () => {
+describe('Toggle tests', (): void => {
+  it('renders the component', (): void => {
     expect(render(<Toggle {...defaultProps} />)).toBeTruthy();
   });
 
-  it('toggles to the ON value', () => {
+  it('toggles to the ON value', (): void => {
     const spyOnToggle = jest.fn();
     const wrapper = render(<Toggle {...defaultProps} onToggle={spyOnToggle} />);
     const toggle = wrapper.getByTestId('toggle');
@@ -23,7 +23,7 @@ describe('Toggle tests', () => {
     expect(spyOnToggle).toHaveBeenCalledWith(ToggleValue.ON);
   });
 
-  it('toggles to the OFF value', () => {
+  it('toggles to the OFF value', (): void => {
     const spyOnToggle = jest.fn();
     const wrapper = render(
       <Toggle
@@ -38,14 +38,14 @@ describe('Toggle tests', () => {
     expect(spyOnToggle).toHaveBeenCalledWith(ToggleValue.OFF);
   });
 
-  it('shows the correct toggle position given OFF state', () => {
+  it('shows the correct toggle position given OFF state', (): void => {
     const wrapper = render(<Toggle {...defaultProps} />);
     const indicator = wrapper.getByTestId('indicator');
 
     expect(indicator).toHaveStyleRule('left', '-2px');
   });
 
-  it('shows the correct toggle position given ON state', () => {
+  it('shows the correct toggle position given ON state', (): void => {
     const wrapper = render(<Toggle {...defaultProps} value={ToggleValue.ON} />);
     const indicator = wrapper.getByTestId('indicator');
 

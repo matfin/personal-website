@@ -1,5 +1,6 @@
 import {
   formatDate,
+  setBodyOverflow,
   isExternalUrl,
   isIE,
   isLink,
@@ -13,6 +14,14 @@ import {
 describe('utils tests', (): void => {
   it('should format a date', (): void => {
     expect(formatDate(new Date('1982-04-26'))).toEqual('April 1982');
+  });
+
+  it('should set the body overflow', (): void => {
+    setBodyOverflow(true);
+    expect(document.body.style.overflow).toEqual('auto');
+
+    setBodyOverflow(false);
+    expect(document.body.style.overflow).toEqual('hidden');
   });
 
   it('should check if a string is an MD formatted link', (): void => {
