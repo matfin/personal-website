@@ -1,32 +1,39 @@
 import React from 'react';
 import { promises as fs } from 'fs';
 import { v4 as uuidv4 } from 'uuid';
-import { Store } from 'redux';
+import { Store } from '@reduxjs/toolkit';
 import { Helmet, HelmetData } from 'react-helmet';
 import { renderToString } from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
-import { createServerStore } from '../store';
-import { fetchPageSuccess } from 'app/services/page/actions';
+
+import { store } from 'app/services/state/store';
+import type { RootState } from 'app/services/state/store';
+import { setPage } from 'app/services/state/page';
 import { getAppVersion, getCanonicalUrl, getEnableCache } from '../config';
 import { indexTemplate } from 'utils';
-import { CombinedAppState, Page, StaticReqProps } from 'models';
+import { Page, StaticReqProps } from 'models';
 import IndexComponent from './IndexComponent';
 
 class SSGController {
   private store: Store;
 
   constructor() {
-    this.store = createServerStore();
+    this.store = store;
   }
 
-  public generate = async (slug: string): Promise<string> => {
-    await this.loadPage(slug ?? '/index');
+  public generate = async (slug: string): Promise<string | null> => {
+    try {
+      await this.loadPage(slug ?? '/index');
 
-    const content: string = await this.generateStaticContentString({
-      url: slug,
-    });
+      const content: string = await this.generateStaticContentString({
+        url: slug,
+      });
 
-    return this.withCSPNonce(content);
+      return this.withCSPNonce(content);
+    } catch (e) {
+      console.error({ generate: e });
+      return null;
+    }
   };
 
   private loadPage = async (slug: string): Promise<void> => {
@@ -38,7 +45,7 @@ class SSGController {
       ).toString();
       const page: Page = JSON.parse(contents);
 
-      this.store.dispatch(fetchPageSuccess(page));
+      this.store.dispatch(setPage(page));
     } catch (e) {
       console.error(e);
     }
@@ -59,7 +66,7 @@ class SSGController {
       const canonicalUrl: string = getCanonicalUrl();
       const enableCache: boolean = getEnableCache();
       const sheet = new ServerStyleSheet();
-      const preloadedState: CombinedAppState = this.store.getState();
+      const preloadedState: RootState = this.store.getState();
       const preloadedStateJson: string = JSON.stringify(preloadedState).replace(
         /</g,
         '\\u003c',

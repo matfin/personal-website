@@ -72,3 +72,7 @@ export interface NavLink {
   title: string;
   to: string;
 }
+
+export interface FetchError {
+  errorMessage: string;
+}

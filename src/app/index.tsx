@@ -1,16 +1,16 @@
 import React from 'react';
-import { Store } from 'redux';
+import { Store } from '@reduxjs/toolkit';
 import { hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import { CombinedAppState } from 'models';
-import { createClientStore } from '../store';
+import { clientStore } from 'app/services/state/store';
+import type { RootState } from 'app/services/state/store';
 import App from './App';
 
-const preloadedState: CombinedAppState = window._PRELOADED_STATE_;
-const store: Store = createClientStore(preloadedState);
-const container: Document | Element = document.getElementById('root')!;
+const preloadedState: RootState = window._PRELOADED_STATE_;
+const store: Store = clientStore(preloadedState);
+const container: HTMLElement = document.getElementById('root')!;
 
 delete window._PRELOADED_STATE_;
 

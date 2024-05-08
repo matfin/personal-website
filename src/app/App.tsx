@@ -1,39 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import useAppearanceChange from './hooks/useAppearanceChange';
-import { CombinedAppState, ThemeType } from 'models';
-import ConnectedPage from 'app/views/page/ConnectedPage';
+import { useApp, useAppearanceChange } from 'app/hooks';
+import { ThemeType } from 'models';
+import Page from 'app/views/page';
 import Meta from 'app/components/meta/Meta';
 import { day, GlobalStyle, night } from 'app/styles';
-import { AppDispatch, switchTheme } from 'app/services/app/actions';
 
-export interface Props {
-  currentTheme: ThemeType;
-  switchTheme: (theme: ThemeType) => void;
-}
-
-interface MapDispatchToProps {
-  switchTheme: (theme: ThemeType) => void;
-}
-
-const mapStateToProps = (state: CombinedAppState) => ({
-  currentTheme: state.appState.currentTheme,
-});
-
-const mapDispatchToProps = (dispatch: AppDispatch): MapDispatchToProps => ({
-  switchTheme: (theme: ThemeType): void => dispatch(switchTheme(theme)),
-});
-
-const App = ({ currentTheme, switchTheme }: Props): React.ReactNode => {
+const App = (): React.ReactNode => {
+  const { currentTheme, updateTheme } = useApp();
   const themes = {
     day,
     night,
   };
 
-  useAppearanceChange((theme: ThemeType): void => switchTheme(theme));
+  useAppearanceChange((theme: ThemeType): void => updateTheme(theme));
 
   return (
     <ThemeProvider theme={themes[currentTheme]}>
@@ -43,11 +25,11 @@ const App = ({ currentTheme, switchTheme }: Props): React.ReactNode => {
         slug="/"
       />
       <Routes>
-        <Route path="*" element={<ConnectedPage />} />
+        <Route path="*" element={<Page />} />
       </Routes>
       <GlobalStyle />
     </ThemeProvider>
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

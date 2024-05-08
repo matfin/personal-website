@@ -1,5 +1,5 @@
 import React from 'react';
-import { Store } from 'redux';
+import { Store } from '@reduxjs/toolkit';
 import { StaticRouter } from 'react-router-dom/server';
 import { Provider } from 'react-redux';
 
@@ -11,7 +11,7 @@ export interface Props {
   store: Store;
 }
 
-const IndexComponent = ({ store, req }: Props): React.ReactNode => (
+const IndexComponent = ({ req, store }: Props): React.ReactNode => (
   <Provider store={store}>
     <StaticRouter location={req.url}>
       <App />
