@@ -20,10 +20,9 @@ module.exports = {
     'node_modules',
     'src/ssg',
     'src/config.ts',
-    'src/store.ts',
+    'src/app/services/state/store.ts',
     'src/app/styles/global.ts',
     'src/utils/testutils.tsx',
-    'src/app/views/page/ConnectedPage.tsx',
   ],
   moduleDirectories: ['node_modules', 'src'],
 };

@@ -6,7 +6,7 @@ declare namespace NodeJS {
 }
 
 declare global {
-  interface caches {
+  interface caches<T> {
     open(string): Promise<T>;
     match(string): Promise<T>;
     keys(): Promise<T>;

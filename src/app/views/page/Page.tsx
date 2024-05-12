@@ -1,9 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import { usePage, useApp } from 'app/hooks';
+
 import Meta from 'app/components/meta';
 import { normalisePathname, pathNesting, setBodyOverflow } from 'utils';
-import { Page as PageProps, ToggleValue, ThemeType } from 'models';
+import { ToggleValue, ThemeType } from 'models';
 import { BackButton, ErrorMessage } from './components';
 import Nav from 'app/components/nav';
 import ContentRenderer from 'app/components/contentRenderer';
@@ -17,27 +19,13 @@ import {
   SideSt,
 } from './Page.css';
 
-export interface Props {
-  currentTheme: ThemeType;
-  error: Error | null;
-  pending: boolean;
-  page: PageProps | null;
-  fetchPageRequest(slug: string): void;
-  resetPage(): void;
-  switchTheme(theme: ThemeType): void;
-}
-
-const Page = ({
-  currentTheme,
-  error,
-  pending,
-  page,
-  fetchPageRequest,
-  resetPage,
-  switchTheme,
-}: Props): React.ReactNode => {
+const Page = (): React.ReactNode => {
   const { pathname } = useLocation();
-  const { isNested, parts } = pathNesting(normalisePathname(pathname));
+  const normalisedPathname: string = normalisePathname(pathname);
+  const { isNested, parts } = pathNesting(normalisedPathname);
+  const { error, page, pending } = usePage(normalisedPathname);
+  const { currentTheme, toggleTheme } = useApp();
+
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const toggleMenu = useCallback((): void => {
@@ -50,25 +38,10 @@ const Page = ({
     setBodyOverflow(true);
   }, []);
 
-  const toggleTheme = useCallback(
-    (toggleValue: ToggleValue): void => {
-      const theme: ThemeType =
-        toggleValue === ToggleValue.ON ? ThemeType.NIGHT : ThemeType.DAY;
-
-      switchTheme(theme);
-    },
-    [switchTheme],
-  );
-
-  useEffect((): (() => void) => {
-    const slug: string = normalisePathname(pathname);
-
+  useEffect((): void => {
     setShowMenu(false);
-    fetchPageRequest(slug || 'index');
     window.scrollTo(0, 0);
-
-    return resetPage;
-  }, [pathname, fetchPageRequest, resetPage]);
+  }, [pathname]);
 
   return (
     <>
@@ -111,7 +84,9 @@ const Page = ({
             >
               {isNested && <BackButton href={`/${[parts[0]]}/`} />}
               {!pending && error && <ErrorMessage error={error} />}
-              {!pending && page?.root && <ContentRenderer root={page.root} />}
+              {!pending && !error && page?.root && (
+                <ContentRenderer root={page.root} />
+              )}
             </MainSt>
             <FooterSt />
           </>

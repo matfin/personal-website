@@ -33,19 +33,22 @@ const generateStaticContent = async (
   slugs: string[],
 ): Promise<void> => {
   const generator: SSGController = new SSGController();
-
   // recreate
   await fs.mkdir(path, { recursive: true });
 
   // generate HTML from slugs
   slugs.forEach(async (slug: string): Promise<void> => {
-    const staticHtml: string = await generator.generate(`/${slug}`);
+    const staticHtml: string | null = await generator.generate(`/${slug}`);
 
     if (slug === 'index') {
-      await fs.writeFile(`${path}/index.html`, staticHtml, 'utf-8');
+      await fs.writeFile(`${path}/index.html`, staticHtml ?? '', 'utf-8');
     } else {
       await fs.mkdir(`${path}/${slug}`, { recursive: true });
-      await fs.writeFile(`${path}/${slug}/index.html`, staticHtml, 'utf-8');
+      await fs.writeFile(
+        `${path}/${slug}/index.html`,
+        staticHtml ?? '',
+        'utf-8',
+      );
     }
   });
 };
@@ -95,7 +98,7 @@ const run = async (): Promise<void> => {
       `Regenerated static content from: ${contentBase} to: ${outputDir}`,
     );
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
