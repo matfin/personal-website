@@ -3,12 +3,17 @@ import { render, RenderResult } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { HelmetProvider, HelmetServerState } from 'react-helmet-async';
 
 import { store } from 'app/services/state/store';
 import { day } from 'app/styles';
 
 export const renderWithRouter = (children: React.ReactNode): RenderResult =>
-  render(<Router>{children}</Router>);
+  render(
+    <HelmetProvider>
+      <Router>{children}</Router>
+    </HelmetProvider>,
+  );
 
 export const renderWithStore = (children: React.ReactNode): RenderResult => {
   return render(<Provider store={store}>{children}</Provider>);
@@ -23,6 +28,20 @@ export const renderWrapped = (children: React.ReactNode): RenderResult =>
       <Router>{children}</Router>
     </Provider>,
   );
+
+export const renderWithHelmetProvider = ({
+  children,
+  helmetContext,
+}: {
+  children: React.ReactNode;
+  helmetContext: { helmet?: HelmetServerState };
+}): RenderResult => {
+  HelmetProvider.canUseDOM = false;
+
+  return render(
+    <HelmetProvider context={helmetContext}>{children}</HelmetProvider>,
+  );
+};
 
 export const setupMatchMedia = (matches: boolean) =>
   Object.defineProperty(window, 'matchMedia', {

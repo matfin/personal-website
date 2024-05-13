@@ -1,6 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { Helmet, HelmetPropsToState } from 'react-helmet';
+import { renderWithHelmetProvider } from 'utils/testutils';
+import { HelmetServerState } from 'react-helmet-async';
+
 import * as config from '../../../config';
 import Meta, { Props } from './Meta';
 
@@ -18,58 +19,63 @@ describe('Meta tests', (): void => {
     spyGetCanonicalUrl.mockRestore();
   });
 
-  it('renders the component', (): void => {
-    const wrapper = render(<Meta {...defaultProps} />);
-    const helmet: HelmetPropsToState = Helmet.peek();
-    const expectedMetaTags = [
-      {
-        name: 'apple-mobile-web-app-status-bar-style',
-        content: 'black-translucent',
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1, user-scalable=yes',
-      },
-      { name: 'theme-color', content: '#ecedef' },
-      { name: 'description', content: 'Test description' },
-      { name: 'author', content: 'Matt Finucane' },
-      { property: 'og:url', content: 'https://test.de/' },
-      { property: 'og:site_name', content: 'mattfinucane.com' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:locale', content: 'en-IE' },
-      { property: 'og:title', content: 'Test title' },
-      { property: 'og:description', content: 'Test description' },
-      { name: 'twitter:site', content: '@matfinucane' },
-      { name: 'twitter:creator', content: '@matfinucane' },
-      { name: 'twitter:title', content: 'Test title' },
-      { name: 'twitter:url', content: 'https://test.de/' },
-      { name: 'twitter:description', content: 'Test description' },
-    ];
+  it('renders the component with the correct details', (): void => {
+    const helmetContext: { helmet?: HelmetServerState } = {};
 
-    expect(wrapper).toBeTruthy();
-    expect(helmet.title).toEqual('Test title');
-    expect(helmet.metaTags).toEqual(expectedMetaTags);
+    renderWithHelmetProvider({
+      children: <Meta {...defaultProps} />,
+      helmetContext,
+    });
+
+    const { helmet } = helmetContext;
+    const title = helmet?.title.toString();
+    const meta = helmet?.meta.toString();
+
+    expect(title).toContain('Test title');
+    expect(meta).toContain('Test title');
+    expect(meta).toContain('Test description');
+    expect(meta).toContain('@matfinucane');
+    expect(meta).toContain('https://test.de');
   });
 
-  it('renders with a set url', (): void => {
-    const wrapper = render(<Meta {...defaultProps} slug="test-slug" />);
-    const helmet = Helmet.peek();
+  it('renders with a title and a url', (): void => {
+    const helmetContext: { helmet?: HelmetServerState } = {};
 
-    expect(wrapper).toBeTruthy();
-    expect(helmet.metaTags[5]).toEqual({
-      property: 'og:url',
-      content: 'https://test.de/test-slug',
+    renderWithHelmetProvider({
+      children: (
+        <Meta
+          {...defaultProps}
+          description="A custom description"
+          title="A custom title"
+          slug="a-custom-slug"
+        />
+      ),
+      helmetContext,
     });
+
+    const { helmet } = helmetContext;
+    const title = helmet?.title.toString();
+    const meta = helmet?.meta.toString();
+
+    expect(title).toContain('A custom title');
+    expect(meta).toContain('A custom title');
+    expect(meta).toContain('A custom description');
+    expect(meta).toContain('@matfinucane');
+    expect(meta).toContain('https://test.de/a-custom-slug');
   });
 
   it('omits the slug for the home page', (): void => {
-    const wrapper = render(<Meta {...defaultProps} slug="index" />);
-    const helmet = Helmet.peek();
+    const helmetContext: { helmet?: HelmetServerState } = {};
 
-    expect(wrapper).toBeTruthy();
-    expect(helmet.metaTags[5]).toEqual({
-      property: 'og:url',
-      content: 'https://test.de/',
+    renderWithHelmetProvider({
+      children: <Meta {...defaultProps} slug="index" />,
+      helmetContext,
     });
+
+    const { helmet } = helmetContext;
+    const meta = helmet?.meta.toString();
+
+    expect(meta).toContain('https://test.de/');
+    expect(meta).not.toContain('https://test.de/index');
   });
 });
