@@ -1,4 +1,4 @@
-import { Page } from 'models';
+import { Page } from '@models';
 import { fetchPageBySlug } from './api';
 
 const headers = {

@@ -1,13 +1,13 @@
 import React from 'react';
-import { Position as PositionModel } from 'models';
-import { formatDate } from 'utils';
+import { Position as PositionModel } from '@models';
+import { formatDate } from '@utils';
 import {
-  CompanyNameSt,
-  DateFromToSt,
-  LocationAndRoleSt,
-  PositionSt,
-  TaskListSt,
-  TaskItemSt,
+  CompanyName,
+  DateFromTo,
+  LocationAndRole,
+  Container,
+  TaskList,
+  TaskItem,
 } from './Position.css';
 
 export interface Props extends PositionModel {
@@ -29,21 +29,21 @@ const Position = ({
     : ' to present';
 
   return (
-    <PositionSt className={className}>
-      <DateFromToSt>
+    <Container className={className}>
+      <DateFromTo>
         <time dateTime={startDate}>{dateFrom}</time>
         {endDate ? <time dateTime={endDate}>{dateTo}</time> : ' to present'}
-      </DateFromToSt>
-      <CompanyNameSt>{company}</CompanyNameSt>
-      <LocationAndRoleSt>
+      </DateFromTo>
+      <CompanyName>{company}</CompanyName>
+      <LocationAndRole>
         {role} / {location}
-      </LocationAndRoleSt>
-      <TaskListSt>
+      </LocationAndRole>
+      <TaskList>
         {tasks.map((task: string) => (
-          <TaskItemSt key={task}>{task}</TaskItemSt>
+          <TaskItem key={task}>{task}</TaskItem>
         ))}
-      </TaskListSt>
-    </PositionSt>
+      </TaskList>
+    </Container>
   );
 };
 

@@ -6,7 +6,7 @@ import {
   fontSize,
   fontWeight,
   lineHeight,
-} from 'app/styles/vars';
+} from '@styles';
 
 export interface Props {
   canonicalUrl: string;

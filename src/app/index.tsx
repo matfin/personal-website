@@ -5,8 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
 
-import { clientStore } from 'app/services/state/store';
-import type { RootState } from 'app/services/state/store';
+import { clientStore } from '@services/state/store';
+import type { RootState } from '@services/state/store';
 import App from './App';
 
 const preloadedState: RootState = window._PRELOADED_STATE_;

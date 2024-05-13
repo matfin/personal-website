@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
-import { LoadingSpinner } from 'app/components/svgicons';
-import { layers } from 'app/styles';
+
+import { LoadingSpinner as LoadingSpinnerSVG } from '@components/svgicons';
+import { layers } from '@styles';
 
 const rotate = keyframes`
   from {
@@ -12,14 +13,14 @@ const rotate = keyframes`
   }
 `;
 
-export const LoadingSt = styled.div`
+export const Container = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const LoadingSpinnerSt = styled(LoadingSpinner)`
+export const LoadingSpinner = styled(LoadingSpinnerSVG)`
   z-index: ${layers.top};
   width: 128px;
   height: 128px;

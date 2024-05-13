@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 
-import { renderWithTheme } from 'utils/testutils';
+import { renderWithTheme } from '@testutils';
 import Text, { Props } from './Text';
 
 const defaultProps: Props = {

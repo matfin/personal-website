@@ -1,5 +1,6 @@
 import React from 'react';
-import { renderWithRouter } from 'utils/testutils';
+
+import { renderWithRouter } from '@testutils';
 import Nav, { pathRoot } from './Nav';
 
 describe('Nav tests', (): void => {

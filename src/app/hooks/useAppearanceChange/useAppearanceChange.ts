@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { ThemeType } from 'models';
+import { ThemeType } from '@models';
 
 const useAppearanceChange = (cb: (theme: ThemeType) => void): void => {
   useEffect((): (() => void) => {

@@ -1,8 +1,8 @@
 import { renderHook } from '@testing-library/react';
 
-import type { RootState } from 'app/services/state/store';
-import { useAppDispatch, useAppSelector } from 'app/hooks/useDispatchSelector';
-import { fetchPageBySlug, resetPage } from 'app/services/state/page';
+import type { RootState } from '@services/state/store';
+import { useAppDispatch, useAppSelector } from '@hooks';
+import { fetchPageBySlug, resetPage } from '@services/state/page';
 import usePage from './usePage';
 
 jest.mock('app/hooks/useDispatchSelector', () => ({

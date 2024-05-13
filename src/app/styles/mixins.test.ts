@@ -1,8 +1,8 @@
-import { css, FlattenSimpleInterpolation } from 'styled-components';
+import { css } from 'styled-components';
 import { media, orientation } from './mixins';
 
 describe('styled components mixins test', (): void => {
-  const style: FlattenSimpleInterpolation = css`
+  const style = css`
     padding: 32px;
   `;
 

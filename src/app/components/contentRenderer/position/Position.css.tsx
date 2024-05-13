@@ -5,33 +5,33 @@ import {
   subHeadingTypography,
   textTypography,
   thirdHeadingTypography,
-} from 'app/styles';
+} from '@styles';
 
-export const PositionSt = styled.div`
+export const Container = styled.div`
   margin: 1rem 0 2rem;
 `;
 
-export const CompanyNameSt = styled.h3`
+export const CompanyName = styled.h3`
   ${subHeadingTypography}
 `;
 
-export const LocationAndRoleSt = styled.h4`
+export const LocationAndRole = styled.h4`
   ${thirdHeadingTypography}
 
   margin-bottom: 1rem;
 `;
 
-export const DateFromToSt = styled.h4`
+export const DateFromTo = styled.h4`
   ${thirdHeadingTypography}
 
   font-weight: ${fontWeight.bold};
 `;
 
-export const TaskListSt = styled.ul`
+export const TaskList = styled.ul`
   display: block;
 `;
 
-export const TaskItemSt = styled.li`
+export const TaskItem = styled.li`
   ${listItemStyle}
   ${textTypography}
 `;

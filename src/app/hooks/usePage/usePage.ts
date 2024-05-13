@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from 'app/hooks/useDispatchSelector';
-import { AppDispatch, RootState } from 'app/services/state/store';
-import { fetchPageBySlug, resetPage } from 'app/services/state/page';
-import { Page } from 'models';
+import { useAppDispatch, useAppSelector } from '@hooks';
+import { AppDispatch, RootState } from '@services/state/store';
+import { fetchPageBySlug, resetPage } from '@services/state/page';
+import { Page } from '@models';
 
 const usePage = (
   slug?: string,

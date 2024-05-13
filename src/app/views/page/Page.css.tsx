@@ -1,14 +1,15 @@
 import styled, { css } from 'styled-components';
+
 import {
   commonButtonStyle,
   animationCurve,
   boxShadow,
   layers,
   media,
-} from 'app/styles';
-import Footer from 'app/components/footer';
-import Loading from 'app/components/loading';
-import MenuButton from 'app/components/menubutton';
+} from '@styles';
+import Footer from '@components/footer';
+import Loading from '@components/loading';
+import MenuButton from '@components/menubutton';
 
 interface ISideStProps {
   $revealed: boolean;

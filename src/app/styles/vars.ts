@@ -1,4 +1,4 @@
-import { Breakpoints, Colours, Fonts, FontWeights, Layers } from 'models';
+import { Breakpoints, Colours, Fonts, FontWeights, Layers } from '@models';
 
 // units: px
 export const sizes: Breakpoints = {

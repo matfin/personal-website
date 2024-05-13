@@ -1,6 +1,7 @@
 import React from 'react';
-import { ToggleValue } from 'models';
-import { ToggleIndicatorSt, ToggleTrackSt } from './Toggle.css';
+
+import { ToggleValue } from '@models';
+import { ToggleIndicator, ToggleTrack } from './Toggle.css';
 
 export interface Props {
   className?: string;
@@ -23,19 +24,19 @@ const Toggle = ({
   };
 
   return (
-    <ToggleTrackSt
+    <ToggleTrack
       aria-pressed={ariaPressed}
       className={className}
       data-testid="toggle"
       onClick={onToggleTrackClick}
       {...rest}
     >
-      <ToggleIndicatorSt
+      <ToggleIndicator
         data-testid="indicator"
         $switchedon={isSwitchedOn}
         aria-hidden={true}
       />
-    </ToggleTrackSt>
+    </ToggleTrack>
   );
 };
 

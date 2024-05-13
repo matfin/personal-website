@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 
-import { ThemeType } from 'models';
-import { setupMatchMedia } from 'utils/testutils';
+import { ThemeType } from '@models';
+import { setupMatchMedia } from '@testutils';
 import useAppearanceChange from './useAppearanceChange';
 
 describe('useAppearanceChange tests', (): void => {

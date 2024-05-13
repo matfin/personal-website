@@ -1,4 +1,4 @@
-import { ContentItem } from 'models';
+import { ContentItem } from '@models';
 import { normaliseContent } from './mappers';
 
 const content: unknown = {

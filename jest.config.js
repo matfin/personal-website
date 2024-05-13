@@ -12,9 +12,15 @@ module.exports = {
     },
   },
   moduleNameMapper: {
+    '^@components/(.*)$': '<rootDir>/src/app/components/$1',
+    '^@hooks': '<rootDir>/src/app/hooks/',
+    '^@services/(.*)$': '<rootDir>/src/app/services/$1',
+    '^@styles$': '<rootDir>/src/app/styles/',
+    '^@views/(.*)$': '<rootDir>/src/app/views/$1',
+    '^@models$': '<rootDir>/src/models/',
+    '^@utils$': '<rootDir>/src/utils/',
+    '^@testutils$': '<rootDir>/src/testutils/',
     '^app/(.*)$': '<rootDir>/src/app/$1',
-    '^models/(.*)$': '<rootDir>/src/models/$1',
-    '^utils/(.*)$': '<rootDir>/src/utils/$1',
   },
   coveragePathIgnorePatterns: [
     'node_modules',
@@ -22,7 +28,7 @@ module.exports = {
     'src/config.ts',
     'src/app/services/state/store.ts',
     'src/app/styles/global.ts',
-    'src/utils/testutils.tsx',
+    'src/testutils/index.tsx',
   ],
   moduleDirectories: ['node_modules', 'src'],
 };

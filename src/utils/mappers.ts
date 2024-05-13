@@ -1,5 +1,5 @@
-import { ContentItem } from 'models';
-import type { Content } from 'models';
+import { ContentItem } from '@models';
+import type { Content } from '@models';
 
 export const normaliseContent = (node?: ContentItem): ContentItem | null =>
   node

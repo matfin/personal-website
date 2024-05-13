@@ -9,7 +9,7 @@ const environment = {
   appVersion: JSON.stringify(version),
   cacheName: JSON.stringify(`${name}-${version}`),
   canonicalUrl: JSON.stringify(
-    process.env.CANONICAL_URL || 'http://localhost:3000'
+    process.env.CANONICAL_URL || 'http://localhost:3000',
   ),
   contentBase: JSON.stringify('./pages'),
   enableCache: JSON.stringify(process.env.ENABLE_CACHE ? true : false),
@@ -30,9 +30,14 @@ const common = {
   },
   resolve: {
     alias: {
+      '@components': path.resolve(__dirname, '/src/app/components'),
+      '@hooks': path.resolve(__dirname, '/src/app/hooks'),
+      '@services': path.resolve(__dirname, '/src/app/services'),
+      '@styles': path.resolve(__dirname, '/src/app/styles'),
+      '@views': path.resolve(__dirname, '/src/app/views'),
+      '@models': path.resolve(__dirname, '/src/models'),
+      '@utils': path.resolve(__dirname, '/src/utils'),
       app: path.resolve(__dirname, '/src/app/'),
-      models: path.resolve(__dirname, '/src/models/'),
-      utils: path.resolve(__dirname, '/src/utils/'),
     },
     extensions: ['.ts', '.tsx', '.js', '.json', '.svg'],
   },

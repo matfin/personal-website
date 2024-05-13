@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 
-import { useAppDispatch, useAppSelector } from 'app/hooks/useDispatchSelector';
-import { AppDispatch, RootState } from 'app/services/state/store';
-import { setTheme } from 'app/services/state/app';
-import { ThemeType } from 'models';
+import { useAppDispatch, useAppSelector } from '@hooks';
+import { AppDispatch, RootState } from '@services/state/store';
+import { setTheme } from '@services/state/app';
+import { ThemeType } from '@models';
 
 const useApp = (): {
   currentTheme: ThemeType;

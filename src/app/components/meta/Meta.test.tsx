@@ -1,6 +1,7 @@
 import React from 'react';
-import { renderWithHelmetProvider } from 'utils/testutils';
 import { HelmetServerState } from 'react-helmet-async';
+
+import { renderWithHelmetProvider } from '@testutils';
 
 import * as config from '../../../config';
 import Meta, { Props } from './Meta';

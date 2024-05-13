@@ -2,11 +2,11 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import { useApp, useAppearanceChange } from 'app/hooks';
-import { ThemeType } from 'models';
-import Page from 'app/views/page';
-import Meta from 'app/components/meta/Meta';
-import { day, GlobalStyle, night } from 'app/styles';
+import { useApp, useAppearanceChange } from '@hooks';
+import { ThemeType } from '@models';
+import Page from '@views/page';
+import Meta from '@components/meta/Meta';
+import { day, GlobalStyle, night } from '@styles';
 
 const App = (): React.ReactNode => {
   const { currentTheme, updateTheme } = useApp();

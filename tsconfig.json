@@ -2,9 +2,15 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "@components/*": ["src/app/components/*"],
+      "@hooks": ["src/app/hooks"],
+      "@services/*": ["src/app/services/*"],
+      "@views/*": ["src/app/views/*"],
+      "@styles": ["src/app/styles"],
+      "@models": ["src/models"],
+      "@utils": ["src/utils"],
+      "@testutils": ["src/testutils"],
       "app/*": ["src/app/*"],
-      "models": ["src/models"],
-      "utils": ["src/utils"],
     },
     "target": "esnext",
     "lib": ["WebWorker", "ESNext", "dom"],

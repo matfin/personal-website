@@ -6,11 +6,11 @@ import {
   Position,
   Project as ProjectModel,
   Topic,
-} from 'models';
-import { isLink, splitContent, toLinkObject } from 'utils';
-import Text from 'app/components/contentRenderer/text';
-import Job from 'app/components/contentRenderer/position';
-import Project from 'app/components/contentRenderer/project';
+} from '@models';
+import { isLink, splitContent, toLinkObject } from '@utils';
+import Text from '@components/contentRenderer/text';
+import Job from '@components/contentRenderer/position';
+import Project from '@components/contentRenderer/project';
 import {
   List,
   ListItem,

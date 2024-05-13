@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { usePage, useApp } from 'app/hooks';
+import { usePage, useApp } from '@hooks';
 
-import Meta from 'app/components/meta';
-import { normalisePathname, pathNesting, setBodyOverflow } from 'utils';
-import { ToggleValue, ThemeType } from 'models';
+import Meta from '@components/meta';
+import { normalisePathname, pathNesting, setBodyOverflow } from '@utils';
+import { ToggleValue, ThemeType } from '@models';
 import { BackButton, ErrorMessage } from './components';
-import Nav from 'app/components/nav';
-import ContentRenderer from 'app/components/contentRenderer';
-import Toggle from 'app/components/toggle';
+import Nav from '@components/nav';
+import ContentRenderer from '@components/contentRenderer';
+import Toggle from '@components/toggle';
 import {
   BurgerSt,
   FooterSt,
@@ -83,10 +83,8 @@ const Page = (): React.ReactNode => {
               onClick={hideMenu}
             >
               {isNested && <BackButton href={`/${[parts[0]]}/`} />}
-              {!pending && error && <ErrorMessage error={error} />}
-              {!pending && !error && page?.root && (
-                <ContentRenderer root={page.root} />
-              )}
+              {error && <ErrorMessage error={error} />}
+              {!error && page?.root && <ContentRenderer root={page.root} />}
             </MainSt>
             <FooterSt />
           </>
