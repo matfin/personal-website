@@ -5,8 +5,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { HelmetProvider, HelmetServerState } from 'react-helmet-async';
 
-import { store } from 'app/services/state/store';
-import { day } from 'app/styles';
+import { store } from '@services/state/store';
+import { day } from '@styles';
 
 export const renderWithRouter = (children: React.ReactNode): RenderResult =>
   render(

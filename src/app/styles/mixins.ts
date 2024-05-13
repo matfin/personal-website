@@ -1,5 +1,5 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
-import { Orientation } from 'models';
+import { Orientation } from '@models';
 import { sizes } from './vars';
 
 export const sizeQuery = (

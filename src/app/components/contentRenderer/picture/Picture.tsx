@@ -1,6 +1,6 @@
 import React from 'react';
-import { sizes } from 'app/styles';
-import { Image } from 'models';
+import { sizes } from '@styles';
+import { Image } from '@models';
 
 export interface Props extends Image {
   className?: '';

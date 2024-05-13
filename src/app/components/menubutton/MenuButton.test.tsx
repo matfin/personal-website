@@ -1,13 +1,19 @@
 import React from 'react';
 import 'jest-styled-components';
 import { fireEvent, render } from '@testing-library/react';
-import * as utils from 'utils/utils';
+
+import * as utils from '@utils';
 import MenuButton, { Props } from './MenuButton';
 
 const defaultProps: Props = {
   onClick: jest.fn(),
   navrevealed: undefined,
 };
+
+jest.mock('@utils', () => ({
+  __esModule: true,
+  ...jest.requireActual('@utils'),
+}));
 
 describe('MenuButton tests', (): void => {
   it('renders the component', (): void => {

@@ -1,5 +1,6 @@
-import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
-import { animationCurve } from 'app/styles';
+import styled, { css } from 'styled-components';
+
+import { animationCurve } from '@styles';
 
 export enum LinePlacement {
   TOP = 'top',
@@ -12,7 +13,7 @@ interface LineStProps {
   $revealed?: string;
 }
 
-const transformTo = (placement: LinePlacement): FlattenSimpleInterpolation => {
+const transformTo = (placement: LinePlacement) => {
   switch (placement) {
     case LinePlacement.TOP: {
       return css`
@@ -32,7 +33,7 @@ const transformTo = (placement: LinePlacement): FlattenSimpleInterpolation => {
   }
 };
 
-export const MenuButtonSt = styled.button`
+export const Container = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -40,7 +41,7 @@ export const MenuButtonSt = styled.button`
   background-color: ${(props) => props?.theme?.colours?.secondary};
 `;
 
-export const LineSt = styled.span<LineStProps>`
+export const Line = styled.span<LineStProps>`
   width: 2rem;
   height: 1px;
   background: ${(props) => props?.theme?.colours?.primary};

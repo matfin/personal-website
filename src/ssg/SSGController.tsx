@@ -6,12 +6,12 @@ import { HelmetServerState } from 'react-helmet-async';
 import { renderToString } from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
 
-import { store } from 'app/services/state/store';
-import type { RootState } from 'app/services/state/store';
-import { setPage } from 'app/services/state/page';
+import { store } from '@services/state/store';
+import type { RootState } from '@services/state/store';
+import { setPage } from '@services/state/page';
 import { getAppVersion, getCanonicalUrl, getEnableCache } from '../config';
-import { indexTemplate } from 'utils';
-import { Page, StaticReqProps } from 'models';
+import { indexTemplate } from '@utils';
+import { Page, StaticReqProps } from '@models';
 import IndexComponent from './IndexComponent';
 
 class SSGController {

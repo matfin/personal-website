@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { Topic as TopicModel } from 'models';
-import TopicSt from './Topic.css';
+import { Topic as TopicModel } from '@models';
+import { Container } from './Topic.css';
 
 export interface Props extends TopicModel {
   className?: string;
 }
 
 const Topic = ({ className, description, title }: Props): React.ReactNode => (
-  <TopicSt title={description} className={className}>
+  <Container title={description} className={className}>
     {title}
-  </TopicSt>
+  </Container>
 );
 
 export default Topic;

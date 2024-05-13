@@ -1,19 +1,19 @@
 import React, { memo } from 'react';
 
-import { ContentItem } from 'models';
+import { ContentItem } from '@models';
 import ContentWrapper from './contentWrapper';
 
 export interface Props {
-  root: ContentItem;
+  root: ContentItem | null;
 }
 
 const ContentRenderer = ({ root }: Props): React.ReactNode => {
-  const hasNestedContent: boolean = Array.isArray(root.content);
+  const hasNestedContent: boolean = Array.isArray(root?.content);
 
   return (
     <>
       {hasNestedContent ? (
-        (root.content as ContentItem[]).map(
+        (root?.content as ContentItem[]).map(
           (item: ContentItem): React.ReactNode => (
             <ContentWrapper
               key={item.id}
@@ -25,7 +25,7 @@ const ContentRenderer = ({ root }: Props): React.ReactNode => {
           ),
         )
       ) : (
-        <>{root.content}</>
+        <>{root?.content}</>
       )}
     </>
   );

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
+
 import Position, { Props } from './Position';
 
 const defaultProps: Props = {
@@ -14,12 +15,14 @@ const defaultProps: Props = {
       description: 'Test description',
       slug: 'test-language',
       title: 'TestLanguage',
+      deprecated: false,
     },
     {
       category: 'tools',
       description: 'Test description',
       slug: 'test-tool',
       title: 'TestTool',
+      deprecated: false,
     },
   ],
 };

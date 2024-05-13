@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { colours, textTypography } from 'app/styles';
+import { colours, textTypography } from '@styles';
 
-export const TopicSt = styled.li`
+export const Container = styled.li`
   ${textTypography}
 
   color: ${colours.primary};
@@ -9,5 +9,3 @@ export const TopicSt = styled.li`
   padding: 0.5rem;
   background: ${(props) => props?.theme?.colours?.tertiary};
 `;
-
-export default TopicSt;

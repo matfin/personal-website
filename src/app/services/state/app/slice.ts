@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import { ThemeType } from 'models';
+import { ThemeType } from '@models';
 import { AppState } from './types';
 
 const initialState: AppState = {

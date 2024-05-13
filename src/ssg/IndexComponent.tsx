@@ -4,7 +4,7 @@ import { StaticRouter } from 'react-router-dom/server';
 import { Provider } from 'react-redux';
 import { HelmetProvider, HelmetServerState } from 'react-helmet-async';
 
-import { StaticReqProps } from 'models';
+import { StaticReqProps } from '@models';
 import App from 'app/App';
 
 export interface Props {

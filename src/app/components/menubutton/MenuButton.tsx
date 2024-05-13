@@ -1,6 +1,7 @@
 import React from 'react';
-import { isTouchDevice } from 'utils';
-import { LinePlacement, LineSt, MenuButtonSt } from './MenuButton.css';
+
+import { isTouchDevice } from '@utils';
+import { Container, LinePlacement, Line } from './MenuButton.css';
 
 export interface Props {
   className?: string;
@@ -16,17 +17,17 @@ const MenuButton = ({
   const shouldUseTouch: boolean = isTouchDevice();
 
   return (
-    <MenuButtonSt
+    <Container
       aria-label="Menu"
       data-testid="menubutton"
       className={className}
       onClick={!shouldUseTouch ? onClick : undefined}
       onTouchStart={shouldUseTouch ? onClick : undefined}
     >
-      <LineSt placement={LinePlacement.TOP} $revealed={navrevealed} />
-      <LineSt placement={LinePlacement.MIDDLE} $revealed={navrevealed} />
-      <LineSt placement={LinePlacement.BOTTOM} $revealed={navrevealed} />
-    </MenuButtonSt>
+      <Line placement={LinePlacement.TOP} $revealed={navrevealed} />
+      <Line placement={LinePlacement.MIDDLE} $revealed={navrevealed} />
+      <Line placement={LinePlacement.BOTTOM} $revealed={navrevealed} />
+    </Container>
   );
 };
 

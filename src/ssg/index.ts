@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs';
 import { getCanonicalUrl, getContentBase, getOutputDir } from '../config';
-import { Page } from 'models';
+import { Page } from '@models';
 import SSGController from './SSGController';
 
 const generateSlugs = async (base: string): Promise<string[]> => {

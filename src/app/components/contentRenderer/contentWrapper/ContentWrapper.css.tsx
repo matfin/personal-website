@@ -8,10 +8,10 @@ import {
   listItemStyle,
   media,
   textTypography,
-} from 'app/styles';
-import Picture from 'app/components/contentRenderer/picture';
-import Topic from 'app/components/contentRenderer/topic';
-import InlineLink from 'app/components/contentRenderer/inlinelink';
+} from '@styles';
+import Picture from '@components/contentRenderer/picture';
+import Topic from '@components/contentRenderer/topic';
+import InlineLink from '@components/contentRenderer/inlinelink';
 
 export const List = styled.ul`
   list-style: none;

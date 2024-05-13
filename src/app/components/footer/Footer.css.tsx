@@ -1,21 +1,21 @@
 import styled from 'styled-components';
-import { ClosingTag } from 'app/components/svgicons';
+import { ClosingTag as ClosingTagSVG } from '@components/svgicons';
 
-export const FooterSt = styled.footer`
+export const Container = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-export const FooterTextSt = styled.p`
+export const FooterText = styled.p`
   margin: 1rem 0;
 `;
 
-export const ClosingTagSt = styled(ClosingTag)`
+export const ClosingTag = styled(ClosingTagSVG)`
   width: 48px;
   height: 48px;
   fill: ${(props) => props?.theme?.colours?.primary};
 `;
 
-export default FooterSt;
+export default Container;

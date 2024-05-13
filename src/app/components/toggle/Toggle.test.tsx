@@ -1,7 +1,8 @@
 import React from 'react';
 import 'jest-styled-components';
 import { fireEvent, render } from '@testing-library/react';
-import { ToggleValue } from 'models';
+
+import { ToggleValue } from '@models';
 import Toggle, { Props } from './Toggle';
 
 const defaultProps: Props = {

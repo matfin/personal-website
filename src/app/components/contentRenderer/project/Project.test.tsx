@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { screen } from '@testing-library/react';
-import { renderWithRouter } from 'utils/testutils';
+
+import { renderWithRouter } from '@testutils';
 import Project, { Props } from './Project';
 
 const defaultProps: Props = {

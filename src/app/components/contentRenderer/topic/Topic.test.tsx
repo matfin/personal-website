@@ -7,6 +7,7 @@ const defaultProps: Props = {
   description: 'Test description',
   slug: 'test-slug',
   title: 'Test title',
+  deprecated: false,
 };
 
 describe('Topic tests', (): void => {

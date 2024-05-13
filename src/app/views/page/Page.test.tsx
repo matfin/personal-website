@@ -3,10 +3,10 @@ import 'jest-styled-components';
 import reactRouterDom, { Location } from 'react-router-dom';
 import { fireEvent, screen } from '@testing-library/react';
 
-import { renderWrapped } from 'utils/testutils';
-import { setBodyOverflow } from 'utils';
-import { ContentItem, Page as PageModel } from 'models';
-import { usePage, useApp } from 'app/hooks';
+import { renderWrapped } from '@testutils';
+import { setBodyOverflow } from '@utils';
+import { ContentItem, Page as PageModel } from '@models';
+import { usePage, useApp } from '@hooks';
 import Page from './Page';
 
 const page: PageModel = {
@@ -27,8 +27,8 @@ jest.mock('react-router-dom', () => ({
 
 jest.mock('app/components/meta/Meta');
 
-jest.mock('utils', () => ({
-  ...jest.requireActual('utils'),
+jest.mock('@utils', () => ({
+  ...jest.requireActual('@utils'),
   setBodyOverflow: jest.fn(),
 }));
 

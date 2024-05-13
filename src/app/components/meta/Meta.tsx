@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 import { getCanonicalUrl } from '../../../config';
-import { colours } from 'app/styles/vars';
+import { colours } from '@styles';
 
 export interface Props {
   description?: string;

@@ -1,9 +1,9 @@
 import { renderHook } from '@testing-library/react';
 
-import { ThemeType } from 'models';
-import type { RootState } from 'app/services/state/store';
-import { useAppDispatch, useAppSelector } from 'app/hooks/useDispatchSelector';
-import { setTheme } from 'app/services/state/app';
+import { ThemeType } from '@models';
+import type { RootState } from '@services/state/store';
+import { useAppDispatch, useAppSelector } from '@hooks';
+import { setTheme } from '@services/state/app';
 import useApp from './useApp';
 
 jest.mock('app/hooks/useDispatchSelector', () => ({

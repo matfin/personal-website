@@ -4,7 +4,7 @@ import {
   headingTypography,
   subHeadingTypography,
   textTypography,
-} from 'app/styles';
+} from '@styles';
 
 export const MainHeading = styled.h1`
   ${headingTypography}

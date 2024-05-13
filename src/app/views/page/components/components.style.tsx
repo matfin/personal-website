@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { commonButtonStyle, media, textTypography } from 'app/styles';
+import { commonButtonStyle, media, textTypography } from '@styles';
 
 export const BackSt = styled(Link)`
   ${commonButtonStyle}

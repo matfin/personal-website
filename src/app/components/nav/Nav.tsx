@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { NavLink } from 'models';
-import { ChildrenSt, LinkSt, NavSt } from './Nav.css';
+import { NavLink } from '@models';
+import { Children, Link, Container } from './Nav.css';
 
 export interface Props {
   children?: React.ReactNode;
@@ -34,16 +34,16 @@ const Nav = ({ children, className }: Props): React.ReactNode => {
   const root: string = pathRoot(pathname);
 
   return (
-    <NavSt aria-label="Navigation" role="navigation" className={className}>
+    <Container aria-label="Navigation" role="navigation" className={className}>
       {navLinks.map(
         ({ base, title, to }: NavLink): React.ReactNode => (
-          <LinkSt active={root === base ? 1 : 0} key={to} to={to}>
+          <Link active={root === base ? 1 : 0} key={to} to={to}>
             {title}
-          </LinkSt>
+          </Link>
         ),
       )}
-      <ChildrenSt>{children}</ChildrenSt>
-    </NavSt>
+      <Children>{children}</Children>
+    </Container>
   );
 };
 

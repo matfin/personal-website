@@ -1,12 +1,13 @@
 import styled, { css } from 'styled-components';
-import { animationCurve, layers, media, orientation } from 'app/styles';
-import { Link } from 'react-router-dom';
+import { Link as DomLink } from 'react-router-dom';
+
+import { animationCurve, layers, media, orientation } from '@styles';
 
 interface LinkProps {
   active?: number;
 }
 
-export const NavSt = styled.nav`
+export const Container = styled.nav`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(5, 3rem);
@@ -26,7 +27,7 @@ export const NavSt = styled.nav`
   `)}
 `;
 
-export const LinkSt = styled(Link)<LinkProps>`
+export const Link = styled(DomLink)<LinkProps>`
   grid-column: 2;
   position: relative;
   display: flex;
@@ -89,7 +90,7 @@ export const LinkSt = styled(Link)<LinkProps>`
   }
 `;
 
-export const ChildrenSt = styled.div`
+export const Children = styled.div`
   grid-column: 2;
   display: flex;
   align-items: center;

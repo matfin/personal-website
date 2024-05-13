@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import { Page } from 'models';
+import { Page } from '@models';
 import { normalisePageContent } from './utils';
 
 const page = {

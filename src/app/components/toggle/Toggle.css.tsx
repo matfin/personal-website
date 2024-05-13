@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
-import { animationCurve, blackEmoji, layers } from 'app/styles';
+
+import { animationCurve, blackEmoji, layers } from '@styles';
 
 interface IToggleIndicatorStProps {
   $switchedon?: boolean | string;
@@ -14,7 +15,7 @@ const iconStyle = css`
   top: -2px;
 `;
 
-export const ToggleTrackSt = styled.button`
+export const ToggleTrack = styled.button`
   position: relative;
   border: 2px solid ${(props) => props?.theme?.colours?.primary};
   width: 3rem;
@@ -36,7 +37,7 @@ export const ToggleTrackSt = styled.button`
   }
 `;
 
-export const ToggleIndicatorSt = styled.div<IToggleIndicatorStProps>`
+export const ToggleIndicator = styled.div<IToggleIndicatorStProps>`
   z-index: ${layers.upper};
   position: absolute;
   top: -2px;

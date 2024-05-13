@@ -1,8 +1,8 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 
-import { renderWithTheme } from 'utils/testutils';
-import { ContentItem, Position } from 'models';
+import { renderWithTheme } from '@testutils';
+import { ContentItem, Position } from '@models';
 import ContentWrapper, { Props } from './ContentWrapper';
 
 jest.mock('react-router-dom', () => ({
