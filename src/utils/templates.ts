@@ -1,4 +1,5 @@
-import { HelmetData } from 'react-helmet';
+import { HelmetServerState } from 'react-helmet-async';
+
 import {
   colours,
   defaultFont,
@@ -10,7 +11,7 @@ import {
 export interface Props {
   canonicalUrl: string;
   enableServiceWorker: boolean;
-  helmet: HelmetData;
+  helmet?: HelmetServerState;
   packageVersion?: string;
   preloadedState: string;
   reactAppHtml: string;
@@ -46,8 +47,8 @@ export const indexTemplate = ({
     <head>
       <meta charset="utf-8" />
       <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'unsafe-inline'; script-src 'nonce-${nonce}'; child-src 'self';" />
-      ${helmet.title.toString()}
-      ${helmet.meta.toString()}
+      ${helmet?.title.toString()}
+      ${helmet?.meta.toString()}
       ${styleTags}
       <script nonce="${nonce}">
         window.CANONICAL_URL = '${canonicalUrl}';

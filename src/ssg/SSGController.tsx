@@ -2,7 +2,7 @@ import React from 'react';
 import { promises as fs } from 'fs';
 import { v4 as uuidv4 } from 'uuid';
 import { Store } from '@reduxjs/toolkit';
-import { Helmet, HelmetData } from 'react-helmet';
+import { HelmetServerState } from 'react-helmet-async';
 import { renderToString } from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
 
@@ -71,12 +71,19 @@ class SSGController {
         /</g,
         '\\u003c',
       );
+      const helmetContext: { helmet?: HelmetServerState } = {};
       const body: string = renderToString(
-        sheet.collectStyles(<IndexComponent req={req} store={this.store} />),
+        sheet.collectStyles(
+          <IndexComponent
+            helmetContext={helmetContext}
+            req={req}
+            store={this.store}
+          />,
+        ),
       );
 
       const styleTags: string = sheet.getStyleTags();
-      const helmet: HelmetData = Helmet.renderStatic();
+      const { helmet }: { helmet?: HelmetServerState } = helmetContext;
       const payload: string = indexTemplate({
         canonicalUrl,
         enableServiceWorker: enableCache,
