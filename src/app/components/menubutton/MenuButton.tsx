@@ -1,7 +1,6 @@
-import React from 'react';
-
 import { isTouchDevice } from '@utils';
-import { Container, LinePlacement, Line } from './MenuButton.css';
+import { LinePlacement } from '@models';
+import { Container, Line } from './MenuButton.css';
 
 export interface Props {
   className?: string;

@@ -1,3 +1,4 @@
+import { afterEach, describe, expect, it, vi, MockInstance } from 'vitest';
 import { Page } from '@models';
 import { fetchPageBySlug } from './api';
 
@@ -23,17 +24,17 @@ const page: Page = {
 
 describe('page state api', (): void => {
   afterEach((): void => {
-    (global.fetch as jest.Mock).mockClear();
+    (global.fetch as unknown as MockInstance).mockClear();
   });
 
   it('calls to fetch a page with the default index slug', async (): Promise<void> => {
-    jest.spyOn(global, 'fetch').mockResolvedValue({
+    vi.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
       json: (): Promise<unknown> => Promise.resolve(page),
     } as Response);
 
-    const dispatch = jest.fn();
-    const getState = jest.fn().mockReturnValue(state);
+    const dispatch = vi.fn();
+    const getState = vi.fn().mockReturnValue(state);
     const action = fetchPageBySlug('/');
 
     await action(dispatch, getState, undefined);
@@ -53,13 +54,13 @@ describe('page state api', (): void => {
   });
 
   it('calls to fetch a page with a specified slug', async (): Promise<void> => {
-    jest.spyOn(global, 'fetch').mockResolvedValue({
+    vi.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
       json: (): Promise<unknown> => Promise.resolve(page),
     } as Response);
 
-    const dispatch = jest.fn();
-    const getState = jest.fn().mockReturnValue(state);
+    const dispatch = vi.fn();
+    const getState = vi.fn().mockReturnValue(state);
     const action = fetchPageBySlug('test-slug');
 
     await action(dispatch, getState, undefined);
@@ -70,14 +71,14 @@ describe('page state api', (): void => {
   });
 
   it('calls to fetch a page and fails', async (): Promise<void> => {
-    jest.spyOn(global, 'fetch').mockRejectedValue({
+    vi.spyOn(global, 'fetch').mockRejectedValue({
       ok: false,
       status: 500,
       statusText: 'failed',
     } as Response);
 
-    const dispatch = jest.fn();
-    const getState = jest.fn().mockReturnValue(state);
+    const dispatch = vi.fn();
+    const getState = vi.fn().mockReturnValue(state);
     const action = fetchPageBySlug('test-slug');
 
     await action(dispatch, getState, undefined);

@@ -3,7 +3,10 @@
 /node_modules
 /coverage
 /dist
+/dev-dist
 /out
+/client
+/static
 
 .DS_Store
 out.tar.gz

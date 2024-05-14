@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ToggleValue } from '@models';
 import { ToggleIndicator, ToggleTrack } from './Toggle.css';
 

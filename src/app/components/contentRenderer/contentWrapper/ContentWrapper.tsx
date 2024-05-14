@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 import {
   ContentItem,
@@ -94,4 +94,6 @@ const ContentWrapper = ({
   }
 };
 
-export default memo(ContentWrapper);
+const MemoContentWrapper = memo(ContentWrapper);
+
+export default MemoContentWrapper;

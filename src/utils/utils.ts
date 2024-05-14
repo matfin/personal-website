@@ -39,11 +39,16 @@ export const isExternalUrl = (url: string): boolean => {
 };
 
 export const normalisePathname = (pathname = ''): string => {
-  if (pathname.startsWith('/') && pathname.endsWith('/')) {
-    return pathname.substring(1, pathname.length - 1);
+  let revised: string = pathname;
+
+  if (pathname.startsWith('/')) {
+    revised = revised.substring(1);
+  }
+  if (revised.endsWith('/')) {
+    revised = revised.substring(0, revised.length - 1);
   }
 
-  return pathname;
+  return revised;
 };
 
 export const pathNesting = (pathname = ''): PathNesting => {
@@ -55,6 +60,14 @@ export const pathNesting = (pathname = ''): PathNesting => {
     parts,
     isNested: parts.length > 1,
   };
+};
+
+export const pathRoot = (pathname: string): string => {
+  const splitPathname: string[] = pathname
+    .split('/')
+    .filter((str: string) => str.length > 0);
+
+  return splitPathname[0] ?? 'index';
 };
 
 export const toLinkObject = (linkText: string): Link => {
@@ -86,9 +99,3 @@ export const splitContent = (text: string): string[] => {
 
 export const isTouchDevice = (): boolean =>
   typeof window !== 'undefined' && 'ontouchstart' in window;
-
-export const isIE = (ua?: string): boolean => {
-  const regexp = /(Trident|MSIE)/gm;
-
-  return regexp.test(ua || '');
-};

@@ -10,9 +10,8 @@ services:
       dockerfile: .docker/node/Dockerfile
       args:
         - CANONICAL_URL=https://mattfinucane.build
-        - ENABLE_CACHE='true'
     volumes:
-      - static-content:/opt/app/out
+      - static-content:/opt/app/dist
     command: yarn deploy
 
   nginx:

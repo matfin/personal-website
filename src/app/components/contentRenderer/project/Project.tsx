@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { Project as ProjectModel } from '@models';
 import { Container, Title, Description } from './Project.css';
 

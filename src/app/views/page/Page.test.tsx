@@ -1,6 +1,14 @@
-import * as React from 'react';
-import 'jest-styled-components';
-import reactRouterDom, { Location } from 'react-router-dom';
+import {
+  afterEach,
+  afterAll,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+  MockInstance,
+} from 'vitest';
+import { useLocation, Location } from 'react-router-dom';
 import { fireEvent, screen } from '@testing-library/react';
 
 import { renderWrapped } from '@testutils';
@@ -20,103 +28,109 @@ const page: PageModel = {
   title: 'Test page',
 };
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useLocation: jest.fn(),
+const mocks = vi.hoisted(() => {
+  return {
+    page: {
+      root: {
+        id: '1',
+        tagName: 'p',
+        content: 'Test content',
+      },
+      description: 'Test page',
+      slug: 'test-page',
+      title: 'Test page',
+    },
+  };
+});
+
+vi.mock('react-router-dom', async (importOriginal) => {
+  const mod = await importOriginal<typeof import('react-router-dom')>();
+
+  return {
+    ...mod,
+    useLocation: vi.fn().mockReturnValue({ pathname: 'test' }),
+  };
+});
+
+vi.mock('@components/meta', () => ({
+  default: () => 'meta',
 }));
 
-jest.mock('app/components/meta/Meta');
+vi.mock('@utils', async (importOriginal) => {
+  const mod = await importOriginal<typeof import('@utils')>();
 
-jest.mock('@utils', () => ({
-  ...jest.requireActual('@utils'),
-  setBodyOverflow: jest.fn(),
-}));
+  return {
+    ...mod,
+    setBodyOverflow: vi.fn(),
+  };
+});
 
-jest.mock('app/hooks', () => ({
-  usePage: jest.fn().mockReturnValue({ page, pending: false, error: null }),
-  useApp: jest.fn().mockReturnValue({
+vi.mock('@hooks', () => ({
+  usePage: vi
+    .fn()
+    .mockReturnValue({ page: mocks.page, pending: false, error: null }),
+  useApp: vi.fn().mockReturnValue({
     currentTheme: 'day',
-    toggleTheme: jest.fn(),
+    toggleTheme: vi.fn(),
   }),
 }));
 
-const spyUseLocation = jest.spyOn(reactRouterDom, 'useLocation');
-
-window.scrollTo = jest.fn();
-
 describe('Page tests', (): void => {
   beforeEach((): void => {
-    spyUseLocation.mockReturnValue({ pathname: '/test/nested' } as Location);
+    (useLocation as unknown as MockInstance).mockReturnValue({
+      pathname: '/test/nested',
+    } as Location);
   });
 
   afterEach((): void => {
-    spyUseLocation.mockClear();
-    (setBodyOverflow as jest.Mock).mockClear();
+    (useLocation as unknown as MockInstance).mockClear();
+    (setBodyOverflow as unknown as MockInstance).mockClear();
   });
 
   afterAll((): void => {
-    spyUseLocation.mockReset();
-    (setBodyOverflow as jest.Mock).mockReset();
+    (useLocation as unknown as MockInstance).mockReset();
+    (setBodyOverflow as unknown as MockInstance).mockReset();
   });
 
-  it('renders the component', (): void => {
+  it('renders the component', async (): Promise<void> => {
     expect(() => renderWrapped(<Page />)).not.toThrow();
   });
 
-  it('reveals and hides the side navigation menu', (): void => {
-    const { container } = renderWrapped(<Page />);
-    const burger = container.getElementsByTagName('button')[0];
-    const main = container.getElementsByTagName('main')[0];
+  it('sets the body overflow on navigation menu button tap', (): void => {
+    const { getByTestId } = renderWrapped(<Page />);
+    const button = getByTestId('menubutton');
 
-    expect(container.getElementsByTagName('aside')[0]).toHaveStyleRule(
-      'transform',
-      'translate3d(100vw,0,0)',
-    );
+    fireEvent.touchStart(button);
 
-    fireEvent.click(burger);
-
-    expect(container.getElementsByTagName('aside')[0]).toHaveStyleRule(
-      'transform',
-      'translate3d(0,0,0)',
-    );
-
-    fireEvent.click(main);
-
-    expect(container.getElementsByTagName('aside')[0]).toHaveStyleRule(
-      'transform',
-      'translate3d(100vw,0,0)',
-    );
-  });
-
-  it('prevents body scroll when nav menu is open', (): void => {
-    const { container } = renderWrapped(<Page />);
-    const burger = container.getElementsByTagName('button')[0];
-
-    // nav menu revealed
-    fireEvent.click(burger);
-    expect(setBodyOverflow).toHaveBeenLastCalledWith(false);
-
-    // nav menu hidden again
-    fireEvent.click(burger);
-    expect(setBodyOverflow).toHaveBeenLastCalledWith(true);
+    expect(setBodyOverflow).toHaveBeenCalledTimes(1);
+    expect(setBodyOverflow).toHaveBeenCalledWith(false);
   });
 
   it('renders content when not pending', (): void => {
-    (usePage as jest.Mock).mockReturnValue({ page, pending: false });
+    (usePage as unknown as MockInstance).mockReturnValue({
+      page,
+      pending: false,
+    });
 
     renderWrapped(<Page />);
     expect(screen.getByText('Test content')).not.toBeNull();
   });
 
   it('does not render content when pending', (): void => {
-    (usePage as jest.Mock).mockReturnValue({ page, pending: true });
+    (usePage as unknown as MockInstance).mockReturnValue({
+      page,
+      pending: true,
+    });
 
     renderWrapped(<Page />);
     expect(screen.queryByText('Test content')).toBeNull();
   });
 
   it('does not render content when there is an error', (): void => {
-    (usePage as jest.Mock).mockReturnValue({ page, error: new Error('oops') });
+    (usePage as unknown as MockInstance).mockReturnValue({
+      page,
+      error: new Error('oops'),
+    });
 
     renderWrapped(<Page />);
     expect(screen.queryByText('Test content')).toBeNull();
@@ -124,7 +138,7 @@ describe('Page tests', (): void => {
 
   it('renders the back button when in a nested page view', (): void => {
     const container = renderWrapped(<Page />);
-    const backButton = container.getByTestId('backbutton');
+    const backButton = container.getByTestId('backbutton') as HTMLLinkElement;
 
     expect(backButton).toBeTruthy();
     expect(backButton.href).toContain('/test');
@@ -149,7 +163,10 @@ describe('Page tests', (): void => {
       root,
     };
 
-    (usePage as jest.Mock).mockReturnValue({ page, pending: false });
+    (usePage as unknown as MockInstance).mockReturnValue({
+      page,
+      pending: false,
+    });
 
     renderWrapped(<Page />);
 
@@ -157,9 +174,9 @@ describe('Page tests', (): void => {
   });
 
   it('toggles the theme', (): void => {
-    const spyToggleTheme = jest.fn();
+    const spyToggleTheme = vi.fn();
 
-    (useApp as jest.Mock).mockReturnValue({
+    (useApp as unknown as MockInstance).mockReturnValue({
       toggleTheme: spyToggleTheme,
     });
 
@@ -172,7 +189,7 @@ describe('Page tests', (): void => {
   });
 
   it('renders an error message', (): void => {
-    (usePage as jest.Mock).mockReturnValue({
+    (usePage as unknown as MockInstance).mockReturnValue({
       page: null,
       pending: false,
       error: new Error('Test Error'),

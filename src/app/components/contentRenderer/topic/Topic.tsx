@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Topic as TopicModel } from '@models';
 import { Container } from './Topic.css';
 

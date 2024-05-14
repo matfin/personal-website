@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi, MockInstance } from 'vitest';
 import { renderHook } from '@testing-library/react';
 
 import type { RootState } from '@services/state/store';
@@ -5,14 +6,14 @@ import { useAppDispatch, useAppSelector } from '@hooks';
 import { fetchPageBySlug, resetPage } from '@services/state/page';
 import usePage from './usePage';
 
-jest.mock('app/hooks/useDispatchSelector', () => ({
-  useAppDispatch: jest.fn(),
-  useAppSelector: jest.fn(),
+vi.mock('@hooks', async () => ({
+  useAppDispatch: vi.fn(),
+  useAppSelector: vi.fn(),
 }));
 
-jest.mock('app/services/state/page', () => ({
-  fetchPageBySlug: jest.fn(),
-  resetPage: jest.fn(),
+vi.mock('@services/state/page', async () => ({
+  fetchPageBySlug: vi.fn(),
+  resetPage: vi.fn(),
 }));
 
 const state: RootState = {
@@ -25,16 +26,18 @@ const state: RootState = {
 
 describe('usePage hook', (): void => {
   beforeEach((): void => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('calls to fetch a page by the default slug, then resets the page on unmount', (): void => {
-    const spyDispatch = jest.fn().mockReturnValue((cb: () => void) => cb());
+    const spyDispatch = vi.fn().mockReturnValue((cb: () => void) => cb());
 
-    (useAppSelector as jest.Mock).mockImplementation(
+    (useAppSelector as unknown as MockInstance).mockImplementation(
       (cb: (state: RootState) => void) => cb(state),
     );
-    (useAppDispatch as jest.Mock).mockReturnValueOnce(spyDispatch);
+    (useAppDispatch as unknown as MockInstance).mockReturnValueOnce(
+      spyDispatch,
+    );
 
     const {
       unmount,
@@ -54,12 +57,14 @@ describe('usePage hook', (): void => {
   });
 
   it('calls to fetch a page with a specified slug, then resets the page on unmount', (): void => {
-    const spyDispatch = jest.fn().mockReturnValue((cb: () => void) => cb());
+    const spyDispatch = vi.fn().mockReturnValue((cb: () => void) => cb());
 
-    (useAppSelector as jest.Mock).mockImplementation(
+    (useAppSelector as unknown as MockInstance).mockImplementation(
       (cb: (state: RootState) => void) => cb(state),
     );
-    (useAppDispatch as jest.Mock).mockReturnValueOnce(spyDispatch);
+    (useAppDispatch as unknown as MockInstance).mockReturnValueOnce(
+      spyDispatch,
+    );
 
     const {
       unmount,

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { MainHeading, SubHeading, NormalText } from './Text.css';
 
 export interface Props {

@@ -15,7 +15,7 @@ export const FooterText = styled.p`
 export const ClosingTag = styled(ClosingTagSVG)`
   width: 48px;
   height: 48px;
-  fill: ${(props) => props?.theme?.colours?.primary};
+  fill: ${(props) => props.theme.colours.primary};
 `;
 
 export default Container;

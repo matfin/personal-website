@@ -1,4 +1,3 @@
-import React from 'react';
 import { sizes } from '@styles';
 import { Image } from '@models';
 

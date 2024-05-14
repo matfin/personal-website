@@ -1,29 +1,27 @@
-import { css, FlattenSimpleInterpolation } from 'styled-components';
+import { css, RuleSet } from 'styled-components';
 import { Orientation } from '@models';
 import { sizes } from './vars';
 
-export const sizeQuery = (
-  minWidth: number,
-  css: FlattenSimpleInterpolation,
-): string => `@media (min-width: ${minWidth}px){${css}}`;
+export const sizeQuery = (minWidth: number, css: RuleSet<object>): string =>
+  `@media (min-width: ${minWidth}px){${css}}`;
 
 export const orientationQuery = (
   orientation: Orientation,
-  css: FlattenSimpleInterpolation,
+  css: RuleSet<object>,
 ): string => `@media (orientation: ${orientation}){${css}}`;
 
 export const media = {
-  sm: (css: FlattenSimpleInterpolation): string => sizeQuery(sizes.sm, css),
-  md: (css: FlattenSimpleInterpolation): string => sizeQuery(sizes.md, css),
-  lg: (css: FlattenSimpleInterpolation): string => sizeQuery(sizes.lg, css),
-  xl: (css: FlattenSimpleInterpolation): string => sizeQuery(sizes.xl, css),
-  xxl: (css: FlattenSimpleInterpolation): string => sizeQuery(sizes.xxl, css),
+  sm: (css: RuleSet<object>): string => sizeQuery(sizes.sm, css),
+  md: (css: RuleSet<object>): string => sizeQuery(sizes.md, css),
+  lg: (css: RuleSet<object>): string => sizeQuery(sizes.lg, css),
+  xl: (css: RuleSet<object>): string => sizeQuery(sizes.xl, css),
+  xxl: (css: RuleSet<object>): string => sizeQuery(sizes.xxl, css),
 };
 
 export const orientation = {
-  landscape: (css: FlattenSimpleInterpolation): string =>
+  landscape: (css: RuleSet<object>): string =>
     orientationQuery(Orientation.LANDSCAPE, css),
-  portrait: (css: FlattenSimpleInterpolation): string =>
+  portrait: (css: RuleSet<object>): string =>
     orientationQuery(Orientation.PORTRAIT, css),
 };
 

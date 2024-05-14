@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { usePage, useApp } from '@hooks';
@@ -22,10 +22,10 @@ import {
 const Page = (): React.ReactNode => {
   const { pathname } = useLocation();
   const normalisedPathname: string = normalisePathname(pathname);
+
   const { isNested, parts } = pathNesting(normalisedPathname);
   const { error, page, pending } = usePage(normalisedPathname);
   const { currentTheme, toggleTheme } = useApp();
-
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const toggleMenu = useCallback((): void => {
@@ -46,6 +46,7 @@ const Page = (): React.ReactNode => {
   return (
     <>
       <BurgerSt
+        data-testid="menubutton"
         navrevealed={showMenu ? 'true' : undefined}
         onClick={toggleMenu}
       />

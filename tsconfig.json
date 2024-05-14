@@ -6,27 +6,43 @@
       "@hooks": ["src/app/hooks"],
       "@services/*": ["src/app/services/*"],
       "@views/*": ["src/app/views/*"],
+      "@app/*": ["src/app/*"],
+      "@ssg/*": ["src/ssg/*"],
       "@styles": ["src/app/styles"],
       "@models": ["src/models"],
       "@utils": ["src/utils"],
       "@testutils": ["src/testutils"],
-      "app/*": ["src/app/*"],
+      "@config": ["src/config"],
     },
-    "target": "esnext",
-    "lib": ["WebWorker", "ESNext", "dom"],
-    "module": "commonjs",
-    "jsx": "react",
-    "strict": true,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["WebWorker", "ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node"
+
+    /* Bundling */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
   "exclude": [
     "node_modules",
     "build"
   ],
   "include": [
-    "src/**/*"
-  ]
+    "src", "prerender.ts"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

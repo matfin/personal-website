@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Container, { ClosingTag, FooterText } from './Footer.css';
 
 export interface Props {

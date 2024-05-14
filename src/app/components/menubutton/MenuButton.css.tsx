@@ -1,12 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { LinePlacement } from '@models';
 import { animationCurve } from '@styles';
-
-export enum LinePlacement {
-  TOP = 'top',
-  MIDDLE = 'middle',
-  BOTTOM = 'bottom',
-}
 
 interface LineStProps {
   placement: LinePlacement;
@@ -38,7 +33,7 @@ export const Container = styled.button`
   flex-direction: column;
   justify-content: space-around;
   padding: 0.5rem;
-  background-color: ${(props) => props?.theme?.colours?.secondary};
+  background-color: ${(props) => props.theme.colours.secondary};
 `;
 
 export const Line = styled.span<LineStProps>`

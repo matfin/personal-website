@@ -1,17 +1,23 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import {
   formatDate,
   setBodyOverflow,
   isExternalUrl,
-  isIE,
   isLink,
   isTouchDevice,
   normalisePathname,
   pathNesting,
   toLinkObject,
   splitContent,
+  pathRoot,
 } from './utils';
 
 describe('utils tests', (): void => {
+  beforeEach((): void => {
+    vi.restoreAllMocks();
+  });
+
   it('should format a date', (): void => {
     expect(formatDate(new Date('1982-04-26'))).toEqual('April 1982');
   });
@@ -87,32 +93,17 @@ describe('utils tests', (): void => {
   });
 
   it('checks for touch devices', (): void => {
+    delete global.window.ontouchstart;
     expect(isTouchDevice()).toBe(false);
 
-    global.ontouchstart = jest.fn();
+    global.window.ontouchstart = vi.fn();
     expect(isTouchDevice()).toBe(true);
-
-    global.ontouchstart = undefined;
   });
 
-  it('checks the user agent string for IE', (): void => {
-    expect(
-      isIE(
-        'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
-      ),
-    ).toBe(true);
-
-    expect(
-      isIE('Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)'),
-    ).toBe(true);
-
-    expect(
-      isIE(
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
-      ),
-    ).toBe(false);
-
-    expect(isIE()).toBe(false);
+  it('returns the correct path root', (): void => {
+    expect(pathRoot('/')).toEqual('index');
+    expect(pathRoot('/about/')).toEqual('about');
+    expect(pathRoot('/projects/test-project/')).toEqual('projects');
   });
 
   it('returns the correct path nesting', (): void => {
@@ -139,7 +130,7 @@ describe('utils tests', (): void => {
 
   it('should return a normalised path name', (): void => {
     expect(normalisePathname()).toEqual('');
-    expect(normalisePathname('/')).toEqual('/');
+    expect(normalisePathname('/')).toEqual('');
     expect(normalisePathname('/test/another/')).toEqual('test/another');
     expect(normalisePathname('/about/')).toEqual('about');
   });

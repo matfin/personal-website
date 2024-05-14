@@ -1,5 +1,3 @@
-import React, { memo } from 'react';
-
 import { ContentItem } from '@models';
 import ContentWrapper from './contentWrapper';
 
@@ -31,4 +29,4 @@ const ContentRenderer = ({ root }: Props): React.ReactNode => {
   );
 };
 
-export default memo(ContentRenderer);
+export default ContentRenderer;
