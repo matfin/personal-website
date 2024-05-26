@@ -1,4 +1,3 @@
-import React from 'react';
 import { Position as PositionModel } from '@models';
 import { formatDate } from '@utils';
 import {

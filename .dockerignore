@@ -14,4 +14,3 @@ out
 **/*.spec.ts
 .vscode
 docker-compose*
-webpack.dev.js

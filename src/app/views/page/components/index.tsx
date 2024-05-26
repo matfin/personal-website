@@ -1,4 +1,3 @@
-import React from 'react';
 import { ErrorSt, BackSt } from './components.style';
 
 export const ErrorMessage = ({ error }: { error: Error }): React.ReactNode => (

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Container, LoadingSpinner } from './Loading.css';
 
 export interface Props {

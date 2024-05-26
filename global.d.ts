@@ -11,11 +11,9 @@ declare global {
     match(string): Promise<T>;
     keys(): Promise<T>;
   }
-}
 
-declare global {
   interface Window {
-    _PRELOADED_STATE_: unknown;
+    preloadedState: unknown;
     [index: string]: unknown;
   }
 }

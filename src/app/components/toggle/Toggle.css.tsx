@@ -11,7 +11,6 @@ const iconStyle = css`
   font-size: 0.75rem;
   line-height: 1.5rem;
   ${blackEmoji}
-
   top: -2px;
 `;
 
@@ -24,14 +23,12 @@ export const ToggleTrack = styled.button`
 
   &::before {
     ${iconStyle}
-
     left: 4px;
     content: '☀️';
   }
 
   &::after {
     ${iconStyle}
-
     right: 4px;
     content: '🌙';
   }

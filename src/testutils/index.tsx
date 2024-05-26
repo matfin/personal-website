@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { render, RenderResult } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -24,9 +25,12 @@ export const renderWithTheme = (children: React.ReactNode): RenderResult =>
 
 export const renderWrapped = (children: React.ReactNode): RenderResult =>
   render(
-    <Provider store={store}>
-      <Router>{children}</Router>
-    </Provider>,
+    <ThemeProvider theme={day}>
+      <Provider store={store}>
+        <Router>{children}</Router>
+      </Provider>
+      ,
+    </ThemeProvider>,
   );
 
 export const renderWithHelmetProvider = ({
@@ -46,13 +50,11 @@ export const renderWithHelmetProvider = ({
 export const setupMatchMedia = (matches: boolean) =>
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
-    value: jest.fn().mockImplementation((query) => ({
+    value: vi.fn().mockImplementation((query) => ({
       media: query,
       matches,
-      addEventListener: jest
-        .fn()
-        .mockImplementation((event, cb) => cb({ matches })),
-      removeEventListener: jest.fn(),
+      addEventListener: vi.fn().mockImplementation((_, cb) => cb({ matches })),
+      removeEventListener: vi.fn(),
     })),
   });
 

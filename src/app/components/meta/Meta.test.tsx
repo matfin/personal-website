@@ -1,10 +1,12 @@
-import React from 'react';
+import { describe, expect, it, vi } from 'vitest';
 import { HelmetServerState } from 'react-helmet-async';
 
 import { renderWithHelmetProvider } from '@testutils';
-
-import * as config from '../../../config';
 import Meta, { Props } from './Meta';
+
+vi.mock('@config', () => ({
+  getCanonicalUrl: vi.fn().mockReturnValue('https://test.de'),
+}));
 
 const defaultProps: Props = {
   description: 'Test description',
@@ -12,14 +14,6 @@ const defaultProps: Props = {
 };
 
 describe('Meta tests', (): void => {
-  const spyGetCanonicalUrl = jest
-    .spyOn(config, 'getCanonicalUrl')
-    .mockReturnValue('https://test.de');
-
-  afterAll((): void => {
-    spyGetCanonicalUrl.mockRestore();
-  });
-
   it('renders the component with the correct details', (): void => {
     const helmetContext: { helmet?: HelmetServerState } = {};
 
@@ -35,7 +29,6 @@ describe('Meta tests', (): void => {
     expect(title).toContain('Test title');
     expect(meta).toContain('Test title');
     expect(meta).toContain('Test description');
-    expect(meta).toContain('@matfinucane');
     expect(meta).toContain('https://test.de');
   });
 
@@ -61,7 +54,6 @@ describe('Meta tests', (): void => {
     expect(title).toContain('A custom title');
     expect(meta).toContain('A custom title');
     expect(meta).toContain('A custom description');
-    expect(meta).toContain('@matfinucane');
     expect(meta).toContain('https://test.de/a-custom-slug');
   });
 

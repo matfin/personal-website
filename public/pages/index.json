@@ -265,9 +265,27 @@
                 "tagName": "topic",
                 "content": {
                   "category": "tools",
+                  "description": "Vite is a Javascript bundler that leverages native support for ES Modules in the browser.",
+                  "slug": "vite",
+                  "title": "Vite"
+                }
+              },
+              {
+                "tagName": "topic",
+                "content": {
+                  "category": "tools",
                   "description": "Webpack is a module bundler that delivers assets for a web application to the browser.",
                   "slug": "webpack",
                   "title": "webpack"
+                }
+              },
+              {
+                "tagName": "topic",
+                "content": {
+                  "category": "tools",
+                  "description": "Vitest is a testing framework best used with projects that use the Vite build tool.",
+                  "slug": "vitest",
+                  "title": "Vitest"
                 }
               },
               {

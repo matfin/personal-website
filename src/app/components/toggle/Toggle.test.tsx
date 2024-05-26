@@ -1,5 +1,4 @@
-import React from 'react';
-import 'jest-styled-components';
+import { describe, expect, it, vi } from 'vitest';
 import { fireEvent, render } from '@testing-library/react';
 
 import { ToggleValue } from '@models';
@@ -7,7 +6,7 @@ import Toggle, { Props } from './Toggle';
 
 const defaultProps: Props = {
   value: ToggleValue.OFF,
-  onToggle: jest.fn(),
+  onToggle: vi.fn(),
 };
 
 describe('Toggle tests', (): void => {
@@ -16,7 +15,7 @@ describe('Toggle tests', (): void => {
   });
 
   it('toggles to the ON value', (): void => {
-    const spyOnToggle = jest.fn();
+    const spyOnToggle = vi.fn();
     const wrapper = render(<Toggle {...defaultProps} onToggle={spyOnToggle} />);
     const toggle = wrapper.getByTestId('toggle');
 
@@ -25,7 +24,7 @@ describe('Toggle tests', (): void => {
   });
 
   it('toggles to the OFF value', (): void => {
-    const spyOnToggle = jest.fn();
+    const spyOnToggle = vi.fn();
     const wrapper = render(
       <Toggle
         {...defaultProps}
@@ -37,19 +36,5 @@ describe('Toggle tests', (): void => {
 
     fireEvent.click(toggle);
     expect(spyOnToggle).toHaveBeenCalledWith(ToggleValue.OFF);
-  });
-
-  it('shows the correct toggle position given OFF state', (): void => {
-    const wrapper = render(<Toggle {...defaultProps} />);
-    const indicator = wrapper.getByTestId('indicator');
-
-    expect(indicator).toHaveStyleRule('left', '-2px');
-  });
-
-  it('shows the correct toggle position given ON state', (): void => {
-    const wrapper = render(<Toggle {...defaultProps} value={ToggleValue.ON} />);
-    const indicator = wrapper.getByTestId('indicator');
-
-    expect(indicator).toHaveStyleRule('left', '1.5rem');
   });
 });

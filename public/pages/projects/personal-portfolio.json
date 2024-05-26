@@ -35,7 +35,7 @@
         "content": [
           {
             "tagName": "li",
-            "content": "Exploring TypeScript and applying this to the whole Redux/Saga set up."
+            "content": "Exploring TypeScript and applying this to the whole Redux/Saga/ToolKit set up."
           },
           {
             "tagName": "li",
@@ -43,7 +43,7 @@
           },
           {
             "tagName": "li",
-            "content": "Better dependency management and code splitting with webpack."
+            "content": "Better dependency management and code splitting with [webpack](https://webpack.js.org/), then [Vite](https://vitejs.dev/)"
           },
           {
             "tagName": "li",

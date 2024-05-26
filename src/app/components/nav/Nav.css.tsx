@@ -1,11 +1,7 @@
 import styled, { css } from 'styled-components';
-import { Link as DomLink } from 'react-router-dom';
+import { Link as RRDLink } from 'react-router-dom';
 
 import { animationCurve, layers, media, orientation } from '@styles';
-
-interface LinkProps {
-  active?: number;
-}
 
 export const Container = styled.nav`
   display: grid;
@@ -27,7 +23,7 @@ export const Container = styled.nav`
   `)}
 `;
 
-export const Link = styled(DomLink)<LinkProps>`
+export const Link = styled(RRDLink)`
   grid-column: 2;
   position: relative;
   display: flex;
@@ -50,42 +46,24 @@ export const Link = styled(DomLink)<LinkProps>`
     right: 0;
     width: 0;
     height: 0.125rem;
-
-    ${({ active }: LinkProps) =>
-      active &&
-      css`
-        width: 200%;
-        left: -100%;
-      `}
   }
 
   &::after {
     right: 0;
     width: 0;
     height: 100%;
-
-    ${({ active }: LinkProps) =>
-      active &&
-      css`
-        width: 100%;
-      `}
   }
 
-  ${({ active }: LinkProps) =>
-    active &&
-    css`
-      color: ${(props) => props?.theme?.colours?.secondary};
-    `}
+  &.active {
+    color: ${(props) => props?.theme?.colours?.secondary};
 
-  &:hover {
+    &::before {
+      width: 200%;
+      left: -100%;
+    }
+
     &::after {
-      width: 1rem;
-
-      ${({ active }: LinkProps) =>
-        active &&
-        css`
-          width: 100%;
-        `}
+      width: 100%;
     }
   }
 `;

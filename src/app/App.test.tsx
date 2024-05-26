@@ -1,11 +1,13 @@
-import React from 'react';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { Provider } from 'react-redux';
 
 import { store } from '@services/state/store';
 import { renderWithRouter, setupMatchMedia } from '@testutils';
 import App from './App';
 
-jest.mock('app/views/page');
+vi.mock('@views/page', () => ({
+  default: () => 'page',
+}));
 
 describe('App', (): void => {
   beforeAll((): void => {

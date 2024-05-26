@@ -2,13 +2,15 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { FetchError, Page } from '@models';
 
+const isIndexSlug = (slug: string): boolean => slug === '/' || slug === '';
+
 export const fetchPageBySlug = createAsyncThunk<
   Page,
   string,
   { rejectValue: FetchError }
 >('page/fetchPageBySlug', async (slug: string, thunkApi) => {
   try {
-    const url = `/pages/${slug === '/' ? 'index' : slug}.json`;
+    const url: string = `/pages/${isIndexSlug(slug) ? 'index' : slug}.json`;
     const response: Response = await fetch(url, {
       method: 'GET',
       headers: {

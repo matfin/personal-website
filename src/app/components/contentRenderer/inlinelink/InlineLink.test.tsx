@@ -1,4 +1,6 @@
-import React from 'react';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { screen } from '@testing-library/react';
+
 import { renderWithRouter } from '@testutils';
 import InlineLink, { Props } from './InlineLink';
 
@@ -8,11 +10,15 @@ const defaultProps: Props = {
 };
 
 describe('InlineLink tests', (): void => {
-  it('renders an internal link', (): void => {
-    const wrapper = renderWithRouter(<InlineLink {...defaultProps} />);
-    const link = wrapper.getByText('Test Link') as HTMLLinkElement;
+  beforeEach((): void => {
+    vi.resetAllMocks();
+  });
 
-    expect(wrapper).toBeTruthy();
+  it('renders an internal link', (): void => {
+    renderWithRouter(<InlineLink {...defaultProps} />);
+
+    const link = screen.getByText('Test Link') as HTMLLinkElement;
+
     expect(link).toBeTruthy();
     expect(link.href).toContain('/test/link');
     expect(link.title).toEqual('');
@@ -20,21 +26,20 @@ describe('InlineLink tests', (): void => {
   });
 
   it('renders an external link', (): void => {
-    const wrapper = renderWithRouter(
-      <InlineLink {...defaultProps} url="https://somewhere.out" />,
+    renderWithRouter(
+      <InlineLink text="External Link" url="https://somewhere.out" />,
     );
-    const link = wrapper.getByText('Test Link') as HTMLLinkElement;
+
+    const link = screen.getByText('External Link') as HTMLLinkElement;
 
     expect(link.rel).toEqual('external');
   });
 
   it('renders with a title', (): void => {
-    const wrapper = renderWithRouter(
-      <InlineLink {...defaultProps} title="Test title" />,
-    );
-    const link = wrapper.getByText('Test Link') as HTMLLinkElement;
+    renderWithRouter(<InlineLink {...defaultProps} title="Test title" />);
 
-    expect(wrapper).toBeTruthy();
+    const link = screen.getByText('Test Link') as HTMLLinkElement;
+
     expect(link.title).toEqual('Test title');
   });
 });

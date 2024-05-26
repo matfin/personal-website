@@ -1,16 +1,10 @@
-import React from 'react';
-
+import { describe, expect, it } from 'vitest';
 import { renderWithRouter } from '@testutils';
-import Nav, { pathRoot } from './Nav';
+
+import Nav from './Nav';
 
 describe('Nav tests', (): void => {
   it('renders the component with children', (): void => {
     expect(renderWithRouter(<Nav />)).toBeTruthy();
-  });
-
-  it('returns the correct path root', (): void => {
-    expect(pathRoot('/')).toEqual('index');
-    expect(pathRoot('/about/')).toEqual('about');
-    expect(pathRoot('/projects/test-project/')).toEqual('projects');
   });
 });

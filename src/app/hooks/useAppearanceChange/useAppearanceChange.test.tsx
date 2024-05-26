@@ -1,4 +1,4 @@
-import React from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { render, waitFor } from '@testing-library/react';
 
 import { ThemeType } from '@models';
@@ -6,7 +6,7 @@ import { setupMatchMedia } from '@testutils';
 import useAppearanceChange from './useAppearanceChange';
 
 describe('useAppearanceChange tests', (): void => {
-  const spyCb = jest.fn();
+  const spyCb = vi.fn();
 
   const TestComponent = (): React.ReactNode => {
     useAppearanceChange(spyCb);

@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi, MockInstance } from 'vitest';
 import { renderHook } from '@testing-library/react';
 
 import { ThemeType } from '@models';
@@ -6,13 +7,13 @@ import { useAppDispatch, useAppSelector } from '@hooks';
 import { setTheme } from '@services/state/app';
 import useApp from './useApp';
 
-jest.mock('app/hooks/useDispatchSelector', () => ({
-  useAppDispatch: jest.fn(),
-  useAppSelector: jest.fn(),
+vi.mock('@hooks', async () => ({
+  useAppDispatch: vi.fn(),
+  useAppSelector: vi.fn(),
 }));
 
-jest.mock('app/services/state/app', () => ({
-  setTheme: jest.fn(),
+vi.mock('@services/state/app', async () => ({
+  setTheme: vi.fn(),
 }));
 
 const state: RootState = {
@@ -23,16 +24,18 @@ const state: RootState = {
 
 describe('useApp hook', (): void => {
   beforeEach((): void => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('calls a dispatch to toggle the theme to NIGHT.', (): void => {
-    const spyDispatch = jest.fn().mockReturnValue((cb: () => void) => cb());
+    const spyDispatch = vi.fn().mockReturnValue((cb: () => void) => cb());
 
-    (useAppSelector as jest.Mock).mockImplementation(
+    (useAppSelector as unknown as MockInstance).mockImplementation(
       (cb: (state: RootState) => void) => cb(state),
     );
-    (useAppDispatch as jest.Mock).mockReturnValueOnce(spyDispatch);
+    (useAppDispatch as unknown as MockInstance).mockReturnValueOnce(
+      spyDispatch,
+    );
 
     const {
       result: {
@@ -47,13 +50,15 @@ describe('useApp hook', (): void => {
   });
 
   it('calls a dispatch to toggle the theme to DAY.', (): void => {
-    const spyDispatch = jest.fn().mockReturnValue((cb: () => void) => cb());
+    const spyDispatch = vi.fn().mockReturnValue((cb: () => void) => cb());
 
-    (useAppSelector as jest.Mock).mockImplementation(
+    (useAppSelector as unknown as MockInstance).mockImplementation(
       (cb: (state: RootState) => void) =>
         cb({ ...state, app: { currentTheme: ThemeType.NIGHT } }),
     );
-    (useAppDispatch as jest.Mock).mockReturnValueOnce(spyDispatch);
+    (useAppDispatch as unknown as MockInstance).mockReturnValueOnce(
+      spyDispatch,
+    );
 
     const {
       result: {
@@ -68,12 +73,14 @@ describe('useApp hook', (): void => {
   });
 
   it('calls a dispatch to set the theme.', (): void => {
-    const spyDispatch = jest.fn().mockReturnValue((cb: () => void) => cb());
+    const spyDispatch = vi.fn().mockReturnValue((cb: () => void) => cb());
 
-    (useAppSelector as jest.Mock).mockImplementation(
+    (useAppSelector as unknown as MockInstance).mockImplementation(
       (cb: (state: RootState) => void) => cb(state),
     );
-    (useAppDispatch as jest.Mock).mockReturnValueOnce(spyDispatch);
+    (useAppDispatch as unknown as MockInstance).mockReturnValueOnce(
+      spyDispatch,
+    );
 
     const {
       result: {

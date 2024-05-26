@@ -6,11 +6,14 @@ module.exports = {
     node: true,
   },
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:react/jsx-runtime',
   ],
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -23,13 +26,17 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint'],
+  plugins: ['react', 'react-refresh', 'react-hooks', '@typescript-eslint'],
   rules: {
     camelcase: 0,
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
   },
   overrides: [
     {
-      files: ['*.spec.{ts,tsx}'],
+      files: ['*.test.{ts,tsx}'],
       rules: {
         '@typescript-eslint/no-explicit-any': 0,
       },
@@ -48,9 +55,6 @@ module.exports = {
     'import/resolver': {
       node: {
         moduleDirectory: ['node_modules', 'src'],
-      },
-      webpack: {
-        config: 'webpack.common.js',
       },
     },
   },
