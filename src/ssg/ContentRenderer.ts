@@ -16,6 +16,7 @@ class ContentRenderer {
   static generateHTMLFromSlug = async (
     slug: string,
     htmlTemplate: string,
+    withServiceWorker: boolean = false,
   ): Promise<string | null> => {
     try {
       const {
@@ -24,18 +25,31 @@ class ContentRenderer {
         preloadedStateJSON,
         styleTags,
       }: Content = await render(`/${slug}`);
+      const cspNonce: string = crypto.randomUUID();
+      const cspTag: string = `
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="default-src 'self'; img-src 'self'; style-src 'unsafe-inline'; script-src 'self' 'nonce-${cspNonce}'; child-src 'self';"
+        />
+      `;
       const title: string = helmet?.title.toString() ?? '';
       const metaTags: string = helmet?.meta.toString() ?? '';
       const linkTags: string = helmet?.link.toString() ?? '';
       const contents: string = htmlTemplate
+        .replace('<!--contentsecurity-->', cspTag)
+        .replaceAll('%NONCE%', cspNonce)
         .replace(`<!--title-->`, title)
         .replace(`<!--metatags-->`, metaTags)
         .replace(`<!--linktags-->`, linkTags)
         .replace(`<!--styletags-->`, styleTags)
         .replace(`<!--root-content-->`, html)
         .replace(
+          '<!--swregister-->',
+          withServiceWorker ? `<script src="/swregister.js"></script>` : '',
+        )
+        .replace(
           `<!--preloadedstate-->`,
-          `<script>window.preloadedState=${preloadedStateJSON}</script>`,
+          `<script nonce="${cspNonce}">window.preloadedState=${preloadedStateJSON}</script>`,
         );
 
       return contents;
@@ -45,7 +59,10 @@ class ContentRenderer {
     }
   };
 
-  static generateStaticHTML = async (slugs: string[]): Promise<void> => {
+  static generateStaticHTML = async (
+    slugs: string[],
+    withServiceWorker: boolean = false,
+  ): Promise<void> => {
     const htmlTemplate: string | null = await fs.readFile(
       toAbsolute('./dist/index.html'),
       {
@@ -55,7 +72,11 @@ class ContentRenderer {
 
     for (const slug of slugs) {
       const slugContent: string | null =
-        await ContentRenderer.generateHTMLFromSlug(slug, htmlTemplate);
+        await ContentRenderer.generateHTMLFromSlug(
+          slug,
+          htmlTemplate,
+          withServiceWorker,
+        );
       const filePath: string = toAbsolute(
         slug === 'index' ? `./dist/index.html` : `./dist/${slug}/index.html`,
       );
