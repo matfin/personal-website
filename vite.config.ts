@@ -1,10 +1,23 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 import tsconfigpaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ isSsrBuild }) => {
   return {
     plugins: [tsconfigpaths(), react()],
+    build: {
+      rollupOptions: {
+        input: {
+          main: resolve(__dirname, 'index.html'),
+          worker: resolve(__dirname, 'src/worker.ts'),
+          swregister: resolve(__dirname, 'src/swregister.ts'),
+        },
+        output: {
+          entryFileNames: '[name].js',
+        },
+      },
+    },
     ssr: {
       noExternal: ['react-helmet-async', 'styled-components'],
     },
@@ -13,6 +26,9 @@ export default defineConfig(({ isSsrBuild }) => {
         process.env.CANONICAL_URL ?? 'http://localhost:3000',
       ),
       CONTENT_BASE: JSON.stringify('./pages'),
+      PWA_CACHE_NAME: JSON.stringify(
+        `${process.env.npm_package_name}:${process.env.npm_package_version}`,
+      ),
     },
     publicDir: isSsrBuild ? false : 'public',
     test: {
