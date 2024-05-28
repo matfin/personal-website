@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { HelmetProvider, HelmetServerState } from 'react-helmet-async';
 
 import { store } from '@services/state/store';
-import { day } from '@styles';
+import { day } from '@styles/themes';
 
 export const renderWithRouter = (children: React.ReactNode): RenderResult =>
   render(

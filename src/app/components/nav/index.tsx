@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
-import { NavLink } from '@models';
-import { pathRoot } from '@utils';
+import { NavLink } from '@models/interfaces';
+import { pathRoot } from '@utils/general';
 import { Children, Link, Container } from './Nav.css';
 
 export interface Props {

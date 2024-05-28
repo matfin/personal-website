@@ -1,5 +1,5 @@
-import { isTouchDevice } from '@utils';
-import { LinePlacement } from '@models';
+import { isTouchDevice } from '@utils/general';
+import { LinePlacement } from '@models/enums';
 import { Container, Line } from './MenuButton.css';
 
 export interface Props {

@@ -6,8 +6,8 @@ import {
   Position,
   Project as ProjectModel,
   Topic,
-} from '@models';
-import { isLink, splitContent, toLinkObject } from '@utils';
+} from '@models/interfaces';
+import { isLink, splitContent, toLinkObject } from '@utils/general';
 import Text from '@components/contentRenderer/text';
 import Job from '@components/contentRenderer/position';
 import Project from '@components/contentRenderer/project';

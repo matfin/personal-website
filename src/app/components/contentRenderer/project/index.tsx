@@ -1,4 +1,4 @@
-import { Project as ProjectModel } from '@models';
+import { Project as ProjectModel } from '@models/interfaces';
 import { Container, Title, Description } from './Project.css';
 
 export interface Props extends ProjectModel {

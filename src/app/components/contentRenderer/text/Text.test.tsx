@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
 
 import { renderWithTheme } from '@testutils';
-import Text, { Props } from './Text';
+import Text, { Props } from './index';
 
 const defaultProps: Props = {
   as: 'p',

@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 
-import { Page } from '@models';
+import { Page } from '@models/interfaces';
 
 class ContentLoader {
   static loadPage = async (

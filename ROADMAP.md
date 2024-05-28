@@ -15,10 +15,11 @@ This is what we need to do to build a nice, simple, well maintained application.
 - use Redux ToolKit
 - progressive web app with offline capability
 - Content security policy
+- remove barrel imports to improve build and test performance
 
 ## Nice to have
 
 - use Storybook for component rendering/documentation
-- remove barrel imports to improve build and test performance
+
 - error boundary for better error handling
 - md file describing the architectural overview, which needs to be rewritten

@@ -11,9 +11,9 @@ import {
   toLinkObject,
   splitContent,
   pathRoot,
-} from './utils';
+} from './general';
 
-describe('utils tests', (): void => {
+describe('general utils tests', (): void => {
   beforeEach((): void => {
     vi.restoreAllMocks();
   });

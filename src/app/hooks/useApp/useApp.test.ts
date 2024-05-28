@@ -1,18 +1,18 @@
 import { beforeEach, describe, expect, it, vi, MockInstance } from 'vitest';
 import { renderHook } from '@testing-library/react';
 
-import { ThemeType } from '@models';
+import { ThemeType } from '@models/enums';
 import type { RootState } from '@services/state/store';
-import { useAppDispatch, useAppSelector } from '@hooks';
-import { setTheme } from '@services/state/app';
-import useApp from './useApp';
+import { useAppDispatch, useAppSelector } from '@hooks/useDispatchSelector';
+import { setTheme } from '@services/state/app/slice';
+import useApp from './index';
 
-vi.mock('@hooks', async () => ({
+vi.mock('@hooks/useDispatchSelector', async () => ({
   useAppDispatch: vi.fn(),
   useAppSelector: vi.fn(),
 }));
 
-vi.mock('@services/state/app', async () => ({
+vi.mock('@services/state/app/slice', async () => ({
   setTheme: vi.fn(),
 }));
 

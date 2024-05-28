@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { HelmetServerState } from 'react-helmet-async';
 
 import { renderWithHelmetProvider } from '@testutils';
-import Meta, { Props } from './Meta';
+import Meta, { Props } from './index';
 
 vi.mock('@config', () => ({
   getCanonicalUrl: vi.fn().mockReturnValue('https://test.de'),

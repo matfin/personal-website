@@ -2,16 +2,16 @@ import { beforeEach, describe, expect, it, vi, MockInstance } from 'vitest';
 import { renderHook } from '@testing-library/react';
 
 import type { RootState } from '@services/state/store';
-import { useAppDispatch, useAppSelector } from '@hooks';
-import { fetchPageBySlug, resetPage } from '@services/state/page';
-import usePage from './usePage';
+import { useAppDispatch, useAppSelector } from '@hooks/useDispatchSelector';
+import { fetchPageBySlug, resetPage } from '@services/state/page/slice';
+import usePage from './index';
 
-vi.mock('@hooks', async () => ({
+vi.mock('@hooks/useDispatchSelector', async () => ({
   useAppDispatch: vi.fn(),
   useAppSelector: vi.fn(),
 }));
 
-vi.mock('@services/state/page', async () => ({
+vi.mock('@services/state/page/slice', async () => ({
   fetchPageBySlug: vi.fn(),
   resetPage: vi.fn(),
 }));

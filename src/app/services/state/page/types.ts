@@ -1,4 +1,4 @@
-import { Page } from '@models';
+import { Page } from '@models/interfaces';
 
 export interface PageState {
   error: Error | null;

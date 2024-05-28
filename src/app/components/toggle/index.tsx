@@ -1,4 +1,4 @@
-import { ToggleValue } from '@models';
+import { ToggleValue } from '@models/enums';
 import { ToggleIndicator, ToggleTrack } from './Toggle.css';
 
 export interface Props {

@@ -1,5 +1,5 @@
-import { Position as PositionModel } from '@models';
-import { formatDate } from '@utils';
+import { Position as PositionModel } from '@models/interfaces';
+import { formatDate } from '@utils/general';
 import {
   CompanyName,
   DateFromTo,

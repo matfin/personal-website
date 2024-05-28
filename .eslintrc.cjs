@@ -26,8 +26,17 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-refresh', 'react-hooks', '@typescript-eslint'],
+  plugins: [
+    'react',
+    'react-refresh',
+    'react-hooks',
+    '@typescript-eslint',
+    'barrel-files',
+  ],
   rules: {
+    'barrel-files/avoid-barrel-files': ['error'],
+    'barrel-files/avoid-re-export-all': ['error'],
+    'barrel-files/avoid-namespace-import': ['error'],
     camelcase: 0,
     'react-refresh/only-export-components': [
       'warn',
