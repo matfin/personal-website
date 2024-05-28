@@ -1,21 +1,9 @@
-import {
-  afterEach,
-  afterAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi,
-  MockInstance,
-} from 'vitest';
-import { useLocation, Location } from 'react-router-dom';
-import { fireEvent, screen } from '@testing-library/react';
+import { describe, expect, it, vi, MockInstance } from 'vitest';
+import { screen } from '@testing-library/react';
 
 import { renderWrapped } from '@testutils';
-import { setBodyOverflow } from '@utils/general';
 import { ContentItem, Page as PageModel } from '@models/interfaces';
 import usePage from '@hooks/usePage';
-import useApp from '@hooks/useApp';
 import Page from './index';
 
 const page: PageModel = {
@@ -44,33 +32,8 @@ const mocks = vi.hoisted(() => {
   };
 });
 
-vi.mock('react-router-dom', async (importOriginal) => {
-  const mod = await importOriginal<typeof import('react-router-dom')>();
-
-  return {
-    ...mod,
-    useLocation: vi.fn().mockReturnValue({ pathname: 'test' }),
-  };
-});
-
 vi.mock('@components/meta', () => ({
   default: () => 'meta',
-}));
-
-vi.mock('@utils/general', async (importOriginal) => {
-  const mod = await importOriginal<typeof import('@utils/general')>();
-
-  return {
-    ...mod,
-    setBodyOverflow: vi.fn(),
-  };
-});
-
-vi.mock('@hooks/useApp', () => ({
-  default: vi.fn().mockReturnValue({
-    currentTheme: 'day',
-    toggleTheme: vi.fn(),
-  }),
 }));
 
 vi.mock('@hooks/usePage', () => ({
@@ -78,58 +41,39 @@ vi.mock('@hooks/usePage', () => ({
     page: mocks.page,
     pending: false,
     error: null,
+    isNested: false,
+    parts: ['test-page'],
   }),
 }));
 
 describe('Page tests', (): void => {
-  beforeEach((): void => {
-    (useLocation as unknown as MockInstance).mockReturnValue({
-      pathname: '/test/nested',
-    } as Location);
-  });
-
-  afterEach((): void => {
-    (useLocation as unknown as MockInstance).mockClear();
-    (setBodyOverflow as unknown as MockInstance).mockClear();
-  });
-
-  afterAll((): void => {
-    (useLocation as unknown as MockInstance).mockReset();
-    (setBodyOverflow as unknown as MockInstance).mockReset();
-  });
-
   it('renders the component', async (): Promise<void> => {
     expect(() => renderWrapped(<Page />)).not.toThrow();
-  });
-
-  it('sets the body overflow on navigation menu button tap', (): void => {
-    const { getByTestId } = renderWrapped(<Page />);
-    const button = getByTestId('menubutton');
-
-    fireEvent.touchStart(button);
-
-    expect(setBodyOverflow).toHaveBeenCalledTimes(1);
-    expect(setBodyOverflow).toHaveBeenCalledWith(false);
   });
 
   it('renders content when not pending', (): void => {
     (usePage as unknown as MockInstance).mockReturnValue({
       page,
+      error: null,
       pending: false,
+      isNested: false,
+      parts: ['test-content'],
     });
 
     renderWrapped(<Page />);
-    expect(screen.getByText('Test content')).not.toBeNull();
+    expect(screen.getByText(/Test content/)).not.toBe(null);
   });
 
   it('does not render content when pending', (): void => {
     (usePage as unknown as MockInstance).mockReturnValue({
-      page,
+      page: null,
       pending: true,
+      isNested: false,
+      parts: ['test-content'],
     });
 
     renderWrapped(<Page />);
-    expect(screen.queryByText('Test content')).toBeNull();
+    expect(screen.queryByText(/Test content/)).toBeNull();
   });
 
   it('does not render content when there is an error', (): void => {
@@ -143,6 +87,13 @@ describe('Page tests', (): void => {
   });
 
   it('renders the back button when in a nested page view', (): void => {
+    (usePage as unknown as MockInstance).mockReturnValue({
+      page: null,
+      pending: false,
+      isNested: true,
+      parts: ['test', 'nested'],
+    });
+
     const container = renderWrapped(<Page />);
     const backButton = container.getByTestId('backbutton') as HTMLLinkElement;
 
@@ -172,26 +123,13 @@ describe('Page tests', (): void => {
     (usePage as unknown as MockInstance).mockReturnValue({
       page,
       pending: false,
+      isNested: false,
+      parts: ['test'],
     });
 
     renderWrapped(<Page />);
 
     expect(screen.getByText('Test heading')).toBeTruthy();
-  });
-
-  it('toggles the theme', (): void => {
-    const spyToggleTheme = vi.fn();
-
-    (useApp as unknown as MockInstance).mockReturnValue({
-      toggleTheme: spyToggleTheme,
-    });
-
-    const container = renderWrapped(<Page />);
-    const toggle = container.getByTestId('toggle');
-
-    fireEvent.click(toggle);
-
-    expect(spyToggleTheme).toHaveBeenCalledTimes(1);
   });
 
   it('renders an error message', (): void => {

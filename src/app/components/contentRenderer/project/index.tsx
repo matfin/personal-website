@@ -1,5 +1,5 @@
 import { Project as ProjectModel } from '@models/interfaces';
-import { Container, Title, Description } from './Project.css';
+import { Container, Description, Title } from './Project.css';
 
 export interface Props extends ProjectModel {
   className?: string;
@@ -12,8 +12,8 @@ const Project = ({
   title,
 }: Props): React.ReactNode => (
   <Container to={`/projects/${slug}/`} className={className}>
-    <Title>{title}</Title>
-    <Description>{description}</Description>
+    <Title type="h3">{title}</Title>
+    <Description type="p">{description}</Description>
   </Container>
 );
 

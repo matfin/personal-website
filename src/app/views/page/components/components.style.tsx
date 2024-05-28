@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom';
 
 import { commonButtonStyle } from '@styles/common';
 import { media } from '@styles/mixins';
-import { textTypography } from '@styles/typography';
 
 export const BackSt = styled(Link)`
   ${commonButtonStyle}
 
   left: 1rem;
   background: ${(props) => props?.theme?.colours?.secondary};
-  ${textTypography}
 
   ${media.md(css`
     position: absolute;

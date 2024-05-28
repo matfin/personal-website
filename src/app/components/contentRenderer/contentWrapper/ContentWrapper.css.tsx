@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { animationCurve, boxShadow, colours, layers } from '@styles/vars';
 import { listItemStyle, media } from '@styles/mixins';
-import { textTypography } from '@styles/typography';
+import Text from '@components/text';
 import Picture from '@components/contentRenderer/picture';
 import Topic from '@components/contentRenderer/topic';
 import InlineLink from '@components/contentRenderer/inlinelink';
@@ -11,9 +11,8 @@ export const List = styled.ul`
   list-style: none;
 `;
 
-export const ListItem = styled.li`
+export const ListItem = styled(Text)`
   ${listItemStyle}
-  ${textTypography}
 `;
 
 export const PhotoContainer = styled.div`

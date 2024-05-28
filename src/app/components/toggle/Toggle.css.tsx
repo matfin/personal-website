@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { animationCurve, layers } from '@styles/vars';
 import { blackEmoji } from '@styles/mixins';
 
-interface IToggleIndicatorStProps {
+interface ToggleIndicator {
   $switchedon?: boolean | string;
 }
 
@@ -35,7 +35,7 @@ export const ToggleTrack = styled.button`
   }
 `;
 
-export const ToggleIndicator = styled.div<IToggleIndicatorStProps>`
+export const ToggleIndicator = styled.div<ToggleIndicator>`
   z-index: ${layers.upper};
   position: absolute;
   top: -2px;

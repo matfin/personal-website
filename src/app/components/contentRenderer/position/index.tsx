@@ -29,17 +29,19 @@ const Position = ({
 
   return (
     <Container className={className}>
-      <DateFromTo>
+      <DateFromTo type="h4">
         <time dateTime={startDate}>{dateFrom}</time>
         {endDate ? <time dateTime={endDate}>{dateTo}</time> : ' to present'}
       </DateFromTo>
-      <CompanyName>{company}</CompanyName>
-      <LocationAndRole>
+      <CompanyName type="h3">{company}</CompanyName>
+      <LocationAndRole type="h4">
         {role} / {location}
       </LocationAndRole>
       <TaskList>
         {tasks.map((task: string) => (
-          <TaskItem key={task}>{task}</TaskItem>
+          <TaskItem type="li" key={task}>
+            {task}
+          </TaskItem>
         ))}
       </TaskList>
     </Container>

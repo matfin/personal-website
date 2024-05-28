@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { colours } from '@styles/vars';
-import { subHeadingTypography, textTypography } from '@styles/typography';
+import Text from '@components/text';
 
 export const Container = styled(Link)`
   position: relative;
@@ -10,11 +10,11 @@ export const Container = styled(Link)`
   color: ${colours.primary};
 `;
 
-export const Title = styled.h3`
-  margin: 0 0 0.5rem;
-  ${subHeadingTypography}
+export const Description = styled(Text)`
+  margin: 0;
 `;
 
-export const Description = styled.p`
-  ${textTypography}
+export const Title = styled(Text)`
+  margin: 0 0 0.5rem;
+  padding: 0;
 `;

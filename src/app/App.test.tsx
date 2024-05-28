@@ -9,6 +9,10 @@ vi.mock('@views/page', () => ({
   default: () => 'page',
 }));
 
+vi.mock('@views/template', () => ({
+  default: () => 'template',
+}));
+
 describe('App', (): void => {
   beforeAll((): void => {
     setupMatchMedia(false);

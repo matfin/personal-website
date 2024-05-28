@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components';
 import { LinePlacement } from '@models/enums';
 import { animationCurve } from '@styles/vars';
 
-interface LineStProps {
-  placement: LinePlacement;
+interface LineProps {
+  $placement: LinePlacement;
   $revealed?: string;
 }
 
@@ -36,7 +36,7 @@ export const Container = styled.button`
   background-color: ${(props) => props.theme.colours.secondary};
 `;
 
-export const Line = styled.span<LineStProps>`
+export const Line = styled.span<LineProps>`
   width: 2rem;
   height: 1px;
   background: ${(props) => props?.theme?.colours?.primary};
@@ -45,5 +45,5 @@ export const Line = styled.span<LineStProps>`
     transform 0.5s ${animationCurve},
     rotate 0.5s ${animationCurve};
 
-  ${({ $revealed, placement }) => $revealed && transformTo(placement)}
+  ${({ $revealed, $placement }) => $revealed && transformTo($placement)}
 `;
