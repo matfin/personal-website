@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { ContentItem } from '@models';
+import { ContentItem } from '@models/interfaces';
 import { normaliseContent } from './mappers';
 
 const content: unknown = {

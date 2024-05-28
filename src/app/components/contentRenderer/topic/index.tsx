@@ -1,4 +1,4 @@
-import { Topic as TopicModel } from '@models';
+import { Topic as TopicModel } from '@models/interfaces';
 import { Container } from './Topic.css';
 
 export interface Props extends TopicModel {

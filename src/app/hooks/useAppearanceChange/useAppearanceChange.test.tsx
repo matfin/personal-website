@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { render, waitFor } from '@testing-library/react';
 
-import { ThemeType } from '@models';
+import { ThemeType } from '@models/enums';
 import { setupMatchMedia } from '@testutils';
-import useAppearanceChange from './useAppearanceChange';
+import useAppearanceChange from './index';
 
 describe('useAppearanceChange tests', (): void => {
   const spyCb = vi.fn();

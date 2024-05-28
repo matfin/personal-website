@@ -1,11 +1,16 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { usePage, useApp } from '@hooks';
+import useApp from '@hooks/useApp';
+import usePage from '@hooks/usePage';
 
 import Meta from '@components/meta';
-import { normalisePathname, pathNesting, setBodyOverflow } from '@utils';
-import { ToggleValue, ThemeType } from '@models';
+import {
+  normalisePathname,
+  pathNesting,
+  setBodyOverflow,
+} from '@utils/general';
+import { ToggleValue, ThemeType } from '@models/enums';
 import { BackButton, ErrorMessage } from './components';
 import Nav from '@components/nav';
 import ContentRenderer from '@components/contentRenderer';

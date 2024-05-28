@@ -1,12 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import {
-  commonButtonStyle,
-  animationCurve,
-  boxShadow,
-  layers,
-  media,
-} from '@styles';
+import { media } from '@styles/mixins';
+import { commonButtonStyle } from '@styles/common';
+import { animationCurve, boxShadow, layers } from '@styles/vars';
 import Footer from '@components/footer';
 import Loading from '@components/loading';
 import MenuButton from '@components/menubutton';

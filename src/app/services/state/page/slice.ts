@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import { Page } from '@models';
+import { Page } from '@models/interfaces';
 import { fetchPageBySlug } from './api';
 import { normalisePageContent } from './utils';
 import { PageState } from './types';

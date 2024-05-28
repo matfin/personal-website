@@ -6,8 +6,8 @@ import {
   ThunkDispatch,
 } from '@reduxjs/toolkit';
 
-import pageSlice from './page';
-import appSlice from './app';
+import pageSlice from './page/slice';
+import appSlice from './app/slice';
 
 const rootReducer: RootState = {
   page: pageSlice,

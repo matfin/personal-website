@@ -5,9 +5,9 @@ import { renderToString } from 'react-dom/server';
 import { HelmetProvider, HelmetServerState } from 'react-helmet-async';
 import { ServerStyleSheet } from 'styled-components';
 
-import { Page } from '@models';
+import { Page } from '@models/interfaces';
 import { store } from '@services/state/store';
-import { setPage } from '@services/state/page';
+import { setPage } from '@services/state/page/slice';
 import ContentLoader from '@ssg/ContentLoader';
 import App from '@app/App';
 

@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { animationCurve, blackEmoji, layers } from '@styles';
+import { animationCurve, layers } from '@styles/vars';
+import { blackEmoji } from '@styles/mixins';
 
 interface IToggleIndicatorStProps {
   $switchedon?: boolean | string;

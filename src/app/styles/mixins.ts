@@ -1,5 +1,5 @@
 import { css, RuleSet } from 'styled-components';
-import { Orientation } from '@models';
+import { Orientation } from '@models/enums';
 import { sizes } from './vars';
 
 export const sizeQuery = (minWidth: number, css: RuleSet<object>): string =>
@@ -43,5 +43,3 @@ export const listItemStyle = css`
     content: '⚡';
   }
 `;
-
-export default media;

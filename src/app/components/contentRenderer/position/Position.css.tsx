@@ -1,11 +1,11 @@
 import styled from 'styled-components';
+import { listItemStyle } from '@styles/mixins';
+import { fontWeight } from '@styles/vars';
 import {
-  fontWeight,
-  listItemStyle,
   subHeadingTypography,
   textTypography,
   thirdHeadingTypography,
-} from '@styles';
+} from '@styles/typography';
 
 export const Container = styled.div`
   margin: 1rem 0 2rem;

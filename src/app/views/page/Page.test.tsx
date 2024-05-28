@@ -12,10 +12,11 @@ import { useLocation, Location } from 'react-router-dom';
 import { fireEvent, screen } from '@testing-library/react';
 
 import { renderWrapped } from '@testutils';
-import { setBodyOverflow } from '@utils';
-import { ContentItem, Page as PageModel } from '@models';
-import { usePage, useApp } from '@hooks';
-import Page from './Page';
+import { setBodyOverflow } from '@utils/general';
+import { ContentItem, Page as PageModel } from '@models/interfaces';
+import usePage from '@hooks/usePage';
+import useApp from '@hooks/useApp';
+import Page from './index';
 
 const page: PageModel = {
   root: {
@@ -56,8 +57,8 @@ vi.mock('@components/meta', () => ({
   default: () => 'meta',
 }));
 
-vi.mock('@utils', async (importOriginal) => {
-  const mod = await importOriginal<typeof import('@utils')>();
+vi.mock('@utils/general', async (importOriginal) => {
+  const mod = await importOriginal<typeof import('@utils/general')>();
 
   return {
     ...mod,
@@ -65,13 +66,18 @@ vi.mock('@utils', async (importOriginal) => {
   };
 });
 
-vi.mock('@hooks', () => ({
-  usePage: vi
-    .fn()
-    .mockReturnValue({ page: mocks.page, pending: false, error: null }),
-  useApp: vi.fn().mockReturnValue({
+vi.mock('@hooks/useApp', () => ({
+  default: vi.fn().mockReturnValue({
     currentTheme: 'day',
     toggleTheme: vi.fn(),
+  }),
+}));
+
+vi.mock('@hooks/usePage', () => ({
+  default: vi.fn().mockReturnValue({
+    page: mocks.page,
+    pending: false,
+    error: null,
   }),
 }));
 

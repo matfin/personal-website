@@ -1,4 +1,4 @@
-import { ThemeType } from '@models';
+import { ThemeType } from '@models/enums';
 
 export interface AppState {
   currentTheme: ThemeType;

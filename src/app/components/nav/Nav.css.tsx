@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 import { Link as RRDLink } from 'react-router-dom';
 
-import { animationCurve, layers, media, orientation } from '@styles';
+import { media } from '@styles/mixins';
+import { orientation } from '@styles/mixins';
+import { animationCurve, layers } from '@styles/vars';
 
 export const Container = styled.nav`
   display: grid;

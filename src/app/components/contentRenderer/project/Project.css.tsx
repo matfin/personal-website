@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { colours, subHeadingTypography, textTypography } from '@styles';
+import { colours } from '@styles/vars';
+import { subHeadingTypography, textTypography } from '@styles/typography';
 
 export const Container = styled(Link)`
   position: relative;

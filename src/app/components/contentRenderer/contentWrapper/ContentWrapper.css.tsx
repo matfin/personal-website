@@ -1,14 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import {
-  animationCurve,
-  boxShadow,
-  colours,
-  layers,
-  listItemStyle,
-  media,
-  textTypography,
-} from '@styles';
+import { animationCurve, boxShadow, colours, layers } from '@styles/vars';
+import { listItemStyle, media } from '@styles/mixins';
+import { textTypography } from '@styles/typography';
 import Picture from '@components/contentRenderer/picture';
 import Topic from '@components/contentRenderer/topic';
 import InlineLink from '@components/contentRenderer/inlinelink';

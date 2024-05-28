@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
 import { LoadingSpinner as LoadingSpinnerSVG } from '@components/svgicons';
-import { layers } from '@styles';
+import { layers } from '@styles/vars';
 
 const rotate = keyframes`
   from {

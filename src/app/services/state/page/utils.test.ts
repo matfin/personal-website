@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import { Page } from '@models';
+import { Page } from '@models/interfaces';
 import { normalisePageContent } from './utils';
 
 const page = {

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { colours, textTypography } from '@styles';
+import { colours } from '@styles/vars';
+import { textTypography } from '@styles/typography';
 
 export const Container = styled.li`
   ${textTypography}

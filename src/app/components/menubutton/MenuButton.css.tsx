@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { LinePlacement } from '@models';
-import { animationCurve } from '@styles';
+import { LinePlacement } from '@models/enums';
+import { animationCurve } from '@styles/vars';
 
 interface LineStProps {
   placement: LinePlacement;
