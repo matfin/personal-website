@@ -8,7 +8,7 @@ import {
   Topic,
 } from '@models/interfaces';
 import { isLink, splitContent, toLinkObject } from '@utils/general';
-import Text from '@components/contentRenderer/text';
+import Text from '@components/text';
 import Job from '@components/contentRenderer/position';
 import Project from '@components/contentRenderer/project';
 import {
@@ -63,7 +63,9 @@ const ContentWrapper = ({
     }
     case 'li': {
       return (
-        <ListItem>{processContent(content as unknown as string)}</ListItem>
+        <ListItem type="li">
+          {processContent(content as unknown as string)}
+        </ListItem>
       );
     }
     case 'job': {
@@ -88,7 +90,9 @@ const ContentWrapper = ({
     }
     default: {
       return (
-        <Text as={tagName}>{processContent(content as unknown as string)}</Text>
+        <Text type={tagName}>
+          {processContent(content as unknown as string)}
+        </Text>
       );
     }
   }

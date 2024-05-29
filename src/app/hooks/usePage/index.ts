@@ -1,13 +1,21 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
+import { normalisePathname, pathNesting } from '@utils/general';
 import { useAppDispatch, useAppSelector } from '@hooks/useDispatchSelector';
 import { AppDispatch, RootState } from '@services/state/store';
 import { fetchPageBySlug, resetPage } from '@services/state/page/slice';
 import { Page } from '@models/interfaces';
 
-const usePage = (
-  slug?: string,
-): { page: Page | null; error: Error | null; pending: boolean } => {
+interface Props {
+  page: Page | null;
+  error: Error | null;
+  pending: boolean;
+  isNested: boolean;
+  parts: string[];
+}
+
+const usePage = (): Props => {
   const dispatch = useAppDispatch<AppDispatch>();
   const page: Page = useAppSelector((state: RootState) => state.page.page);
   const error: Error | null = useAppSelector(
@@ -16,14 +24,17 @@ const usePage = (
   const pending: boolean = useAppSelector(
     (state: RootState) => state.page.pending,
   );
+  const { pathname } = useLocation();
+  const normalisedPathname: string = normalisePathname(pathname);
+  const { isNested, parts } = pathNesting(normalisedPathname);
 
   useEffect((): (() => void) => {
-    dispatch(fetchPageBySlug(slug ?? 'index'));
+    dispatch(fetchPageBySlug(normalisedPathname ?? 'index'));
 
     return resetPage;
-  }, [dispatch, slug]);
+  }, [dispatch, normalisedPathname]);
 
-  return { page, error, pending };
+  return { page, error, isNested, parts, pending };
 };
 
 export default usePage;

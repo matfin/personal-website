@@ -1,12 +1,12 @@
-import { Topic as TopicModel } from '@models/interfaces';
 import { Container } from './Topic.css';
 
-export interface Props extends TopicModel {
+export interface Props {
   className?: string;
+  title: string;
 }
 
-const Topic = ({ className, description, title }: Props): React.ReactNode => (
-  <Container title={description} className={className}>
+const Topic = ({ className, title }: Props): React.ReactNode => (
+  <Container type="li" className={className}>
     {title}
   </Container>
 );

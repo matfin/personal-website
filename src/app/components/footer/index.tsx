@@ -6,7 +6,7 @@ export interface Props {
 
 const Footer = ({ className }: Props): React.ReactNode => (
   <Container className={className}>
-    <FooterText>Made by a human</FooterText>
+    <FooterText type="p">Made by a human</FooterText>
     <ClosingTag />
   </Container>
 );

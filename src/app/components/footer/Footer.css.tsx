@@ -1,5 +1,7 @@
 import styled from 'styled-components';
+
 import { ClosingTag as ClosingTagSVG } from '@components/svgicons';
+import Text from '@components/text';
 
 export const Container = styled.footer`
   display: flex;
@@ -8,7 +10,7 @@ export const Container = styled.footer`
   align-items: center;
 `;
 
-export const FooterText = styled.p`
+export const FooterText = styled(Text)`
   margin: 1rem 0;
 `;
 

@@ -23,9 +23,9 @@ const MenuButton = ({
       onClick={!shouldUseTouch ? onClick : undefined}
       onTouchStart={shouldUseTouch ? onClick : undefined}
     >
-      <Line placement={LinePlacement.TOP} $revealed={navrevealed} />
-      <Line placement={LinePlacement.MIDDLE} $revealed={navrevealed} />
-      <Line placement={LinePlacement.BOTTOM} $revealed={navrevealed} />
+      <Line $placement={LinePlacement.TOP} $revealed={navrevealed} />
+      <Line $placement={LinePlacement.MIDDLE} $revealed={navrevealed} />
+      <Line $placement={LinePlacement.BOTTOM} $revealed={navrevealed} />
     </Container>
   );
 };
