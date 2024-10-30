@@ -1,4 +1,11 @@
-import { beforeEach, describe, expect, it, vi, MockInstance } from 'vitest';
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+  type MockInstance,
+} from 'vitest';
 import { renderHook } from '@testing-library/react';
 import { useLocation } from 'react-router-dom';
 

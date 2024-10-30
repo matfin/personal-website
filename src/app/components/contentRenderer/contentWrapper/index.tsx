@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import {
+import type {
   ContentItem,
   Image,
   Position,

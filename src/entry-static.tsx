@@ -2,25 +2,27 @@ import { StrictMode } from 'react';
 import { StaticRouter } from 'react-router-dom/server';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
-import { HelmetProvider, HelmetServerState } from 'react-helmet-async';
+import { HelmetProvider, type HelmetServerState } from 'react-helmet-async';
 import { ServerStyleSheet } from 'styled-components';
 
-import { Page } from '@models/interfaces';
+import type { Page } from '@models/interfaces';
 import { store } from '@services/state/store';
 import { setPage } from '@services/state/page/slice';
-import ContentLoader from '@ssg/ContentLoader';
+import { loadPage } from '@ssg/content_loader';
 import App from '@app/App';
 
 export const render = async (slug: string) => {
   const helmetContext: { helmet?: HelmetServerState } = {};
   const sheet = new ServerStyleSheet();
   const url: string = `/${slug}`;
-  const page: Page | null = await ContentLoader.loadPage(
+  const page: Page | null = await loadPage(
     slug,
     './public/pages',
   );
 
-  store.dispatch(setPage(page!));
+  if (page) {
+    store.dispatch(setPage(page));
+  }
 
   const preloadedStateJSON: string = JSON.stringify(store.getState()).replace(
     /</g,

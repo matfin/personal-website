@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import Topic, { Props } from './index';
+import Topic, { type Props } from './index';
 
 const defaultProps: Props = {
   category: 'Test category',

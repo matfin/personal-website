@@ -1,9 +1,16 @@
-import { beforeEach, describe, expect, it, vi, MockInstance } from 'vitest';
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+  type MockInstance,
+} from 'vitest';
 import { fireEvent } from '@testing-library/react';
 
 import { renderWithTheme } from '@testutils';
 import { isTouchDevice } from '@utils/general';
-import MenuButton, { Props } from './index';
+import MenuButton, { type Props } from './index';
 
 const defaultProps: Props = {
   onClick: vi.fn(),

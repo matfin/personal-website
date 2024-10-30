@@ -1,4 +1,4 @@
-import { Position as PositionModel } from '@models/interfaces';
+import type { Position as PositionModel } from '@models/interfaces';
 import { formatDate } from '@utils/general';
 import {
   CompanyName,

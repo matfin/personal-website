@@ -3,9 +3,9 @@ import { useLocation } from 'react-router-dom';
 
 import { normalisePathname, pathNesting } from '@utils/general';
 import { useAppDispatch, useAppSelector } from '@hooks/useDispatchSelector';
-import { AppDispatch, RootState } from '@services/state/store';
+import type { AppDispatch, RootState } from '@services/state/store';
 import { fetchPageBySlug, resetPage } from '@services/state/page/slice';
-import { Page } from '@models/interfaces';
+import type { Page } from '@models/interfaces';
 
 interface Props {
   page: Page | null;

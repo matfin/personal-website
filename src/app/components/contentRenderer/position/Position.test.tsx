@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-import Position, { Props } from './index';
+import Position, { type Props } from './index';
 
 const defaultProps: Props = {
   company: 'Test company',

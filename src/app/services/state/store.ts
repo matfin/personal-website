@@ -1,9 +1,9 @@
 import {
   configureStore,
-  Dispatch,
-  Action,
-  Store,
-  ThunkDispatch,
+  type Dispatch,
+  type Action,
+  type Store,
+  type ThunkDispatch,
 } from '@reduxjs/toolkit';
 
 import pageSlice from './page/slice';

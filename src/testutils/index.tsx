@@ -1,10 +1,10 @@
-import React from 'react';
+import type React from 'react';
 import { vi } from 'vitest';
-import { render, RenderResult } from '@testing-library/react';
+import { render, type RenderResult } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { HelmetProvider, HelmetServerState } from 'react-helmet-async';
+import { HelmetProvider, type HelmetServerState } from 'react-helmet-async';
 
 import { store } from '@services/state/store';
 import { day } from '@styles/themes';

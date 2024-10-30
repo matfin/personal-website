@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 import { ThemeType } from '@models/enums';
-import { AppState } from './types';
+import type { AppState } from './types';
 
 const initialState: AppState = {
   currentTheme: ThemeType.DAY,

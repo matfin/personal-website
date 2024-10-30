@@ -1,5 +1,5 @@
 import { sizes } from '@styles/vars';
-import { Image } from '@models/interfaces';
+import type { Image } from '@models/interfaces';
 
 export interface Props extends Image {
   className?: '';

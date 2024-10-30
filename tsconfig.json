@@ -42,7 +42,7 @@
     "build"
   ],
   "include": [
-    "src", "prerender.ts"
+    "src", "prerender.ts", "global.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

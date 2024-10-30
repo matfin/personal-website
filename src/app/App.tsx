@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 
 import useApp from '@hooks/useApp';
 import useAppearanceChange from '@hooks/useAppearanceChange';
-import { ThemeType } from '@models/enums';
+import type { ThemeType } from '@models/enums';
 import Page from '@views/page';
 import Template from '@views/template';
 import { day, night } from './styles/themes';

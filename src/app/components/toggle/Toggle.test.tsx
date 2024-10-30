@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { fireEvent, render } from '@testing-library/react';
 
 import { ToggleValue } from '@models/enums';
-import Toggle, { Props } from './index';
+import Toggle, { type Props } from './index';
 
 const defaultProps: Props = {
   value: ToggleValue.OFF,

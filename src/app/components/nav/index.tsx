@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-import { NavLink } from '@models/interfaces';
+import type { NavLink } from '@models/interfaces';
 import { pathRoot } from '@utils/general';
 import { Children, Link, Container } from './Nav.css';
 
@@ -26,7 +26,7 @@ const Nav = ({ children, className }: Props): React.ReactNode => {
   const pathBase: string = pathRoot(pathname);
 
   return (
-    <Container aria-label="Navigation" role="navigation" className={className}>
+    <Container aria-label="Navigation" className={className}>
       {navLinks.map(
         ({ base, title, to }: NavLink): React.ReactNode => (
           <Link key={to} to={to} className={base === pathBase ? 'active' : ''}>
