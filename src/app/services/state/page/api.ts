@@ -18,7 +18,7 @@ export const fetchPageBySlug = createAsyncThunk<
       },
     });
     return (await response.json()) as Page;
-  } catch (e) {
+  } catch {
     return thunkApi.rejectWithValue({
       errorMessage: `Unable to fetch from slug: ${slug}`,
     } as FetchError);
