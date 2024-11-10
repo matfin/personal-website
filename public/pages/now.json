@@ -14,7 +14,7 @@
           },
           {
             "tagName": "h2",
-            "content": "This is what is currently occupying my days."
+            "content": "This is what I'm up to these days."
           },
           {
             "tagName": "p",
@@ -31,7 +31,7 @@
           },
           {
             "tagName": "p",
-            "content": "Aside from doing my day job at home (given the restrictions in place due to Covid19), I have been honing my skills in front end development by building this website."
+            "content": "I'm working on an exciting new product that helps app developers localise their applications with AI powered translations."
           },
           {
             "tagName": "p",
@@ -59,15 +59,15 @@
             "content": [
               {
                 "tagName": "li",
-                "content": "MacBook Pro (16-inch, 2019)"
+                "content": "MacBook Pro (16-inch, 2023)"
               },
               {
                 "tagName": "li",
-                "content": "2.4ghz Intel Core i9"
+                "content": "M3 Max 14-core CPU"
               },
               {
                 "tagName": "li",
-                "content": "32gb Ram"
+                "content": "36gb Ram"
               },
               {
                 "tagName": "li",
@@ -105,10 +105,6 @@
               },
               {
                 "tagName": "li",
-                "content": "Wrapping my mind around things such as lexical scope, tail call optimisation and function closures. These are things you never really had to know about in the past, but given the evolution of Javascript and how it is being applied, knowing these concepts is essential."
-              },
-              {
-                "tagName": "li",
                 "content": "I have just rebuilt my [personal photography website](https://github.com/matfin/cinematt) using [NextJS](https://nextjs.org/) which is a nice framework for building static sites. This project is still ongoing, and I have a good [tech roadmap](https://github.com/matfin/cinematt-nextjs/blob/main/ROADMAP.md) to work on for it."
               },
               {
@@ -139,10 +135,6 @@
             "content": [
               {
                 "tagName": "li",
-                "content": "React Native from scratch, so I can gain a full understanding of how Javascript based components and tools tie into the native application development framework for iOS and Android."
-              },
-              {
-                "tagName": "li",
                 "content": "Another single page application framework called [Vue.js](https://vuejs.org/) which has gained good traction and is widely used."
               },
               {
@@ -166,19 +158,15 @@
           },
           {
             "tagName": "p",
-            "content": "In my career, I would ascribe to being an individual contributor / principal engineer as opposed to someone in a managerial role (think CTO or engineering manager)."
+            "content": "My career has focused on being an individual contributor and principal engineer rather than pursuing managerial roles. I am currently a senior full-stack engineer at [Lokalise](https://lokalise.com/ \"A Localization and Translation Software Tool | Lokalise\"), supporting a platform that help app developers deliver localized content using AI-driven translations."
           },
           {
             "tagName": "p",
-            "content": "Since the beginning of 2021, I have been working as a senior React Native developer for a company called TravelPort who are based in Dublin, Ireland. Aside from implementing new features for a mobile travel application, I am in the process of upgrading to the latest version of React Native and all the other tools that come with it, including refactoring tests and components."
+            "content": "Previously, I worked as a senior React Native developer at TravelPort in Dublin, where I developed new features for a mobile travel app, updated it to the latest React Native version, and refactored tests and components. Prior to that, I was a senior front-end engineer on a web app project, migrating a legacy codebase to ReactJS and enhancing test coverage."
           },
           {
             "tagName": "p",
-            "content": "Before this, I was working on a web application as a senior front end engineer, where my day to day job involved migrating an old legacy code base to ReactJS. This included the gradual adoption of styled-components, improving test coverage and rewriting components in ReactJS."
-          },
-          {
-            "tagName": "p",
-            "content": "I have experience working as a freelance contractor as well as a full-time employee, and I have worked remotely (from shared offices or at home) as well as being on-site full time."
+            "content": "I bring experience both as a freelance contractor and full-time employee, working remotely and on-site."
           }
         ]
       },
