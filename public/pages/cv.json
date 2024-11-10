@@ -31,10 +31,24 @@
               {
                 "tagName": "job",
                 "content": {
+                  "company": "Lokalise",
+                  "location": "Dublin, Ireland",
+                  "role": "Senior full-stack engineer",
+                  "startDate": "2024-11-04",
+                  "tasks": [
+                    "Working on an exciting new project that helps app developers with localisation using AI powered translations.",
+                    "Tech stack includes React, TypeScripyt, NodeJS, Docker and PHP."
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
                   "company": "Travelport Digital",
                   "location": "Dublin, Ireland",
                   "role": "Senior front-end engineer",
                   "startDate": "2020-01-06",
+                  "endDate": "2024-11-19",
                   "tasks": [
                     "Worked on features for a corporate travel application and implemented upgrade path (React Native).",
                     "Migrated client web application from AngularJS to ReactJS with TypeScript."
