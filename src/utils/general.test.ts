@@ -93,11 +93,26 @@ describe('general utils tests', (): void => {
   });
 
   it('checks for touch devices', (): void => {
-    delete global.window.ontouchstart;
+    const originalTouchStart = global.window.ontouchstart;
+
+    Object.defineProperty(global.window, 'ontouchstart', {
+      value: undefined,
+      configurable: true,
+    });
+
     expect(isTouchDevice()).toBe(false);
 
-    global.window.ontouchstart = vi.fn();
+    Object.defineProperty(global.window, 'ontouchstart', {
+      value: vi.fn(),
+      configurable: true,
+    });
+
     expect(isTouchDevice()).toBe(true);
+
+    Object.defineProperty(global.window, 'ontouchstart', {
+      value: originalTouchStart,
+      configurable: true,
+    });
   });
 
   it('returns the correct path root', (): void => {

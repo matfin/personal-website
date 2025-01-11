@@ -1,4 +1,4 @@
-import { Link, PathNesting } from '@models/interfaces';
+import type { Link, PathNesting } from '@models/interfaces';
 
 const months: string[] = [
   'January',
@@ -98,4 +98,4 @@ export const splitContent = (text: string): string[] => {
 };
 
 export const isTouchDevice = (): boolean =>
-  typeof window !== 'undefined' && 'ontouchstart' in window;
+  typeof window !== 'undefined' && Boolean(window.ontouchstart);

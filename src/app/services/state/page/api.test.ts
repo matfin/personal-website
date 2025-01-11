@@ -1,5 +1,5 @@
-import { afterEach, describe, expect, it, vi, MockInstance } from 'vitest';
-import { Page } from '@models/interfaces';
+import { afterEach, describe, expect, it, vi, type MockInstance } from 'vitest';
+import type { Page } from '@models/interfaces';
 import { fetchPageBySlug } from './api';
 
 const headers = {

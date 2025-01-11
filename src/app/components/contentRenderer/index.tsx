@@ -1,4 +1,4 @@
-import { ContentItem } from '@models/interfaces';
+import type { ContentItem } from '@models/interfaces';
 import ContentWrapper from './contentWrapper';
 
 export interface Props {

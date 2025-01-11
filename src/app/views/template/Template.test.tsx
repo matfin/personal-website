@@ -5,7 +5,7 @@ import {
   expect,
   it,
   vi,
-  MockInstance,
+  type MockInstance,
 } from 'vitest';
 import { fireEvent } from '@testing-library/react';
 
@@ -53,7 +53,7 @@ describe('template tests', (): void => {
     const { getByTestId } = renderWrapped(<Template />);
     const button = getByTestId('menubutton');
 
-    fireEvent.touchStart(button);
+    fireEvent.click(button);
 
     expect(setBodyOverflow).toHaveBeenCalledTimes(1);
     expect(setBodyOverflow).toHaveBeenCalledWith(false);

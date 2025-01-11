@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
-import Picture, { Props } from './index';
+import Picture, { type Props } from './index';
 
 const defaultProps: Props = {
   fileType: 'jpg',

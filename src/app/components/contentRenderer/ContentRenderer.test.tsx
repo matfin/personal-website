@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-import ContentRenderer, { Props } from './index';
+import ContentRenderer, { type Props } from './index';
 
 const defaultProps: Props = {
   root: {

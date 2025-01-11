@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
 
 import { renderWithRouter } from '@testutils';
-import Project, { Props } from './index';
+import Project, { type Props } from './index';
 
 const defaultProps: Props = {
   description: 'Test project description',

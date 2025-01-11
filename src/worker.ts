@@ -36,7 +36,7 @@ const generatePaths = async (): Promise<string[]> => {
 
 const onActivate = (event: ExtendableEvent): void => {
   const cacheWhitelist = [cacheName];
-  const clearCaches = (): Promise<void | boolean[]> =>
+  const clearCaches = (): Promise<undefined | boolean[]> =>
     caches.keys().then((cacheNames: string[]) =>
       Promise.all(
         cacheNames.map((name: string): Promise<boolean> => {

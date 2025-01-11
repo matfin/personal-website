@@ -1,4 +1,4 @@
-import { css, RuleSet } from 'styled-components';
+import { css, type RuleSet } from 'styled-components';
 import { Orientation } from '@models/enums';
 import { sizes } from './vars';
 

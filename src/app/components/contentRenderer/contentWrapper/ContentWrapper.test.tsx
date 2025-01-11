@@ -2,8 +2,8 @@ import { describe, expect, it, vi } from 'vitest';
 import { screen } from '@testing-library/react';
 
 import { renderWithTheme } from '@testutils';
-import { ContentItem, Position } from '@models/interfaces';
-import ContentWrapper, { Props } from './index';
+import type { ContentItem, Position } from '@models/interfaces';
+import ContentWrapper, { type Props } from './index';
 
 vi.mock('react-router-dom', () => ({
   Link: ({ children }: { children: React.ReactNode }) => <>{children}</>,

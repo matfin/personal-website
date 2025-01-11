@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { FetchError, Page } from '@models/interfaces';
+import type { FetchError, Page } from '@models/interfaces';
 
 const isIndexSlug = (slug: string): boolean => slug === '/' || slug === '';
 
@@ -18,7 +18,7 @@ export const fetchPageBySlug = createAsyncThunk<
       },
     });
     return (await response.json()) as Page;
-  } catch (e) {
+  } catch {
     return thunkApi.rejectWithValue({
       errorMessage: `Unable to fetch from slug: ${slug}`,
     } as FetchError);

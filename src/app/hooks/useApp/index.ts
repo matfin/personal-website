@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@hooks/useDispatchSelector';
-import { AppDispatch, RootState } from '@services/state/store';
+import type { AppDispatch, RootState } from '@services/state/store';
 import { setTheme } from '@services/state/app/slice';
 import { ThemeType } from '@models/enums';
 
