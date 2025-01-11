@@ -27,7 +27,7 @@ jobs:
           command: yarn test:coverage:ci
       - run:
           name: Run code lint
-          command: yarn lint --format json
+          command: yarn lint
       - run:
           name: Run style lint
           command: yarn lint:css
