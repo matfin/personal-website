@@ -1,7 +1,6 @@
+import { render } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest';
-import type { HelmetServerState } from 'react-helmet-async';
 
-import { renderWithHelmetProvider } from '@testutils';
 import Meta, { type Props } from './index';
 
 vi.mock('@config', () => ({
@@ -15,60 +14,43 @@ const defaultProps: Props = {
 
 describe('Meta tests', (): void => {
   it('renders the component with the correct details', (): void => {
-    const helmetContext: { helmet?: HelmetServerState } = {};
+    render(<Meta {...defaultProps} />);
 
-    renderWithHelmetProvider({
-      children: <Meta {...defaultProps} />,
-      helmetContext,
-    });
-
-    const { helmet } = helmetContext;
-    const title = helmet?.title.toString();
-    const meta = helmet?.meta.toString();
-
-    expect(title).toContain('Test title');
-    expect(meta).toContain('Test title');
-    expect(meta).toContain('Test description');
-    expect(meta).toContain('https://test.de');
+    const titleTag = document.querySelector('title');
+    const descriptionTag = document.querySelector('meta[name="description"]');
+    const ogUrlTag = document.querySelector('meta[property="og:url"]');
+    const ogTitleTag = document.querySelector('meta[property="og:title"]');
+    const ogDescriptionTag = document.querySelector('meta[property="og:description"]');
+    
+    expect(titleTag?.textContent).toEqual('Test title');
+    expect(descriptionTag?.getAttribute('content')).toEqual('Test description');
+    expect(ogUrlTag?.getAttribute('content')).toEqual('https://test.de/');
+    expect(ogTitleTag?.getAttribute('content')).toEqual('Test title');
+    expect(ogDescriptionTag?.getAttribute('content')).toEqual('Test description');
   });
 
   it('renders with a title and a url', (): void => {
-    const helmetContext: { helmet?: HelmetServerState } = {};
+    render(<Meta {...defaultProps} description="A custom description" title="A custom title" slug="a-custom-slug" />);
 
-    renderWithHelmetProvider({
-      children: (
-        <Meta
-          {...defaultProps}
-          description="A custom description"
-          title="A custom title"
-          slug="a-custom-slug"
-        />
-      ),
-      helmetContext,
-    });
-
-    const { helmet } = helmetContext;
-    const title = helmet?.title.toString();
-    const meta = helmet?.meta.toString();
-
-    expect(title).toContain('A custom title');
-    expect(meta).toContain('A custom title');
-    expect(meta).toContain('A custom description');
-    expect(meta).toContain('https://test.de/a-custom-slug');
+    const titleTag = document.querySelector('title');
+    const descriptionTag = document.querySelector('meta[name="description"]');
+    const ogUrlTag = document.querySelector('meta[property="og:url"]');
+    const ogTitleTag = document.querySelector('meta[property="og:title"]');
+    const ogDescriptionTag = document.querySelector('meta[property="og:description"]');
+    
+    expect(titleTag?.textContent).toEqual('A custom title');
+    expect(descriptionTag?.getAttribute('content')).toEqual('A custom description');
+    expect(ogUrlTag?.getAttribute('content')).toEqual('https://test.de/a-custom-slug');
+    expect(ogTitleTag?.getAttribute('content')).toEqual('A custom title');
+    expect(ogDescriptionTag?.getAttribute('content')).toEqual('A custom description');
   });
 
-  it('omits the slug for the home page', (): void => {
-    const helmetContext: { helmet?: HelmetServerState } = {};
+  it('omits the slug for the index page', (): void => {
+    render(<Meta {...defaultProps} slug="index" />)
 
-    renderWithHelmetProvider({
-      children: <Meta {...defaultProps} slug="index" />,
-      helmetContext,
-    });
+    const ogUrlTag = document.querySelector('meta[property="og:url"]');
 
-    const { helmet } = helmetContext;
-    const meta = helmet?.meta.toString();
-
-    expect(meta).toContain('https://test.de/');
-    expect(meta).not.toContain('https://test.de/index');
+    expect(ogUrlTag?.getAttribute('content')).toEqual('https://test.de/');
+    expect(ogUrlTag?.getAttribute('content')).not.toEqual('https://test.de/index');
   });
 });

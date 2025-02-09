@@ -1,16 +1,9 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import type { HelmetServerState } from 'react-helmet-async';
 
 import { toAbsolute } from './utils';
-import { render } from '../../dist/static/entry-static.js';
-
-interface Content {
-  helmetContext: { helmet?: HelmetServerState };
-  html: string;
-  preloadedStateJSON: string;
-  styleTags: string;
-}
+import { renderStatic } from '../../dist/static/entry-static.js';
+import type { StaticRender }  from '../../dist/static/entry-static.js';
 
 export const generateHTMLFromSlug = async (
   slug: string,
@@ -18,12 +11,7 @@ export const generateHTMLFromSlug = async (
   withServiceWorker = false,
 ): Promise<string | null> => {
   try {
-    const {
-      helmetContext: { helmet },
-      html,
-      preloadedStateJSON,
-      styleTags,
-    }: Content = await render(`/${slug}`);
+    const { body, linkTags, metaTags, preloadedStateJSON, styleTags, titleTag }: StaticRender = await renderStatic(slug);
     const cspNonce: string = crypto.randomUUID();
     const cspTag: string = `
       <meta
@@ -31,17 +19,15 @@ export const generateHTMLFromSlug = async (
         content="default-src 'self'; img-src 'self'; style-src 'unsafe-inline'; script-src 'self' 'nonce-${cspNonce}'; child-src 'self';"
       />
     `;
-    const title: string = helmet?.title.toString() ?? '';
-    const metaTags: string = helmet?.meta.toString() ?? '';
-    const linkTags: string = helmet?.link.toString() ?? '';
+
     const contents: string = htmlTemplate
       .replace('<!--contentsecurity-->', cspTag)
       .replaceAll('%NONCE%', cspNonce)
-      .replace('<!--title-->', title)
+      .replace('<!--title-->', titleTag)
       .replace('<!--metatags-->', metaTags)
       .replace('<!--linktags-->', linkTags)
       .replace('<!--styletags-->', styleTags)
-      .replace('<!--root-content-->', html)
+      .replace('<!--root-content-->', body)
       .replace(
         '<!--swregister-->',
         withServiceWorker ? `<script src="/swregister.js"></script>` : '',

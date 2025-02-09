@@ -19,7 +19,7 @@ export default defineConfig(({ isSsrBuild }) => {
       },
     },
     ssr: {
-      noExternal: ['react-helmet-async', 'styled-components'],
+      noExternal: ['styled-components'],
     },
     define: {
       CANONICAL_URL: JSON.stringify(
