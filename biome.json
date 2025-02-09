@@ -12,7 +12,8 @@
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "indentWidth": 2
+    "indentWidth": 2,
+    "lineWidth": 100
   },
   "organizeImports": {
     "enabled": true
@@ -29,12 +30,26 @@
         "noAccumulatingSpread": "off",
         "noBarrelFile": "error",
         "noDelete": "error"
+      },
+      "suspicious": {
+        "noExplicitAny": "error",
+        "noArrayIndexKey": "error",
+        "noConsole": {
+          "level": "error",
+          "options": {
+            "allow": ["info", "error"]
+          }
+        }
+      },
+      "style": {
+        "useTemplate": "error"
       }
     }
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "single"
+      "quoteStyle": "single",
+      "trailingCommas": "all"
     }
   }
 }

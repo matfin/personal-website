@@ -4,14 +4,14 @@ if ('serviceWorker' in navigator) {
       .register('/worker.js')
       .then(
         (registration) => {
-          console.log('Worker registration succeeded', registration.scope);
+          console.info('Worker registration succeeded', registration.scope);
         },
         (error) => {
           throw new Error(error);
         },
       )
       .catch((error) => {
-        console.log('Worker registration failed', error);
+        console.error('Worker registration failed', error);
       });
   });
 }
