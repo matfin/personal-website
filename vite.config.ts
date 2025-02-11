@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 import tsconfigpaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
 
@@ -19,7 +19,7 @@ export default defineConfig(({ isSsrBuild }) => {
       },
     },
     ssr: {
-      noExternal: ['react-helmet-async', 'styled-components'],
+      noExternal: ['styled-components'],
     },
     define: {
       CANONICAL_URL: JSON.stringify(
@@ -37,18 +37,19 @@ export default defineConfig(({ isSsrBuild }) => {
       globals: true,
       coverage: {
         exclude: [
-          'prerender.ts',
+          'src/ssg/prerender.ts',
           '.eslintrc.cjs',
           'stylelint.config.js',
           'src/ssg',
           'src/swregister.ts',
           'src/worker.ts',
           'src/entry-client.tsx',
-          'src/entry-static.tsx',
+          'src/ssg/entry-static.tsx',
           'src/app/services/state/store.ts',
           'src/testutils/index.tsx',
           '**/index.ts',
           '**/*.css.tsx',
+          '/dist/**',
         ],
         thresholds: 100,
         reportOnFailure: true,

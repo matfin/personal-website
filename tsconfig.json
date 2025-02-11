@@ -12,7 +12,7 @@
       "@models/*": ["src/models/*"],
       "@utils/*": ["src/utils/*"],
       "@testutils": ["src/testutils"],
-      "@config": ["src/config"],
+      "@config": ["src/config"]
     },
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -25,6 +25,7 @@
 
     /* Bundling */
     "moduleResolution": "bundler",
+    // "moduleResolution": "nodenext",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -37,12 +38,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "exclude": [
-    "node_modules",
-    "build"
-  ],
-  "include": [
-    "src", "prerender.ts", "global.d.ts"
-  ],
+  "exclude": ["node_modules", "build"],
+  "include": ["src", "global.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
