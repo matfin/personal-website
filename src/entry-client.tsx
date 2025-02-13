@@ -3,7 +3,6 @@ import type ReactDOM from 'react-dom/client';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { HelmetProvider } from 'react-helmet-async';
 
 import { preloadedStore, store } from '@services/state/store';
 import type { RootState } from '@services/state/store';
@@ -25,9 +24,7 @@ if (shouldHydrate) {
     <StrictMode>
       <Provider store={preloadedStore(hydratedStore)}>
         <BrowserRouter>
-          <HelmetProvider>
-            <App />
-          </HelmetProvider>
+          <App />
         </BrowserRouter>
       </Provider>
     </StrictMode>,
@@ -37,9 +34,7 @@ if (shouldHydrate) {
     <StrictMode>
       <Provider store={store}>
         <BrowserRouter>
-          <HelmetProvider>
-            <App />
-          </HelmetProvider>
+          <App />
         </BrowserRouter>
       </Provider>
     </StrictMode>,

@@ -355,6 +355,15 @@
                 "tagName": "topic",
                 "content": {
                   "category": "tools",
+                  "description": "Biome is a code quality checker for Typescript.",
+                  "slug": "biome",
+                  "title": "Biome"
+                }
+              },
+              {
+                "tagName": "topic",
+                "content": {
+                  "category": "tools",
                   "description": "stylelint is a tool used to check CSS rules for quality issues.",
                   "slug": "stylelint",
                   "title": "Stylelint"
