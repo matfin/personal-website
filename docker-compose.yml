@@ -11,7 +11,7 @@ services:
         - ENABLE_CACHE='true'
     volumes:
       - static-content:/opt/app/dist
-    command: yarn deploy
+    command: npm run deploy
 
   nginx:
     container_name: nginx
