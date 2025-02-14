@@ -15,8 +15,8 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
       - run:
-          name: Install yarn dependencies
-          command: yarn
+          name: Install NPM dependencies
+          command: npm install
       - save_cache:
           name: Save build cache
           paths:
@@ -24,13 +24,13 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Run tests with coverage
-          command: yarn test:coverage:ci
+          command: npm run test:coverage:ci
       - run:
           name: Run code lint
-          command: yarn lint
+          command: npm run lint
       - run:
           name: Run style lint
-          command: yarn lint:css
+          command: npm run lint:css
 
   deploy:
     docker:
@@ -55,8 +55,8 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
       - run:
-          name: Install yarn dependencies
-          command: yarn
+          name: Install NPM dependencies
+          command: npm install
       - save_cache:
           name: Save build cache
           paths:
@@ -64,7 +64,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Bundle JS and build static content
-          command: ENABLE_CACHE='true' CANONICAL_URL=https://mattfinucane.com yarn deploy
+          command: ENABLE_CACHE='true' CANONICAL_URL=https://mattfinucane.com npm run deploy
       - run:
           name: Create archive of built content
           command: tar czf out.tar.gz dist
