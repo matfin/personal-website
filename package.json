@@ -1,6 +1,6 @@
 {
   "name": "mattfinucane.com",
-  "version": "1.10.2",
+  "version": "1.11.0",
   "description": "Personal website built using React and TypeScript",
   "type": "module",
   "scripts": {
@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
+    "clsx": "^2.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.1.2",

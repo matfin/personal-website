@@ -1,4 +1,6 @@
-import { MainHeading, SubHeading, ThirdHeading, NormalText } from './Text.css';
+import { clsx } from 'clsx/lite';
+
+import classNames from './Text.module.css';
 
 export interface Props {
   children: React.ReactNode;
@@ -7,30 +9,64 @@ export interface Props {
 }
 
 const Text = ({ children, className, type }: Props): React.ReactNode => {
+  console.log(type);
   switch (type) {
     case 'h1': {
-      return <MainHeading className={className}>{children}</MainHeading>;
+      return (
+        <h1
+          className={clsx(
+            className,
+            'headingTypography',
+            classNames.mainHeading,
+          )}
+        >
+          {children}
+        </h1>
+      );
     }
     case 'h2':
+      return (
+        <h2
+          className={clsx(
+            className,
+            'subHeadingTypography',
+            classNames.subHeading,
+          )}
+        >
+          {children}
+        </h2>
+      );
     case 'h3': {
       return (
-        <SubHeading className={className} as={type}>
+        <h3
+          className={clsx(
+            className,
+            'thirdHeadingTypography',
+            classNames.subHeading,
+          )}
+        >
           {children}
-        </SubHeading>
+        </h3>
       );
     }
     case 'h4': {
       return (
-        <ThirdHeading as={type} className={className}>
+        <h4
+          className={clsx(
+            className,
+            'thirdHeadingTypography',
+            classNames.subHeading,
+          )}
+        >
           {children}
-        </ThirdHeading>
+        </h4>
       );
     }
     default: {
       return (
-        <NormalText as={type} className={className}>
+        <span className={clsx(className, classNames.NormalText)}>
           {children}
-        </NormalText>
+        </span>
       );
     }
   }

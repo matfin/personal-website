@@ -1,0 +1,37 @@
+.headingTypography {
+  font-size: var(--mf-fontsize-heading);
+  font-weight: var(--mf-fontweight-light);
+  line-height: var(--mf-lineheight-heading);
+  letter-spacing: var(--mf-letterspacing-heading);
+
+  @media (min-width: var(--mf-size-md)) {
+    font-size: calc(var(--mf-fontsize-heading) * 1.5);
+    letter-spacing: calc(var(--mf-letterspacing-heading) * 4);
+  }
+}
+
+.subheadingTypography {
+  font-size: var(--mf-fontsize-subheading);
+  font-weight: var(--mf-fontweight-light);
+  line-height: var(--mf-lineheight-subheading);
+  letter-spacing: var(--mf-letterspacing-subheading);
+
+  @media (min-width: var(--mf-size-md)) {
+    font-size: calc(var(--mf-fontsize-subheading) * 1.5);
+    line-height: calc(var(--mf-lineheight-subheading) * 1.5);
+  }
+}
+
+.thirdheadingTypography {
+  font-size: var(--mf-fontsize-thirdheading);
+  font-weight: var(--mf-fontweight-normal);
+  letter-spacing: var(--mf-letterspacing-thirdheading);
+  line-height: var(--mf-lineheight-thirdheading);
+}
+
+.textTypography {
+  font-size: var(--mf-fontsize-medium);
+  font-weight: var(--mf-fontweight-light);
+  line-height: var(--mf-lineheight-text);
+  letter-spacing: var(--mf-letterspacing-text);
+}

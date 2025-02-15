@@ -1,4 +1,5 @@
-import { Container } from './Topic.css';
+import { clsx } from 'clsx/lite';
+import classNames from './Topic.module.css';
 
 export interface Props {
   className?: string;
@@ -6,9 +7,7 @@ export interface Props {
 }
 
 const Topic = ({ className, title }: Props): React.ReactNode => (
-  <Container type="li" className={className}>
-    {title}
-  </Container>
+  <li className={clsx(classNames.topic, className)}>{title}</li>
 );
 
 export default Topic;
