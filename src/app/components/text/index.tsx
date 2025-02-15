@@ -2,74 +2,41 @@ import { clsx } from 'clsx/lite';
 
 import classNames from './Text.module.css';
 
-export interface Props {
+type TextProps = {
+  type?: React.ElementType;
   children: React.ReactNode;
   className?: string;
-  type: string;
-}
+};
 
-const Text = ({ children, className, type }: Props): React.ReactNode => {
-  console.log(type);
+export const classesToApply = (
+  type: React.ElementType,
+  className?: string,
+): string => {
   switch (type) {
     case 'h1': {
-      return (
-        <h1
-          className={clsx(
-            className,
-            'headingTypography',
-            classNames.mainHeading,
-          )}
-        >
-          {children}
-        </h1>
-      );
+      return clsx(className, 'headingTypography', classNames.mainHeading);
     }
-    case 'h2':
-      return (
-        <h2
-          className={clsx(
-            className,
-            'subHeadingTypography',
-            classNames.subHeading,
-          )}
-        >
-          {children}
-        </h2>
-      );
+    case 'h2': {
+      return clsx(className, 'subheadingTypography', classNames.subHeading);
+    }
     case 'h3': {
-      return (
-        <h3
-          className={clsx(
-            className,
-            'thirdHeadingTypography',
-            classNames.subHeading,
-          )}
-        >
-          {children}
-        </h3>
-      );
+      return clsx(className, 'thirdheadingTypography', classNames.subHeading);
     }
     case 'h4': {
-      return (
-        <h4
-          className={clsx(
-            className,
-            'thirdHeadingTypography',
-            classNames.subHeading,
-          )}
-        >
-          {children}
-        </h4>
-      );
+      return clsx(className, 'thirdHeadingTypography', classNames.subHeading);
     }
     default: {
-      return (
-        <span className={clsx(className, classNames.NormalText)}>
-          {children}
-        </span>
-      );
+      return clsx(className, 'textTypography', classNames.normalText);
     }
   }
+};
+
+const Text = ({
+  type: Tag = 'div',
+  children,
+  className,
+}: TextProps): React.ReactNode => {
+  return <Tag className={classesToApply(Tag, className)}>{children}</Tag>;
 };
 
 export default Text;

@@ -16,7 +16,7 @@
     },
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["WebWorker", "ES2022", "DOM", "DOM.Iterable"],
+    "lib": ["WebWorker", "ESNext", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
@@ -25,7 +25,6 @@
 
     /* Bundling */
     "moduleResolution": "bundler",
-    // "moduleResolution": "nodenext",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,

@@ -14,7 +14,7 @@
   font-size: var(--mf-fontsize-subheading);
   font-weight: var(--mf-fontweight-light);
   line-height: var(--mf-lineheight-subheading);
-  letter-spacing: var(--mf-letterspacing-subheading);
+  letter-spacing: var(--mf-letterspacing-heading);
 
   @media (min-width: var(--mf-size-md)) {
     font-size: calc(var(--mf-fontsize-subheading) * 1.5);
@@ -23,10 +23,10 @@
 }
 
 .thirdheadingTypography {
-  font-size: var(--mf-fontsize-thirdheading);
-  font-weight: var(--mf-fontweight-normal);
-  letter-spacing: var(--mf-letterspacing-thirdheading);
-  line-height: var(--mf-lineheight-thirdheading);
+  font-size: var(--mf-fontsize-subheading);
+  font-weight: var(--mf-fontweight-light);
+  letter-spacing: var(--mf-letterspacing-heading);
+  line-height: var(--mf-lineheight-subheading);
 }
 
 .textTypography {

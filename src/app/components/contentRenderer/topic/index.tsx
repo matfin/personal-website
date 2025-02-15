@@ -1,4 +1,6 @@
 import { clsx } from 'clsx/lite';
+
+import Text from '@components/text';
 import classNames from './Topic.module.css';
 
 export interface Props {
@@ -7,7 +9,9 @@ export interface Props {
 }
 
 const Topic = ({ className, title }: Props): React.ReactNode => (
-  <li className={clsx(classNames.topic, className)}>{title}</li>
+  <Text type="li" className={clsx(classNames.topic, className)}>
+    {title}
+  </Text>
 );
 
 export default Topic;
