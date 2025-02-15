@@ -1,6 +1,7 @@
+import { clsx } from 'clsx/lite';
+
 import { isTouchDevice } from '@utils/general';
-import { LinePlacement } from '@models/enums';
-import { Container, Line } from './MenuButton.css';
+import classNames from './MenuButton.module.css';
 
 export interface Props {
   className?: string;
@@ -16,17 +17,36 @@ const MenuButton = ({
   const shouldUseTouch: boolean = isTouchDevice();
 
   return (
-    <Container
+    <button
+      type="button"
       aria-label="Menu"
+      className={clsx(classNames.container, className)}
       data-testid="menubutton"
-      className={className}
       onClick={!shouldUseTouch ? onClick : undefined}
       onTouchStart={shouldUseTouch ? onClick : undefined}
     >
-      <Line $placement={LinePlacement.TOP} $revealed={navrevealed} />
-      <Line $placement={LinePlacement.MIDDLE} $revealed={navrevealed} />
-      <Line $placement={LinePlacement.BOTTOM} $revealed={navrevealed} />
-    </Container>
+      <span
+        className={clsx(
+          classNames.line,
+          classNames.lineTop,
+          navrevealed && classNames.revealed,
+        )}
+      />
+      <span
+        className={clsx(
+          classNames.line,
+          classNames.lineMiddle,
+          navrevealed && classNames.revealed,
+        )}
+      />
+      <span
+        className={clsx(
+          classNames.line,
+          classNames.lineBottom,
+          navrevealed && classNames.revealed,
+        )}
+      />
+    </button>
   );
 };
 

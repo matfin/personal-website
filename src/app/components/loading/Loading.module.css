@@ -1,0 +1,23 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner {
+  z-index: var(--mf-layer-top);
+  width: 128px;
+  height: 128px;
+  animation: rotate 750ms linear infinite;
+}

@@ -18,6 +18,10 @@ My motivation in creating this was to gain a deeper understanding of modern web 
 
 - For state management, [Redux Toolkit](https://redux-toolkit.js.org/) is used. This makes managing complex async functionality much easier and readable.
 
+- For styling, [CSS Modules](https://github.com/css-modules/css-modules) and [Stylelint](https://stylelint.io/).
+
+- For testing, [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) and [Vitest](https://vitest.dev/).
+
 ### How to install and run this
 
 To get this running, you should have an up to date stable version of [NodeJS](https://nodejs.org/en/). Version `20.12.2` is used here.

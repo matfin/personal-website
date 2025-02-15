@@ -4,8 +4,15 @@ import tsconfigpaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ isSsrBuild }) => {
+  const version = process.env.npm_package_version;
+
   return {
     plugins: [tsconfigpaths(), react()],
+    css: {
+      modules: {
+        localsConvention: 'camelCaseOnly',
+      },
+    },
     build: {
       rollupOptions: {
         input: {
@@ -14,12 +21,22 @@ export default defineConfig(({ isSsrBuild }) => {
           swregister: resolve(__dirname, 'src/swregister.ts'),
         },
         output: {
-          entryFileNames: '[name].js',
+          entryFileNames: (entry) => {
+            if (['main', 'swregister'].includes(entry.name)) {
+              return `[name]-${version}.js`;
+            }
+
+            return '[name].js';
+          },
+          assetFileNames: (asset) => {
+            if (asset.name?.endsWith('.css')) {
+              return `[name]-${version}[extname]`;
+            }
+
+            return 'assets/[name]-[hash][extname]';
+          },
         },
       },
-    },
-    ssr: {
-      noExternal: ['styled-components'],
     },
     define: {
       CANONICAL_URL: JSON.stringify(
@@ -38,7 +55,6 @@ export default defineConfig(({ isSsrBuild }) => {
       coverage: {
         exclude: [
           'src/ssg/prerender.ts',
-          '.eslintrc.cjs',
           'stylelint.config.js',
           'src/ssg',
           'src/swregister.ts',
@@ -48,7 +64,6 @@ export default defineConfig(({ isSsrBuild }) => {
           'src/app/services/state/store.ts',
           'src/testutils/index.tsx',
           '**/index.ts',
-          '**/*.css.tsx',
           '/dist/**',
         ],
         thresholds: 100,

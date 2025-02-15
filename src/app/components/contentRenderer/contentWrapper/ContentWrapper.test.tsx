@@ -1,7 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
-import { screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
-import { renderWithTheme } from '@testutils';
 import type { ContentItem, Position } from '@models/interfaces';
 import ContentWrapper, { type Props } from './index';
 
@@ -16,20 +15,18 @@ const defaultProps: Props = {
 
 describe('ContentWrapper', (): void => {
   it('renders container elements', (): void => {
+    expect(() => render(<ContentWrapper {...defaultProps} />)).not.toThrow();
     expect(() =>
-      renderWithTheme(<ContentWrapper {...defaultProps} />),
+      render(<ContentWrapper {...defaultProps} tagName="jobs" />),
     ).not.toThrow();
     expect(() =>
-      renderWithTheme(<ContentWrapper {...defaultProps} tagName="jobs" />),
+      render(<ContentWrapper {...defaultProps} tagName="ul" />),
     ).not.toThrow();
     expect(() =>
-      renderWithTheme(<ContentWrapper {...defaultProps} tagName="ul" />),
+      render(<ContentWrapper {...defaultProps} tagName="topics" />),
     ).not.toThrow();
     expect(() =>
-      renderWithTheme(<ContentWrapper {...defaultProps} tagName="topics" />),
-    ).not.toThrow();
-    expect(() =>
-      renderWithTheme(<ContentWrapper {...defaultProps} tagName="projects" />),
+      render(<ContentWrapper {...defaultProps} tagName="projects" />),
     ).not.toThrow();
   });
 
@@ -40,7 +37,7 @@ describe('ContentWrapper', (): void => {
       content: 'A heading',
     };
 
-    renderWithTheme(<ContentWrapper {...(content as Props)} />);
+    render(<ContentWrapper {...(content as Props)} />);
 
     expect(screen.getByText('A heading')).not.toBeNull();
   });
@@ -52,7 +49,7 @@ describe('ContentWrapper', (): void => {
       content: 'This has an [embedded link](https://nowhere.com).',
     };
 
-    renderWithTheme(<ContentWrapper {...(content as Props)} />);
+    render(<ContentWrapper {...(content as Props)} />);
     const link = screen.getByRole('link');
 
     expect(link).not.toBeNull();
@@ -68,7 +65,7 @@ describe('ContentWrapper', (): void => {
       content: 'A list item',
     };
 
-    renderWithTheme(<ContentWrapper {...(content as Props)} />);
+    render(<ContentWrapper {...(content as Props)} />);
 
     expect(screen.getByText('A list item')).not.toBeNull();
   });
@@ -88,7 +85,7 @@ describe('ContentWrapper', (): void => {
       } as unknown as Position,
     };
 
-    renderWithTheme(<ContentWrapper {...(content as Props)} />);
+    render(<ContentWrapper {...(content as Props)} />);
 
     expect(screen.getByText('August 2020')).not.toBeNull();
     expect(screen.getByText('to January 2024')).not.toBeNull();
@@ -111,7 +108,7 @@ describe('ContentWrapper', (): void => {
       },
     };
 
-    renderWithTheme(<ContentWrapper {...(content as Props)} />);
+    render(<ContentWrapper {...(content as Props)} />);
 
     expect(screen.getByText('Test Title')).not.toBeNull();
   });
@@ -127,9 +124,7 @@ describe('ContentWrapper', (): void => {
       },
     };
 
-    const { getByAltText } = renderWithTheme(
-      <ContentWrapper {...(content as Props)} />,
-    );
+    const { getByAltText } = render(<ContentWrapper {...(content as Props)} />);
     const image = getByAltText('Test image title');
 
     expect(image).not.toBeNull();
@@ -148,7 +143,7 @@ describe('ContentWrapper', (): void => {
       },
     };
 
-    renderWithTheme(<ContentWrapper {...(content as Props)} />);
+    render(<ContentWrapper {...(content as Props)} />);
 
     expect(screen.getByText('Test Project')).not.toBeNull();
     expect(screen.getByText('Project description')).not.toBeNull();

@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--mf-colour-primary);
+  background: var(--mf-colour-secondary);
+  font-family: var(--mf-default-font);
+  font-variant-ligatures: no-common-ligatures;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background-color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.list-item {
+  position: relative;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.list-item::before {
+  position: absolute;
+  color: transparent;
+  text-shadow: 0 0 0 var(--mf-colour-primary);
+  font-size: 0.75rem;
+  left: 0;
+  content: "⚡";
+}
+
+.common-button {
+  position: fixed;
+  top: 1rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 0.125rem solid var(--mf-colour-primary);
+}

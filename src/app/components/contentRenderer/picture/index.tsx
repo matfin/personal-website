@@ -1,8 +1,7 @@
-import { sizes } from '@styles/vars';
 import type { Image } from '@models/interfaces';
 
 export interface Props extends Image {
-  className?: '';
+  className?: string;
 }
 
 enum ImageSize {
@@ -20,26 +19,26 @@ const Picture = ({ className, name, title }: Props): React.ReactNode => (
   <picture className={className}>
     <source
       data-testid="sm-webp"
-      media={`(max-width: ${sizes.md}px)`}
+      media="max-width: 768px)"
       srcSet={imgSrcSet('webp', name, ImageSize.SM)}
       type="image/webp"
     />
     <source
       data-testid="sm-jpg"
-      media={`(max-width: ${sizes.md}px)`}
+      media="max-width: 768px)"
       srcSet={imgSrcSet('jpg', name, ImageSize.SM)}
       type="image/jpeg"
     />
 
     <source
       data-testid="lg-webp"
-      media={`(min-width: ${sizes.md}px)`}
+      media="max-width: 768px)"
       srcSet={imgSrcSet('webp', name, ImageSize.LG)}
       type="image/webp"
     />
     <source
       data-testid="lg-jpg"
-      media={`(max-width: ${sizes.md}px)`}
+      media="max-width: 768px)"
       srcSet={imgSrcSet('jpg', name, ImageSize.LG)}
       type="image/jpeg"
     />

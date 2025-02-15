@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
+import { render } from '@testing-library/react';
 
-import { renderWithTheme } from '@testutils';
 import Footer from './index';
 
 describe('Footer tests', (): void => {
   it('renders the component', (): void => {
-    expect(renderWithTheme(<Footer />)).toBeTruthy();
+    expect(render(<Footer />)).toBeTruthy();
   });
 });

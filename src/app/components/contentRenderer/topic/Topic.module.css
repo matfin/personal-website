@@ -1,0 +1,7 @@
+.topic {
+  color: var(--mf-colour-primary-preserve);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  margin: 0;
+  background-color: var(--mf-colour-tertiary);
+}

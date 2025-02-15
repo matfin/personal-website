@@ -11,20 +11,26 @@ import { isLink, splitContent, toLinkObject } from '@utils/general';
 import Text from '@components/text';
 import Job from '@components/contentRenderer/position';
 import Project from '@components/contentRenderer/project';
-import {
-  List,
-  ListItem,
-  Link,
-  Photo,
-  PhotoContainer,
-  Projects,
-  ProjectTile,
-  TopicItem,
-  Topics,
-} from './ContentWrapper.css';
+import InlineLink from '@components/contentRenderer/inlinelink';
+import TopicItem from '@components/contentRenderer/topic';
+import Picture from '@components/contentRenderer/picture';
+import classNames from './ContentWrapper.module.css';
+
+type TagName =
+  | React.ElementType
+  | 'section'
+  | 'jobs'
+  | 'ul'
+  | 'topics'
+  | 'projects'
+  | 'li'
+  | 'job'
+  | 'topic'
+  | 'img'
+  | 'project';
 
 export interface Props {
-  tagName: string;
+  tagName: TagName;
   content?: ContentItem;
   children?: React.ReactNode;
 }
@@ -33,7 +39,13 @@ const processContent = (content: string): React.ReactNode => {
   const split: string[] = splitContent(content);
   const processed = split.map((item: string) => {
     if (isLink(item)) {
-      return <Link {...toLinkObject(item)} key={item} />;
+      return (
+        <InlineLink
+          className={classNames.link}
+          {...toLinkObject(item)}
+          key={item}
+        />
+      );
     }
 
     return item;
@@ -53,39 +65,47 @@ const ContentWrapper = ({
       return <section>{children}</section>;
     }
     case 'ul': {
-      return <List>{children}</List>;
+      return <ul className={classNames.list}>{children}</ul>;
     }
     case 'topics': {
-      return <Topics>{children}</Topics>;
+      return <ul className={classNames.topics}>{children}</ul>;
     }
     case 'projects': {
-      return <Projects>{children}</Projects>;
+      return <ul className={classNames.projects}>{children}</ul>;
     }
     case 'li': {
       return (
-        <ListItem type="li">
+        <Text className="list-item" type="li">
           {processContent(content as unknown as string)}
-        </ListItem>
+        </Text>
       );
     }
     case 'job': {
       return <Job {...(content as unknown as Position)} />;
     }
     case 'topic': {
-      return <TopicItem {...(content as unknown as Topic)} />;
+      return (
+        <TopicItem
+          className={classNames.topicItem}
+          {...(content as unknown as Topic)}
+        />
+      );
     }
     case 'img': {
       return (
-        <PhotoContainer>
-          <Photo {...(content as unknown as Image)} />
-        </PhotoContainer>
+        <div className={classNames.photoContainer}>
+          <Picture
+            className={classNames.photoImage}
+            {...(content as unknown as Image)}
+          />
+        </div>
       );
     }
     case 'project': {
       return (
-        <ProjectTile>
+        <li className={classNames.projectTile}>
           <Project {...(content as unknown as ProjectModel)} />
-        </ProjectTile>
+        </li>
       );
     }
     default: {

@@ -13,6 +13,7 @@ This is what we need to do to build a nice, simple, well maintained application.
 - animated UI to communicate flow effectively to the user
 - production bundling and CI flow
 - use Redux ToolKit
+- styling with CSS Modules
 - progressive web app with offline capability
 - Content security policy
 - remove barrel imports to improve build and test performance

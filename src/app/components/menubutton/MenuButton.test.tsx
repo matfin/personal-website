@@ -6,9 +6,8 @@ import {
   vi,
   type MockInstance,
 } from 'vitest';
-import { fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
-import { renderWithTheme } from '@testutils';
 import { isTouchDevice } from '@utils/general';
 import MenuButton, { type Props } from './index';
 
@@ -32,12 +31,12 @@ describe('MenuButton tests', (): void => {
   });
 
   it('renders the component', (): void => {
-    expect(renderWithTheme(<MenuButton {...defaultProps} />)).toBeTruthy();
+    expect(render(<MenuButton {...defaultProps} />)).toBeTruthy();
   });
 
   it('executes the callback on click', () => {
     const spyOnClick = vi.fn();
-    const wrapper = renderWithTheme(
+    const wrapper = render(
       <MenuButton {...defaultProps} onClick={spyOnClick} />,
     );
     const button = wrapper.getByTestId('menubutton');
@@ -52,7 +51,7 @@ describe('MenuButton tests', (): void => {
     (isTouchDevice as unknown as MockInstance).mockReturnValue(true);
 
     const spyOnClick = vi.fn();
-    const wrapper = renderWithTheme(
+    const wrapper = render(
       <MenuButton {...defaultProps} onClick={spyOnClick} />,
     );
     const button = wrapper.getByTestId('menubutton');

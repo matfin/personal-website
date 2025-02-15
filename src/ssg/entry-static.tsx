@@ -2,7 +2,6 @@ import { StrictMode } from 'react';
 import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { prerenderToNodeStream } from 'react-dom/static';
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 
 import type { Page } from '@models/interfaces';
 import { store } from '@services/state/store';
@@ -27,16 +26,16 @@ export const render = async (
   slug: string,
   withServiceWorker = false,
 ): Promise<string> => {
-  const sheet = new ServerStyleSheet();
+  const version = process.env.npm_package_version;
   const bootstrapScripts: string[] = [
-    '/main.js',
-    ...(withServiceWorker ? ['/swregister.js'] : []),
+    `/main-${version}.js`,
+    ...(withServiceWorker ? [`/swregister-${version}.js`] : []),
   ];
   const cspNonce: string = crypto.randomUUID();
   const cspTag: string = `
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self'; style-src 'unsafe-inline'; script-src 'self' 'nonce-${cspNonce}'; child-src 'self';"
+      content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self' 'nonce-${cspNonce}'; child-src 'self';"
     />
   `;
   const url: string = `/${slug}`;
@@ -53,14 +52,12 @@ export const render = async (
 
   const { prelude } = await prerenderToNodeStream(
     <StrictMode>
-      <StaticWrapper>
-        <StyleSheetManager sheet={sheet.instance}>
-          <Provider store={store}>
-            <StaticRouter location={url}>
-              <App />
-            </StaticRouter>
-          </Provider>
-        </StyleSheetManager>
+      <StaticWrapper stylesheet={`/main-${version}.css`}>
+        <Provider store={store}>
+          <StaticRouter location={url}>
+            <App />
+          </StaticRouter>
+        </Provider>
       </StaticWrapper>
     </StrictMode>,
     {
@@ -69,13 +66,9 @@ export const render = async (
   );
 
   const html: string = await htmlFromPrelude(prelude);
-  const styleTags: string = sheet.getStyleTags();
-
-  sheet.seal();
 
   return html
     .replace('--csp--', cspTag)
-    .replace('--styletags--', styleTags)
     .replace(
       '--preloadedstate--',
       `<script nonce="${cspNonce}">window.preloadedState=${preloadedStateJSON}</script>`,

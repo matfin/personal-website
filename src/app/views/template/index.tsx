@@ -1,12 +1,11 @@
 import { useCallback, useState } from 'react';
+import { clsx } from 'clsx/lite';
 
-import { ToggleValue, ThemeType } from '@models/enums';
 import { setBodyOverflow } from '@utils/general';
-import useApp from '@hooks/useApp';
 import usePage from '@hooks/usePage';
 import Nav from '@components/nav';
-import Toggle from '@components/toggle';
-import { Aside, Container, Main, MenuBurger } from './Template.css';
+import MenuButton from '@components/menubutton';
+import classNames from './Template.module.css';
 
 interface Props {
   children?: React.ReactNode;
@@ -14,7 +13,6 @@ interface Props {
 
 const Template = ({ children }: Props): React.ReactNode => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const { currentTheme, toggleTheme } = useApp();
   const { isNested } = usePage();
 
   const toggleMenu = useCallback((): void => {
@@ -29,34 +27,35 @@ const Template = ({ children }: Props): React.ReactNode => {
 
   return (
     <>
-      <MenuBurger
+      <MenuButton
+        className={clsx('common-button', classNames.menuBurger)}
         data-testid="menubutton"
         navrevealed={showMenu ? 'true' : undefined}
         onClick={toggleMenu}
       />
-      <Container $navrevealed={showMenu ? 'true' : undefined}>
-        <Aside
+      <div
+        className={clsx(
+          classNames.container,
+          showMenu && classNames.navRevealed,
+        )}
+      >
+        <aside
+          data-testid="aside"
+          className={clsx(classNames.aside, showMenu && classNames.revealed)}
           aria-label="Sidebar with navigation"
-          $revealed={showMenu}
           onClick={hideMenu}
+          onKeyDown={hideMenu}
         >
-          <Nav>
-            <Toggle
-              data-testid="toggle"
-              aria-label="Toggle theme"
-              value={
-                currentTheme === ThemeType.DAY
-                  ? ToggleValue.OFF
-                  : ToggleValue.ON
-              }
-              onToggle={toggleTheme}
-            />
-          </Nav>
-        </Aside>
-        <Main $nested={isNested} onClick={hideMenu} aria-label="Main content">
+          <Nav />
+        </aside>
+        <main
+          className={clsx(classNames.main, isNested && classNames.nested)}
+          onClick={hideMenu}
+          onKeyDown={hideMenu}
+        >
           {children}
-        </Main>
-      </Container>
+        </main>
+      </div>
     </>
   );
 };

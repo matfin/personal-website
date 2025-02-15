@@ -1,3 +1,4 @@
+const version = process.env.npm_package_version;
 const appIconSizes: number[] = [32, 48, 72, 96, 128, 144, 168, 192, 196, 512];
 const cacheName: string = PWA_CACHE_NAME;
 const appIconPaths: string[] = appIconSizes.map(
@@ -20,9 +21,9 @@ const profilePicPaths: string[] = [
 const assetUrls: string[] = [
   '/manifest.json',
   '/pwa.json',
-  '/main.js',
+  `/main-${version}.js`,
   '/worker.js',
-  '/swregister.js',
+  `/swregister-${version}.js`,
   ...appIconPaths,
   ...profilePicPaths,
 ];
