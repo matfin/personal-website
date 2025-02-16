@@ -16,12 +16,13 @@
   --mf-fontsize-small: 0.75rem;
   --mf-fontsize-medium: 1rem;
   --mf-fontsize-subheading: 1.5rem;
-  --mf-fontsize-heading: 2.5rem;
+  --mf-fontsize-heading: 3rem;
 
   /** Letter spacing */
   --mf-letterspacing-small: 0.25rem;
   --mf-letterspacing-text: 0.0625rem;
-  --mf-letterspacing-heading: 0.125rem;
+  --mf-letterspacing-subheading: 0.125rem;
+  --mf-letterspacing-heading: 0.5rem;
 
   /** Line height */
   --mf-lineheight-small: 1.25rem;

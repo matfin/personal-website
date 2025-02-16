@@ -1,5 +1,8 @@
+import { clsx } from 'clsx/lite';
+
 import { ToggleValue } from '@models/enums';
-import { ToggleIndicator, ToggleTrack } from './Toggle.css';
+import classNames from './Toggle.module.css';
+// import { ToggleIndicator, ToggleTrack } from './Toggle.css';
 
 export interface Props {
   className?: string;
@@ -22,19 +25,22 @@ const Toggle = ({
   };
 
   return (
-    <ToggleTrack
+    <div
       aria-pressed={ariaPressed}
-      className={className}
       data-testid="toggle"
       onClick={onToggleTrackClick}
+      className={clsx(classNames.toggleTrack, className)}
       {...rest}
     >
-      <ToggleIndicator
+      <div
+        aria-hidden
         data-testid="indicator"
-        $switchedon={isSwitchedOn}
-        aria-hidden={true}
+        className={clsx(
+          classNames.toggleIndicator,
+          isSwitchedOn && classNames.on,
+        )}
       />
-    </ToggleTrack>
+    </div>
   );
 };
 

@@ -1,0 +1,45 @@
+.toggleTrack {
+  position: relative;
+  border: 2px solid var(--mf-colour-primary);
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: 2.75rem;
+}
+
+.toggleTrack::before {
+  position: absolute;
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+  color: transparent;
+  top: -2px;
+  text-shadow: 0 0 0 var(--mf-colour-primary);
+  left: 4px;
+  content: "☀️";
+}
+
+.toggleTrack::after {
+  position: absolute;
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+  color: transparent;
+  top: -2px;
+  text-shadow: 0 0 0 var(--mf-colour-primary);
+  right: 4px;
+  content: "🌙";
+}
+
+.toggleIndicator {
+  z-index: var(--mf-layer-upper);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--mf-colour-primary);
+  transition: left 200ms var(--mf-animation-curve);
+}
+
+.toggleIndicator.on {
+  left: 1.5rem;
+}

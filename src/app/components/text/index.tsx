@@ -14,19 +14,19 @@ export const classesToApply = (
 ): string => {
   switch (type) {
     case 'h1': {
-      return clsx(className, 'headingTypography', classNames.mainHeading);
+      return clsx(className, 'h1', classNames.mainHeading);
     }
     case 'h2': {
-      return clsx(className, 'subheadingTypography', classNames.subHeading);
+      return clsx(className, 'h2', classNames.subHeading);
     }
     case 'h3': {
-      return clsx(className, 'thirdheadingTypography', classNames.subHeading);
+      return clsx(className, 'h3', classNames.subHeading);
     }
     case 'h4': {
-      return clsx(className, 'thirdHeadingTypography', classNames.subHeading);
+      return clsx(className);
     }
     default: {
-      return clsx(className, 'textTypography', classNames.normalText);
+      return clsx(className, 'text', classNames.normalText);
     }
   }
 };

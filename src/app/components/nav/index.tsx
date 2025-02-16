@@ -1,8 +1,9 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { clsx } from 'clsx/lite';
 
 import type { NavLink } from '@models/interfaces';
 import { pathRoot } from '@utils/general';
-import { Children, Link, Container } from './Nav.css';
+import classNames from './Nav.module.css';
 
 export interface Props {
   children?: React.ReactNode;
@@ -26,16 +27,26 @@ const Nav = ({ children, className }: Props): React.ReactNode => {
   const pathBase: string = pathRoot(pathname);
 
   return (
-    <Container aria-label="Navigation" className={className}>
+    <nav
+      className={clsx(classNames.container, className)}
+      aria-label="Navigation"
+    >
       {navLinks.map(
         ({ base, title, to }: NavLink): React.ReactNode => (
-          <Link key={to} to={to} className={base === pathBase ? 'active' : ''}>
+          <Link
+            key={to}
+            to={to}
+            className={clsx(
+              classNames.link,
+              base === pathBase && classNames.active,
+            )}
+          >
             {title}
           </Link>
         ),
       )}
-      <Children>{children}</Children>
-    </Container>
+      <div className={classNames.children}>{children}</div>
+    </nav>
   );
 };
 

@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerText {
+  margin: 1rem 0;
+}
+
+.closingTag {
+  width: 48px;
+  height: 48px;
+  fill: var(--mf-colour-primary);
+}
