@@ -7,11 +7,9 @@ import {
 } from '@reduxjs/toolkit';
 
 import pageSlice from './page/slice';
-import appSlice from './app/slice';
 
 const rootReducer: RootState = {
   page: pageSlice,
-  app: appSlice,
 };
 
 export const store: Store = configureStore({

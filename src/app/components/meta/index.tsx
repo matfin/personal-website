@@ -1,5 +1,4 @@
 import { getCanonicalUrl } from '@config';
-import { colours } from '@styles/vars';
 
 export interface Props {
   description?: string;
@@ -18,7 +17,7 @@ const Meta = ({ description, title, slug = '' }: Props): React.ReactNode => (
     <meta charSet="UTF-8" />
     <title>{title}</title>
     <meta name="author" content="Matt Finucane" />
-    <meta name="theme-color" content={colours.secondary} />
+    <meta name="theme-color" content="#ecedef" />
     <meta name="description" content={description} />
     <meta property="og:site_name" content="mattfinucane.com" />
     <meta property="og:type" content="website" />

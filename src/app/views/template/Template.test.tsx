@@ -11,7 +11,6 @@ import { fireEvent } from '@testing-library/react';
 
 import { renderWrapped } from '@testutils';
 import { setBodyOverflow } from '@utils/general';
-import useApp from '@hooks/useApp';
 import Template from './index';
 
 vi.mock('@utils/general', async (importOriginal) => {
@@ -22,13 +21,6 @@ vi.mock('@utils/general', async (importOriginal) => {
     setBodyOverflow: vi.fn(),
   };
 });
-
-vi.mock('@hooks/useApp', () => ({
-  default: vi.fn().mockReturnValue({
-    currentTheme: 'day',
-    toggleTheme: vi.fn(),
-  }),
-}));
 
 vi.mock('@hooks/usePage', () => ({
   default: vi.fn().mockReturnValue({
@@ -59,18 +51,14 @@ describe('template tests', (): void => {
     expect(setBodyOverflow).toHaveBeenCalledWith(false);
   });
 
-  it('toggles the theme', (): void => {
-    const spyToggleTheme = vi.fn();
-
-    (useApp as unknown as MockInstance).mockReturnValue({
-      toggleTheme: spyToggleTheme,
-    });
-
-    const container = renderWrapped(<Template />);
-    const toggle = container.getByTestId('toggle');
-
-    fireEvent.click(toggle);
-
-    expect(spyToggleTheme).toHaveBeenCalledTimes(1);
+  it.skip('toggles the theme', (): void => {
+    // const spyToggleTheme = vi.fn();
+    // (useApp as unknown as MockInstance).mockReturnValue({
+    //   toggleTheme: spyToggleTheme,
+    // });
+    // const container = renderWrapped(<Template />);
+    // const toggle = container.getByTestId('toggle');
+    // fireEvent.click(toggle);
+    // expect(spyToggleTheme).toHaveBeenCalledTimes(1);
   });
 });

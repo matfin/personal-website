@@ -2,15 +2,16 @@ import usePage from '@hooks/usePage';
 
 import Meta from '@components/meta';
 import { BackButton, ErrorMessage } from './components';
+import Loading from '@components/loading';
 import ContentRenderer from '@components/contentRenderer';
 import Footer from '@components/footer';
-import { LoadingSpinner } from './Page.css';
+import classNames from './Page.module.css';
 
 const Page = (): React.ReactNode => {
   const { error, page, pending, isNested, parts } = usePage();
 
   return pending ? (
-    <LoadingSpinner />
+    <Loading className={classNames.loadingSpinner} />
   ) : (
     <>
       <Meta

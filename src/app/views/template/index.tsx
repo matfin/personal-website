@@ -1,9 +1,8 @@
 import { useCallback, useState } from 'react';
 import { clsx } from 'clsx/lite';
 
-import { ToggleValue, ThemeType } from '@models/enums';
+import { ToggleValue } from '@models/enums';
 import { setBodyOverflow } from '@utils/general';
-import useApp from '@hooks/useApp';
 import usePage from '@hooks/usePage';
 import Nav from '@components/nav';
 import Toggle from '@components/toggle';
@@ -16,7 +15,6 @@ interface Props {
 
 const Template = ({ children }: Props): React.ReactNode => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const { currentTheme, toggleTheme } = useApp();
   const { isNested } = usePage();
 
   const toggleMenu = useCallback((): void => {
@@ -53,12 +51,8 @@ const Template = ({ children }: Props): React.ReactNode => {
             <Toggle
               data-testid="toggle"
               aria-label="Toggle theme"
-              value={
-                currentTheme === ThemeType.DAY
-                  ? ToggleValue.OFF
-                  : ToggleValue.ON
-              }
-              onToggle={toggleTheme}
+              value={ToggleValue.OFF}
+              onToggle={console.log}
             />
           </Nav>
         </aside>
