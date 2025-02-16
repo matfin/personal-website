@@ -2,7 +2,6 @@ import { StrictMode } from 'react';
 import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { prerenderToNodeStream } from 'react-dom/static';
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 
 import type { Page } from '@models/interfaces';
 import { store } from '@services/state/store';
@@ -27,7 +26,6 @@ export const render = async (
   slug: string,
   withServiceWorker = false,
 ): Promise<string> => {
-  const sheet = new ServerStyleSheet();
   const bootstrapScripts: string[] = [
     '/main.js',
     ...(withServiceWorker ? ['/swregister.js'] : []),
@@ -54,13 +52,11 @@ export const render = async (
   const { prelude } = await prerenderToNodeStream(
     <StrictMode>
       <StaticWrapper>
-        <StyleSheetManager sheet={sheet.instance}>
-          <Provider store={store}>
-            <StaticRouter location={url}>
-              <App />
-            </StaticRouter>
-          </Provider>
-        </StyleSheetManager>
+        <Provider store={store}>
+          <StaticRouter location={url}>
+            <App />
+          </StaticRouter>
+        </Provider>
       </StaticWrapper>
     </StrictMode>,
     {
@@ -69,13 +65,9 @@ export const render = async (
   );
 
   const html: string = await htmlFromPrelude(prelude);
-  const styleTags: string = sheet.getStyleTags();
-
-  sheet.seal();
 
   return html
     .replace('--csp--', cspTag)
-    .replace('--styletags--', styleTags)
     .replace(
       '--preloadedstate--',
       `<script nonce="${cspNonce}">window.preloadedState=${preloadedStateJSON}</script>`,
