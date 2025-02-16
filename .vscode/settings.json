@@ -13,4 +13,8 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
+  "[css]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  }
 }

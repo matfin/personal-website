@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 
 import '@styles/theme.css';
 import '@styles/typography.css';
+import '@styles/globals.css';
 import useApp from '@hooks/useApp';
 import useAppearanceChange from '@hooks/useAppearanceChange';
 import type { ThemeType } from '@models/enums';

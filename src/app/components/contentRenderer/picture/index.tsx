@@ -2,7 +2,7 @@ import { sizes } from '@styles/vars';
 import type { Image } from '@models/interfaces';
 
 export interface Props extends Image {
-  className?: '';
+  className?: string;
 }
 
 enum ImageSize {

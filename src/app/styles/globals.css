@@ -1,0 +1,14 @@
+.listItem {
+  position: relative;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+
+  &::before {
+    position: absolute;
+    color: transparent;
+    text-shadow: 0 0 0 var(--mf-colour-primary);
+    font-size: 0.75rem;
+    left: 0;
+    content: "⚡";
+  }
+}
