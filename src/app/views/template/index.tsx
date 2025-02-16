@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { clsx } from 'clsx/lite';
 
 import { ToggleValue, ThemeType } from '@models/enums';
 import { setBodyOverflow } from '@utils/general';
@@ -6,7 +7,8 @@ import useApp from '@hooks/useApp';
 import usePage from '@hooks/usePage';
 import Nav from '@components/nav';
 import Toggle from '@components/toggle';
-import { Aside, Container, Main, MenuBurger } from './Template.css';
+import MenuButton from '@components/menubutton';
+import classNames from './Template.module.css';
 
 interface Props {
   children?: React.ReactNode;
@@ -29,16 +31,23 @@ const Template = ({ children }: Props): React.ReactNode => {
 
   return (
     <>
-      <MenuBurger
+      <MenuButton
+        className={clsx('commonButton', classNames.menuBurger)}
         data-testid="menubutton"
         navrevealed={showMenu ? 'true' : undefined}
         onClick={toggleMenu}
       />
-      <Container $navrevealed={showMenu ? 'true' : undefined}>
-        <Aside
+      <div
+        className={clsx(
+          classNames.container,
+          showMenu && classNames.navRevealed,
+        )}
+      >
+        <aside
+          className={clsx(classNames.aside, showMenu && classNames.revealed)}
           aria-label="Sidebar with navigation"
-          $revealed={showMenu}
           onClick={hideMenu}
+          onKeyDown={hideMenu}
         >
           <Nav>
             <Toggle
@@ -52,11 +61,15 @@ const Template = ({ children }: Props): React.ReactNode => {
               onToggle={toggleTheme}
             />
           </Nav>
-        </Aside>
-        <Main $nested={isNested} onClick={hideMenu} aria-label="Main content">
+        </aside>
+        <main
+          className={clsx(classNames.main, isNested && classNames.nested)}
+          onClick={hideMenu}
+          onKeyDown={hideMenu}
+        >
           {children}
-        </Main>
-      </Container>
+        </main>
+      </div>
     </>
   );
 };

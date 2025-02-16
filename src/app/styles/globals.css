@@ -12,3 +12,11 @@
   left: 0;
   content: "⚡";
 }
+
+.commonButton {
+  position: fixed;
+  top: 1rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 0.125rem solid var(--mf-colour-primary);
+}
