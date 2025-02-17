@@ -1,13 +1,9 @@
+import { clsx } from 'clsx/lite';
+
 import type { Position as PositionModel } from '@models/interfaces';
 import { formatDate } from '@utils/general';
-import {
-  CompanyName,
-  DateFromTo,
-  LocationAndRole,
-  Container,
-  TaskList,
-  TaskItem,
-} from './Position.css';
+import Text from '@components/text';
+import classNames from './Position.module.css';
 
 export interface Props extends PositionModel {
   className?: string;
@@ -28,23 +24,29 @@ const Position = ({
     : ' to present';
 
   return (
-    <Container className={className}>
-      <DateFromTo type="h4">
+    <div className={classNames.container}>
+      <Text className={clsx(className, classNames.dateFromTo)} type="h4">
         <time dateTime={startDate}>{dateFrom}</time>
         {endDate ? <time dateTime={endDate}>{dateTo}</time> : ' to present'}
-      </DateFromTo>
-      <CompanyName type="h3">{company}</CompanyName>
-      <LocationAndRole type="h4">
+      </Text>
+      <Text className={classNames.companyName} type="h3">
+        {company}
+      </Text>
+      <Text className={classNames.locationAndRole} type="h4">
         {role} / {location}
-      </LocationAndRole>
-      <TaskList>
+      </Text>
+      <ul className={classNames.taskList}>
         {tasks.map((task: string) => (
-          <TaskItem type="li" key={task}>
+          <Text
+            className={clsx(classNames.taskItem, 'list-item')}
+            type="li"
+            key={task}
+          >
             {task}
-          </TaskItem>
+          </Text>
         ))}
-      </TaskList>
-    </Container>
+      </ul>
+    </div>
   );
 };
 

@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text {
+  margin: 1rem 0;
+}
+
+.closing-tag {
+  width: 48px;
+  height: 48px;
+  fill: var(--mf-colour-primary);
+}

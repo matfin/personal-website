@@ -7,12 +7,13 @@ import {
   vi,
   type MockInstance,
 } from 'vitest';
-import { fireEvent } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 
+import usePage from '@hooks/usePage';
 import { renderWrapped } from '@testutils';
 import { setBodyOverflow } from '@utils/general';
-import useApp from '@hooks/useApp';
 import Template from './index';
+import classNames from './Template.module.css';
 
 vi.mock('@utils/general', async (importOriginal) => {
   const mod = await importOriginal<typeof import('@utils/general')>();
@@ -22,13 +23,6 @@ vi.mock('@utils/general', async (importOriginal) => {
     setBodyOverflow: vi.fn(),
   };
 });
-
-vi.mock('@hooks/useApp', () => ({
-  default: vi.fn().mockReturnValue({
-    currentTheme: 'day',
-    toggleTheme: vi.fn(),
-  }),
-}));
 
 vi.mock('@hooks/usePage', () => ({
   default: vi.fn().mockReturnValue({
@@ -49,28 +43,58 @@ describe('template tests', (): void => {
     expect(() => renderWrapped(<Template />)).not.toThrow();
   });
 
-  it('sets the body overflow on navigation menu button tap', (): void => {
-    const { getByTestId } = renderWrapped(<Template />);
-    const button = getByTestId('menubutton');
+  it('applies the correct classes if not nested', (): void => {
+    renderWrapped(<Template />);
 
-    fireEvent.click(button);
+    const main = screen.getByRole('main');
+
+    expect(main.classList.contains(classNames.main)).toBe(true);
+    expect(main.classList.contains(classNames.nested)).toBe(false);
+  });
+
+  it('applies the correct classes if nested', (): void => {
+    (usePage as unknown as MockInstance).mockReturnValue({ isNested: true });
+    renderWrapped(<Template />);
+
+    const main = screen.getByRole('main');
+
+    expect(main.classList.contains(classNames.main)).toBe(true);
+    expect(main.classList.contains(classNames.nested)).toBe(true);
+  });
+
+  it('sets the body overflow on navigation menu button tap', (): void => {
+    renderWrapped(<Template />);
+
+    fireEvent.click(screen.getByRole('button'));
 
     expect(setBodyOverflow).toHaveBeenCalledTimes(1);
     expect(setBodyOverflow).toHaveBeenCalledWith(false);
   });
 
-  it('toggles the theme', (): void => {
-    const spyToggleTheme = vi.fn();
+  it('sets the body overflow on main section tap', (): void => {
+    renderWrapped(<Template />);
 
-    (useApp as unknown as MockInstance).mockReturnValue({
-      toggleTheme: spyToggleTheme,
-    });
+    fireEvent.click(screen.getByRole('main'));
 
-    const container = renderWrapped(<Template />);
-    const toggle = container.getByTestId('toggle');
+    expect(setBodyOverflow).toHaveBeenCalledTimes(1);
+    expect(setBodyOverflow).toHaveBeenCalledWith(true);
+  });
 
-    fireEvent.click(toggle);
+  it('sets the body overflow key press on aside', (): void => {
+    renderWrapped(<Template />);
 
-    expect(spyToggleTheme).toHaveBeenCalledTimes(1);
+    fireEvent.keyDown(screen.getByRole('complementary'), 'enter');
+
+    expect(setBodyOverflow).toHaveBeenCalledTimes(1);
+    expect(setBodyOverflow).toHaveBeenCalledWith(true);
+  });
+
+  it('sets the body overflow key press on main', (): void => {
+    renderWrapped(<Template />);
+
+    fireEvent.keyDown(screen.getByRole('main'), 'enter');
+
+    expect(setBodyOverflow).toHaveBeenCalledTimes(1);
+    expect(setBodyOverflow).toHaveBeenCalledWith(true);
   });
 });

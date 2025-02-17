@@ -1,39 +1,42 @@
-import { MainHeading, SubHeading, ThirdHeading, NormalText } from './Text.css';
+import { clsx } from 'clsx/lite';
 
-export interface Props {
+import classNames from './Text.module.css';
+
+export type Props = {
+  type?: React.ElementType;
   children: React.ReactNode;
   className?: string;
-  type: string;
-}
+};
 
-const Text = ({ children, className, type }: Props): React.ReactNode => {
+export const classesToApply = (
+  type: React.ElementType,
+  className?: string,
+): string => {
   switch (type) {
     case 'h1': {
-      return <MainHeading className={className}>{children}</MainHeading>;
+      return clsx(className, 'h1', classNames.mainHeading);
     }
-    case 'h2':
+    case 'h2': {
+      return clsx(className, 'h2', classNames.subHeading);
+    }
     case 'h3': {
-      return (
-        <SubHeading className={className} as={type}>
-          {children}
-        </SubHeading>
-      );
+      return clsx(className, 'h3', classNames.subHeading);
     }
     case 'h4': {
-      return (
-        <ThirdHeading as={type} className={className}>
-          {children}
-        </ThirdHeading>
-      );
+      return clsx(className);
     }
     default: {
-      return (
-        <NormalText as={type} className={className}>
-          {children}
-        </NormalText>
-      );
+      return clsx(className, 'text', classNames.normalText);
     }
   }
+};
+
+const Text = ({
+  type: Tag = 'div',
+  children,
+  className,
+}: Props): React.ReactNode => {
+  return <Tag className={classesToApply(Tag, className)}>{children}</Tag>;
 };
 
 export default Text;

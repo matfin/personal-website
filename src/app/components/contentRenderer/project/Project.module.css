@@ -1,0 +1,13 @@
+.container {
+  position: relative;
+  color: var(--mf-colour-primary-preserve);
+}
+
+.description {
+  margin: 0;
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  padding: 0;
+}

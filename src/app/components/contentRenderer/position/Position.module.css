@@ -1,0 +1,29 @@
+.container {
+  margin: 1rem 0 2rem;
+}
+
+.company-name {
+  padding: 0;
+}
+
+.location-and-role {
+  font-size: var(--mf-fontsize-medium);
+  font-weight: var(--mf-fontweight-normal);
+  letter-spacing: var(--mf-letterspacing-text);
+  margin-bottom: 1rem;
+}
+
+.date-from-to {
+  padding: 0;
+  font-weight: var(--mf-fontweight-bold);
+  letter-spacing: var(--mf-letterspacing-text);
+  line-height: var(--mf-lineheight-thirdheading);
+}
+
+.task-list {
+  display: block;
+}
+
+.task-item {
+  margin: 0;
+}

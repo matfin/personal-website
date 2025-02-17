@@ -18,7 +18,7 @@
         "tagName": "section",
         "content": [
           {
-            "tagName": "h3",
+            "tagName": "h2",
             "content": "Where can I be found?"
           },
           {
@@ -35,7 +35,7 @@
         "tagName": "section",
         "content": [
           {
-            "tagName": "h2",
+            "tagName": "h3",
             "content": "My background"
           },
           {

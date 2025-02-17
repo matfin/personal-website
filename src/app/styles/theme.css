@@ -1,0 +1,58 @@
+:root {
+  /** Sizes */
+  --mf-size-sm: 320px;
+  --mf-size-md: 768px;
+  --mf-size-lg: 1024px;
+  --mf-size-xl: 1280px;
+  --mf-sizw-xxl: 1440px;
+
+  /** Colour */
+  --mf-colour-primary: #000;
+  --mf-colour-secondary: #ecedef;
+  --mf-colour-tertiary: #fdfeff;
+  --mf-brightness: 1.0;
+  --mf-colour-primary-preserve: #000;
+
+  /** Font size */
+  --mf-fontsize-small: 0.75rem;
+  --mf-fontsize-medium: 1rem;
+  --mf-fontsize-subheading: 1.5rem;
+  --mf-fontsize-heading: 3rem;
+
+  /** Letter spacing */
+  --mf-letterspacing-small: 0.25rem;
+  --mf-letterspacing-text: 0.0625rem;
+  --mf-letterspacing-subheading: 0.125rem;
+  --mf-letterspacing-heading: 0.5rem;
+
+  /** Line height */
+  --mf-lineheight-small: 1.25rem;
+  --mf-lineheight-text: 1.5rem;
+  --mf-lineheight-thirdheading: 1.25rem;
+  --mf-lineheight-subheading: 2.25rem;
+  --mf-lineheight-heading: 4rem;
+
+  /** Font weight */
+  --mf-fontweight-superlight: 100;
+  --mf-fontweight-light: 200;
+  --mf-fontweight-normal: 400;
+  --mf-fontweight-bold: 500;
+
+  /** Layers */
+  --mf-layer-top: 2;
+  --mf-layer-upper: 1;
+  --mf-layer-base: 0;
+  --mf-layer-lower: -1;
+
+  /** Miscellaneous */
+  --mf-box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+  --mf-animation-curve: cubic-bezier(0.91, 0.03, 0.12, 1);
+  --mf-default-font: "helvetica neue", helvetica, arial, sans-serif;
+
+  @media (prefers-color-scheme: dark) {
+    --mf-colour-primary: #ecedef;
+    --mf-colour-secondary: #000;
+    --mf-colour-tertiary: #fdfeff;
+    --mf-brightness: 0.6;
+  }
+}

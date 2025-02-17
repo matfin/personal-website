@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0.5rem;
+  background-color: var(--mf-colour-secondary);
+}
+
+.line {
+  width: 2rem;
+  height: 1px;
+  background: var(--mf-colour-primary);
+  transform-origin: center center;
+  transition: transform 0.5s var(--mf-animation-curve), rotate 0.5s
+    var(--mf-animation-curve);
+}
+
+.line-top.revealed {
+  transform: translate3d(0, 12px, 0) rotate(-45deg);
+}
+
+.line-middle.revealed {
+  transform: rotate(135deg);
+}
+
+.line-bottom.revealed {
+  transform: translate3d(0, -11px, 0) rotate(45deg);
+}

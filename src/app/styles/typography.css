@@ -1,0 +1,39 @@
+.h1 {
+  font-size: var(--mf-fontsize-heading);
+  font-weight: var(--mf-fontweight-light);
+  line-height: var(--mf-lineheight-heading);
+  letter-spacing: var(--mf-letterspacing-heading);
+}
+
+.h2 {
+  font-size: var(--mf-fontsize-subheading);
+  font-weight: var(--mf-fontweight-light);
+  line-height: var(--mf-lineheight-subheading);
+  letter-spacing: var(--mf-letterspacing-subheading);
+
+  @media (width >= 768px) {
+    font-size: calc(var(--mf-fontsize-subheading) * 1.5);
+    line-height: calc(var(--mf-lineheight-subheading) * 1.5);
+  }
+}
+
+.h3 {
+  font-size: var(--mf-fontsize-subheading);
+  font-weight: var(--mf-fontweight-light);
+  letter-spacing: var(--mf-letterspacing-subheading);
+  line-height: var(--mf-lineheight-subheading);
+}
+
+.h4 {
+  font-size: var(--mf-fontsize-medium);
+  font-weight: var(--mf-fontweight-bold);
+  letter-spacing: var(--mf-letterspacing-text);
+  line-height: var(--mf-lineheight-small);
+}
+
+.text {
+  font-size: var(--mf-fontsize-medium);
+  font-weight: var(--mf-fontweight-light);
+  line-height: var(--mf-lineheight-text);
+  letter-spacing: var(--mf-letterspacing-text);
+}

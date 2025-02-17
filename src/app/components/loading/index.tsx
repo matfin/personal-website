@@ -1,13 +1,16 @@
-import { Container, LoadingSpinner } from './Loading.css';
+import { clsx } from 'clsx/lite';
+
+import { LoadingSpinner } from '@components/svgicons';
+import classNames from './Loading.module.css';
 
 export interface Props {
   className?: string;
 }
 
 const Loading = ({ className }: Props): React.ReactNode => (
-  <Container className={className}>
-    <LoadingSpinner />
-  </Container>
+  <div className={clsx(className, classNames.container)}>
+    <LoadingSpinner className={classNames.loadingSpinner} />
+  </div>
 );
 
 export default Loading;

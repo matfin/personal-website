@@ -1,9 +1,17 @@
-import { ErrorSt, BackSt } from './components.style';
+import { Link } from 'react-router-dom';
+import clsx from 'clsx/lite';
+
+import classNames from './Components.module.css';
 
 export const ErrorMessage = ({ error }: { error: Error }): React.ReactNode => (
-  <ErrorSt>{error.toString()}</ErrorSt>
+  <div className={classNames.error}>{error.toString()}</div>
 );
 
 export const BackButton = ({ href }: { href: string }): React.ReactNode => (
-  <BackSt arial-label="back" data-testid="backbutton" to={href} />
+  <Link
+    className={clsx(classNames.backButton, 'common-button')}
+    arial-label="back"
+    data-testid="backbutton"
+    to={href}
+  />
 );
