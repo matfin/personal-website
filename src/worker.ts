@@ -1,4 +1,4 @@
-const version = process.env.npm_package_version;
+const version = ASSET_VERSION;
 const appIconSizes: number[] = [32, 48, 72, 96, 128, 144, 168, 192, 196, 512];
 const cacheName: string = PWA_CACHE_NAME;
 const appIconPaths: string[] = appIconSizes.map(
@@ -49,7 +49,7 @@ const onActivate = (event: ExtendableEvent): void => {
       ),
     );
 
-  event.waitUntil([clearCaches()]);
+  event.waitUntil(clearCaches());
 };
 
 const onInstall = (event: ExtendableEvent): void => {
@@ -80,6 +80,15 @@ const onFetch = (event: FetchEvent): void => {
   );
 };
 
-self.addEventListener('activate', onActivate);
-self.addEventListener('fetch', onFetch);
-self.addEventListener('install', onInstall);
+(self as unknown as ServiceWorkerGlobalScope).addEventListener(
+  'activate',
+  onActivate,
+);
+(self as unknown as ServiceWorkerGlobalScope).addEventListener(
+  'fetch',
+  onFetch,
+);
+(self as unknown as ServiceWorkerGlobalScope).addEventListener(
+  'install',
+  onInstall,
+);

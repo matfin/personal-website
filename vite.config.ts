@@ -46,6 +46,7 @@ export default defineConfig(({ isSsrBuild }) => {
       PWA_CACHE_NAME: JSON.stringify(
         `${process.env.npm_package_name}:${process.env.npm_package_version}`,
       ),
+      ASSET_VERSION: JSON.stringify(process.env.npm_package_version),
     },
     publicDir: isSsrBuild ? false : 'public',
     test: {
