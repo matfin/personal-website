@@ -30,7 +30,7 @@ To get this running, you should have an up to date stable version of [NodeJS](ht
 - `$ cd personal-website/`
 - `$ npm install` will install dependencies
 - `$ npm run start` will build the server and client and watch for changes
-- `$ npm run deploy` will generate the site as a static bundle, which is output to the `/dist` directory.
+- `$ npm run build:deploy` will generate the site as a static bundle, which is output to the `/dist` directory.
 - `$ npm run checks` will run unit tests with coverage, code lint and style lint.
 
 ### Where does this run?

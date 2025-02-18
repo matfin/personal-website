@@ -3,6 +3,7 @@
 /node_modules
 /coverage
 /dist
+/scripts
 /dev-dist
 /out
 /client
