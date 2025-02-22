@@ -64,7 +64,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Bundle JS and build static content
-          command: ENABLE_CACHE='true' CANONICAL_URL=https://mattfinucane.com npm run deploy
+          command: ENABLE_CACHE='true' CANONICAL_URL=https://mattfinucane.com npm run build:deploy
       - run:
           name: Create archive of built content
           command: tar czf out.tar.gz dist

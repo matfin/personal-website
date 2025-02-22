@@ -2,22 +2,29 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 import { toAbsolute } from './utils';
-import { render } from '../../dist/static/entry-static.js';
+import { render } from '@ssg/entry-static';
 
 export const generateStaticHTML = async (
   slugs: string[],
   withServiceWorker = false,
 ): Promise<void> => {
   for (const slug of slugs) {
-    const slugContent: string = await render(slug, withServiceWorker);
-    const filePath: string = toAbsolute(
-      slug === 'index' ? './dist/index.html' : `./dist/${slug}/index.html`,
-    );
+    try {
+      const slugContent: string = await render(slug, withServiceWorker);
+      const filePath: string = toAbsolute(
+        slug === 'index' ? './dist/index.html' : `./dist/${slug}/index.html`,
+      );
 
-    const fileDir: string = path.dirname(filePath);
+      const fileDir: string = path.dirname(filePath);
 
-    await fs.mkdir(fileDir, { recursive: true });
-    await fs.writeFile(filePath, slugContent ?? '', 'utf-8');
+      await fs.mkdir(fileDir, { recursive: true });
+      await fs.writeFile(filePath, slugContent ?? '', 'utf-8');
+    } catch (e) {
+      console.error({
+        error: e,
+        message: `Unable to generate static content for: ${slug}`,
+      });
+    }
   }
 };
 

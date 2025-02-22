@@ -19,26 +19,25 @@ const Picture = ({ className, name, title }: Props): React.ReactNode => (
   <picture className={className}>
     <source
       data-testid="sm-webp"
-      media="max-width: 768px)"
+      media="(max-width: 768px)"
       srcSet={imgSrcSet('webp', name, ImageSize.SM)}
       type="image/webp"
     />
     <source
       data-testid="sm-jpg"
-      media="max-width: 768px)"
+      media="(max-width: 768px)"
       srcSet={imgSrcSet('jpg', name, ImageSize.SM)}
       type="image/jpeg"
     />
-
     <source
       data-testid="lg-webp"
-      media="max-width: 768px)"
+      media="(min-width: 768px)"
       srcSet={imgSrcSet('webp', name, ImageSize.LG)}
       type="image/webp"
     />
     <source
       data-testid="lg-jpg"
-      media="max-width: 768px)"
+      media="(min-width: 768px)"
       srcSet={imgSrcSet('jpg', name, ImageSize.LG)}
       type="image/jpeg"
     />

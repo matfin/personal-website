@@ -11,7 +11,7 @@ services:
         - ENABLE_CACHE='true'
     volumes:
       - static-content:/opt/app/dist
-    command: npm run deploy
+    command: npm run build:deploy
 
   nginx:
     container_name: nginx
