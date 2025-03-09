@@ -1,13 +1,28 @@
 import { clsx } from 'clsx/lite';
 
-import type { Position as PositionModel } from '@models/interfaces';
+import type { Position as PositionModel } from '@models/types';
 import { formatDate } from '@utils/general';
 import Text from '@components/text';
 import classNames from './Position.module.css';
 
-export interface Props extends PositionModel {
+type Task = string;
+
+export type Props = Omit<PositionModel, 'tasks'> & {
   className?: string;
-}
+  tasks: Task[];
+};
+
+type DateRange = Record<'dateFrom' | 'dateTo', string | null>;
+
+const formatDateRange = (startDate: string, endDate?: string): DateRange => {
+  return {
+    dateFrom: formatDate(new Date(startDate)),
+    dateTo: endDate ? formatDate(new Date(endDate)) : null,
+  };
+};
+
+const getTaskKey = (task: Task, index: number): string =>
+  `${task.substring(0, 10)}-${index}`;
 
 const Position = ({
   className,
@@ -18,35 +33,35 @@ const Position = ({
   startDate,
   tasks,
 }: Props): React.ReactNode => {
-  const dateFrom = formatDate(new Date(startDate));
-  const dateTo = endDate
-    ? ` to ${formatDate(new Date(endDate))}`
-    : ' to present';
+  const { dateFrom, dateTo } = formatDateRange(startDate, endDate);
 
   return (
-    <div className={classNames.container}>
-      <Text className={clsx(className, classNames.dateFromTo)} type="h4">
-        <time dateTime={startDate}>{dateFrom}</time>
-        {endDate ? <time dateTime={endDate}>{dateTo}</time> : ' to present'}
-      </Text>
-      <Text className={classNames.companyName} type="h3">
-        {company}
-      </Text>
-      <Text className={classNames.locationAndRole} type="h4">
-        {role} / {location}
-      </Text>
+    <article className={classNames.container}>
+      <header>
+        <Text className={clsx(className, classNames.dateFromTo)} type="h4">
+          <time dateTime={startDate}>{dateFrom}</time>
+          {' to '}
+          {dateTo ? <time dateTime={endDate}>{dateTo}</time> : 'present'}
+        </Text>
+        <Text className={classNames.companyName} type="h3">
+          {company}
+        </Text>
+        <Text className={classNames.locationAndRole} type="h4">
+          {role} / {location}
+        </Text>
+      </header>
       <ul className={classNames.taskList}>
-        {tasks.map((task: string) => (
+        {tasks.map((task: Task, index: number) => (
           <Text
             className={clsx(classNames.taskItem, 'list-item')}
             type="li"
-            key={task}
+            key={getTaskKey(task, index)}
           >
             {task}
           </Text>
         ))}
       </ul>
-    </div>
+    </article>
   );
 };
 

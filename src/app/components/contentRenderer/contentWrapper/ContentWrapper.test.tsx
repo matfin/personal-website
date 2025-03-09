@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-import type { ContentItem, Position } from '@models/interfaces';
+import type { ContentItem, Position } from '@models/types';
 import ContentWrapper, { type Props } from './index';
 
 vi.mock('react-router-dom', () => ({
@@ -88,7 +88,7 @@ describe('ContentWrapper', (): void => {
     render(<ContentWrapper {...(content as Props)} />);
 
     expect(screen.getByText('August 2020')).not.toBeNull();
-    expect(screen.getByText('to January 2024')).not.toBeNull();
+    expect(screen.getByText('January 2024')).not.toBeNull();
     expect(screen.getByText('Test company')).not.toBeNull();
     expect(screen.getByText('Engineer / Test location')).not.toBeNull();
     expect(screen.getByText('First task')).not.toBeNull();

@@ -47,6 +47,6 @@ describe('Position tests', (): void => {
 
     expect(container).toBeTruthy();
     expect(screen.queryByText('to present')).toBeFalsy();
-    expect(screen.getByText('to April 2020')).toBeTruthy();
+    expect(screen.getByText('April 2020')).toBeTruthy();
   });
 });

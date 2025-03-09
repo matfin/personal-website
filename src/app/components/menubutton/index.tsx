@@ -3,11 +3,11 @@ import { clsx } from 'clsx/lite';
 import { isTouchDevice } from '@utils/general';
 import classNames from './MenuButton.module.css';
 
-export interface Props {
+export type Props = {
   className?: string;
   navrevealed?: string;
   onClick(e: React.MouseEvent | React.TouchEvent): void;
-}
+};
 
 const MenuButton = ({
   className,

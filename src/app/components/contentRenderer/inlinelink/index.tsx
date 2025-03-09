@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { isExternalUrl } from '@utils/general';
 
-export interface Props {
+export type Props = {
   className?: string;
   text: string;
   title?: string;
   url: string;
-}
+};
 
 const ExternalLink = ({
   className,

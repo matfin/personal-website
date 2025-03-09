@@ -1,18 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
 import { clsx } from 'clsx/lite';
 
-import type { NavLink } from '@models/interfaces';
+import type { NavLink } from '@models/types';
 import { pathRoot } from '@utils/general';
 import classNames from './Nav.module.css';
 
-export interface Props {
+export type Props = {
   children?: React.ReactNode;
   className?: string;
-}
-
-export interface NavLinks {
-  [index: string]: { title: string; to: string };
-}
+};
 
 const navLinks: NavLink[] = [
   { title: 'Home', to: '/', base: 'index' },

@@ -1,4 +1,4 @@
-import type { Link, PathNesting } from '@models/interfaces';
+import type { Link, PathNesting } from '@models/types';
 
 const months: string[] = [
   'January',
