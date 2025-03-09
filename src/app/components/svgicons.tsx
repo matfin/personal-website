@@ -1,8 +1,8 @@
-export interface Props {
+export type Props = {
   className?: string;
   primaryFill?: string;
   secondaryFill?: string;
-}
+};
 
 export const LoadingSpinner = ({ className }: Props): React.ReactNode => (
   <svg

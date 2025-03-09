@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 import { normaliseContent } from '@utils/mappers';
-import type { ContentItem, Page } from '@models/interfaces';
+import type { ContentItem, Page } from '@models/types';
 
 export const normalisePageContent = ({
   payload,

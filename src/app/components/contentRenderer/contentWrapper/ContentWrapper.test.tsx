@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-import type { ContentItem, Position } from '@models/interfaces';
+import type { ContentItem, Position } from '@models/types';
 import ContentWrapper, { type Props } from './index';
 
 vi.mock('react-router-dom', () => ({

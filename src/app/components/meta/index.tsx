@@ -1,10 +1,10 @@
 import { getCanonicalUrl } from '@config';
 
-export interface Props {
+export type Props = {
   description?: string;
   title?: string;
   slug?: string;
-}
+};
 
 const canonicalSlug = (slug: string): string => {
   const canonicalUrl: string = getCanonicalUrl();

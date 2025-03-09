@@ -3,7 +3,7 @@ import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { prerenderToNodeStream } from 'react-dom/static';
 
-import type { Page } from '@models/interfaces';
+import type { Page } from '@models/types';
 import { store } from '@services/state/store';
 import { setPage } from '@services/state/page/slice';
 import { loadPage } from '@ssg/content_loader';

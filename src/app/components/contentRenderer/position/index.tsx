@@ -1,13 +1,13 @@
 import { clsx } from 'clsx/lite';
 
-import type { Position as PositionModel } from '@models/interfaces';
+import type { Position as PositionModel } from '@models/types';
 import { formatDate } from '@utils/general';
 import Text from '@components/text';
 import classNames from './Position.module.css';
 
-export interface Props extends PositionModel {
+export type Props = PositionModel & {
   className?: string;
-}
+};
 
 const Position = ({
   className,

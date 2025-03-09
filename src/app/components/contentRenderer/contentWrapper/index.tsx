@@ -6,7 +6,8 @@ import type {
   Position,
   Project as ProjectModel,
   Topic,
-} from '@models/interfaces';
+  TagName,
+} from '@models/types';
 import { isLink, splitContent, toLinkObject } from '@utils/general';
 import Text from '@components/text';
 import Job from '@components/contentRenderer/position';
@@ -16,24 +17,11 @@ import TopicItem from '@components/contentRenderer/topic';
 import Picture from '@components/contentRenderer/picture';
 import classNames from './ContentWrapper.module.css';
 
-type TagName =
-  | React.ElementType
-  | 'section'
-  | 'jobs'
-  | 'ul'
-  | 'topics'
-  | 'projects'
-  | 'li'
-  | 'job'
-  | 'topic'
-  | 'img'
-  | 'project';
-
-export interface Props {
+export type Props = {
   tagName: TagName;
   content?: ContentItem;
   children?: React.ReactNode;
-}
+};
 
 const processContent = (content: string): React.ReactNode => {
   const split: string[] = splitContent(content);

@@ -7,9 +7,9 @@ import Nav from '@components/nav';
 import MenuButton from '@components/menubutton';
 import classNames from './Template.module.css';
 
-interface Props {
+type Props = {
   children?: React.ReactNode;
-}
+};
 
 const Template = ({ children }: Props): React.ReactNode => {
   const [showMenu, setShowMenu] = useState<boolean>(false);

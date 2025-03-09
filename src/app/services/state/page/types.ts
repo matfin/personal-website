@@ -1,7 +1,7 @@
-import type { Page } from '@models/interfaces';
+import type { Page } from '@models/types';
 
-export interface PageState {
+export type PageState = {
   error: Error | null;
   pending: boolean;
   page: Page | null;
-}
+};

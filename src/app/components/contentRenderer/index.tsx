@@ -1,9 +1,9 @@
-import type { ContentItem } from '@models/interfaces';
+import type { ContentItem } from '@models/types';
 import ContentWrapper from './contentWrapper';
 
-export interface Props {
+export type Props = {
   root: ContentItem | null;
-}
+};
 
 const ContentRenderer = ({ root }: Props): React.ReactNode => {
   const hasNestedContent: boolean = Array.isArray(root?.content);

@@ -1,8 +1,8 @@
-import type { Image } from '@models/interfaces';
+import type { Image } from '@models/types';
 
-export interface Props extends Image {
+export type Props = Image & {
   className?: string;
-}
+};
 
 enum ImageSize {
   SM = 'sm',
