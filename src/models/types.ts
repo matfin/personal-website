@@ -54,6 +54,7 @@ export type SingleContent =
   | Project
   | Topic
   | string;
+
 export type Content = SingleContent | SingleContent[];
 
 export type ContentItem = {
