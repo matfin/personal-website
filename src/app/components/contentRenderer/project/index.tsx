@@ -18,6 +18,7 @@ const Project = ({
   <Link
     to={`/projects/${slug}/`}
     className={clsx(classNames.container, className)}
+    aria-label={`View project ${title}`}
   >
     <Text type="h3" className={classNames.title}>
       {title}
