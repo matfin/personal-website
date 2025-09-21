@@ -5,15 +5,15 @@ import { normalisePathname, pathNesting } from '@utils/general';
 import { useAppDispatch, useAppSelector } from '@hooks/useDispatchSelector';
 import type { AppDispatch, RootState } from '@services/state/store';
 import { fetchPageBySlug, resetPage } from '@services/state/page/slice';
-import type { Page } from '@models/interfaces';
+import type { Page } from '@models/types';
 
-interface Props {
+type Props = {
   page: Page | null;
   error: Error | null;
   pending: boolean;
   isNested: boolean;
   parts: string[];
-}
+};
 
 const usePage = (): Props => {
   const dispatch = useAppDispatch<AppDispatch>();

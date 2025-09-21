@@ -2,7 +2,7 @@ import { describe, expect, it, vi, type MockInstance } from 'vitest';
 import { screen } from '@testing-library/react';
 
 import { renderWrapped } from '@testutils';
-import type { ContentItem, Page as PageModel } from '@models/interfaces';
+import type { ContentItem, Page as PageModel } from '@models/types';
 import usePage from '@hooks/usePage';
 import Page from './index';
 

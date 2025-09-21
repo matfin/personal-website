@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 
-import type { Page } from '@models/interfaces';
+import type { Page } from '@models/types';
 
 export const loadPage = async (
   slug: string,

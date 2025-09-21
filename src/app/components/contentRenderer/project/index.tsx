@@ -1,13 +1,13 @@
 import { clsx } from 'clsx/lite';
 import { Link } from 'react-router-dom';
 
-import type { Project as ProjectModel } from '@models/interfaces';
+import type { Project as ProjectModel } from '@models/types';
 import Text from '@components/text';
 import classNames from './Project.module.css';
 
-export interface Props extends ProjectModel {
+export type Props = ProjectModel & {
   className?: string;
-}
+};
 
 const Project = ({
   className,
@@ -18,6 +18,7 @@ const Project = ({
   <Link
     to={`/projects/${slug}/`}
     className={clsx(classNames.container, className)}
+    aria-label={`View project ${title}`}
   >
     <Text type="h3" className={classNames.title}>
       {title}

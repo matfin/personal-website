@@ -1,30 +1,43 @@
-export interface StaticReqProps {
-  url: string;
-}
+export type TagName =
+  | React.ElementType
+  | 'section'
+  | 'jobs'
+  | 'ul'
+  | 'topics'
+  | 'projects'
+  | 'li'
+  | 'job'
+  | 'topic'
+  | 'img'
+  | 'project';
 
-export interface Image {
+export type StaticReqProps = {
+  url: string;
+};
+
+export type Image = {
   name: string;
   fileType: string;
   title: string;
-}
+};
 
-export interface Topic {
+export type Topic = {
   category: string;
   deprecated: boolean;
   description: string;
   slug: string;
   title: string;
-}
+};
 
-export interface Project {
+export type Project = {
   description: string;
   releaseDate?: string;
   slug: string;
   title: string;
   topics?: string[];
-}
+};
 
-export interface Position {
+export type Position = {
   company: string;
   endDate?: string;
   location: string;
@@ -32,7 +45,7 @@ export interface Position {
   startDate: string;
   tasks: string[];
   topics: Topic[];
-}
+};
 
 export type SingleContent =
   | Position
@@ -41,38 +54,41 @@ export type SingleContent =
   | Project
   | Topic
   | string;
+
 export type Content = SingleContent | SingleContent[];
 
-export interface ContentItem {
+export type ContentItem = {
   id: string;
-  tagName: string;
+  tagName: TagName;
   content: Content;
-}
+};
 
-export interface Page {
+export type Page = {
   description: string;
   slug: string;
   title: string;
   root: ContentItem | null;
-}
+};
 
-export interface Link {
+export type Link = {
   text: string;
   title?: string;
   url: string;
-}
+};
 
-export interface PathNesting {
+export type PathNesting = {
   isNested: boolean;
   parts: string[];
-}
+};
 
-export interface NavLink {
+export type NavLink = {
   base: string;
   title: string;
   to: string;
-}
+};
 
-export interface FetchError {
+export type NavLinks = Record<string, { title: string; to: string }>;
+
+export type FetchError = {
   errorMessage: string;
-}
+};

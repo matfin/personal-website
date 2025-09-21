@@ -4,9 +4,9 @@ import { ClosingTag } from '@components/svgicons';
 import Text from '@components/text';
 import classNames from './Footer.module.css';
 
-export interface Props {
+export type Props = {
   className?: string;
-}
+};
 
 const Footer = ({ className }: Props): React.ReactNode => (
   <footer className={clsx(className, classNames.container)}>
