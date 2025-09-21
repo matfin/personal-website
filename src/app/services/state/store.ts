@@ -1,7 +1,7 @@
 import {
+  type Action,
   configureStore,
   type Dispatch,
-  type Action,
   type Store,
   type ThunkDispatch,
 } from '@reduxjs/toolkit';

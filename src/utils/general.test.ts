@@ -2,15 +2,15 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
   formatDate,
-  setBodyOverflow,
   isExternalUrl,
   isLink,
   isTouchDevice,
   normalisePathname,
   pathNesting,
-  toLinkObject,
-  splitContent,
   pathRoot,
+  setBodyOverflow,
+  splitContent,
+  toLinkObject,
 } from './general';
 
 describe('general utils tests', (): void => {

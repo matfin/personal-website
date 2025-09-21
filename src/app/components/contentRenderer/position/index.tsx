@@ -1,8 +1,8 @@
-import { clsx } from 'clsx/lite';
+import Text from '@components/text';
 
 import type { Position as PositionModel } from '@models/types';
 import { formatDate } from '@utils/general';
-import Text from '@components/text';
+import { clsx } from 'clsx/lite';
 import classNames from './Position.module.css';
 
 type Task = string;

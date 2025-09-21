@@ -1,9 +1,8 @@
-import { describe, expect, it, vi, type MockInstance } from 'vitest';
-import { screen } from '@testing-library/react';
-
-import { renderWrapped } from '@testutils';
-import type { ContentItem, Page as PageModel } from '@models/types';
 import usePage from '@hooks/usePage';
+import type { ContentItem, Page as PageModel } from '@models/types';
+import { screen } from '@testing-library/react';
+import { renderWrapped } from '@testutils';
+import { describe, expect, it, type MockInstance, vi } from 'vitest';
 import Page from './index';
 
 const page: PageModel = {

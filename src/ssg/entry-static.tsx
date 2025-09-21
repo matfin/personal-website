@@ -1,14 +1,13 @@
-import { StrictMode } from 'react';
-import { StaticRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { prerenderToNodeStream } from 'react-dom/static';
-
-import type { Page } from '@models/types';
-import { store } from '@services/state/store';
-import { setPage } from '@services/state/page/slice';
-import { loadPage } from '@ssg/content_loader';
-import { StaticWrapper } from './static-wrapper';
 import App from '@app/App';
+import type { Page } from '@models/types';
+import { setPage } from '@services/state/page/slice';
+import { store } from '@services/state/store';
+import { loadPage } from '@ssg/content_loader';
+import { StrictMode } from 'react';
+import { prerenderToNodeStream } from 'react-dom/static';
+import { Provider } from 'react-redux';
+import { StaticRouter } from 'react-router-dom';
+import { StaticWrapper } from './static-wrapper';
 
 const htmlFromPrelude = (prelude: NodeJS.ReadableStream): Promise<string> =>
   new Promise((resolve, reject) => {

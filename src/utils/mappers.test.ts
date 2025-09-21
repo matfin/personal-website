@@ -1,6 +1,5 @@
-import { describe, expect, it } from 'vitest';
-
 import type { ContentItem } from '@models/types';
+import { describe, expect, it } from 'vitest';
 import { normaliseContent } from './mappers';
 
 const content: unknown = {

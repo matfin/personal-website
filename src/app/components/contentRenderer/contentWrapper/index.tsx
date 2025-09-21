@@ -1,18 +1,17 @@
+import Picture from '@components/contentRenderer/picture';
+import Job from '@components/contentRenderer/position';
+import ProcessContent from '@components/contentRenderer/processContent';
+import Project from '@components/contentRenderer/project';
+import TopicItem from '@components/contentRenderer/topic';
+import Text from '@components/text';
 import type {
   Content,
   Image,
   Position,
   Project as ProjectModel,
-  Topic,
   TagName,
+  Topic,
 } from '@models/types';
-
-import ProcessContent from '@components/contentRenderer/processContent';
-import Text from '@components/text';
-import Job from '@components/contentRenderer/position';
-import Project from '@components/contentRenderer/project';
-import TopicItem from '@components/contentRenderer/topic';
-import Picture from '@components/contentRenderer/picture';
 import classNames from './ContentWrapper.module.css';
 
 export type Props = {

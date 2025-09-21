@@ -1,6 +1,5 @@
-import { clsx } from 'clsx/lite';
-
 import Text from '@components/text';
+import { clsx } from 'clsx/lite';
 import classNames from './Topic.module.css';
 
 export type Props = {

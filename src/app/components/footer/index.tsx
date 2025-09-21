@@ -1,7 +1,6 @@
-import { clsx } from 'clsx/lite';
-
 import { ClosingTag } from '@components/svgicons';
 import Text from '@components/text';
+import { clsx } from 'clsx/lite';
 import classNames from './Footer.module.css';
 
 export type Props = {

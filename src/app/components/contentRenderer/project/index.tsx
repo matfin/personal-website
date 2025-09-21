@@ -1,8 +1,7 @@
+import Text from '@components/text';
+import type { Project as ProjectModel } from '@models/types';
 import { clsx } from 'clsx/lite';
 import { Link } from 'react-router-dom';
-
-import type { Project as ProjectModel } from '@models/types';
-import Text from '@components/text';
 import classNames from './Project.module.css';
 
 export type Props = ProjectModel & {

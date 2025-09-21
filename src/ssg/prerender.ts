@@ -1,10 +1,10 @@
-import { toAbsolute } from '@ssg/utils';
 import { generateSlugs } from '@ssg/content_loader';
 import {
+  generatePwaContent,
   generateStaticHTML,
   generateXMLSitemap,
-  generatePwaContent,
 } from '@ssg/content_renderer';
+import { toAbsolute } from '@ssg/utils';
 
 (async (): Promise<void> => {
   const config: Record<string, string | undefined> = {

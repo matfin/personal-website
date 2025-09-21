@@ -1,10 +1,9 @@
-import { useCallback, useState } from 'react';
-import { clsx } from 'clsx/lite';
-
-import { setBodyOverflow } from '@utils/general';
-import usePage from '@hooks/usePage';
-import Nav from '@components/nav';
 import MenuButton from '@components/menubutton';
+import Nav from '@components/nav';
+import usePage from '@hooks/usePage';
+import { setBodyOverflow } from '@utils/general';
+import { clsx } from 'clsx/lite';
+import { useCallback, useState } from 'react';
 import classNames from './Template.module.css';
 
 type Props = {

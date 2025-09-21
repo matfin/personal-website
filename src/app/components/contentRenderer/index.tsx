@@ -5,13 +5,17 @@ export type Props = {
   root: ContentItem | null;
 };
 
-const ContentRenderer = ({ root }: Props): React.ReactNode => {
+const ContentRenderer = ({ root }: Props): React.ReactNode | null => {
   const hasNestedContent: boolean = Array.isArray(root?.content);
 
-  return (
-    <>
-      {hasNestedContent ? (
-        (root?.content as ContentItem[]).map(
+  if (!root) {
+    return null;
+  }
+
+  if (hasNestedContent) {
+    return (
+      <>
+        {(root?.content as ContentItem[]).map(
           (item: ContentItem): React.ReactNode => (
             <ContentWrapper
               key={item.id}
@@ -21,12 +25,12 @@ const ContentRenderer = ({ root }: Props): React.ReactNode => {
               <ContentRenderer key={item.id} root={item} />
             </ContentWrapper>
           ),
-        )
-      ) : (
-        <>{root?.content}</>
-      )}
-    </>
-  );
+        )}
+      </>
+    );
+  }
+
+  return <>{root.content}</>;
 };
 
 export default ContentRenderer;

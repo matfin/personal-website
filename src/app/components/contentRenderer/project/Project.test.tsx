@@ -1,7 +1,6 @@
-import { describe, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
-
 import { renderWithRouter } from '@testutils';
+import { describe, expect, it } from 'vitest';
 import Project, { type Props } from './index';
 
 const defaultProps: Props = {

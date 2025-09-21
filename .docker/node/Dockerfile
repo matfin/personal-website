@@ -1,4 +1,4 @@
-FROM        node:20.12.2-alpine
+FROM        node:24.8.0-alpine
 
 ARG CANONICAL_URL
 

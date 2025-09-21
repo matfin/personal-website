@@ -1,8 +1,7 @@
-import { Link, useLocation } from 'react-router-dom';
-import { clsx } from 'clsx/lite';
-
 import type { NavLink } from '@models/types';
 import { pathRoot } from '@utils/general';
+import { clsx } from 'clsx/lite';
+import { Link, useLocation } from 'react-router-dom';
 import classNames from './Nav.module.css';
 
 export type Props = {

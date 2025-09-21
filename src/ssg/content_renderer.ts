@@ -1,8 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-
-import { toAbsolute } from './utils';
 import { render } from '@ssg/entry-static';
+import { toAbsolute } from './utils';
 
 export const generateStaticHTML = async (
   slugs: string[],

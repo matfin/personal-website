@@ -1,6 +1,5 @@
-import { clsx } from 'clsx/lite';
-
 import { LoadingSpinner } from '@components/svgicons';
+import { clsx } from 'clsx/lite';
 import classNames from './Loading.module.css';
 
 export type Props = {
