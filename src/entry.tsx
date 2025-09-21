@@ -1,12 +1,11 @@
+import App from '@app/App';
+import { getIsSSR } from '@config';
+import { preloadedStore, type RootState, store } from '@services/state/store';
 import { StrictMode } from 'react';
 import type ReactDOM from 'react-dom/client';
 import { createRoot, hydrateRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-
-import { getIsSSR } from '@config';
-import { preloadedStore, store, type RootState } from '@services/state/store';
-import App from '@app/App';
+import { BrowserRouter } from 'react-router-dom';
 
 const container: HTMLElement | null = document.getElementById('root');
 const isSSR: boolean = getIsSSR();

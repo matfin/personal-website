@@ -1,17 +1,16 @@
+import usePage from '@hooks/usePage';
+import { fireEvent, screen } from '@testing-library/react';
+import { renderWrapped } from '@testutils';
+import { setBodyOverflow } from '@utils/general';
 import {
-  afterEach,
   afterAll,
+  afterEach,
   describe,
   expect,
   it,
-  vi,
   type MockInstance,
+  vi,
 } from 'vitest';
-import { fireEvent, screen } from '@testing-library/react';
-
-import usePage from '@hooks/usePage';
-import { renderWrapped } from '@testutils';
-import { setBodyOverflow } from '@utils/general';
 import Template from './index';
 import classNames from './Template.module.css';
 

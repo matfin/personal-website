@@ -1,11 +1,10 @@
+import { useAppDispatch, useAppSelector } from '@hooks/useDispatchSelector';
+import type { Page } from '@models/types';
+import { fetchPageBySlug, resetPage } from '@services/state/page/slice';
+import type { AppDispatch, RootState } from '@services/state/store';
+import { normalisePathname, pathNesting } from '@utils/general';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
-import { normalisePathname, pathNesting } from '@utils/general';
-import { useAppDispatch, useAppSelector } from '@hooks/useDispatchSelector';
-import type { AppDispatch, RootState } from '@services/state/store';
-import { fetchPageBySlug, resetPage } from '@services/state/page/slice';
-import type { Page } from '@models/types';
 
 type Props = {
   page: Page | null;

@@ -1,17 +1,16 @@
+import { useAppDispatch, useAppSelector } from '@hooks/useDispatchSelector';
+import { fetchPageBySlug, resetPage } from '@services/state/page/slice';
+import type { RootState } from '@services/state/store';
+import { renderHook } from '@testing-library/react';
+import { useLocation } from 'react-router-dom';
 import {
   beforeEach,
   describe,
   expect,
   it,
-  vi,
   type MockInstance,
+  vi,
 } from 'vitest';
-import { renderHook } from '@testing-library/react';
-import { useLocation } from 'react-router-dom';
-
-import type { RootState } from '@services/state/store';
-import { useAppDispatch, useAppSelector } from '@hooks/useDispatchSelector';
-import { fetchPageBySlug, resetPage } from '@services/state/page/slice';
 import usePage from './index';
 
 vi.mock('react-router-dom', async () => ({

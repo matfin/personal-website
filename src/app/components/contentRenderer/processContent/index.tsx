@@ -1,5 +1,5 @@
-import { isLink, splitContent, toLinkObject } from '@utils/general';
 import InlineLink from '@components/contentRenderer/inlinelink';
+import { isLink, splitContent, toLinkObject } from '@utils/general';
 
 type Props<T> = {
   classNames?: Record<string, string>;

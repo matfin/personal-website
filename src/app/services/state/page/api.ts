@@ -1,6 +1,5 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-
 import type { FetchError, Page } from '@models/types';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const isIndexSlug = (slug: string): boolean => slug === '/' || slug === '';
 

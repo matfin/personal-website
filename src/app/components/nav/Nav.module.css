@@ -2,18 +2,18 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(5, 3rem);
-  grid-row-gap: 2rem;
+  row-gap: 2rem;
   margin-top: 4.75rem;
 
   @media (orientation: landscape) {
     grid-template-rows: repeat(5, 2rem);
-    grid-row-gap: 1rem;
+    row-gap: 1rem;
     margin-top: 3.5rem;
   }
 
   @media (width >= 768px) {
     grid-template-rows: repeat(5, 3rem);
-    grid-row-gap: 2rem;
+    row-gap: 2rem;
     margin-top: 0;
   }
 }

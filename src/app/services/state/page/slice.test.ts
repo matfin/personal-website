@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
 import reducer, {
-  initialState,
   fetchPageBySlug,
+  initialState,
   resetPage,
   setPage,
 } from './slice';

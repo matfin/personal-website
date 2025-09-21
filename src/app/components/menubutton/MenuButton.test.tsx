@@ -1,14 +1,13 @@
+import { fireEvent, render } from '@testing-library/react';
+import { isTouchDevice } from '@utils/general';
 import {
   beforeEach,
   describe,
   expect,
   it,
-  vi,
   type MockInstance,
+  vi,
 } from 'vitest';
-import { render, fireEvent } from '@testing-library/react';
-
-import { isTouchDevice } from '@utils/general';
 import MenuButton, { type Props } from './index';
 
 const defaultProps: Props = {

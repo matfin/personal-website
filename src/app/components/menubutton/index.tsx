@@ -1,6 +1,5 @@
-import { clsx } from 'clsx/lite';
-
 import { isTouchDevice } from '@utils/general';
+import { clsx } from 'clsx/lite';
 import classNames from './MenuButton.module.css';
 
 export type Props = {

@@ -1,10 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
-
 import type { Page } from '@models/types';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { fetchPageBySlug } from './api';
-import { normalisePageContent } from './utils';
 import type { PageState } from './types';
+import { normalisePageContent } from './utils';
 
 export const initialState: PageState = {
   error: null,

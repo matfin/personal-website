@@ -1,4 +1,4 @@
-import type { ContentItem, Content } from '@models/types';
+import type { Content, ContentItem } from '@models/types';
 
 export const normaliseContent = (node?: ContentItem): ContentItem | null =>
   node

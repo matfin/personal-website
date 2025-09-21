@@ -1,6 +1,6 @@
 {
   "title": "Matt Finucane - Senior Software engineer",
-  "description": "I am a Dublin based Senior Software Engineer.",
+  "description": "I am a Berlin based Senior Software Engineer.",
   "pathname": "/",
   "slug": "index",
   "root": {
@@ -14,7 +14,7 @@
           },
           {
             "tagName": "h2",
-            "content": "I'm Matt Finucane, a Senior Software Engineer from Dublin, Ireland."
+            "content": "I'm Matt Finucane, a Senior Software Engineer based in Berlin."
           },
           {
             "tagName": "img",

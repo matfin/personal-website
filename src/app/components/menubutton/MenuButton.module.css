@@ -11,8 +11,9 @@
   height: 1px;
   background: var(--mf-colour-primary);
   transform-origin: center center;
-  transition: transform 0.5s var(--mf-animation-curve), rotate 0.5s
-    var(--mf-animation-curve);
+  transition:
+    transform 0.5s var(--mf-animation-curve),
+    rotate 0.5s var(--mf-animation-curve);
 }
 
 .line-top.revealed {

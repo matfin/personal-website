@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { isExternalUrl } from '@utils/general';
+import { Link } from 'react-router-dom';
 
 export type Props = {
   className?: string;

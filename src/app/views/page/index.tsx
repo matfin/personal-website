@@ -1,10 +1,9 @@
-import usePage from '@hooks/usePage';
-
-import Meta from '@components/meta';
-import { BackButton, ErrorMessage } from './components';
-import Loading from '@components/loading';
 import ContentRenderer from '@components/contentRenderer';
 import Footer from '@components/footer';
+import Loading from '@components/loading';
+import Meta from '@components/meta';
+import usePage from '@hooks/usePage';
+import { BackButton, ErrorMessage } from './components';
 import classNames from './Page.module.css';
 
 const Page = (): React.ReactNode => {

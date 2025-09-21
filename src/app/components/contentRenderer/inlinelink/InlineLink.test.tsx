@@ -1,7 +1,6 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { screen } from '@testing-library/react';
-
 import { renderWithRouter } from '@testutils';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import InlineLink, { type Props } from './index';
 
 const defaultProps: Props = {
