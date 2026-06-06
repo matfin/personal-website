@@ -33,11 +33,12 @@
                 "content": {
                   "company": "Lokalise",
                   "location": "Dublin, Ireland & Berlin, Germany",
-                  "role": "Senior full-stack engineer",
+                  "role": "Senior Full-Stack product engineer",
                   "startDate": "2024-11-04",
                   "tasks": [
-                    "Working on an exciting new project that helps app developers with localisation using AI powered translations.",
-                    "Tech stack includes React, TypeScripyt, NodeJS, Docker and PHP."
+                    "Delivered user-facing features in a large-scale localisation platform, working across React frontend and Node.js services",
+                    "Owned development of an automatic contributor assignment feature, reducing manual setup and improving onboarding efficiency for localisation managers",
+                    "Built core workflow orchestration features to manage task lifecycles for translators, streamlining multi-step processes and reducing operational friction for end users"
                   ]
                 }
               },
@@ -46,12 +47,13 @@
                 "content": {
                   "company": "Travelport Digital",
                   "location": "Dublin, Ireland",
-                  "role": "Senior front-end engineer",
+                  "role": "Senior Front-End product engineer",
                   "startDate": "2020-01-06",
                   "endDate": "2024-11-19",
                   "tasks": [
-                    "Worked on features for a corporate travel application and implemented upgrade path (React Native).",
-                    "Migrated client web application from AngularJS to ReactJS with TypeScript."
+                    "Migrated a large-scale corporate travel booking platform from AngularJS to React + TypeScript, modernising the frontend architecture and improving maintainability and developer velocity",
+                    "Led the upgrade of a legacy React Native application to the current version, resolving technical debt, enabling production releases and stabilising the mobile platform",
+                    "Reduced frontend bundle size to 25% of its original footprint, significantly improving load performance and user experience for the Deem travel platform"
                   ]
                 }
               },
@@ -61,11 +63,12 @@
                   "company": "heycar",
                   "endDate": "2019-12-31",
                   "location": "Berlin, Germany",
-                  "role": "Senior front-end engineer",
+                  "role": "Senior Front-End product engineer",
                   "startDate": "2017-08-08",
                   "tasks": [
-                    "Created and maintained a marketplace and CRM for a used car platform.",
-                    "Mentored junior engineers, reviewed CVs and interviewed candidates."
+                    "Joined an early-stage team and contributed to building a consumer marketplace and dealer platform for used car sales, delivering key features including a finance calculator and dealer portal",
+                    "Integrated Contentful as a CMS to support dynamic content (e.g careers page), enabling non-technical teams to manage content independently",
+                    "Continuously improved frontend architecture by refactoring large components and migrating legacy styling from SASS to Styled Components, reducing technical debt and improving maintainability"
                   ]
                 }
               },
@@ -75,11 +78,12 @@
                   "company": "Freelance Software Engineer",
                   "endDate": "2018-01-01",
                   "location": "Berlin, Germany",
-                  "role": "Senior full-stack engineer",
+                  "role": "Senior Full-Stack engineer",
                   "startDate": "2014-12-01",
                   "tasks": [
-                    "Made regular contributions to popular Open-source projects and started two of my own.",
-                    "Created a variety of web and mobile applications for numerous clients."
+                    "Delivered full-stack solutions for clients including StackPointCloud and ProfitBricks, building user interfaces for cloud infrastructure provisioning (compute, storage and network configuration)",
+                    "Developed community-driven knowledge base platforms (including Kubernetes-focused content portals) using PolymerJS, enabling user-generated content and self-service support",
+                    "Built backend services in Node.js and contributed to a Facebook-based chatbot platform, supporting automated responses and content delivery for a German TV station"
                   ]
                 }
               },
@@ -89,11 +93,12 @@
                   "company": "Things I Like GMBH",
                   "endDate": "2014-11-30",
                   "location": "Berlin, Germany",
-                  "role": "Senior full-stack engineer",
+                  "role": "Senior Full-Stack engineer",
                   "startDate": "2014-06-01",
                   "tasks": [
-                    "Built a website for the Monoqi B2B platform for communication between designers and resellers.",
-                    "Created new tools to improve front end development workflow for the team."
+                    "Developed features for a Magento-based e-commerce platform connecting independent designers with customers across Europe",
+                    "Implemented address validation and suggestion functionality, reducing checkout errors and improving delivery success rates",
+                    "Built a B2B vendor portal enabling suppliers to manage inventory, pricing and product listings directly"
                   ]
                 }
               },
@@ -103,11 +108,11 @@
                   "company": "Axel Springer Ideas",
                   "endDate": "2014-04-30",
                   "location": "Berlin, Germany",
-                  "role": "Senior front-end engineer",
+                  "role": "Senior Front-End engineer",
                   "startDate": "2013-10-10",
                   "tasks": [
-                    "Created and maintained a TV guide web and mobile application for TunedIn, an Axel Springer startup.",
-                    "Wrote unit and acceptance tests to ensure the product was stable and robust throughout each sprint."
+                    "Built a TV guide interface (EPG) for web platforms, enabling users to browse channels and schedules in a set-top-box-like experience",
+                    "Contributed to the development of the company’s public-facing website and authored promotional emails"
                   ]
                 }
               },
@@ -117,11 +122,11 @@
                   "company": "iQContent Ltd",
                   "endDate": "2013-09-15",
                   "location": "Dublin, Ireland",
-                  "role": "Senior full-stack engineer (contract)",
+                  "role": "Senior Full-Stack engineer (contract)",
                   "startDate": "2013-03-12",
                   "tasks": [
-                    "Created a knowledge based information portal for a large telecoms organisation.",
-                    "Optimised registration flow and integrated this with other CRM tools such as Salesforce."
+                    "Built a customer-facing knowledge-based portal for a US telecommunications company (Danaher), delivering personalised content including documentation and other technical resources for engineers",
+                    "Developed features for a corporate intranet platform (Kerry Group PLC), enabling employees to access internal communications and self-service resources"
                   ]
                 }
               },
@@ -134,8 +139,8 @@
                   "role": "Technical lead",
                   "startDate": "2012-01-12",
                   "tasks": [
-                    "Drove the development of multiple mobile applications as technical lead.",
-                    "Overhauled the Irish Times News app (iOS, Android), integrating to their existing web infrastructure."
+                    "Led the development of multiple mobile applications (iOS, Android and hybrid), including news platforms and content-driven apps, often working independently to deliver end-to-end solutions",
+                    "Built data-driven applications such as a medical guidelines app, transforming structured content into navigable mobile interfaces, and a social news aggregation platform"
                   ]
                 }
               },
@@ -145,11 +150,11 @@
                   "company": "Paddy Power PLC",
                   "endDate": "2012-01-06",
                   "location": "Dublin, Ireland",
-                  "role": "Senior full-stack engineer",
+                  "role": "Senior Full-Stack engineer",
                   "startDate": "2010-03-08",
                   "tasks": [
-                    "Upgraded the in-house CMS to enable targeted content delivery for different user groups.",
-                    "Built a staff rostering and payroll system used by shop managers for all Paddy Power outlets."
+                    "Co-developed an internal payroll processing system, ingesting and transforming large volumes of staff data to calculate working hours, overtime and pay outputs for downstream payroll systems",
+                    "Delivered greenfield web platforms for Paddy Power Casino and Gaming, building scalable PHP-based applications from the ground up"
                   ]
                 }
               },
@@ -159,11 +164,11 @@
                   "company": "Freelance Software Engineer",
                   "endDate": "2010-03-01",
                   "location": "Dublin, Ireland",
-                  "role": "Senior full-stack engineer",
+                  "role": "Senior Full-Stack engineer",
                   "startDate": "2008-07-01",
                   "tasks": [
-                    "Created several bespoke content managed websites for clients using hand-coded HTML and PHP.",
-                    "Practised excellent standards in web development to ensure organic SEO performance and accessibility."
+                    "Created several bespoke content managed websites for clients using hand-coded HTML and PHP",
+                    "Practised excellent standards in web development to ensure organic SEO performance and accessibility"
                   ]
                 }
               },
@@ -173,11 +178,11 @@
                   "company": "Net-A-Porter",
                   "endDate": "2008-07-01",
                   "location": "London, UK",
-                  "role": "Full-stack engineer",
+                  "role": "Full-Stack engineer",
                   "startDate": "2007-06-01",
                   "tasks": [
-                    "Redeveloped the HTML and CSS during a complete overhaul of the company website.",
-                    "Created an internal WYSIWYG tool to author promotional emails and newsletter templates."
+                    "Redeveloped the HTML and CSS during a complete overhaul of the company website",
+                    "Created an internal WYSIWYG tool to author promotional emails and newsletter templates"
                   ]
                 }
               },
@@ -187,11 +192,11 @@
                   "company": "FindMyPast.com",
                   "endDate": "2007-06-01",
                   "location": "London, UK",
-                  "role": "Full-stack engineer",
+                  "role": "Full-Stack engineer",
                   "startDate": "2006-09-15",
                   "tasks": [
-                    "Upgraded site standards compliancy in XHTML and CSS.",
-                    "Coordinated internal knowledge sharing through regular web standards training."
+                    "Upgraded site standards compliancy in XHTML and CSS",
+                    "Coordinated internal knowledge sharing through regular web standards training"
                   ]
                 }
               },
@@ -204,8 +209,8 @@
                   "role": "Associate software engineer",
                   "startDate": "2005-07-01",
                   "tasks": [
-                    "Created a web application in Tomcat to monitor RSS feeds from news providers.",
-                    "Built an XSLT processor to populate XML feeds to databases."
+                    "Created a web application in Tomcat to monitor RSS feeds from news providers",
+                    "Built an XSLT processor to populate XML feeds to databases"
                   ]
                 }
               },
@@ -218,9 +223,8 @@
                   "role": "BSc. in Computer Applications (Honours)",
                   "startDate": "2001-09-26",
                   "tasks": [
-                    "Modules include Java software development, Business process management, Computer Graphics, Database administration and the Software development life-cycle (waterfall).",
-                    "Alcatel CIT, France: developed an error logging system for GSM cell towers (INTRA work placement).",
-                    "Coded a mobile 2D game using J2ME (Final year project)."
+                    "Final year project: mobile 2D game (J2ME)",
+                    "INTRA placement (Alcatel, France): logging system for GSM cell towers"
                   ],
                   "topics": []
                 }

@@ -14,7 +14,7 @@
           },
           {
             "tagName": "h2",
-            "content": "I'm Matt Finucane, a Senior Software Engineer based in Berlin."
+            "content": "I'm Matt Finucane, a Senior Product and Platform Engineer based in Berlin."
           },
           {
             "tagName": "img",
@@ -26,19 +26,15 @@
           },
           {
             "tagName": "p",
-            "content": "I have nineteen years of postgraduate experience working with a wide variety of projects across multiple domains and in different workplace settings."
+            "content": "I'm a Senior Product Engineer with 21 years of experience delivering web and mobile applications using modern JavaScript and TypeScript technologies."
           },
           {
             "tagName": "p",
-            "content": "I have worked with agencies on their clients' projects, as well as in-house - both on-site and remotely from home and from shared office spaces."
+            "content": "I specialise in building scalable, maintainable products with React, React Native and Node.js, and have worked across agencies, startups and international product companies throughout Europe."
           },
           {
             "tagName": "p",
-            "content": "My primary focus is on building single page web and mobile applications in TypeScript that are performant, scalable and easy to maintain."
-          },
-          {
-            "tagName": "p",
-            "content": "Please feel free to take a look around this website, which showcases my skills, experience, projects and where I am now."
+            "content": "This website highlights my experience, selected projects and the technologies I work with today."
           }
         ]
       },
@@ -47,76 +43,11 @@
         "content": [
           {
             "tagName": "h3",
-            "content": "Skills"
-          },
-          {
-            "tagName": "ul",
-            "content": [
-              {
-                "tagName": "li",
-                "content": "Effective communication skills; training, presentations, documentation and delegation."
-              },
-              {
-                "tagName": "li",
-                "content": "Practice and advocate the highest development standards."
-              },
-              {
-                "tagName": "li",
-                "content": "In-depth understanding of technologies across multiple domains."
-              },
-              {
-                "tagName": "li",
-                "content": "Strong analytical thinking and problem solving skills."
-              },
-              {
-                "tagName": "li",
-                "content": "Life-long learner with strong interest in continuous professional development."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "tagName": "section",
-        "content": [
-          {
-            "tagName": "h3",
-            "content": "Current tech stack"
-          },
-          {
-            "tagName": "p",
-            "content": "These are the tools and languages I work with primarily over the last three years. I have used these every day on every project I have worked on."
+            "content": "Current Technologies"
           },
           {
             "tagName": "topics",
             "content": [
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "languages",
-                  "description": "Typescript is a superset of Javascript created by Microsoft. It borrows from C# and features strong typing.",
-                  "slug": "typescript",
-                  "title": "TypeScript"
-                }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "languages",
-                  "description": "Javascript (ES) is a modern version of Javascript.",
-                  "slug": "ecmascript",
-                  "title": "ECMAScript"
-                }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "frontend",
-                  "description": "Web Components are a suite of different technologies that allow developers to create custom HTML elements.",
-                  "slug": "web-components",
-                  "title": "Web Components"
-                }
-              },
               {
                 "tagName": "topic",
                 "content": {
@@ -138,73 +69,91 @@
               {
                 "tagName": "topic",
                 "content": {
-                  "category": "frontend",
-                  "description": "React Hooks allow developers to leverage state management for functional components.",
-                  "slug": "react-hooks",
-                  "title": "React Hooks"
-                }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "frontend",
-                  "description": "Redux Saga facilitates async state management with generator functions.",
-                  "slug": "redux-saga",
-                  "title": "Redux Saga"
-                }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "frontend",
-                  "description": "CSS in JS allows you to use Javascript to define CSS styles for components. Two common frameworks I have used for this include styled-components, styled-system and design tokens.",
-                  "slug": "css-in-js",
-                  "title": "CSS in JS"
-                }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "frontend",
-                  "description": "These act as CSS pre-processors and make it easier to manage styles for large, cross-browser applications.",
-                  "slug": "scss-sass-less",
-                  "title": "SCSS / SASS / LESS"
-                }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "frontend",
-                  "description": "Progressive web apps are those that work (even offline) on any standards compliant browser",
-                  "slug": "pwa",
-                  "title": "PWA"
-                }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "frontend",
-                  "description": "CSS Grid is modern technique for laying out web pages.",
-                  "slug": "css-grid",
-                  "title": "CSS Grid"
+                  "category": "languages",
+                  "description": "Typescript is a superset of Javascript created by Microsoft. It borrows from C# and features strong typing.",
+                  "slug": "typescript",
+                  "title": "TypeScript"
                 }
               },
               {
                 "tagName": "topic",
                 "content": {
                   "category": "backend",
-                  "description": "NodeJS is a Javascript server side run time.",
+                  "description": "Node.js is a Javascript server side run time.",
                   "slug": "nodejs",
-                  "title": "NodeJS"
+                  "title": "Node.js"
+                }
+              },
+              {
+                "tagName": "topic",
+                "content": {
+                  "category": "frontend",
+                  "description": "React based web application framework.",
+                  "slug": "nextjs",
+                  "title": "Next.js"
+                }
+              },
+              {
+                "tagName": "topic",
+                "content": {
+                  "category": "frontend",
+                  "description": "Data-fetching library for web applications.",
+                  "slug": "react-query",
+                  "title": "React Query"
+                }
+              },
+              {
+                "tagName": "topic",
+                "content": {
+                  "category": "full-stack",
+                  "description": "TypwScript-first schema declaration and validation library.",
+                  "slug": "zod",
+                  "title": "Zod"
+                }
+              },
+              {
+                "tagName": "topic",
+                "content": {
+                  "category": "tools",
+                  "description": "Vite is a Javascript bundler that leverages native support for ES Modules in the browser.",
+                  "slug": "vite",
+                  "title": "Vite"
+                }
+              },
+              {
+                "tagName": "topic",
+                "content": {
+                  "category": "tools",
+                  "description": "Vitest is a testing framework best used with projects that use the Vite build tool.",
+                  "slug": "vitest",
+                  "title": "Vitest"
+                }
+              },
+              {
+                "tagName": "topic",
+                "content": {
+                  "category": "tools",
+                  "description": "Biome is a code quality checker for Typescript.",
+                  "slug": "biome",
+                  "title": "Biome"
                 }
               },
               {
                 "tagName": "topic",
                 "content": {
                   "category": "backend",
-                  "description": "ExpressJS is a library used to create REST servers in NodeJS.",
-                  "slug": "expressjs",
-                  "title": "ExpressJS"
+                  "description": "Open Source relational database management system.",
+                  "slug": "postgres",
+                  "title": "Postgres"
+                }
+              },
+              {
+                "tagName": "topic",
+                "content": {
+                  "category": "backend",
+                  "description": "Web framework for building REST APIs and microservices.",
+                  "slug": "fastify",
+                  "title": "Fastify"
                 }
               },
               {
@@ -216,6 +165,84 @@
                   "title": "Docker Compose"
                 }
               },
+              {
+                "tagName": "topic",
+                "content": {
+                  "category": "tools",
+                  "description": "React testing library is used to test the behaviour of function components in React.",
+                  "slug": "react-testing-library",
+                  "title": "Testing Library"
+                }
+              },
+              {
+                "tagName": "topic",
+                "content": {
+                  "category": "tools",
+                  "description": "Cursor IDE with Claude.",
+                  "slug": "cursor",
+                  "title": "Cursor"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "h3",
+            "content": "Previous Experience"
+          },
+          {
+            "tagName": "topics",
+            "content": [
+              {
+                "tagName": "topic",
+                "content": {
+                "category": "frontend",
+                "description": "Web Components are a suite of different technologies that allow developers to create custom HTML elements.",
+                "slug": "web-components",
+                "title": "Web Components"
+                }
+            },
+            {
+                "tagName": "topic",
+                "content": {
+                    "category": "frontend",
+                    "description": "Redux Saga facilitates async state management with generator functions.",
+                    "slug": "redux-saga",
+                    "title": "Redux Saga"
+                }
+            },
+            {
+                "tagName": "topic",
+                "content": {
+                    "category": "frontend",
+                    "description": "CSS in JS allows you to use Javascript to define CSS styles for components. Two common frameworks I have used for this include styled-components, styled-system and design tokens.",
+                    "slug": "css-in-js",
+                    "title": "CSS in JS"
+                }
+            },
+            {
+                "tagName": "topic",
+                "content": {
+                    "category": "frontend",
+                    "description": "These act as CSS pre-processors and make it easier to manage styles for large, cross-browser applications.",
+                    "slug": "scss-sass-less",
+                    "title": "SCSS / SASS / LESS"
+                }
+            },
+            {
+                "tagName": "topic",
+                "content": {
+                  "category": "backend",
+                  "description": "ExpressJS is a library used to create REST servers in NodeJS.",
+                  "slug": "expressjs",
+                  "title": "ExpressJS"
+                }
+              },
+              
               {
                 "tagName": "topic",
                 "content": {
@@ -265,15 +292,6 @@
                 "tagName": "topic",
                 "content": {
                   "category": "tools",
-                  "description": "Vite is a Javascript bundler that leverages native support for ES Modules in the browser.",
-                  "slug": "vite",
-                  "title": "Vite"
-                }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "tools",
                   "description": "Webpack is a module bundler that delivers assets for a web application to the browser.",
                   "slug": "webpack",
                   "title": "webpack"
@@ -283,27 +301,9 @@
                 "tagName": "topic",
                 "content": {
                   "category": "tools",
-                  "description": "Vitest is a testing framework best used with projects that use the Vite build tool.",
-                  "slug": "vitest",
-                  "title": "Vitest"
-                }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "tools",
                   "description": "Jest is a test runner commonly used in Typescript / Javascript projects, especially React.",
                   "slug": "jest",
                   "title": "Jest"
-                }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "tools",
-                  "description": "React testing library is used to test the behaviour of function components in React.",
-                  "slug": "react-testing-library",
-                  "title": "Testing Library"
                 }
               },
               {
@@ -337,27 +337,9 @@
                 "tagName": "topic",
                 "content": {
                   "category": "tools",
-                  "description": "Git is a widely used and very powerful source control management tool.",
-                  "slug": "git",
-                  "title": "Git"
-                }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "tools",
                   "description": "ESLint is a code quality checker for Javascript and Typescript.",
                   "slug": "eslint",
                   "title": "ESLint"
-                }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "tools",
-                  "description": "Biome is a code quality checker for Typescript.",
-                  "slug": "biome",
-                  "title": "Biome"
                 }
               },
               {
@@ -377,15 +359,6 @@
                   "slug": "lighthouse",
                   "title": "Lighthouse"
                 }
-              },
-              {
-                "tagName": "topic",
-                "content": {
-                  "category": "tools",
-                  "description": "BabelJS re-compiles TypeScript / Javascript (ES) into a flavour of Javascript that older browsers can execute.",
-                  "slug": "babeljs",
-                  "title": "BabelJS"
-                }
               }
             ]
           }
@@ -396,11 +369,7 @@
         "content": [
           {
             "tagName": "h3",
-            "content": "Legacy tech stack"
-          },
-          {
-            "tagName": "p",
-            "content": "These were languages and tools I used in the past, but have not used in the last three years."
+            "content": "Legacy Technologies"
           },
           {
             "tagName": "topics",
@@ -613,16 +582,6 @@
                   "description": "Enzyme is a testing library normally used for unit testing class based components in React.",
                   "slug": "enzyme",
                   "title": "Enzyme"
-                }
-              },
-              {
-                "category": "tools",
-                "tagName": "topic",
-                "content": {
-                  "deprecated": "true",
-                  "description": "WebStorm is an IDE used for front end web development, primarily with Javascript",
-                  "slug": "webstorm",
-                  "title": "WebStorm"
                 }
               }
             ]
