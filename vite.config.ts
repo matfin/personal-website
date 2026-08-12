@@ -1,6 +1,6 @@
+import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import tsconfigpaths from 'vite-tsconfig-paths';
-import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [tsconfigpaths(), react()],
@@ -18,6 +18,5 @@ export default defineConfig({
       `${process.env.npm_package_name}:${process.env.npm_package_version}`,
     ),
     ASSET_VERSION: JSON.stringify(process.env.npm_package_version),
-    IS_SSR: false,
   },
 });

@@ -1,11 +1,11 @@
-import { type ConfigEnv, defineConfig, mergeConfig } from 'vite';
+import { defineConfig, mergeConfig } from 'vite';
 import { resolve } from 'node:path';
 
 import viteConfig from './vite.config';
 
 const version = process.env.npm_package_version;
 
-export default defineConfig(({ isSsrBuild }: ConfigEnv) => {
+export default defineConfig(() => {
   return mergeConfig(viteConfig, {
     build: {
       rollupOptions: {
@@ -23,9 +23,6 @@ export default defineConfig(({ isSsrBuild }: ConfigEnv) => {
           },
         },
       },
-    },
-    define: {
-      IS_SSR: isSsrBuild,
     },
     publicDir: 'public',
   });
