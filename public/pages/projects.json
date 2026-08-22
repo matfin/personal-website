@@ -27,6 +27,14 @@
               {
                 "tagName": "project",
                 "content": {
+                  "description": "Boosh is a word puzzle game for iOS and Android.",
+                  "slug": "boosh",
+                  "title": "Boosh"
+                }
+              },
+              {
+                "tagName": "project",
+                "content": {
                   "description": "Experimenting with Redux Toolkit and TypeScript generic components.",
                   "slug": "redux-toolkit-demo",
                   "title": "Redux Toolkit Demo"
