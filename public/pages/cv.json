@@ -31,10 +31,25 @@
               {
                 "tagName": "job",
                 "content": {
+                  "company": "Raisin",
+                  "location": "Berlin, Germany",
+                  "role": "Senior platform engineer",
+                  "startDate": "2026-08-17",
+                  "tasks": [
+                    "Developing shared platform capabilities that enable product teams to build, deploy and operate services efficiently",
+                    "Improving developer tooling and automated workflows to make software delivery faster, safer and more consistent",
+                    "Collaborating across engineering teams to strengthen the scalability, reliability and maintainability of Raisin's technology platform"
+                  ]
+                }
+              },
+              {
+                "tagName": "job",
+                "content": {
                   "company": "Lokalise",
                   "location": "Dublin, Ireland & Berlin, Germany",
                   "role": "Senior Full-Stack product engineer",
                   "startDate": "2024-11-04",
+                  "endDate": "2026-07-31",
                   "tasks": [
                     "Delivered user-facing features in a large-scale localisation platform, working across React frontend and Node.js services",
                     "Owned development of an automatic contributor assignment feature, reducing manual setup and improving onboarding efficiency for localisation managers",

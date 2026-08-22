@@ -1,0 +1,39 @@
+{
+  "title": "Matt Finucane - Boosh",
+  "description": "Boosh is a word puzzle game for iOS and Android.",
+  "slug": "projects/boosh",
+  "root": {
+    "content": [
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "h1",
+            "content": "Boosh"
+          },
+          {
+            "tagName": "h2",
+            "content": "Boosh is a word puzzle game for iOS and Android."
+          }
+        ]
+      },
+      {
+        "tagName": "section",
+        "content": [
+          {
+            "tagName": "p",
+            "content": "Boosh is a cross-platform word puzzle game that I designed and built for [iOS](https://getboosh.app) and Android. Players have five attempts to guess a five-letter word, with animated feedback, a custom keyboard, game history, statistics, streaks, sound and sharing."
+          },
+          {
+            "tagName": "p",
+            "content": "I developed the application using React Native and TypeScript, with React Navigation, Reanimated and MMKV for persistent local storage. The work included implementing the game logic, handling repeated letters and language-specific characters, building a responsive interface for phones and tablets, and adding light and dark themes. I also developed multilingual support for English, Spanish, German, Irish, French and Brazilian Portuguese, including localised keyboards and word lists."
+          },
+          {
+            "tagName": "p",
+            "content": "Alongside the user-facing features, I built the underlying state-management and storage architecture, including schema validation, migrations and optimised word-list loading. I created an extensive automated test suite using Jest and React Native Testing Library, and set up continuous integration, release builds and deployment pipelines for both platforms using GitHub Actions and Fastlane."
+          }
+        ]
+      }
+    ]
+  }
+}

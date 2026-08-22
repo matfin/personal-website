@@ -14,11 +14,11 @@
           },
           {
             "tagName": "p",
-            "content": "Last updated: June 2026"
+            "content": "Last updated: August 2026"
           },
           {
             "tagName": "p",
-            "content": "I'm currently based in Berlin and exploring my next opportunity following my time at Lokalise, where I worked as a Senior Full-Stack Product Engineer."
+            "content": "I'm currently working as a platform engineer for Raisin SE in Berlin."
           },
           {
             "tagName": "p",
@@ -29,11 +29,7 @@
             "content": [
               {
                 "tagName": "li",
-                "content": "Preparing for React Native and Mobile Platform engineering interviews."
-              },
-              {
-                "tagName": "li",
-                "content": "Refreshing my React Native knowledge and building a small mobile project from scratch."
+                "content": "Refreshing my React Native knowledge by building [Boosh](https://getboosh.app), a word puzzle game and small personal project."
               },
               {
                 "tagName": "li",
