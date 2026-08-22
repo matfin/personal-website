@@ -15,7 +15,7 @@ const ContentRenderer = ({ root }: Props): React.ReactNode | null => {
   if (hasNestedContent) {
     return (
       <>
-        {(root?.content as ContentItem[]).map(
+        {(root.content as ContentItem[]).map(
           (item: ContentItem): React.ReactNode => (
             <ContentWrapper
               key={item.id}

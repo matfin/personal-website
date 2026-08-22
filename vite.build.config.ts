@@ -1,7 +1,7 @@
 import { defineConfig, mergeConfig } from 'vite';
 import { resolve } from 'node:path';
 
-import viteConfig from './vite.config';
+import viteConfig from './vite.config.ts';
 
 const version = process.env.npm_package_version;
 
@@ -10,9 +10,9 @@ export default defineConfig(() => {
     build: {
       rollupOptions: {
         input: {
-          main: resolve(__dirname, 'index.html'),
-          worker: resolve(__dirname, 'src/worker.ts'),
-          swregister: resolve(__dirname, 'src/swregister.ts'),
+          main: resolve(import.meta.dirname, 'index.html'),
+          worker: resolve(import.meta.dirname, 'src/worker.ts'),
+          swregister: resolve(import.meta.dirname, 'src/swregister.ts'),
         },
         output: {
           entryFileNames: () => {

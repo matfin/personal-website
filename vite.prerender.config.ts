@@ -1,14 +1,14 @@
-import { defineConfig, mergeConfig } from 'vite';
 import { resolve } from 'node:path';
+import { defineConfig, mergeConfig } from 'vite';
 
-import viteConfig from './vite.config';
+import viteConfig from './vite.config.ts';
 
 export default defineConfig(() => {
   return mergeConfig(viteConfig, {
     build: {
       rollupOptions: {
         input: {
-          prerender: resolve(__dirname, 'src/ssg/prerender.ts'),
+          prerender: resolve(import.meta.dirname, 'src/ssg/prerender.ts'),
         },
         output: {
           entryFileNames: () => {
