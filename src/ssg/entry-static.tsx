@@ -26,7 +26,7 @@ export const render = async (
   withServiceWorker = false,
 ): Promise<string> => {
   const version = process.env.npm_package_version;
-  const bootstrapScripts: string[] = [
+  const bootstrapModules: string[] = [
     `/main-${version}.js`,
     ...(withServiceWorker ? [`/swregister-${version}.js`] : []),
   ];
@@ -60,7 +60,7 @@ export const render = async (
       </StaticWrapper>
     </StrictMode>,
     {
-      bootstrapScripts,
+      bootstrapModules,
     },
   );
 
