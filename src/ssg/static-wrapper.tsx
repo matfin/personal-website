@@ -11,7 +11,6 @@ export const StaticWrapper = ({
       <link rel="stylesheet" href={stylesheet} />
     </head>
     <body>
-      {/* biome-ignore lint/correctness/useUniqueElementIds: fixed mount point for React hydration */}
       <div id="root">{children}</div>
       --preloadedstate--
     </body>

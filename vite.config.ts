@@ -1,9 +1,11 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import tsconfigpaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  plugins: [tsconfigpaths(), react()],
+  plugins: [react()],
+  resolve: {
+    tsconfigPaths: true,
+  },
   css: {
     modules: {
       localsConvention: 'camelCaseOnly' as const,
