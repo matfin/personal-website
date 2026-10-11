@@ -2,7 +2,7 @@
   position: relative;
   display: grid;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
   grid-template: 2rem auto 6rem / 1rem auto 1rem;
   grid-template-areas:
@@ -37,7 +37,7 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background: var(--mf-colour-secondary);
   box-shadow: none;
   transition: transform 0.5s var(--mf-animation-curve);
